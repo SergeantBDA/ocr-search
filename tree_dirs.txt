@@ -1,0 +1,23 @@
+ocr-search/
+├── alembic/
+│   ├── env.py
+│   └── versions/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── db.py
+│   ├── models.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── ocr_image.py
+│   │   └── ocr_pdf.py
+│   └── web/
+│       └── templates/
+│           ├── index.html
+│           └── results.html
+├── tests/
+│   ├── __init__.py
+│   └── test_ocr.py
+├── pyproject.toml
+├── .env.example
+└── alembic.ini

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=65.5.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocr-search"
+version = "0.1.0"
+description = "OCR-powered document search service (FastAPI + PostgreSQL)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+  { name = "Your Name", email = "you@example.com" }
+]
+keywords = ["ocr", "fastapi", "postgresql", "search", "pdf", "image", "text"]
+classifiers = [
+  "Programming Language :: Python :: 3.12",
+  "Framework :: FastAPI",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows"
+]
+
+dependencies = [
+  "fastapi>=0.95,<0.101",
+  "uvicorn>=0.22,<1.0",
+  "SQLAlchemy>=2.0,<3.0",
+  "alembic>=1.11,<2.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "pydantic>=2.0,<3.0",
+  "python-dotenv>=1.0",
+  "pytesseract>=0.3",
+  "Pillow>=10.0",
+  "pdfplumber>=0.8",
+  "pdf2image>=1.16",
+  "python-docx>=0.8",
+  "openpyxl>=3.1",
+  "orjson>=3.9",
+  "python-multipart>=0.0.9"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.3,<8.0",
+  "pytest-asyncio>=0.21",
+  "pytest-cov>=4.0",
+  "black>=24.0",
+  "ruff>=0.12"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--strict-markers -q"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "C", "N", "B"]
+ignore = []
+
+# Optional configuration notes for maintainers:
+# - Use python-dotenv to load .env in development.
+# - On Windows Server 2022, ensure tesseract is installed system-wide and PATH is configured for pytesseract.
+# - pdf2image requires poppler; install poppler binaries and set POPPLER_PATH
