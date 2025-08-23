@@ -54,8 +54,7 @@ def extract_text_from_image(data: bytes) -> str:
         with Image.open(buf) as img:
             processed = _preprocess_image(img)
             # Конфиг можно менять: psm 3/6 в зависимости от типа изображения
-            config = r"--oem 3 --psm 3"
-            text = pytesseract.image_to_string(processed, config=config)
+            text = pytesseract.image_to_string(processed,lang="rus+eng", config="--oem 3 --psm 3")
             return text.strip()
     except Exception:
         return ""

@@ -1,0 +1,13 @@
+{% if items %}
+  {% for d in items %}
+    <div class="doc">
+      <strong>{{ d.filename }}</strong>
+      {% if d.snippet %}
+        <p>{{ d.snippet | safe }}</p>
+      {% endif %}
+      <div style="font-size:12px;color:#666;">id: {{ d.id }}</div>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="muted">Ничего не найдено.</div>
+{% endif %}

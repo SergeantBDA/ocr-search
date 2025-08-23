@@ -41,7 +41,7 @@ def extract_text_from_pdf(data: bytes) -> str:
 		for img in images:
 			# Можно добавить дополнительные параметры в конфиг, например '--psm 3'
 			try:
-				text = pytesseract.image_to_string(img)
+				text = pytesseract.image_to_string(img, lang="rus+eng", config="--oem 3 --psm 3")
 			except Exception:
 				text = ""
 			if text:

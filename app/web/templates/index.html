@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OCR — Поиск и загрузка</title>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    .row { display:flex; gap:8px; }
+    input[type="text"] { flex:1; padding:8px; }
+    button { padding:8px 12px; }
+    .doc { margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #eee; }
+    .muted { color:#666; }
+  </style>
+</head>
+<body>
+  <h1>OCR — Поиск и загрузка документов</h1>
+
+  <!-- Поисковая форма: hx-get, обновляет div#results -->
+  <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML">
+    <div class="row" style="max-width:720px;">
+      <input type="text" name="q" placeholder="Введите запрос..." value="{{ q | default('') }}" />
+      <button type="submit">Поиск</button>
+    </div>
+  </form>
+
+  <div style="height:12px;"></div>
+
+  <!-- Форма загрузки: hx-post (multipart), обновляет div#results, добавляет в начало -->
+  <form id="uploadForm"
+        hx-post="{{ request.url_for('upload') }}"
+        hx-target="#results"
+        hx-swap="afterbegin"
+        hx-encoding="multipart/form-data"
+        method="post"
+        enctype="multipart/form-data">
+    <div style="display:flex; flex-direction:column; gap:8px; max-width:480px;">
+      <input type="file" id="file" name="file" accept=".pdf, .docx, .doc, .xlsx, .xls, image/*" required />
+      <input type="text" name="filename" placeholder="Имя (опционально)" />
+      <input type="text" name="meta" placeholder='Метаданные (JSON, опционально)' />
+      <div style="display:flex; gap:8px;">
+        <button type="submit">Загрузить</button>
+        <button type="reset">Очистить</button>
+      </div>
+    </div>
+  </form>
+
+  <hr />
+
+  <!-- Результаты (будут обновляться HTMX) -->
+  <div id="results">
+    <!-- Изначально пусто / можно показать подсказку -->
+    <div class="muted">Результаты поиска появятся здесь. Загрузите файл или выполните поиск.</div>
+  </div>
+</body>
+</html>
