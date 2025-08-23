@@ -1,0 +1,13 @@
+<form hx-post="{{ request.url_for('set_documents_dir') }}" hx-target="#modal" hx-swap="innerHTML">
+  <div style="display:flex; flex-direction:column; gap:8px; max-width:720px;">
+    <label>Каталог с документами (полный путь)</label>
+    <input type="text" name="documents_dir" value="{{ documents_dir | default('') }}" placeholder="D:\DATA\Docs" />
+    <div style="display:flex; gap:8px;">
+      <button type="submit">Проверить и сохранить</button>
+      <button type="button" onclick="document.getElementById('modal').innerHTML='';">Закрыть</button>
+    </div>
+    {% if message %}
+      <div style="margin-top:8px; color:#333;">{{ message }}</div>
+    {% endif %}
+  </div>
+</form>

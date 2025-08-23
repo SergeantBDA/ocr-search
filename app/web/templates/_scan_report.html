@@ -1,0 +1,26 @@
+<div style="padding:12px; border:1px solid #e6e6e6; background:#fff;">
+  <div><strong>Результат сканирования</strong></div>
+  <div style="margin-top:6px;">
+    Добавлено/обновлено: {{ success_count | default(0) }}, Ошибок: {{ failure_count | default(0) }}
+  </div>
+
+  {% if report %}
+    <div style="margin-top:8px;">
+      <strong>Подробности:</strong>
+      <ul>
+        {% for r in report %}
+          <li>
+            {{ r.path }} — {{ r.status }}{% if r.id %} (id={{ r.id }}){% endif %}{% if r.error %} — {{ r.error }}{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <hr />
+
+  <div>
+    <strong>Последние документы</strong>
+    {% include "_results.html" %}
+  </div>
+</div>

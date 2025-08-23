@@ -12,12 +12,25 @@
     button { padding:8px 12px; }
     .doc { margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #eee; }
     .muted { color:#666; }
+    #modal { margin-top:12px; }
   </style>
 </head>
 <body>
   <h1>OCR — Поиск и загрузка документов</h1>
 
-  <!-- Поисковая форма: hx-get, обновляет div#results -->
+  <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+    <div>
+      <strong>Каталог документов:</strong>
+      <div>{{ documents_dir if documents_dir else "не настроен" }}</div>
+    </div>
+
+    <div style="margin-left:auto;">
+      <button hx-get="{{ request.url_for('settings_panel') }}" hx-target="#modal" hx-swap="innerHTML">Настройки</button>
+      <button hx-post="{{ request.url_for('scan_now') }}" hx-target="#results" hx-swap="innerHTML">Сканировать сейчас</button>
+    </div>
+  </div>
+
+  <!-- Поисковая форма (HTMX) -->
   <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML">
     <div class="row" style="max-width:720px;">
       <input type="text" name="q" placeholder="Введите запрос..." value="{{ q | default('') }}" />
@@ -25,16 +38,19 @@
     </div>
   </form>
 
-  <div style="height:12px;"></div>
+  <div id="modal"></div>
 
-  <!-- Форма загрузки: hx-post (multipart), обновляет div#results, добавляет в начало -->
+  <hr />
+
+  <!-- Форма загрузки (HTMX) -->
   <form id="uploadForm"
         hx-post="{{ request.url_for('upload') }}"
         hx-target="#results"
         hx-swap="afterbegin"
         hx-encoding="multipart/form-data"
         method="post"
-        enctype="multipart/form-data">
+        enctype="multipart/form-data"
+        style="margin-bottom:18px;">
     <div style="display:flex; flex-direction:column; gap:8px; max-width:480px;">
       <input type="file" id="file" name="file" accept=".pdf, .docx, .doc, .xlsx, .xls, image/*" required />
       <input type="text" name="filename" placeholder="Имя (опционально)" />
@@ -48,10 +64,9 @@
 
   <hr />
 
-  <!-- Результаты (будут обновляться HTMX) -->
+  <!-- Результаты (обновляются HTMX) -->
   <div id="results">
-    <!-- Изначально пусто / можно показать подсказку -->
-    <div class="muted">Результаты поиска появятся здесь. Загрузите файл или выполните поиск.</div>
+    <div class="muted">Результаты появятся здесь. Выполните поиск или запустите сканирование.</div>
   </div>
 </body>
 </html>

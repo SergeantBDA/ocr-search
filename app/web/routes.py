@@ -11,47 +11,56 @@ from app.db import get_session, SessionLocal
 from app.models import Document
 from app.services.ocr_dispatch import extract_text
 from app import search as search_module
+from app.services import ingest_folder
+from app.settings_store import get_documents_dir as store_get_documents_dir
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/web/templates")
 logger = logging.getLogger(__name__)
 
 
-def _save_document_sync(
-    data: bytes,
-    original_filename: str,
-    stored_filename: Optional[str],
-    mime: Optional[str],
-    meta: Optional[Dict[str, Any]],
-) -> Document:
-    """
-    Синхронно выполняет OCR и сохраняет документ в БД, возвращает сохранённый объект Document.
-    """
-    text = extract_text(original_filename, data, mime)
-    db: Session = SessionLocal()
-    try:
-        doc = Document(
-            filename=(stored_filename or original_filename),
-            content=text,
-            mime=mime,
-            size_bytes=len(data),
-            meta=meta or {},
-        )
-        db.add(doc)
-        db.commit()
-        db.refresh(doc)
-        return doc
-    finally:
-        db.close()
-
-
 @router.get("/", include_in_schema=True)
 def index(request: Request):
     """
-    Рендерит главную страницу (index.html) с пустым блоком результатов.
+    Рендерит главную страницу (index.html) с информацией о текущем каталоге.
     """
-    context = {"request": request, "q": "", "items": [], "total": 0, "limit": 25, "offset": 0}
+    current_dir = store_get_documents_dir()
+    context = {
+        "request": request,
+        "q": "",
+        "items": [],
+        "total": 0,
+        "limit": 25,
+        "offset": 0,
+        "documents_dir": current_dir,
+    }
     return templates.TemplateResponse("index.html", context)
+
+
+@router.get("/settings", include_in_schema=True)
+def settings_panel(request: Request):
+    """
+    Возвращает partial-шаблон с формой настройки каталога (для HTMX).
+    """
+    current_dir = store_get_documents_dir()
+    context = {"request": request, "documents_dir": current_dir, "message": None}
+    return templates.TemplateResponse("_settings.html", context)
+
+
+@router.post("/settings/documents-dir", name="set_documents_dir", include_in_schema=True)
+def set_documents_dir(request: Request, documents_dir: str = Form(...)):
+    """
+    Устанавливает documents_dir через ingest_folder.set_documents_dir_path и возвращает partial с результатом.
+    """
+    try:
+        ingest_folder.set_documents_dir_path(documents_dir)
+        message = f"Каталог сохранён: {documents_dir}"
+    except Exception as exc:
+        logger.exception("Failed to set documents_dir: %s", exc)
+        message = f"Ошибка: {exc}"
+    current_dir = store_get_documents_dir()
+    context = {"request": request, "documents_dir": current_dir, "message": message}
+    return templates.TemplateResponse("_settings.html", context)
 
 
 @router.get("/search", include_in_schema=True)
@@ -63,8 +72,7 @@ def search(
     db: Session = Depends(get_session),
 ):
     """
-    Возвращает partial-шаблон с результатами поиска (только блок items).
-    Поддерживает HTMX: вызывается hx-get и обновляет div#results.
+    HTMX: возвращает partial со списком результатов (_results.html).
     """
     q = (q or "").strip()
     result = search_module.search_documents(db, q, limit=limit, offset=offset)
@@ -76,9 +84,39 @@ def search(
         "limit": limit,
         "offset": offset,
     }
-    return templates.TemplateResponse("_results.html", context, status_code=200)
+    return templates.TemplateResponse("_results.html", context)
 
 
+@router.post("/scan", name="scan_now", include_in_schema=True)
+def scan_now(request: Request, db: Session = Depends(get_session)):
+    """
+    Запускает сканирование каталога (scan_folder) и возвращает partial-отчёт (_scan_report.html).
+    """
+    try:
+        report = ingest_folder.scan_folder(db, recursive=True)
+    except Exception as exc:
+        logger.exception("Scan failed: %s", exc)
+        return HTMLResponse(f'<div class="muted">Ошибка запуска сканирования: {exc}</div>', status_code=500)
+
+    # формируем краткий отчёт: успехи/ошибки и последние N документов
+    successes = [r for r in report if r.get("status") == "ok"]
+    failures = [r for r in report if r.get("status") != "ok"]
+
+    # Получим последние 25 документов для отображения
+    res = search_module.search_documents(db, "", limit=25, offset=0)
+    items = res.get("items", [])
+
+    context = {
+        "request": request,
+        "report": report,
+        "success_count": len(successes),
+        "failure_count": len(failures),
+        "items": items,
+    }
+    return templates.TemplateResponse("_scan_report.html", context)
+
+
+# Оставляем существующий /upload (HTMX будет принимать HTML partial)
 @router.post("/upload", name="upload", include_in_schema=True)
 async def upload_file(
     request: Request,
@@ -87,9 +125,7 @@ async def upload_file(
     meta: Optional[str] = Form(None),
 ):
     """
-    Синхронная обработка загруженного файла: выполняем OCR, сохраняем в БД и
-    возвращаем partial-шаблон с обновлённым списком документов.
-    Возвращаем HTML, чтобы HTMX вставил блок в div#results (hx-swap="afterbegin").
+    Обрабатывает загрузку файла (вызывается из HTMX form hx-post), возвращает фрагмент с добавленным документом.
     """
     data = await file.read()
     mime = (file.content_type or "").lower()
@@ -103,20 +139,25 @@ async def upload_file(
             parsed_meta = {"raw": meta}
 
     try:
-        # Сохраняем документ синхронно
-        _save_document_sync(data, orig_name, filename, mime, parsed_meta)
+        # Сохраняем синхронно как раньше
+        text = extract_text(orig_name, data, mime)
+        db = SessionLocal()
+        try:
+            doc = Document(
+                filename=(filename or orig_name),
+                content=text,
+                mime=mime,
+                size_bytes=len(data),
+                meta=parsed_meta,
+            )
+            db.add(doc)
+            db.commit()
+            db.refresh(doc)
+            # Возвращаем фрагмент с одним документом (вставляется в начало #results)
+            context = {"request": request, "items": [{"id": doc.id, "filename": doc.filename, "snippet": (doc.content or "")[:800]}]}
+            return templates.TemplateResponse("_results.html", context, status_code=201)
+        finally:
+            db.close()
     except Exception as exc:
-        logger.exception("Failed to process uploaded file: %s", exc)
-        # Вернём сообщение об ошибке как HTML фрагмент
-        return HTMLResponse(f'<div class="muted">Ошибка при обработке файла: {exc}</div>', status_code=500)
-
-    # После сохранения вернём актуальный список — используем короткий список последних документов
-    db: Session = SessionLocal()
-    try:
-        # Получаем последние 25 документов для отображения (пустой q => последние)
-        res = search_module.search_documents(db, "", limit=25, offset=0)
-        context = {"request": request, "items": res.get("items", []), "total": res.get("total", 0)}
-        # Возвращаем partial (_results.html) — HTMX вставит его в #results
-        return templates.TemplateResponse("_results.html", context, status_code=200)
-    finally:
-        db.close()
+        logger.exception("Upload processing failed: %s", exc)
+        return HTMLResponse(f'<div class="muted">Ошибка при обработке загрузки: {exc}</div>', status_code=500)

@@ -1,12 +1,24 @@
 import os
-from pydantic import BaseModel
-from dotenv import load_dotenv, find_dotenv
+from typing import Optional
+from pydantic import SecretStr, Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-# загружаем .env из корня проекта
-load_dotenv(find_dotenv())
+class Settings(BaseSettings):
+    database_url: SecretStr = Field(..., env="DATABASE_URL")
+    env: str = Field("dev", env="ENV")
+    documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
 
-class Settings(BaseModel):
-    database_url: str = os.getenv("DATABASE_URL", "")
-    env: str = os.getenv("ENV", "dev")
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+
+    APP_PORT: int = Field(8000, env="APP_PORT")
+
+    # Новое поле: каталог с документами (может быть пустым)
+    documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
+
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8",
+        "extra": "ignore",
+    }
 
 settings = Settings()

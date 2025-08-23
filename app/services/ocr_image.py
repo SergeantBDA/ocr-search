@@ -1,7 +1,7 @@
 from io import BytesIO
 from typing import Tuple
 
-from PIL import Image, ImageOps, ImageFilter, ImageEnhance
+from PIL import Image, ImageOps, ImageFilter, ImageEnhance, ImageStat
 import pytesseract
 
 

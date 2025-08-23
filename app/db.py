@@ -7,15 +7,17 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 from .config import settings
 
-# SQLAlchemy engine (synchronous)
-engine = create_engine(settings.database_url, future=True)
+# SQLAlchemy engine (synchronous) — берём значение секретной строки через get_secret_value()
+engine = create_engine(settings.database_url.get_secret_value(), future=True)
 
 # Session factory
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)
 
+
 # Declarative base for models
 class Base(DeclarativeBase):
     pass
+
 
 # Dependency for FastAPI endpoints
 def get_session() -> Generator[Session, None, None]:
