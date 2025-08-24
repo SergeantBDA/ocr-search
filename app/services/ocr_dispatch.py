@@ -1,31 +1,32 @@
-from typing import Optional
+from typing import Optional, Tuple
 from io import BytesIO
 import os
 
 from .ocr_pdf import extract_text_from_pdf
 from .ocr_image import extract_text_from_image
+from .metadata import extract_metadata  # new import
 
 
-def _ext_from_filename(filename: str) -> str:
-    return os.path.splitext(filename or "")[1].lower().lstrip(".")
-
-
-def extract_text(filename: str, content: bytes, mime: Optional[str]) -> str:
+def extract_text(filename: str, content: bytes, mime: Optional[str]) -> Tuple[str, dict]:
     """
-    Выбирает обработчик по MIME или расширению и возвращает текст:
-    поддерживаемые форматы: pdf, jpg/jpeg, png, docx, xlsx.
+    Выбирает обработчик по MIME или расширению и возвращает (text, meta).
+    Поддерживаемые форматы: pdf, jpg/jpeg, png, docx, xlsx.
     При несоответствии формата поднимает ValueError.
     """
     mime = (mime or "").lower()
-    ext = _ext_from_filename(filename)
+    ext = os.path.splitext(filename or "")[1].lower().lstrip(".")
 
     # PDF
     if mime == "application/pdf" or ext == "pdf":
-        return extract_text_from_pdf(content)
+        text = extract_text_from_pdf(content)
+        meta = extract_metadata(filename, content)
+        return text, meta
 
     # Images
     if mime.startswith("image/") or ext in {"jpg", "jpeg", "png", "tif", "tiff", "bmp"}:
-        return extract_text_from_image(content)
+        text = extract_text_from_image(content)
+        meta = extract_metadata(filename, content)
+        return text, meta
 
     # DOCX
     if mime in {
@@ -55,9 +56,11 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> str:
                     if row_text:
                         parts.append(row_text)
 
-            return "\n\n".join(parts).strip()
-        except Exception as e:
-            raise
+            full_text = "\n\n".join(parts).strip()
+            meta = extract_metadata(filename, content)
+            return full_text, meta
+        except Exception:
+            return "", {}
 
     # XLSX
     if mime in {
@@ -81,8 +84,10 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> str:
                         sheet_parts.append(" ".join(row_vals))
                 if sheet_parts:
                     parts.append("\n".join(sheet_parts))
-            return "\n\n".join(parts).strip()
-        except Exception as e:
-            raise
+            full_text = "\n\n".join(parts).strip()
+            meta = extract_metadata(filename, content)
+            return full_text, meta
+        except Exception:
+            return "", {}
 
     raise ValueError(f"Unsupported file type (mime={mime!r}, ext={ext!r})")

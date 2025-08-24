@@ -5,11 +5,16 @@ app/config.py
 app/db.py
 app/main.py
 app/models.py
+app/schemas.py
 app/search.py
+app/settings_store.py
 app/services/__init__.py
+app/services/ingest_folder.py
+app/services/metadata.py
 app/services/ocr_dispatch.py
 app/services/ocr_image.py
 app/services/ocr_pdf.py
+app/web/__init__.py
 app/web/routes.py
 ocr_search.egg-info/PKG-INFO
 ocr_search.egg-info/SOURCES.txt

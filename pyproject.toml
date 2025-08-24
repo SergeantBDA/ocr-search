@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65.5.1", "wheel"]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -35,7 +35,8 @@ dependencies = [
   "python-docx>=0.8",
   "openpyxl>=3.1",
   "orjson>=3.9",
-  "python-multipart>=0.0.9"
+  "python-multipart>=0.0.9",
+  "pyexiftool>=0.5"
 ]
 
 [project.optional-dependencies]

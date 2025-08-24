@@ -13,22 +13,12 @@
     .doc { margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #eee; }
     .muted { color:#666; }
     #modal { margin-top:12px; }
+    .chooser { display:flex; gap:8px; align-items:center; }
+    .file-input { padding:8px; border:1px dashed #ccc; border-radius:6px; background:#fafafa; }
   </style>
 </head>
 <body>
   <h1>OCR — Поиск и загрузка документов</h1>
-
-  <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
-    <div>
-      <strong>Каталог документов:</strong>
-      <div>{{ documents_dir if documents_dir else "не настроен" }}</div>
-    </div>
-
-    <div style="margin-left:auto;">
-      <button hx-get="{{ request.url_for('settings_panel') }}" hx-target="#modal" hx-swap="innerHTML">Настройки</button>
-      <button hx-post="{{ request.url_for('scan_now') }}" hx-target="#results" hx-swap="innerHTML">Сканировать сейчас</button>
-    </div>
-  </div>
 
   <!-- Поисковая форма (HTMX) -->
   <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML">
@@ -38,11 +28,9 @@
     </div>
   </form>
 
-  <div id="modal"></div>
-
   <hr />
 
-  <!-- Форма загрузки (HTMX) -->
+  <!-- Универсальная форма: выбрать каталог (webkitdirectory) или файлы -->
   <form id="uploadForm"
         hx-post="{{ request.url_for('upload') }}"
         hx-target="#results"
@@ -50,15 +38,14 @@
         hx-encoding="multipart/form-data"
         method="post"
         enctype="multipart/form-data"
-        style="margin-bottom:18px;">
-    <div style="display:flex; flex-direction:column; gap:8px; max-width:480px;">
-      <input type="file" id="file" name="file" accept=".pdf, .docx, .doc, .xlsx, .xls, image/*" required />
-      <input type="text" name="filename" placeholder="Имя (опционально)" />
-      <input type="text" name="meta" placeholder='Метаданные (JSON, опционально)' />
-      <div style="display:flex; gap:8px;">
-        <button type="submit">Загрузить</button>
-        <button type="reset">Очистить</button>
-      </div>
+        style="margin-bottom:18px; max-width:720px;">
+    <div class="chooser">
+      <label class="file-input" for="files">Выбрать каталог или файлы</label>
+      <input type="file" id="files" name="files" multiple webkitdirectory directory style="display:inline-block;" />
+      <button type="submit">Загрузить</button>
+    </div>
+    <div style="margin-top:8px; color:#666; font-size:13px;">
+      Вы можете выбрать папку целиком (Chrome/Edge поддерживают) или несколько файлов. В браузерах, где webkitdirectory не поддержан, используйте множественный выбор файлов.
     </div>
   </form>
 
@@ -66,7 +53,7 @@
 
   <!-- Результаты (обновляются HTMX) -->
   <div id="results">
-    <div class="muted">Результаты появятся здесь. Выполните поиск или запустите сканирование.</div>
+    <div class="muted">Результаты появятся здесь. Выполните поиск или загрузите документы.</div>
   </div>
 </body>
 </html>
