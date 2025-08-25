@@ -11,6 +11,9 @@ from app.models import Document
 from app.services.ocr_dispatch import extract_text
 from app import search as search_module
 from app.services import ingest_folder
+from app.settings_store import get_documents_dir as store_get_documents_dir
+from app.services import save_outputs
+from app.config import settings
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/web/templates")
@@ -84,18 +87,17 @@ def scan_now(request: Request, db: Session = Depends(get_session)):
     }
     return templates.TemplateResponse("_scan_report.html", context)
 
-
 @router.post("/upload", name="upload", include_in_schema=True)
 async def upload_file(
     request: Request,
     files: List[UploadFile] = File(...),
 ):
     """
-    Обрабатывает загрузку файлов (HTMX form hx-post с multiple files or webkitdirectory).
-    - Берём только UploadFile.filename и UploadFile.content_type
-    - meta всегда {} (пустой dict)
-    - сохраняем документы в БД (каждый файл в своей транзакции)
-    Возвращаем partial _results.html с новыми документами (вставляются в начало в клиенте).
+    Обрабатывает загрузку файлов (HTMX form hx-post with multiple files).
+    - Берём только UploadFile.filename and UploadFile.content_type
+    - extract_text -> (text, meta)
+    - meta сохраняется из extract_text
+    - сохраняем оригинал/text в папки из settings (необязательно)
     """
     created_items = []
 
@@ -104,8 +106,11 @@ async def upload_file(
             data = await upload.read()
             orig_name = upload.filename or "uploaded"
             mime = (upload.content_type or "").lower()
-            # Получаем текст через существующий диспетчер
+
+            # extract_text returns (text, meta)
             text, meta = extract_text(orig_name, data, mime)
+
+            # Save to DB
             db = SessionLocal()
             try:
                 doc = Document(
@@ -113,7 +118,7 @@ async def upload_file(
                     content=text,
                     mime=mime,
                     size_bytes=len(data),
-                    meta=meta or {},  # always empty dict — no user-provided meta
+                    meta=meta or {},
                 )
                 db.add(doc)
                 db.commit()
@@ -121,12 +126,24 @@ async def upload_file(
                 created_items.append({"id": doc.id, "filename": doc.filename, "snippet": (doc.content or "")[:800]})
             finally:
                 db.close()
+
+            # Save outputs if configured (errors logged but do not break processing)
+            try:
+                if settings.output_originals_dir:
+                    save_outputs.save_original(orig_name, data, settings.output_originals_dir)
+            except Exception as e:
+                logger.exception("Failed to save original for %s: %s", orig_name, e)
+
+            try:
+                if settings.output_texts_dir:
+                    save_outputs.save_text(orig_name, text or "", settings.output_texts_dir)
+            except Exception as e:
+                logger.exception("Failed to save text for %s: %s", orig_name, e)
+
         except Exception as exc:
             logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
-            # Return an HTML fragment describing the error
             return HTMLResponse(f'<div class="muted">Ошибка при обработке файла {getattr(upload, "filename", "")}: {exc}</div>', status_code=500)
 
-    # Если создали хотя бы один документ — вернуть partial с этими элементами
     if created_items:
         context = {"request": request, "items": created_items}
         return templates.TemplateResponse("_results.html", context, status_code=201)

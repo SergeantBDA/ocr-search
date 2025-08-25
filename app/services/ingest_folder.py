@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session
 from app.settings_store import set_documents_dir, get_documents_dir
 from app.services.ocr_dispatch import extract_text
 from app.models import Document
+from app.services import save_outputs
+from app.config import settings
 
 
 def set_documents_dir_path(path: str) -> None:
@@ -42,9 +44,8 @@ def scan_folder(
 ) -> List[Dict[str, Any]]:
     """
     Обходит каталог documents_dir и загружает найденные файлы в БД.
-    Возвращает список словарей с результатами для каждого файла:
-      {"path": str, "status": "ok"|"error", "id": int|None, "error": <message>|None}
-    session: SQLAlchemy Session (передаётся извне).
+    После успешной обработки сохраняет оригиналы и тексты в выходные папки (если настроены).
+    Возвращает список результатов для каждого файла.
     """
     if allowed_ext is None:
         allowed_ext = {".pdf", ".png", ".jpg", ".jpeg", ".docx", ".xlsx"}
@@ -70,9 +71,8 @@ def scan_folder(
                 continue
 
             try:
-                # читаем содержимое — безопасно для небольших файлов
                 data = p.read_bytes()
-            except MemoryError as me:
+            except MemoryError:
                 results.append({"path": str(p), "status": "error", "id": None, "error": "MemoryError reading file"})
                 continue
             except Exception as e:
@@ -83,11 +83,9 @@ def scan_folder(
             try:
                 text, meta = extract_text(p.name, data, mime)
             except Exception as e:
-                # OCR error — record and continue
                 results.append({"path": str(p), "status": "error", "id": None, "error": f"OCR error: {e}"})
                 continue
 
-            # сохраняем в БД (каждый файл в своей транзакции)
             try:
                 doc = Document(
                     filename=p.name,
@@ -106,6 +104,32 @@ def scan_folder(
                 except Exception:
                     pass
                 results.append({"path": str(p), "status": "error", "id": None, "error": f"DB error: {e}"})
+                continue
+
+            # Save outputs if configured: try to preserve relative path under base (preferred)
+            try:
+                if settings.output_originals_dir:
+                    # destination dir may include subfolders as relative path
+                    try:
+                        rel = p.relative_to(base_path)
+                        dst_dir = Path(settings.output_originals_dir) / rel.parent
+                    except Exception:
+                        dst_dir = Path(settings.output_originals_dir)
+                    save_outputs.save_original(p.name, data, dst_dir)
+            except Exception as e:
+                logger.exception("Failed to save original for %s: %s", p, e)
+
+            try:
+                if settings.output_texts_dir:
+                    try:
+                        rel = p.relative_to(base_path)
+                        dst_dir = Path(settings.output_texts_dir) / rel.parent
+                    except Exception:
+                        dst_dir = Path(settings.output_texts_dir)
+                    save_outputs.save_text(p.name, text or "", dst_dir)
+            except Exception as e:
+                logger.exception("Failed to save text for %s: %s", p, e)
+
         except Exception as e:
             results.append({"path": str(p), "status": "error", "id": None, "error": f"Unhandled error: {e}"})
 

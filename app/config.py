@@ -1,4 +1,3 @@
-import os
 from typing import Optional
 from pathlib import Path
 from pydantic import SecretStr, Field, IPvAnyAddress
@@ -16,6 +15,10 @@ class Settings(BaseSettings):
     # Новое поле: каталог с документами (может быть пустым)
     documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
 
+    # выходные каталоги для сохранения оригиналов и текстов (опционально)
+    output_originals_dir: Optional[str] = Field(None, env="OUTPUT_ORIGINALS_DIR")
+    output_texts_dir: Optional[str] = Field(None, env="OUTPUT_TEXTS_DIR")
+
     # жёстко указываем .env в корне проекта
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),
@@ -23,3 +26,4 @@ class Settings(BaseSettings):
     )   
 
 settings = Settings()
+
