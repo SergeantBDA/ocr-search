@@ -81,7 +81,7 @@ def scan_folder(
 
             mime, _ = mimetypes.guess_type(str(p))
             try:
-                text = extract_text(p.name, data, mime)
+                text, meta = extract_text(p.name, data, mime)
             except Exception as e:
                 # OCR error — record and continue
                 results.append({"path": str(p), "status": "error", "id": None, "error": f"OCR error: {e}"})
@@ -94,7 +94,7 @@ def scan_folder(
                     content=text,
                     mime=mime or "",
                     size_bytes=len(data),
-                    meta={"source_path": str(p)},
+                    meta=meta or {"source_path": str(p)},
                 )
                 session.add(doc)
                 session.commit()

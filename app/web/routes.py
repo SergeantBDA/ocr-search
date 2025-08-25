@@ -105,7 +105,7 @@ async def upload_file(
             orig_name = upload.filename or "uploaded"
             mime = (upload.content_type or "").lower()
             # Получаем текст через существующий диспетчер
-            text = extract_text(orig_name, data, mime)
+            text, meta = extract_text(orig_name, data, mime)
             db = SessionLocal()
             try:
                 doc = Document(
@@ -113,7 +113,7 @@ async def upload_file(
                     content=text,
                     mime=mime,
                     size_bytes=len(data),
-                    meta={},  # always empty dict — no user-provided meta
+                    meta=meta or {},  # always empty dict — no user-provided meta
                 )
                 db.add(doc)
                 db.commit()
