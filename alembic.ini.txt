@@ -2,7 +2,7 @@
 # path to migration scripts
 script_location = alembic
 # sqlalchemy.url can be overridden by DATABASE_URL env var; keep a placeholder here
-sqlalchemy.url = postgresql+psycopg://postgres:frendship@localhost:5432/ocr
+sqlalchemy.url = postgresql+psycopg://postgres:password@localhost:5432/ocr
 
 [loggers]
 keys = root,sqlalchemy,alembic

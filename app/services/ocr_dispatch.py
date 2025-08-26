@@ -1,5 +1,6 @@
 from typing import Optional, Tuple
 from io import BytesIO
+from pathlib import Path
 import os
 
 from .ocr_pdf import extract_text_from_pdf
@@ -14,16 +15,16 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> Tuple[st
     При несоответствии формата поднимает ValueError.
     """
     mime = (mime or "").lower()
-    ext = os.path.splitext(filename or "")[1].lower().lstrip(".")
+    ext = Path(filename).suffix.lower()
 
     # PDF
-    if mime == "application/pdf" or ext == "pdf":
+    if mime == "application/pdf" or ext == ".pdf":
         text = extract_text_from_pdf(content)
         meta = extract_metadata(filename, content)
         return text, meta
 
     # Images
-    if mime.startswith("image/") or ext in {"jpg", "jpeg", "png", "tif", "tiff", "bmp"}:
+    if mime.startswith("image/") or ext in {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp"}:
         text = extract_text_from_image(content)
         meta = extract_metadata(filename, content)
         return text, meta
@@ -32,7 +33,7 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> Tuple[st
     if mime in {
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         "application/msword",
-    } or ext in {"docx", "doc"}:
+    } or ext in {".docx", ".doc"}:
         try:
             from docx import Document as DocxDocument
         except Exception as e:
@@ -66,7 +67,7 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> Tuple[st
     if mime in {
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         "application/vnd.ms-excel",
-    } or ext in {"xlsx", "xls"}:
+    } or ext in {".xlsx", ".xls"}:
         try:
             import openpyxl
         except Exception as e:
@@ -90,4 +91,4 @@ def extract_text(filename: str, content: bytes, mime: Optional[str]) -> Tuple[st
         except Exception:
             return "", {}
 
-    raise ValueError(f"Unsupported file type (mime={mime!r}, ext={ext!r})")
+    #raise ValueError(f"Unsupported file type (mime={mime!r}, ext={ext!r})")

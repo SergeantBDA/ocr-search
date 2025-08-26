@@ -11,6 +11,9 @@ from app.models import Document
 from app.services import save_outputs
 from app.config import settings
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 def set_documents_dir_path(path: str) -> None:
     """
@@ -62,6 +65,7 @@ def scan_folder(
 
     pattern = "**/*" if recursive else "*"
     for p in base_path.glob(pattern):
+        
         try:
             if not p.is_file():
                 continue

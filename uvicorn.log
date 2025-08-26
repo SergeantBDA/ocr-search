@@ -7,3 +7,138 @@
 2025-08-26 11:30:51,484 [INFO] uvicorn.error: Shutting down OCR Service
 2025-08-26 11:30:51,485 [INFO] uvicorn.error: Application shutdown complete.
 2025-08-26 11:30:51,486 [INFO] uvicorn.error: Finished server process [21160]
+2025-08-26 12:02:40,273 [INFO] uvicorn.error: Started server process [9940]
+2025-08-26 12:02:40,275 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 12:02:40,275 [INFO] uvicorn.error: Starting OCR Service (env=development)
+2025-08-26 12:02:40,275 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 12:02:40,276 [INFO] uvicorn.error: Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-08-26 12:04:43,790 [INFO] uvicorn.error: Shutting down
+2025-08-26 12:04:43,893 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 12:04:43,894 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 12:04:43,895 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 12:04:43,895 [INFO] uvicorn.error: Finished server process [9940]
+2025-08-26 12:05:44,834 [INFO] uvicorn.error: Started server process [10728]
+2025-08-26 12:05:44,835 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 12:05:44,835 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 12:05:44,836 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 14:38:35,565 [INFO] uvicorn.error: Started server process [3208]
+2025-08-26 14:38:35,565 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 14:38:35,565 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 14:38:35,565 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 14:43:58,770 [INFO] uvicorn.error: Shutting down
+2025-08-26 14:43:58,871 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 14:43:58,873 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 14:43:58,873 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 14:43:58,873 [INFO] uvicorn.error: Finished server process [3208]
+2025-08-26 14:44:01,404 [INFO] uvicorn.error: Started server process [6200]
+2025-08-26 14:44:01,404 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 14:44:01,404 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 14:44:01,404 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 14:45:19,739 [INFO] uvicorn.error: Shutting down
+2025-08-26 14:45:19,841 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 14:45:19,842 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 14:45:19,843 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 14:45:19,844 [INFO] uvicorn.error: Finished server process [6200]
+2025-08-26 14:45:22,552 [INFO] uvicorn.error: Started server process [10180]
+2025-08-26 14:45:22,552 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 14:45:22,553 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 14:45:22,553 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 14:46:10,516 [INFO] uvicorn.error: Shutting down
+2025-08-26 14:46:10,616 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 14:46:10,617 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 14:46:10,618 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 14:46:10,619 [INFO] uvicorn.error: Finished server process [10180]
+2025-08-26 14:46:12,517 [INFO] uvicorn.error: Started server process [9352]
+2025-08-26 14:46:12,517 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 14:46:12,518 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 14:46:12,518 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 15:06:38,333 [INFO] uvicorn.error: Shutting down
+2025-08-26 15:06:38,441 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 15:06:38,442 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 15:06:38,442 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 15:06:38,443 [INFO] uvicorn.error: Finished server process [9352]
+2025-08-26 15:06:41,058 [INFO] uvicorn.error: Started server process [5216]
+2025-08-26 15:06:41,059 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 15:06:41,059 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 15:06:41,059 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 15:24:57,472 [INFO] uvicorn.error: Started server process [7208]
+2025-08-26 15:24:57,473 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 15:24:57,474 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 15:24:57,474 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 15:44:25,231 [INFO] uvicorn.error: Shutting down
+2025-08-26 15:44:25,333 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 15:44:25,334 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 15:44:25,334 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 15:44:25,334 [INFO] uvicorn.error: Finished server process [7208]
+2025-08-26 15:52:09,940 [INFO] uvicorn.error: Started server process [2476]
+2025-08-26 15:52:09,940 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 15:52:09,940 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 15:52:09,940 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 15:57:40,531 [INFO] uvicorn.error: Shutting down
+2025-08-26 15:57:40,633 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 15:57:40,635 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 15:57:40,636 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 15:57:40,637 [INFO] uvicorn.error: Finished server process [2476]
+2025-08-26 16:00:58,818 [INFO] uvicorn.error: Started server process [10364]
+2025-08-26 16:00:58,819 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:00:58,819 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:00:58,820 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:01:42,533 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:01:42,634 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:01:42,635 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:01:42,636 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:01:42,638 [INFO] uvicorn.error: Finished server process [10364]
+2025-08-26 16:01:44,654 [INFO] uvicorn.error: Started server process [2752]
+2025-08-26 16:01:44,654 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:01:44,655 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:01:44,655 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:02:49,040 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:02:49,142 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:02:49,142 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:02:49,143 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:02:49,143 [INFO] uvicorn.error: Finished server process [2752]
+2025-08-26 16:02:51,182 [INFO] uvicorn.error: Started server process [10852]
+2025-08-26 16:02:51,183 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:02:51,183 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:02:51,183 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:04:16,105 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:04:16,205 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:04:16,205 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:04:16,206 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:04:16,206 [INFO] uvicorn.error: Finished server process [10852]
+2025-08-26 16:06:06,585 [INFO] uvicorn.error: Started server process [8556]
+2025-08-26 16:06:06,585 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:06:06,585 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:06:06,586 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:07:32,626 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:07:32,728 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:07:32,729 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:07:32,730 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:07:32,731 [INFO] uvicorn.error: Finished server process [8556]
+2025-08-26 16:07:34,668 [INFO] uvicorn.error: Started server process [10580]
+2025-08-26 16:07:34,668 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:07:34,669 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:07:34,669 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:13:47,360 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:13:47,461 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:13:47,462 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:13:47,462 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:13:47,462 [INFO] uvicorn.error: Finished server process [10580]
+2025-08-26 16:13:49,511 [INFO] uvicorn.error: Started server process [6344]
+2025-08-26 16:13:49,512 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:13:49,513 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:13:49,514 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:14:00,149 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:14:00,250 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:14:00,250 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:14:00,251 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:14:00,251 [INFO] uvicorn.error: Finished server process [6344]
+2025-08-26 16:14:02,210 [INFO] uvicorn.error: Started server process [6060]
+2025-08-26 16:14:02,211 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 16:14:02,211 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 16:14:02,211 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 16:19:42,928 [INFO] uvicorn.error: Shutting down
+2025-08-26 16:19:43,031 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 16:19:43,032 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 16:19:43,032 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 16:19:43,032 [INFO] uvicorn.error: Finished server process [6060]

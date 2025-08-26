@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OCR — Поиск и загрузка</title>
+  <title>OCR+FINDING</title>
   <script src="https://unpkg.com/htmx.org@1.9.2"></script>
   <style>
     body { font-family: Arial, sans-serif; margin:20px; }
@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <h1>OCR — Поиск и загрузка документов</h1>
+  <h1>Извлечение текста (OCR) и поиск документов</h1>
 
   <!-- Поисковая форма (HTMX) -->
   <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML">
@@ -42,7 +42,7 @@
     <div class="chooser">
       <label class="file-input" for="files">Выбрать каталог или файлы</label>
       <input type="file" id="files" name="files" multiple webkitdirectory directory style="display:inline-block;" />
-      <button type="submit">Загрузить</button>
+      <button type="submit">Запустить OCR</button>
     </div>
     <div style="margin-top:8px; color:#666; font-size:13px;">
       Вы можете выбрать папку целиком (Chrome/Edge поддерживают) или несколько файлов. В браузерах, где webkitdirectory не поддержан, используйте множественный выбор файлов.
