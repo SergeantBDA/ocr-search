@@ -5,7 +5,15 @@ import logging
 from app.web.routes import router as web_router
 from app.config import settings
 
+import logging
+
 logger = logging.getLogger("uvicorn.error")
+logger.setLevel(logging.INFO)
+
+fh = logging.FileHandler("uvicorn.log", encoding="utf-8")
+formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+fh.setFormatter(formatter)
+logger.addHandler(fh)
 
 app = FastAPI(title="OCR Service")
 
