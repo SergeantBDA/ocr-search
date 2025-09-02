@@ -1,5 +1,7 @@
-from typing import Optional, List, Dict, Any
 import logging
+from urllib.parse import quote
+from typing import Optional, List, Dict, Any
+from pathlib import Path
 
 from fastapi import APIRouter, Request, UploadFile, File, Depends
 from fastapi.templating import Jinja2Templates
@@ -34,7 +36,6 @@ def index(request: Request):
         "offset": 0,
     }
     return templates.TemplateResponse("index.html", context)
-
 
 @router.get("/search", include_in_schema=True)
 def search(
@@ -110,6 +111,22 @@ async def upload_file(
             # extract_text returns (text, meta)
             text, meta = extract_text(orig_name, data, mime)
 
+            # Save outputs if configured (errors logged but do not break processing)
+            path_origin = ""
+            try:
+                if settings.output_originals_dir:
+                    path_origin = save_outputs.save_original(orig_name, data, settings.output_originals_dir)
+                    if settings.hostfs:
+                        path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
+            except Exception as e:
+                logger.exception("Failed to save original for %s: %s", orig_name, e)
+
+            try:
+                if settings.output_texts_dir:
+                    save_outputs.save_text(orig_name, text or "", settings.output_texts_dir)
+            except Exception as e:
+                logger.exception("Failed to save text for %s: %s", orig_name, e)
+
             # Save to DB
             db = SessionLocal()
             try:
@@ -119,26 +136,17 @@ async def upload_file(
                     mime=mime,
                     size_bytes=len(data),
                     meta=meta or {},
+                    path_origin=str(path_origin)
                 )
                 db.add(doc)
                 db.commit()
                 db.refresh(doc)
-                created_items.append({"id": doc.id, "filename": doc.filename, "snippet": (doc.content or "")[:800]})
+                created_items.append({"id": doc.id, 
+                                      "filename": doc.filename, 
+                                      "link":f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}', 
+                                      "snippet": (doc.content or "")[:800]})
             finally:
                 db.close()
-
-            # Save outputs if configured (errors logged but do not break processing)
-            try:
-                if settings.output_originals_dir:
-                    save_outputs.save_original(orig_name, data, settings.output_originals_dir)
-            except Exception as e:
-                logger.exception("Failed to save original for %s: %s", orig_name, e)
-
-            try:
-                if settings.output_texts_dir:
-                    save_outputs.save_text(orig_name, text or "", settings.output_texts_dir)
-            except Exception as e:
-                logger.exception("Failed to save text for %s: %s", orig_name, e)
 
         except Exception as exc:
             logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)

@@ -90,6 +90,20 @@ def scan_folder(
                 results.append({"path": str(p), "status": "error", "id": None, "error": f"OCR error: {e}"})
                 continue
 
+             # Save outputs if configured: try to preserve relative path under base (preferred)
+            path_origin = ""
+            try:
+                if settings.output_originals_dir:
+                    # destination dir may include subfolders as relative path
+                    try:
+                        rel = p.relative_to(base_path)
+                        dst_dir = Path(settings.output_originals_dir) / rel.parent
+                    except Exception:
+                        dst_dir = Path(settings.output_originals_dir)
+                    path_origin = save_outputs.save_original(p.name, data, dst_dir)
+            except Exception as e:
+                logger.exception("Failed to save original for %s: %s", p, e)
+
             try:
                 doc = Document(
                     filename=p.name,
@@ -97,6 +111,7 @@ def scan_folder(
                     mime=mime or "",
                     size_bytes=len(data),
                     meta=meta or {"source_path": str(p)},
+                    path_origin=str(path_origin)
                 )
                 session.add(doc)
                 session.commit()
@@ -110,18 +125,7 @@ def scan_folder(
                 results.append({"path": str(p), "status": "error", "id": None, "error": f"DB error: {e}"})
                 continue
 
-            # Save outputs if configured: try to preserve relative path under base (preferred)
-            try:
-                if settings.output_originals_dir:
-                    # destination dir may include subfolders as relative path
-                    try:
-                        rel = p.relative_to(base_path)
-                        dst_dir = Path(settings.output_originals_dir) / rel.parent
-                    except Exception:
-                        dst_dir = Path(settings.output_originals_dir)
-                    save_outputs.save_original(p.name, data, dst_dir)
-            except Exception as e:
-                logger.exception("Failed to save original for %s: %s", p, e)
+           
 
             try:
                 if settings.output_texts_dir:

@@ -1,6 +1,7 @@
 from typing import Any, Dict
 from sqlalchemy import text
 from sqlalchemy.orm import Session
+from app.config import settings
 
 
 def search_documents(session: Session, query: str, limit: int = 25, offset: int = 0) -> Dict[str, Any]:
@@ -14,12 +15,15 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
         total = session.execute(text("SELECT count(*) FROM documents")).scalar_one()
         rows = session.execute(
             text(
-                "SELECT id, filename, left(coalesce(content,''), 800) AS snippet "
+                "SELECT id, filename, path_origin, left(coalesce(content,''), 800) AS snippet "
                 "FROM documents ORDER BY created_at DESC LIMIT :limit OFFSET :offset"
             ),
             {"limit": limit, "offset": offset},
         ).mappings().all()
-        items = [{"id": r["id"], "filename": r["filename"], "snippet": (r["snippet"] or "")} for r in rows]
+        items = [{"id": r["id"], 
+                  "filename": r["filename"], 
+                  "link"    :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}',
+                  "snippet": (r["snippet"] or "")} for r in rows]
         return {"total": int(total), "items": items}
 
     # Непустой запрос — комбинируем full-text и триграммы
@@ -36,6 +40,7 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
     SELECT
       id,
       filename,
+      path_origin,
       ts_headline('simple', content, {tsq}, 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
       ts_rank_cd(search_vector, {tsq}) AS rank,
       similarity(content, :q) AS sim
@@ -49,6 +54,8 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
     items = []
     for r in rows:
         snippet = r.get("snippet") or ""
-        items.append({"id": r["id"], "filename": r["filename"], "snippet": snippet})
-
+        items.append({"id"      : r["id"], 
+                      "filename": r["filename"], 
+                      "link"    :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}', 
+                      "snippet" : snippet})
     return {"total": int(total), "items": items}

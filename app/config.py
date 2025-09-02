@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     # выходные каталоги для сохранения оригиналов и текстов (опционально)
     output_originals_dir: Optional[str] = Field(None, env="OUTPUT_ORIGINALS_DIR")
     output_texts_dir: Optional[str] = Field(None, env="OUTPUT_TEXTS_DIR")
+    hostfs: Optional[str] = Field(None, env="HOSTFS")
+    httpfs: Optional[str] = Field(None, env="HTTPFS")
 
     # жёстко указываем .env в корне проекта
     model_config = SettingsConfigDict(

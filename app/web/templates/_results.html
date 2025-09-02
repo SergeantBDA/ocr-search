@@ -1,7 +1,13 @@
 {% if items %}
   {% for d in items %}
     <div class="doc">
-      <strong>{{ d.filename }}</strong>
+      <strong>
+        {% if d.link %}
+          <a href="{{ d.link }}">{{ d.filename }}</a>
+        {% else %}
+          {{ d.filename }}
+        {% endif %}
+      </strong>
       {% if d.snippet %}
         <p>{{ d.snippet | safe }}</p>
       {% endif %}

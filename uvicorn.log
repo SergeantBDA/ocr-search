@@ -1,148 +1,601 @@
-2025-08-26 11:26:18,831 [INFO] uvicorn.error: Started server process [21160]
-2025-08-26 11:26:18,831 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 11:26:18,831 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 11:26:18,833 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 11:30:51,375 [INFO] uvicorn.error: Shutting down
-2025-08-26 11:30:51,482 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 11:30:51,484 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 11:30:51,485 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 11:30:51,486 [INFO] uvicorn.error: Finished server process [21160]
-2025-08-26 12:02:40,273 [INFO] uvicorn.error: Started server process [9940]
-2025-08-26 12:02:40,275 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 12:02:40,275 [INFO] uvicorn.error: Starting OCR Service (env=development)
-2025-08-26 12:02:40,275 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 12:02:40,276 [INFO] uvicorn.error: Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-2025-08-26 12:04:43,790 [INFO] uvicorn.error: Shutting down
-2025-08-26 12:04:43,893 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 12:04:43,894 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 12:04:43,895 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 12:04:43,895 [INFO] uvicorn.error: Finished server process [9940]
-2025-08-26 12:05:44,834 [INFO] uvicorn.error: Started server process [10728]
-2025-08-26 12:05:44,835 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 12:05:44,835 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 12:05:44,836 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 14:38:35,565 [INFO] uvicorn.error: Started server process [3208]
-2025-08-26 14:38:35,565 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 14:38:35,565 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 14:38:35,565 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 14:43:58,770 [INFO] uvicorn.error: Shutting down
-2025-08-26 14:43:58,871 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 14:43:58,873 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 14:43:58,873 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 14:43:58,873 [INFO] uvicorn.error: Finished server process [3208]
-2025-08-26 14:44:01,404 [INFO] uvicorn.error: Started server process [6200]
-2025-08-26 14:44:01,404 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 14:44:01,404 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 14:44:01,404 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 14:45:19,739 [INFO] uvicorn.error: Shutting down
-2025-08-26 14:45:19,841 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 14:45:19,842 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 14:45:19,843 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 14:45:19,844 [INFO] uvicorn.error: Finished server process [6200]
-2025-08-26 14:45:22,552 [INFO] uvicorn.error: Started server process [10180]
-2025-08-26 14:45:22,552 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 14:45:22,553 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 14:45:22,553 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 14:46:10,516 [INFO] uvicorn.error: Shutting down
-2025-08-26 14:46:10,616 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 14:46:10,617 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 14:46:10,618 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 14:46:10,619 [INFO] uvicorn.error: Finished server process [10180]
-2025-08-26 14:46:12,517 [INFO] uvicorn.error: Started server process [9352]
-2025-08-26 14:46:12,517 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 14:46:12,518 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 14:46:12,518 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 15:06:38,333 [INFO] uvicorn.error: Shutting down
-2025-08-26 15:06:38,441 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 15:06:38,442 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 15:06:38,442 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 15:06:38,443 [INFO] uvicorn.error: Finished server process [9352]
-2025-08-26 15:06:41,058 [INFO] uvicorn.error: Started server process [5216]
-2025-08-26 15:06:41,059 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 15:06:41,059 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 15:06:41,059 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 15:24:57,472 [INFO] uvicorn.error: Started server process [7208]
-2025-08-26 15:24:57,473 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 15:24:57,474 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 15:24:57,474 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 15:44:25,231 [INFO] uvicorn.error: Shutting down
-2025-08-26 15:44:25,333 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 15:44:25,334 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 15:44:25,334 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 15:44:25,334 [INFO] uvicorn.error: Finished server process [7208]
-2025-08-26 15:52:09,940 [INFO] uvicorn.error: Started server process [2476]
-2025-08-26 15:52:09,940 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 15:52:09,940 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 15:52:09,940 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 15:57:40,531 [INFO] uvicorn.error: Shutting down
-2025-08-26 15:57:40,633 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 15:57:40,635 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 15:57:40,636 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 15:57:40,637 [INFO] uvicorn.error: Finished server process [2476]
-2025-08-26 16:00:58,818 [INFO] uvicorn.error: Started server process [10364]
-2025-08-26 16:00:58,819 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:00:58,819 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:00:58,820 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:01:42,533 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:01:42,634 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:01:42,635 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:01:42,636 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:01:42,638 [INFO] uvicorn.error: Finished server process [10364]
-2025-08-26 16:01:44,654 [INFO] uvicorn.error: Started server process [2752]
-2025-08-26 16:01:44,654 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:01:44,655 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:01:44,655 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:02:49,040 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:02:49,142 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:02:49,142 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:02:49,143 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:02:49,143 [INFO] uvicorn.error: Finished server process [2752]
-2025-08-26 16:02:51,182 [INFO] uvicorn.error: Started server process [10852]
-2025-08-26 16:02:51,183 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:02:51,183 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:02:51,183 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:04:16,105 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:04:16,205 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:04:16,205 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:04:16,206 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:04:16,206 [INFO] uvicorn.error: Finished server process [10852]
-2025-08-26 16:06:06,585 [INFO] uvicorn.error: Started server process [8556]
-2025-08-26 16:06:06,585 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:06:06,585 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:06:06,586 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:07:32,626 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:07:32,728 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:07:32,729 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:07:32,730 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:07:32,731 [INFO] uvicorn.error: Finished server process [8556]
-2025-08-26 16:07:34,668 [INFO] uvicorn.error: Started server process [10580]
-2025-08-26 16:07:34,668 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:07:34,669 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:07:34,669 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:13:47,360 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:13:47,461 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:13:47,462 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:13:47,462 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:13:47,462 [INFO] uvicorn.error: Finished server process [10580]
-2025-08-26 16:13:49,511 [INFO] uvicorn.error: Started server process [6344]
-2025-08-26 16:13:49,512 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:13:49,513 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:13:49,514 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:14:00,149 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:14:00,250 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:14:00,250 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:14:00,251 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:14:00,251 [INFO] uvicorn.error: Finished server process [6344]
-2025-08-26 16:14:02,210 [INFO] uvicorn.error: Started server process [6060]
-2025-08-26 16:14:02,211 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:14:02,211 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:14:02,211 [INFO] uvicorn.error: Application startup complete.
-2025-08-26 16:19:42,928 [INFO] uvicorn.error: Shutting down
-2025-08-26 16:19:43,031 [INFO] uvicorn.error: Waiting for application shutdown.
-2025-08-26 16:19:43,032 [INFO] uvicorn.error: Shutting down OCR Service
-2025-08-26 16:19:43,032 [INFO] uvicorn.error: Application shutdown complete.
-2025-08-26 16:19:43,032 [INFO] uvicorn.error: Finished server process [6060]
-2025-08-26 16:19:45,597 [INFO] uvicorn.error: Started server process [1704]
-2025-08-26 16:19:45,597 [INFO] uvicorn.error: Waiting for application startup.
-2025-08-26 16:19:45,598 [INFO] uvicorn.error: Starting OCR Service (env=dev)
-2025-08-26 16:19:45,598 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 18:24:34,574 [INFO] uvicorn.error: Started server process [3564]
+2025-08-26 18:24:34,575 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 18:24:34,575 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 18:24:34,576 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 18:26:06,345 [INFO] uvicorn.error: Shutting down
+2025-08-26 18:26:06,452 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 18:26:06,452 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 18:26:06,453 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 18:26:06,453 [INFO] uvicorn.error: Finished server process [3564]
+2025-08-26 18:26:09,077 [INFO] uvicorn.error: Started server process [6120]
+2025-08-26 18:26:09,078 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-26 18:26:09,079 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-26 18:26:09,079 [INFO] uvicorn.error: Application startup complete.
+2025-08-26 18:32:37,532 [INFO] uvicorn.error: Shutting down
+2025-08-26 18:32:37,634 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-26 18:32:37,635 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-26 18:32:37,635 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-26 18:32:37,636 [INFO] uvicorn.error: Finished server process [6120]
+2025-08-27 11:55:09,550 [INFO] uvicorn.error: Started server process [10524]
+2025-08-27 11:55:09,550 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 11:55:09,551 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 11:55:09,551 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 12:04:20,905 [INFO] uvicorn.error: Shutting down
+2025-08-27 12:04:21,007 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 12:04:21,008 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 12:04:21,009 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 12:04:21,009 [INFO] uvicorn.error: Finished server process [10524]
+2025-08-27 12:04:23,818 [INFO] uvicorn.error: Started server process [3488]
+2025-08-27 12:04:23,819 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 12:04:23,819 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 12:04:23,820 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 12:04:27,476 [INFO] uvicorn.error: Shutting down
+2025-08-27 12:04:27,577 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 12:04:27,577 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 12:04:27,578 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 12:04:27,578 [INFO] uvicorn.error: Finished server process [3488]
+2025-08-27 12:15:53,292 [INFO] uvicorn.error: Started server process [11408]
+2025-08-27 12:15:53,293 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 12:15:53,294 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 12:15:53,294 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 12:20:30,448 [INFO] uvicorn.error: Shutting down
+2025-08-27 12:20:30,557 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 12:20:30,557 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 12:20:30,558 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 12:20:30,558 [INFO] uvicorn.error: Finished server process [11408]
+2025-08-27 12:20:39,858 [INFO] uvicorn.error: Started server process [10704]
+2025-08-27 12:20:39,859 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 12:20:39,860 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 12:20:39,860 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 12:20:48,691 [INFO] uvicorn.error: Shutting down
+2025-08-27 12:20:48,793 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 12:20:48,794 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 12:20:48,794 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 12:20:48,794 [INFO] uvicorn.error: Finished server process [10704]
+2025-08-27 12:21:05,157 [INFO] uvicorn.error: Started server process [9652]
+2025-08-27 12:21:05,158 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 12:21:05,159 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 12:21:05,161 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 12:21:12,292 [INFO] uvicorn.error: Shutting down
+2025-08-27 12:21:12,393 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 12:21:12,394 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 12:21:12,394 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 12:21:12,394 [INFO] uvicorn.error: Finished server process [9652]
+2025-08-27 13:46:34,979 [INFO] uvicorn.error: Started server process [3532]
+2025-08-27 13:46:34,979 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 13:46:34,980 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 13:46:34,980 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 13:46:39,705 [INFO] uvicorn.error: Shutting down
+2025-08-27 13:46:39,806 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 13:46:39,806 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 13:46:39,807 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 13:46:39,807 [INFO] uvicorn.error: Finished server process [3532]
+2025-08-27 13:47:32,987 [INFO] uvicorn.error: Started server process [5152]
+2025-08-27 13:47:32,987 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 13:47:32,988 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 13:47:32,988 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 13:49:11,996 [INFO] uvicorn.error: Shutting down
+2025-08-27 13:49:12,097 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 13:49:12,098 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 13:49:12,098 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 13:49:12,098 [INFO] uvicorn.error: Finished server process [5152]
+2025-08-27 13:55:59,742 [INFO] uvicorn.error: Started server process [9296]
+2025-08-27 13:55:59,742 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 13:55:59,742 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 13:55:59,742 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:03:15,146 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:03:15,248 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:03:15,248 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:03:15,249 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:03:15,249 [INFO] uvicorn.error: Finished server process [9296]
+2025-08-27 14:03:17,864 [INFO] uvicorn.error: Started server process [6472]
+2025-08-27 14:03:17,864 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:03:17,864 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:03:17,864 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:03:22,319 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:03:22,428 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:03:22,428 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:03:22,428 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:03:22,428 [INFO] uvicorn.error: Finished server process [6472]
+2025-08-27 14:03:24,437 [INFO] uvicorn.error: Started server process [5808]
+2025-08-27 14:03:24,444 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:03:24,445 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:03:24,445 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:18:54,897 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:18:55,007 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:18:55,008 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:18:55,009 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:18:55,010 [INFO] uvicorn.error: Finished server process [5808]
+2025-08-27 14:18:57,690 [INFO] uvicorn.error: Started server process [8824]
+2025-08-27 14:18:57,698 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:18:57,704 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:18:57,704 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:19:04,905 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:19:05,006 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:19:05,006 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:19:05,007 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:19:05,008 [INFO] uvicorn.error: Finished server process [8824]
+2025-08-27 14:19:06,931 [INFO] uvicorn.error: Started server process [2440]
+2025-08-27 14:19:06,932 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:19:06,934 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:19:06,934 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:29:14,630 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:29:14,748 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:29:14,748 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:29:14,748 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:29:14,748 [INFO] uvicorn.error: Finished server process [2440]
+2025-08-27 14:29:21,763 [INFO] uvicorn.error: Started server process [6840]
+2025-08-27 14:29:21,764 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:29:21,766 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:29:21,766 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:32:55,110 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:32:55,215 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:32:55,215 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:32:55,217 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:32:55,217 [INFO] uvicorn.error: Finished server process [6840]
+2025-08-27 14:32:57,746 [INFO] uvicorn.error: Started server process [4556]
+2025-08-27 14:32:57,747 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:32:57,749 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:32:57,750 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:33:27,971 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:33:28,071 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:33:28,072 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:33:28,074 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:33:28,075 [INFO] uvicorn.error: Finished server process [4556]
+2025-08-27 14:33:29,989 [INFO] uvicorn.error: Started server process [8000]
+2025-08-27 14:33:29,990 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:33:29,992 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:33:29,992 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:33:45,860 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:33:45,966 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:33:45,966 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:33:45,966 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:33:45,966 [INFO] uvicorn.error: Finished server process [8000]
+2025-08-27 14:33:51,604 [INFO] uvicorn.error: Started server process [7416]
+2025-08-27 14:33:51,605 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:33:51,606 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:33:51,606 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:37:54,533 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:37:54,633 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:37:54,634 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:37:54,637 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:37:54,638 [INFO] uvicorn.error: Finished server process [7416]
+2025-08-27 14:37:57,436 [INFO] uvicorn.error: Started server process [8040]
+2025-08-27 14:37:57,437 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:37:57,439 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:37:57,439 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:38:36,889 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:38:36,997 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:38:36,997 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:38:36,999 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:38:36,999 [INFO] uvicorn.error: Finished server process [8040]
+2025-08-27 14:38:39,047 [INFO] uvicorn.error: Started server process [9888]
+2025-08-27 14:38:39,048 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:38:39,050 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:38:39,050 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:40:50,938 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:40:51,040 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:40:51,040 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:40:51,042 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:40:51,042 [INFO] uvicorn.error: Finished server process [9888]
+2025-08-27 14:40:52,968 [INFO] uvicorn.error: Started server process [6892]
+2025-08-27 14:40:52,970 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:40:52,975 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:40:52,977 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:43:18,673 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:43:18,775 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:43:18,776 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:43:18,778 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:43:18,779 [INFO] uvicorn.error: Finished server process [6892]
+2025-08-27 14:43:21,392 [INFO] uvicorn.error: Started server process [3692]
+2025-08-27 14:43:21,392 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:43:21,394 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:43:21,394 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:50:07,810 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:50:07,913 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:50:07,914 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:50:07,916 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:50:07,916 [INFO] uvicorn.error: Finished server process [3692]
+2025-08-27 14:50:09,844 [INFO] uvicorn.error: Started server process [3680]
+2025-08-27 14:50:09,844 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:50:09,846 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:50:09,846 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:50:21,018 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:50:21,119 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:50:21,119 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:50:21,119 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:50:21,119 [INFO] uvicorn.error: Finished server process [3680]
+2025-08-27 14:50:23,011 [INFO] uvicorn.error: Started server process [3924]
+2025-08-27 14:50:23,012 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:50:23,013 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:50:23,014 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:59:14,318 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:59:14,425 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:59:14,426 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:59:14,428 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:59:14,429 [INFO] uvicorn.error: Finished server process [3924]
+2025-08-27 14:59:17,019 [INFO] uvicorn.error: Started server process [5944]
+2025-08-27 14:59:17,019 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:59:17,021 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:59:17,021 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:59:27,260 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:59:27,360 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:59:27,361 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:59:27,364 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:59:27,364 [INFO] uvicorn.error: Finished server process [5944]
+2025-08-27 14:59:29,324 [INFO] uvicorn.error: Started server process [4776]
+2025-08-27 14:59:29,324 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:59:29,326 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:59:29,326 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 14:59:47,846 [INFO] uvicorn.error: Shutting down
+2025-08-27 14:59:47,948 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 14:59:47,949 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 14:59:47,951 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 14:59:47,951 [INFO] uvicorn.error: Finished server process [4776]
+2025-08-27 14:59:49,859 [INFO] uvicorn.error: Started server process [5948]
+2025-08-27 14:59:49,859 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 14:59:49,861 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 14:59:49,861 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 15:00:31,975 [INFO] uvicorn.error: Shutting down
+2025-08-27 15:00:32,075 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 15:00:32,076 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 15:00:32,079 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 15:00:32,079 [INFO] uvicorn.error: Finished server process [5948]
+2025-08-27 15:00:33,963 [INFO] uvicorn.error: Started server process [3904]
+2025-08-27 15:00:33,963 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 15:00:33,963 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 15:00:33,963 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 15:01:27,944 [ERROR] uvicorn.error: Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\web\routes.py", line 53, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\search.py", line 57, in search_documents
+    "link"    :f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}',
+                        ^^^^^^^^
+NameError: name 'settings' is not defined
+2025-08-27 15:01:30,390 [ERROR] uvicorn.error: Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\web\routes.py", line 53, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\search.py", line 57, in search_documents
+    "link"    :f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}',
+                        ^^^^^^^^
+NameError: name 'settings' is not defined
+2025-08-27 15:01:36,391 [ERROR] uvicorn.error: Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\web\routes.py", line 53, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\search.py", line 57, in search_documents
+    "link"    :f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}',
+                        ^^^^^^^^
+NameError: name 'settings' is not defined
+2025-08-27 15:01:54,990 [INFO] uvicorn.error: Shutting down
+2025-08-27 15:01:55,094 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 15:01:55,094 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 15:01:55,094 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 15:01:55,094 [INFO] uvicorn.error: Finished server process [3904]
+2025-08-27 15:01:57,683 [INFO] uvicorn.error: Started server process [2812]
+2025-08-27 15:01:57,683 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 15:01:57,683 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 15:01:57,683 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 15:02:02,593 [ERROR] uvicorn.error: Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\web\routes.py", line 53, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\search.py", line 58, in search_documents
+    "link"    :f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}',
+                                          ^^^
+NameError: name 'doc' is not defined
+2025-08-27 15:02:35,881 [INFO] uvicorn.error: Shutting down
+2025-08-27 15:02:35,981 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 15:02:35,982 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 15:02:35,984 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 15:02:35,985 [INFO] uvicorn.error: Finished server process [2812]
+2025-08-27 15:02:38,072 [INFO] uvicorn.error: Started server process [2628]
+2025-08-27 15:02:38,072 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 15:02:38,074 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 15:02:38,074 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 15:02:50,450 [INFO] uvicorn.error: Shutting down
+2025-08-27 15:02:50,550 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 15:02:50,551 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 15:02:50,553 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 15:02:50,553 [INFO] uvicorn.error: Finished server process [2628]
+2025-08-27 15:02:52,654 [INFO] uvicorn.error: Started server process [6772]
+2025-08-27 15:02:52,654 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 15:02:52,656 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 15:02:52,656 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 15:02:53,606 [ERROR] uvicorn.error: Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\web\routes.py", line 53, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-search\app\search.py", line 58, in search_documents
+    "link"    :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}',
+                                          ~^^^^^^^^^^^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 57, in sqlalchemy.cyextension.resultproxy.BaseRow._get_by_key_impl_mapping
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 63, in sqlalchemy.cyextension.resultproxy.BaseRow._get_by_key_impl
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\result.py", line 203, in _key_not_found
+    self._key_fallback(key, None)
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\cursor.py", line 825, in _key_fallback
+    raise exc.NoSuchColumnError(
+sqlalchemy.exc.NoSuchColumnError: Could not locate column in row for column 'path_origin'
+2025-08-27 15:17:00,623 [INFO] uvicorn.error: Shutting down
+2025-08-27 15:17:00,724 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 15:17:00,725 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 15:17:00,726 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 15:17:00,726 [INFO] uvicorn.error: Finished server process [6772]
+2025-08-27 15:17:03,443 [INFO] uvicorn.error: Started server process [9660]
+2025-08-27 15:17:03,444 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 15:17:03,446 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 15:17:03,446 [INFO] uvicorn.error: Application startup complete.
+2025-08-27 16:09:42,602 [INFO] uvicorn.error: Shutting down
+2025-08-27 16:09:42,703 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-08-27 16:09:42,704 [INFO] uvicorn.error: Shutting down OCR Service
+2025-08-27 16:09:42,705 [INFO] uvicorn.error: Application shutdown complete.
+2025-08-27 16:09:42,706 [INFO] uvicorn.error: Finished server process [9660]
+2025-08-27 16:09:45,410 [INFO] uvicorn.error: Started server process [7260]
+2025-08-27 16:09:45,410 [INFO] uvicorn.error: Waiting for application startup.
+2025-08-27 16:09:45,412 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-08-27 16:09:45,412 [INFO] uvicorn.error: Application startup complete.
+2025-09-01 12:03:17,626 [INFO] uvicorn.error: Started server process [8976]
+2025-09-01 12:03:17,626 [INFO] uvicorn.error: Waiting for application startup.
+2025-09-01 12:03:17,627 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-09-01 12:03:17,628 [INFO] uvicorn.error: Application startup complete.
+2025-09-02 15:06:51,529 [INFO] uvicorn.error: Started server process [4560]
+2025-09-02 15:06:51,529 [INFO] uvicorn.error: Waiting for application startup.
+2025-09-02 15:06:51,530 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-09-02 15:06:51,531 [INFO] uvicorn.error: Application startup complete.
+2025-09-02 15:09:13,421 [INFO] uvicorn.error: Shutting down
+2025-09-02 15:09:13,521 [INFO] uvicorn.error: Waiting for application shutdown.
+2025-09-02 15:09:13,521 [INFO] uvicorn.error: Shutting down OCR Service
+2025-09-02 15:09:13,521 [INFO] uvicorn.error: Application shutdown complete.
+2025-09-02 15:09:13,522 [INFO] uvicorn.error: Finished server process [4560]

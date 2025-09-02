@@ -1,5 +1,6 @@
 from sqlalchemy import Column, BigInteger, String, Text, JSON, DateTime, func
 from .db import Base
+from sqlalchemy.dialects.postgresql import TSVECTOR
 
 
 class Document(Base):
@@ -12,3 +13,6 @@ class Document(Base):
     size_bytes = Column(BigInteger, nullable=True)
     meta = Column(JSON, nullable=True, default=dict)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    search_vector = Column(TSVECTOR, nullable=True)
+    #полный путь до загруженного файла ORIGIN
+    path_origin = Column(String, nullable=False)
