@@ -599,3 +599,7 @@ sqlalchemy.exc.NoSuchColumnError: Could not locate column in row for column 'pat
 2025-09-02 15:09:13,521 [INFO] uvicorn.error: Shutting down OCR Service
 2025-09-02 15:09:13,521 [INFO] uvicorn.error: Application shutdown complete.
 2025-09-02 15:09:13,522 [INFO] uvicorn.error: Finished server process [4560]
+2025-09-02 15:14:50,983 [INFO] uvicorn.error: Started server process [8256]
+2025-09-02 15:14:50,983 [INFO] uvicorn.error: Waiting for application startup.
+2025-09-02 15:14:50,983 [INFO] uvicorn.error: Starting OCR Service (env=dev)
+2025-09-02 15:14:50,983 [INFO] uvicorn.error: Application startup complete.

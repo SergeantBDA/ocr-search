@@ -14,43 +14,43 @@
     .muted { color:#666; }
     #modal { margin-top:12px; }
     .chooser { display:flex; gap:8px; align-items:center; }
-    .file-input { padding:8px; border:1px dashed #ccc; border-radius:6px; background:#fafafa; }
   </style>
 </head>
 <body>
   <h1>Извлечение текста (OCR) и поиск документов</h1>
 
-  <!-- Поисковая форма (HTMX) -->
-  <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML">
-    <div class="row" style="max-width:720px;">
-      <input type="text" name="q" placeholder="Введите запрос..." value="{{ q | default('') }}" />
+  <!-- Поиск -->
+  <form hx-get="/search" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner">
+    <div class="row">
+      <input type="text" name="q" placeholder="Введите запрос..." required />
       <button type="submit">Поиск</button>
     </div>
   </form>
 
   <hr />
 
-  <!-- Универсальная форма: выбрать каталог (webkitdirectory) или файлы -->
+  <!-- Загрузка -->
   <form id="uploadForm"
-        hx-post="{{ request.url_for('upload') }}"
+        hx-post="/upload"
         hx-target="#results"
         hx-swap="afterbegin"
         hx-encoding="multipart/form-data"
+        hx-indicator="#spinner"
         method="post"
-        enctype="multipart/form-data"
-        style="margin-bottom:18px; max-width:720px;">
+        enctype="multipart/form-data">	
     <div class="chooser">
-      <label class="file-input" for="files">Выбрать каталог или файлы</label>
-      <input type="file" id="files" name="files" multiple webkitdirectory directory style="display:inline-block;" />
+      <input type="file" name="files" multiple accept="image/*,application/pdf" />
       <button type="submit">Запустить OCR</button>
     </div>
   </form>
 
   <hr />
+  <!-- Индикатор загрузки -->
+  <div id="spinner" style="display:none;">Загрузка...</div>
 
-  <!-- Результаты (обновляются HTMX) -->
   <div id="results">
-    <div class="muted">Результаты появятся здесь. Выполните поиск или загрузите документы.</div>
+    <div class="muted">Результаты появятся здесь.</div>
   </div>
+
 </body>
 </html>
