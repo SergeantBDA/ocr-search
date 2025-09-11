@@ -116,8 +116,8 @@ async def upload_file(
             try:
                 if settings.output_originals_dir:
                     path_origin = save_outputs.save_original(orig_name, data, settings.output_originals_dir)
-                    if settings.hostfs:
-                        path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
+                    #if settings.hostfs:
+                    path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
             except Exception as e:
                 logger.exception("Failed to save original for %s: %s", orig_name, e)
 

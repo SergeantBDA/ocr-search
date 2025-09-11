@@ -1,0 +1,80 @@
+2025-09-11 16:45:00,731 [INFO] uvicorn.error - Started server process [1992]
+2025-09-11 16:45:00,732 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:45:00,732 [INFO] ocr-search - START
+2025-09-11 16:45:00,733 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:45:13,713 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:45:13,822 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:45:13,823 [INFO] ocr-search - STOP
+2025-09-11 16:45:13,823 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:45:13,824 [INFO] uvicorn.error - Finished server process [1992]
+2025-09-11 16:45:54,338 [INFO] uvicorn.error - Started server process [17284]
+2025-09-11 16:45:54,339 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:45:54,342 [INFO] ocr-search - START
+2025-09-11 16:45:54,343 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:46:08,426 [INFO] uvicorn.access - 127.0.0.1:48407 - "GET / HTTP/1.1" 200
+2025-09-11 16:46:24,169 [INFO] uvicorn.access - 127.0.0.1:48410 - "POST /upload HTTP/1.1" 201
+2025-09-11 16:49:09,681 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:49:09,792 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:49:09,793 [INFO] ocr-search - STOP
+2025-09-11 16:49:09,793 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:49:09,794 [INFO] uvicorn.error - Finished server process [17284]
+2025-09-11 16:49:13,719 [INFO] uvicorn.error - Started server process [12596]
+2025-09-11 16:49:13,720 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:49:13,721 [INFO] ocr-search - START
+2025-09-11 16:49:13,722 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:49:34,232 [INFO] uvicorn.access - 127.0.0.1:36629 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 16:50:40,463 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:50:40,572 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:50:40,574 [INFO] ocr-search - STOP
+2025-09-11 16:50:40,575 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:50:40,576 [INFO] uvicorn.error - Finished server process [12596]
+2025-09-11 16:51:06,988 [INFO] uvicorn.error - Started server process [5748]
+2025-09-11 16:51:06,989 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:51:06,990 [INFO] ocr-search - START
+2025-09-11 16:51:06,991 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:53:01,854 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:53:01,964 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:53:01,965 [INFO] ocr-search - STOP
+2025-09-11 16:53:01,965 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:53:01,966 [INFO] uvicorn.error - Finished server process [5748]
+2025-09-11 16:53:05,509 [INFO] uvicorn.error - Started server process [17572]
+2025-09-11 16:53:05,510 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:53:05,511 [INFO] ocr-search - START
+2025-09-11 16:53:05,511 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:53:20,171 [INFO] uvicorn.access - 127.0.0.1:2078 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 16:54:05,242 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:54:05,354 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:54:05,354 [INFO] ocr-search - STOP
+2025-09-11 16:54:05,355 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:54:05,355 [INFO] uvicorn.error - Finished server process [17572]
+2025-09-11 16:54:14,676 [INFO] uvicorn.error - Started server process [18388]
+2025-09-11 16:54:14,677 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:54:14,678 [INFO] ocr-search - START
+2025-09-11 16:54:14,679 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:54:41,239 [INFO] uvicorn.access - 127.0.0.1:61655 - "GET / HTTP/1.1" 200
+2025-09-11 16:54:52,257 [INFO] uvicorn.access - 127.0.0.1:61656 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 16:56:40,576 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:56:40,684 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:56:40,685 [INFO] ocr-search - STOP
+2025-09-11 16:56:40,686 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:56:40,686 [INFO] uvicorn.error - Finished server process [18388]
+2025-09-11 16:56:44,601 [INFO] uvicorn.error - Started server process [15936]
+2025-09-11 16:56:44,602 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:56:44,603 [INFO] ocr-search - START
+2025-09-11 16:56:44,604 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:56:50,428 [INFO] uvicorn.access - 127.0.0.1:36622 - "GET / HTTP/1.1" 200
+2025-09-11 16:56:56,704 [INFO] uvicorn.access - 127.0.0.1:36623 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 16:57:35,179 [INFO] uvicorn.error - Shutting down
+2025-09-11 16:57:35,289 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 16:57:35,290 [INFO] ocr-search - STOP
+2025-09-11 16:57:35,292 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 16:57:35,293 [INFO] uvicorn.error - Finished server process [15936]
+2025-09-11 16:57:39,079 [INFO] uvicorn.error - Started server process [16200]
+2025-09-11 16:57:39,080 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 16:57:39,081 [INFO] ocr-search - START
+2025-09-11 16:57:39,082 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 16:57:41,100 [INFO] uvicorn.access - 127.0.0.1:45276 - "GET / HTTP/1.1" 200
+2025-09-11 16:57:47,393 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-11 16:57:47,448 [INFO] uvicorn.access - 127.0.0.1:45277 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 16:58:08,686 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-11 16:58:08,735 [INFO] uvicorn.access - 127.0.0.1:45282 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200

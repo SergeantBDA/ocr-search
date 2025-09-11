@@ -3,6 +3,8 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 from app.config import settings
 
+import logging
+from app.logger import logger as app_logger
 
 def search_documents(session: Session, query: str, limit: int = 25, offset: int = 0) -> Dict[str, Any]:
     """
@@ -49,7 +51,7 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
     ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, {tsq}), 0), COALESCE(similarity(content, :q), 0)) DESC
     LIMIT :limit OFFSET :offset
     """
-
+    app_logger.debug("Search SQL: %s", select_sql.replace("\n", " ").replace("  ", " "))
     rows = session.execute(text(select_sql), params).mappings().all()
     items = []
     for r in rows:
