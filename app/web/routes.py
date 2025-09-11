@@ -17,10 +17,19 @@ from app.settings_store import get_documents_dir as store_get_documents_dir
 from app.services import save_outputs
 from app.config import settings
 
+from app.logger import logger as app_logger
+
 router = APIRouter()
 templates = Jinja2Templates(directory="app/web/templates")
-logger = logging.getLogger(__name__)
 
+def get_current_user_login(request: Request) -> str:
+    # заголовок выставляет nginx
+    user = request.headers.get("X-Remote-User")
+    return user or "anonymous"
+
+@router.get("/whoami")
+def whoami(request: Request, user: str = Depends(get_current_user_login)):
+    return {"user": user}
 
 @router.get("/", include_in_schema=True)
 def index(request: Request):
@@ -70,7 +79,7 @@ def scan_now(request: Request, db: Session = Depends(get_session)):
     try:
         report = ingest_folder.scan_folder(db, recursive=True)
     except Exception as exc:
-        logger.exception("Scan failed: %s", exc)
+        app_logger.exception("Scan failed: %s", exc)
         return HTMLResponse(f'<div class="muted">Ошибка запуска сканирования: {exc}</div>', status_code=500)
 
     successes = [r for r in report if r.get("status") == "ok"]
@@ -119,13 +128,13 @@ async def upload_file(
                     #if settings.hostfs:
                     path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
             except Exception as e:
-                logger.exception("Failed to save original for %s: %s", orig_name, e)
+                app_logger.exception("Failed to save original for %s: %s", orig_name, e)
 
             try:
                 if settings.output_texts_dir:
                     save_outputs.save_text(orig_name, text or "", settings.output_texts_dir)
             except Exception as e:
-                logger.exception("Failed to save text for %s: %s", orig_name, e)
+                app_logger.exception("Failed to save text for %s: %s", orig_name, e)
 
             # Save to DB
             db = SessionLocal()
@@ -149,7 +158,7 @@ async def upload_file(
                 db.close()
 
         except Exception as exc:
-            logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
+            app_logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
             return HTMLResponse(f'<div class="muted">Ошибка при обработке файла {getattr(upload, "filename", "")}: {exc}</div>', status_code=500)
 
     if created_items:

@@ -78,3 +78,8 @@
 2025-09-11 16:57:47,448 [INFO] uvicorn.access - 127.0.0.1:45277 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
 2025-09-11 16:58:08,686 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
 2025-09-11 16:58:08,735 [INFO] uvicorn.access - 127.0.0.1:45282 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-11 18:45:13,366 [INFO] uvicorn.error - Shutting down
+2025-09-11 18:45:13,475 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 18:45:13,477 [INFO] ocr-search - STOP
+2025-09-11 18:45:13,478 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 18:45:13,480 [INFO] uvicorn.error - Finished server process [16200]
