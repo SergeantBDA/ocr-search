@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     hostfs: Optional[str] = Field(None, env="HOSTFS")
     httpfs: Optional[str] = Field(None, env="HTTPFS")
 
+    # JWT settings
+    jwt_secret: SecretStr = Field(..., env="JWT_SECRET")
+    jwt_expire_minutes: int = Field(60, env="JWT_EXPIRE_MINUTES")
+
     # жёстко указываем .env в корне проекта
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),

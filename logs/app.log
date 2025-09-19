@@ -83,3 +83,467 @@
 2025-09-11 18:45:13,477 [INFO] ocr-search - STOP
 2025-09-11 18:45:13,478 [INFO] uvicorn.error - Application shutdown complete.
 2025-09-11 18:45:13,480 [INFO] uvicorn.error - Finished server process [16200]
+2025-09-11 18:46:17,090 [INFO] uvicorn.error - Started server process [3408]
+2025-09-11 18:46:17,090 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-11 18:46:17,091 [INFO] ocr-search - START
+2025-09-11 18:46:17,092 [INFO] uvicorn.error - Application startup complete.
+2025-09-11 18:46:26,459 [INFO] uvicorn.access - 127.0.0.1:54333 - "GET / HTTP/1.1" 200
+2025-09-11 18:46:49,509 [INFO] uvicorn.access - 127.0.0.1:54336 - "GET /whoami HTTP/1.1" 200
+2025-09-11 18:54:54,775 [INFO] uvicorn.access - 127.0.0.1:3092 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-11 18:55:03,624 [INFO] uvicorn.error - Shutting down
+2025-09-11 18:55:03,733 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-11 18:55:03,734 [INFO] ocr-search - STOP
+2025-09-11 18:55:03,735 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-11 18:55:03,735 [INFO] uvicorn.error - Finished server process [3408]
+2025-09-16 18:03:23,396 [INFO] uvicorn.error - Started server process [17224]
+2025-09-16 18:03:23,397 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:03:23,398 [INFO] ocr-search - START
+2025-09-16 18:03:23,399 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:04:44,697 [INFO] uvicorn.access - 127.0.0.1:16046 - "GET / HTTP/1.1" 200
+2025-09-16 18:04:44,956 [INFO] uvicorn.access - 127.0.0.1:16046 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-16 18:05:00,657 [INFO] uvicorn.access - 127.0.0.1:51093 - "GET /register HTTP/1.1" 404
+2025-09-16 18:06:06,536 [INFO] uvicorn.access - 127.0.0.1:51149 - "GET /login HTTP/1.1" 404
+2025-09-16 18:06:56,985 [INFO] uvicorn.access - 127.0.0.1:29765 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-16 18:12:07,838 [INFO] uvicorn.access - 127.0.0.1:57861 - "GET /auth HTTP/1.1" 404
+2025-09-16 18:23:57,651 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:23:57,759 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:23:57,760 [INFO] ocr-search - STOP
+2025-09-16 18:23:57,762 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:23:57,762 [INFO] uvicorn.error - Finished server process [17224]
+2025-09-16 18:24:03,082 [INFO] uvicorn.error - Started server process [17324]
+2025-09-16 18:24:03,086 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:24:03,088 [INFO] ocr-search - START
+2025-09-16 18:24:03,089 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:24:05,323 [INFO] uvicorn.access - 127.0.0.1:27219 - "GET / HTTP/1.1" 200
+2025-09-16 18:24:10,698 [INFO] uvicorn.access - 127.0.0.1:27243 - "GET /auth HTTP/1.1" 404
+2025-09-16 18:25:34,863 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:25:34,973 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:25:34,973 [INFO] ocr-search - STOP
+2025-09-16 18:25:34,973 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:25:34,974 [INFO] uvicorn.error - Finished server process [17324]
+2025-09-16 18:25:40,106 [INFO] uvicorn.error - Started server process [16164]
+2025-09-16 18:25:40,107 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:25:40,108 [INFO] ocr-search - START
+2025-09-16 18:25:40,109 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:25:43,513 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:25:43,623 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:25:43,624 [INFO] ocr-search - STOP
+2025-09-16 18:25:43,625 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:25:43,626 [INFO] uvicorn.error - Finished server process [16164]
+2025-09-16 18:25:53,289 [INFO] uvicorn.error - Started server process [15232]
+2025-09-16 18:25:53,289 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:25:53,290 [INFO] ocr-search - START
+2025-09-16 18:25:53,291 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:26:13,406 [INFO] uvicorn.access - 127.0.0.1:7432 - "GET / HTTP/1.1" 200
+2025-09-16 18:26:27,167 [INFO] uvicorn.access - 127.0.0.1:7460 - "GET /login HTTP/1.1" 405
+2025-09-16 18:38:44,638 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:38:44,748 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:38:44,748 [INFO] ocr-search - STOP
+2025-09-16 18:38:44,749 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:38:44,749 [INFO] uvicorn.error - Finished server process [15232]
+2025-09-16 18:39:24,310 [INFO] uvicorn.error - Started server process [16700]
+2025-09-16 18:39:24,311 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:39:24,311 [INFO] ocr-search - START
+2025-09-16 18:39:24,312 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:39:32,176 [INFO] uvicorn.access - 127.0.0.1:42668 - "GET / HTTP/1.1" 200
+2025-09-16 18:39:35,040 [INFO] uvicorn.access - 127.0.0.1:42668 - "GET / HTTP/1.1" 200
+2025-09-16 18:39:35,972 [INFO] uvicorn.access - 127.0.0.1:42668 - "GET / HTTP/1.1" 200
+2025-09-16 18:39:36,438 [INFO] uvicorn.access - 127.0.0.1:42668 - "GET / HTTP/1.1" 200
+2025-09-16 18:39:39,745 [INFO] uvicorn.access - 127.0.0.1:42691 - "GET / HTTP/1.1" 200
+2025-09-16 18:39:44,124 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:39:44,234 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:39:44,234 [INFO] ocr-search - STOP
+2025-09-16 18:39:44,235 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:39:44,235 [INFO] uvicorn.error - Finished server process [16700]
+2025-09-16 18:39:48,439 [INFO] uvicorn.error - Started server process [13640]
+2025-09-16 18:39:48,440 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:39:48,441 [INFO] ocr-search - START
+2025-09-16 18:39:48,442 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:40:12,826 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:40:12,935 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:40:12,936 [INFO] ocr-search - STOP
+2025-09-16 18:40:12,936 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:40:12,937 [INFO] uvicorn.error - Finished server process [13640]
+2025-09-16 18:40:17,123 [INFO] uvicorn.error - Started server process [2484]
+2025-09-16 18:40:17,123 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:40:17,124 [INFO] ocr-search - START
+2025-09-16 18:40:17,124 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:40:48,418 [INFO] uvicorn.access - 127.0.0.1:42752 - "GET / HTTP/1.1" 401
+2025-09-16 18:40:58,695 [INFO] uvicorn.access - 127.0.0.1:42754 - "GET / HTTP/1.1" 401
+2025-09-16 18:41:32,556 [INFO] uvicorn.access - 127.0.0.1:42756 - "GET / HTTP/1.1" 401
+2025-09-16 18:41:40,035 [INFO] uvicorn.access - 127.0.0.1:42795 - "GET /login HTTP/1.1" 405
+2025-09-16 18:42:46,836 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:42:46,947 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:42:46,948 [INFO] ocr-search - STOP
+2025-09-16 18:42:46,948 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:42:46,949 [INFO] uvicorn.error - Finished server process [2484]
+2025-09-16 18:42:50,861 [INFO] uvicorn.error - Started server process [15612]
+2025-09-16 18:42:50,862 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:42:50,862 [INFO] ocr-search - START
+2025-09-16 18:42:50,863 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:42:55,876 [INFO] uvicorn.access - 127.0.0.1:34000 - "GET / HTTP/1.1" 200
+2025-09-16 18:43:00,612 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:43:00,723 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:43:00,724 [INFO] ocr-search - STOP
+2025-09-16 18:43:00,724 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:43:00,725 [INFO] uvicorn.error - Finished server process [15612]
+2025-09-16 18:43:05,511 [INFO] uvicorn.error - Started server process [15064]
+2025-09-16 18:43:05,511 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:43:05,512 [INFO] ocr-search - START
+2025-09-16 18:43:05,513 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:53:22,625 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:53:22,736 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:53:22,736 [INFO] ocr-search - STOP
+2025-09-16 18:53:22,737 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:53:22,738 [INFO] uvicorn.error - Finished server process [15064]
+2025-09-16 18:53:26,792 [INFO] uvicorn.error - Started server process [9116]
+2025-09-16 18:53:26,793 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:53:26,794 [INFO] ocr-search - START
+2025-09-16 18:53:26,795 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:53:37,851 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:53:37,963 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:53:37,964 [INFO] ocr-search - STOP
+2025-09-16 18:53:37,964 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:53:37,965 [INFO] uvicorn.error - Finished server process [9116]
+2025-09-16 18:53:41,981 [INFO] uvicorn.error - Started server process [10128]
+2025-09-16 18:53:41,982 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:53:41,983 [INFO] ocr-search - START
+2025-09-16 18:53:41,984 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:56:07,271 [INFO] uvicorn.access - 127.0.0.1:15202 - "GET / HTTP/1.1" 401
+2025-09-16 18:56:13,159 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:56:13,268 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:56:13,271 [INFO] ocr-search - STOP
+2025-09-16 18:56:13,272 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:56:13,272 [INFO] uvicorn.error - Finished server process [10128]
+2025-09-16 18:56:17,190 [INFO] uvicorn.error - Started server process [13848]
+2025-09-16 18:56:17,190 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:56:17,190 [INFO] ocr-search - START
+2025-09-16 18:56:17,191 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:56:26,812 [INFO] uvicorn.access - 127.0.0.1:15248 - "GET / HTTP/1.1" 401
+2025-09-16 18:56:35,328 [INFO] uvicorn.access - 127.0.0.1:15271 - "GET / HTTP/1.1" 401
+2025-09-16 18:56:48,149 [INFO] uvicorn.access - 127.0.0.1:15301 - "GET /whoami HTTP/1.1" 401
+2025-09-16 18:59:13,100 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:59:13,210 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:59:13,211 [INFO] ocr-search - STOP
+2025-09-16 18:59:13,212 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:59:13,213 [INFO] uvicorn.error - Finished server process [13848]
+2025-09-16 18:59:17,383 [INFO] uvicorn.error - Started server process [7640]
+2025-09-16 18:59:17,384 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:59:17,385 [INFO] ocr-search - START
+2025-09-16 18:59:17,385 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:59:25,403 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:59:25,515 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:59:25,515 [INFO] ocr-search - STOP
+2025-09-16 18:59:25,516 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:59:25,517 [INFO] uvicorn.error - Finished server process [7640]
+2025-09-16 18:59:29,340 [INFO] uvicorn.error - Started server process [14396]
+2025-09-16 18:59:29,341 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:59:29,342 [INFO] ocr-search - START
+2025-09-16 18:59:29,343 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 18:59:33,068 [INFO] uvicorn.error - Shutting down
+2025-09-16 18:59:33,177 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 18:59:33,178 [INFO] ocr-search - STOP
+2025-09-16 18:59:33,178 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 18:59:33,179 [INFO] uvicorn.error - Finished server process [14396]
+2025-09-16 18:59:36,821 [INFO] uvicorn.error - Started server process [14188]
+2025-09-16 18:59:36,822 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-16 18:59:36,823 [INFO] ocr-search - START
+2025-09-16 18:59:36,824 [INFO] uvicorn.error - Application startup complete.
+2025-09-16 19:01:24,349 [INFO] uvicorn.access - 127.0.0.1:15474 - "GET / HTTP/1.1" 401
+2025-09-16 19:01:24,693 [INFO] uvicorn.access - 127.0.0.1:15474 - "GET / HTTP/1.1" 401
+2025-09-16 19:23:30,099 [INFO] uvicorn.error - Shutting down
+2025-09-16 19:23:30,208 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-16 19:23:30,209 [INFO] ocr-search - STOP
+2025-09-16 19:23:30,209 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-16 19:23:30,210 [INFO] uvicorn.error - Finished server process [14188]
+2025-09-17 16:49:21,681 [INFO] uvicorn.error - Started server process [18172]
+2025-09-17 16:49:21,737 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-17 16:49:21,748 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-17 16:49:21,760 [INFO] uvicorn.error - Application startup complete.
+2025-09-17 16:50:16,016 [INFO] uvicorn.access - 127.0.0.1:49545 - "GET / HTTP/1.1" 307
+2025-09-17 16:50:17,047 [INFO] uvicorn.access - 127.0.0.1:49545 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-17 16:50:20,095 [INFO] uvicorn.access - 127.0.0.1:49545 - "GET / HTTP/1.1" 307
+2025-09-17 16:50:20,321 [INFO] uvicorn.access - 127.0.0.1:49545 - "GET /login HTTP/1.1" 200
+2025-09-17 16:51:30,078 [INFO] uvicorn.access - 127.0.0.1:49639 - "GET / HTTP/1.1" 307
+2025-09-17 16:51:30,161 [INFO] uvicorn.access - 127.0.0.1:49639 - "GET /login HTTP/1.1" 200
+2025-09-17 16:52:02,865 [INFO] uvicorn.access - 127.0.0.1:49682 - "GET /register HTTP/1.1" 200
+2025-09-17 16:52:22,799 [INFO] uvicorn.access - 127.0.0.1:49685 - "POST /auth/register HTTP/1.1" 500
+2025-09-17 16:52:22,817 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\CODE\PY\OCR\app\routers\auth.py", line 22, in register
+    hashed = get_password_hash(user_in.password)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\CODE\PY\OCR\app\services\auth.py", line 20, in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\passlib\context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\passlib\utils\handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\passlib\handlers\bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+  File "D:\PL\Python312\Lib\site-packages\passlib\utils\handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+  File "D:\PL\Python312\Lib\site-packages\passlib\utils\handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\passlib\utils\handlers.py", line 2176, in set_backend
+    raise default_error
+passlib.exc.MissingBackendError: bcrypt: no backends available -- recommend you install one (e.g. 'pip install bcrypt')
+2025-09-17 16:54:18,488 [INFO] uvicorn.error - Shutting down
+2025-09-17 16:54:18,597 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-17 16:54:18,611 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-17 16:54:18,625 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-17 16:54:18,626 [INFO] uvicorn.error - Finished server process [18172]
+2025-09-17 17:02:49,013 [INFO] uvicorn.error - Started server process [17200]
+2025-09-17 17:02:49,050 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-17 17:02:49,072 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-17 17:02:49,109 [INFO] uvicorn.error - Application startup complete.
+2025-09-17 17:03:45,347 [INFO] uvicorn.access - 127.0.0.1:7172 - "GET /register HTTP/1.1" 200
+2025-09-17 17:09:42,237 [INFO] uvicorn.access - 127.0.0.1:63429 - "GET / HTTP/1.1" 307
+2025-09-17 17:09:42,331 [INFO] uvicorn.access - 127.0.0.1:63429 - "GET /login HTTP/1.1" 200
+2025-09-17 17:09:51,359 [INFO] uvicorn.access - 127.0.0.1:63431 - "GET /register HTTP/1.1" 200
+2025-09-17 17:10:25,448 [INFO] uvicorn.access - 127.0.0.1:63462 - "POST /auth/register HTTP/1.1" 500
+2025-09-17 17:10:25,478 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\CODE\PY\OCR\app\routers\auth.py", line 31, in register
+    return UserRead.from_orm(user)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\pydantic\main.py", line 1261, in from_orm
+    raise PydanticUserError(
+pydantic.errors.PydanticUserError: You must set the config attribute `from_attributes=True` to use from_orm
+2025-09-17 17:16:07,519 [INFO] uvicorn.error - Shutting down
+2025-09-17 17:16:07,628 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-17 17:16:07,656 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-17 17:16:07,684 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-17 17:16:07,765 [INFO] uvicorn.error - Finished server process [17200]
+2025-09-17 17:16:55,638 [INFO] uvicorn.error - Started server process [13956]
+2025-09-17 17:16:55,687 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-17 17:16:55,739 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-17 17:16:55,798 [INFO] uvicorn.error - Application startup complete.
+2025-09-17 17:17:38,174 [INFO] uvicorn.access - 127.0.0.1:15481 - "GET / HTTP/1.1" 307
+2025-09-17 17:17:38,293 [INFO] uvicorn.access - 127.0.0.1:15481 - "GET /login HTTP/1.1" 200
+2025-09-17 17:18:36,571 [INFO] uvicorn.access - 127.0.0.1:15482 - "GET /register HTTP/1.1" 200
+2025-09-17 17:18:50,924 [INFO] uvicorn.access - 127.0.0.1:57363 - "POST /auth/register HTTP/1.1" 409
+2025-09-17 17:22:21,149 [INFO] uvicorn.error - Shutting down
+2025-09-17 17:22:21,261 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-17 17:22:21,272 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-17 17:22:21,281 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-17 17:22:21,304 [INFO] uvicorn.error - Finished server process [13956]
+2025-09-17 17:23:57,953 [INFO] uvicorn.error - Started server process [15032]
+2025-09-17 17:23:57,996 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-17 17:23:58,026 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-17 17:23:58,046 [INFO] uvicorn.error - Application startup complete.
+2025-09-17 17:24:07,863 [INFO] uvicorn.access - 127.0.0.1:50159 - "GET / HTTP/1.1" 307
+2025-09-17 17:24:07,988 [INFO] uvicorn.access - 127.0.0.1:50159 - "GET /login HTTP/1.1" 200
+2025-09-17 17:24:25,596 [INFO] uvicorn.access - 127.0.0.1:28197 - "GET / HTTP/1.1" 307
+2025-09-17 17:24:25,677 [INFO] uvicorn.access - 127.0.0.1:28197 - "GET /login HTTP/1.1" 200
+2025-09-17 17:24:53,217 [INFO] uvicorn.access - 127.0.0.1:28275 - "GET / HTTP/1.1" 307
+2025-09-17 17:24:53,251 [INFO] uvicorn.access - 127.0.0.1:28275 - "GET /login HTTP/1.1" 200
+2025-09-17 17:25:21,997 [INFO] uvicorn.access - 127.0.0.1:53437 - "GET / HTTP/1.1" 307
+2025-09-17 17:25:22,041 [INFO] uvicorn.access - 127.0.0.1:53437 - "GET /login HTTP/1.1" 200
+2025-09-17 17:26:27,837 [INFO] uvicorn.access - 127.0.0.1:4988 - "GET / HTTP/1.1" 307
+2025-09-17 17:26:27,944 [INFO] uvicorn.access - 127.0.0.1:4988 - "GET /login HTTP/1.1" 200
+2025-09-17 17:26:52,457 [INFO] uvicorn.access - 127.0.0.1:40078 - "GET /register HTTP/1.1" 200
+2025-09-17 17:27:21,014 [INFO] uvicorn.access - 127.0.0.1:40133 - "POST /auth/register HTTP/1.1" 201
+2025-09-17 17:27:25,187 [INFO] uvicorn.access - 127.0.0.1:40166 - "GET /login HTTP/1.1" 200
+2025-09-17 17:27:35,331 [INFO] uvicorn.access - 127.0.0.1:40169 - "POST /auth/login HTTP/1.1" 200
+2025-09-17 17:27:35,464 [INFO] uvicorn.access - 127.0.0.1:40169 - "GET / HTTP/1.1" 307
+2025-09-17 17:27:35,540 [INFO] uvicorn.access - 127.0.0.1:40169 - "GET /login HTTP/1.1" 200
+2025-09-17 17:27:57,928 [INFO] uvicorn.access - 127.0.0.1:34241 - "POST /auth/login HTTP/1.1" 200
+2025-09-17 17:27:58,025 [INFO] uvicorn.access - 127.0.0.1:34241 - "GET / HTTP/1.1" 307
+2025-09-17 17:27:58,076 [INFO] uvicorn.access - 127.0.0.1:34241 - "GET /login HTTP/1.1" 200
+2025-09-17 17:29:07,764 [INFO] uvicorn.access - 127.0.0.1:35381 - "POST /auth/login HTTP/1.1" 200
+2025-09-17 17:29:07,844 [INFO] uvicorn.access - 127.0.0.1:35381 - "GET / HTTP/1.1" 307
+2025-09-17 17:29:07,885 [INFO] uvicorn.access - 127.0.0.1:35381 - "GET /login HTTP/1.1" 200
+2025-09-17 17:46:13,145 [INFO] uvicorn.error - Shutting down
+2025-09-17 17:46:13,300 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-17 17:46:13,313 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-17 17:46:13,326 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-17 17:46:13,330 [INFO] uvicorn.error - Finished server process [15032]
+2025-09-17 18:40:25,999 [INFO] uvicorn.error - Started server process [14972]
+2025-09-17 18:40:25,999 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-17 18:40:26,000 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-17 18:40:26,000 [INFO] uvicorn.error - Application startup complete.
+2025-09-17 18:40:31,026 [INFO] uvicorn.access - 127.0.0.1:35878 - "GET / HTTP/1.1" 307
+2025-09-17 18:40:31,056 [INFO] uvicorn.access - 127.0.0.1:35878 - "GET /login HTTP/1.1" 200
+2025-09-17 18:44:07,940 [INFO] uvicorn.error - Shutting down
+2025-09-17 18:44:08,051 [INFO] uvicorn.error - Waiting for connections to close. (CTRL+C to force quit)
+2025-09-19 10:35:46,148 [INFO] uvicorn.error - Started server process [6972]
+2025-09-19 10:35:46,150 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:35:46,152 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:35:46,153 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 10:36:13,384 [INFO] uvicorn.access - 127.0.0.1:40906 - "GET / HTTP/1.1" 307
+2025-09-19 10:36:13,453 [INFO] uvicorn.access - 127.0.0.1:40906 - "GET /login HTTP/1.1" 200
+2025-09-19 10:36:13,755 [INFO] uvicorn.access - 127.0.0.1:40906 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-19 10:37:41,374 [INFO] uvicorn.access - 127.0.0.1:39940 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 10:37:41,423 [INFO] uvicorn.access - 127.0.0.1:39940 - "GET / HTTP/1.1" 307
+2025-09-19 10:37:41,440 [INFO] uvicorn.access - 127.0.0.1:39940 - "GET /login HTTP/1.1" 200
+2025-09-19 10:47:17,043 [INFO] uvicorn.error - Shutting down
+2025-09-19 10:47:17,153 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 10:47:17,154 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 10:47:17,155 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 10:47:17,156 [INFO] uvicorn.error - Finished server process [6972]
+2025-09-19 10:48:10,249 [INFO] uvicorn.error - Started server process [17036]
+2025-09-19 10:48:10,250 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:48:10,251 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:48:10,251 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 10:48:26,980 [INFO] uvicorn.access - 127.0.0.1:62504 - "GET /login HTTP/1.1" 200
+2025-09-19 10:48:37,872 [INFO] uvicorn.access - 127.0.0.1:62526 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 10:48:37,921 [INFO] uvicorn.access - 127.0.0.1:62526 - "GET / HTTP/1.1" 307
+2025-09-19 10:48:37,935 [INFO] uvicorn.access - 127.0.0.1:62526 - "GET /login HTTP/1.1" 200
+2025-09-19 10:50:34,564 [INFO] uvicorn.error - Shutting down
+2025-09-19 10:50:34,674 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 10:50:34,675 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 10:50:34,675 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 10:50:34,676 [INFO] uvicorn.error - Finished server process [17036]
+2025-09-19 10:50:38,999 [INFO] uvicorn.error - Started server process [17032]
+2025-09-19 10:50:39,039 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:50:39,083 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:50:39,098 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 10:50:52,769 [INFO] uvicorn.access - 127.0.0.1:2278 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 10:50:52,817 [INFO] uvicorn.access - 127.0.0.1:2278 - "GET / HTTP/1.1" 307
+2025-09-19 10:50:52,838 [INFO] uvicorn.access - 127.0.0.1:2278 - "GET /login HTTP/1.1" 200
+2025-09-19 10:51:06,978 [INFO] uvicorn.access - 127.0.0.1:61628 - "GET / HTTP/1.1" 307
+2025-09-19 10:51:07,002 [INFO] uvicorn.access - 127.0.0.1:61628 - "GET /login HTTP/1.1" 200
+2025-09-19 10:51:31,453 [INFO] uvicorn.error - Shutting down
+2025-09-19 10:51:31,562 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 10:51:31,563 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 10:51:31,563 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 10:51:31,564 [INFO] uvicorn.error - Finished server process [17032]
+2025-09-19 10:51:35,966 [INFO] uvicorn.error - Started server process [11436]
+2025-09-19 10:51:35,967 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:51:35,968 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:51:35,969 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 10:54:21,384 [INFO] uvicorn.error - Shutting down
+2025-09-19 10:54:21,493 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 10:54:21,493 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 10:54:21,494 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 10:54:21,495 [INFO] uvicorn.error - Finished server process [11436]
+2025-09-19 10:54:25,196 [INFO] uvicorn.error - Started server process [9020]
+2025-09-19 10:54:25,196 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:54:25,198 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:54:25,198 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 10:55:59,453 [INFO] uvicorn.access - 127.0.0.1:62043 - "GET / HTTP/1.1" 307
+2025-09-19 10:55:59,482 [INFO] uvicorn.access - 127.0.0.1:62043 - "GET /login HTTP/1.1" 200
+2025-09-19 10:56:00,647 [INFO] uvicorn.access - 127.0.0.1:62043 - "GET /me HTTP/1.1" 404
+2025-09-19 10:56:18,977 [INFO] uvicorn.error - Shutting down
+2025-09-19 10:56:19,084 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 10:56:19,085 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 10:56:19,085 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 10:56:19,086 [INFO] uvicorn.error - Finished server process [9020]
+2025-09-19 10:56:22,848 [INFO] uvicorn.error - Started server process [16624]
+2025-09-19 10:56:22,849 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 10:56:22,849 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 10:56:22,850 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 11:25:42,613 [INFO] uvicorn.access - 127.0.0.1:42156 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-19 11:25:42,920 [INFO] uvicorn.access - 127.0.0.1:42179 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-19 11:25:44,422 [INFO] uvicorn.error - Shutting down
+2025-09-19 11:25:44,530 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 11:25:44,531 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 11:25:44,531 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 11:25:44,532 [INFO] uvicorn.error - Finished server process [16624]

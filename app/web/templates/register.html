@@ -1,0 +1,41 @@
+{% extends "_layout.html" %}
+{% block content %}
+<div class="card">
+  <h1>Create account</h1>
+  <form id="reg-form" onsubmit="return submitReg(event)">
+    <div class="field">
+      <label>Email</label><br>
+      <input id="reg-email" type="email" required>
+    </div>
+    <div class="field">
+      <label>Password</label><br>
+      <input id="reg-pass" type="password" minlength="8" required>
+    </div>
+    <button class="btn" type="submit">Register</button>
+  </form>
+  <div id="reg-result" class="muted"></div>
+  <p class="muted">Already have an account? <a href="/login">Sign in</a></p>
+</div>
+
+<script>
+async function submitReg(e){
+  e.preventDefault();
+  const email = document.getElementById('reg-email').value;
+  const password = document.getElementById('reg-pass').value;
+  const r = await fetch('/auth/register', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({email, password})
+  });
+  const node = document.getElementById('reg-result');
+  if (!r.ok) {
+    let txt = '';
+    try { txt = await r.text(); } catch(_) { txt = r.statusText; }
+    node.textContent = 'Registration failed: ' + txt;
+    return false;
+  }
+  node.innerHTML = 'Registered. <a href="/login">Sign in</a>.';
+  return false;
+}
+</script>
+{% endblock %}

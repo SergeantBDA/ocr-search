@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "OCR Search" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; }
+    .container { max-width: 480px; margin: 8vh auto; padding: 24px; }
+    .card { border: 1px solid #e5e7eb; padding: 20px; border-radius: 12px; }
+    .btn { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; background:#f3f4f6; cursor:pointer }
+    .field { margin: 10px 0 }
+    .error { color: #b91c1c; margin-top: 8px }
+    .muted { color:#6b7280; font-size: 14px }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script>
+    // Подставляем Bearer для HTMX-запросов после логина
+    document.body.addEventListener('htmx:configRequest', function(evt) {
+      try {
+        const t = localStorage.getItem('token');
+        if (t) evt.detail.headers['Authorization'] = 'Bearer ' + t;
+      } catch(_) {}
+    });
+
+    // helper logout: clear token and redirect to /login
+    function doLogout() {
+      try { localStorage.removeItem('token'); } catch(_) {}
+      window.location.href = '/login';
+    }
+  </script>
+</body>
+</html>

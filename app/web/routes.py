@@ -16,10 +16,18 @@ from app.services import ingest_folder
 from app.settings_store import get_documents_dir as store_get_documents_dir
 from app.services import save_outputs
 from app.config import settings
-
 from app.logger import logger as app_logger
 
-router = APIRouter()
+# import auth dependency
+from app.services.auth import get_current_user
+
+# защитить все эндпоинты этого роутера
+router = APIRouter(
+    prefix="",
+    tags=["web"],
+    dependencies=[Depends(get_current_user)],
+)
+
 templates = Jinja2Templates(directory="app/web/templates")
 
 def get_current_user_login(request: Request) -> str:
@@ -125,8 +133,13 @@ async def upload_file(
             try:
                 if settings.output_originals_dir:
                     path_origin = save_outputs.save_original(orig_name, data, settings.output_originals_dir)
-                    #if settings.hostfs:
-                    path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
+                    # if hostfs configured, build external link path (best-effort)
+                    if settings.hostfs:
+                        try:
+                            # create a hostfs-prefixed path; keep forward slashes for URLs
+                            path_origin = Path(settings.hostfs) / Path(path_origin).relative_to(Path(settings.output_originals_dir))
+                        except Exception:
+                            path_origin = Path(path_origin)
             except Exception as e:
                 app_logger.exception("Failed to save original for %s: %s", orig_name, e)
 
@@ -152,7 +165,7 @@ async def upload_file(
                 db.refresh(doc)
                 created_items.append({"id": doc.id, 
                                       "filename": doc.filename, 
-                                      "link":f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}', 
+                                      "link": f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}' if settings.httpfs and doc.path_origin else None, 
                                       "snippet": (doc.content or "")[:800]})
             finally:
                 db.close()
