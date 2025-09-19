@@ -969,3 +969,358 @@ AttributeError: 'User' object has no attribute '__pydantic_serializer__'
 2025-09-19 15:52:08,137 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-09-19 15:52:08,138 [INFO] uvicorn.error - Application shutdown complete.
 2025-09-19 15:52:08,138 [INFO] uvicorn.error - Finished server process [18008]
+2025-09-19 15:52:12,538 [INFO] uvicorn.error - Started server process [18480]
+2025-09-19 15:52:12,539 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-19 15:52:12,539 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-19 15:52:12,540 [INFO] uvicorn.error - Application startup complete.
+2025-09-19 15:55:18,065 [INFO] uvicorn.access - 127.0.0.1:47488 - "GET / HTTP/1.1" 307
+2025-09-19 15:55:18,107 [INFO] uvicorn.access - 127.0.0.1:47488 - "GET /login-web HTTP/1.1" 200
+2025-09-19 15:55:22,373 [INFO] uvicorn.access - 127.0.0.1:47494 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 15:55:22,407 [INFO] uvicorn.access - 127.0.0.1:47494 - "GET / HTTP/1.1" 200
+2025-09-19 15:55:29,561 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 15:55:29,658 [INFO] uvicorn.access - 127.0.0.1:10655 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 15:57:09,430 [INFO] uvicorn.access - 127.0.0.1:10098 - "GET /register HTTP/1.1" 200
+2025-09-19 15:57:49,698 [INFO] uvicorn.access - 127.0.0.1:34832 - "POST /logout HTTP/1.1" 200
+2025-09-19 15:57:49,735 [INFO] uvicorn.access - 127.0.0.1:34832 - "GET /login-web HTTP/1.1" 200
+2025-09-19 15:57:53,445 [INFO] uvicorn.access - 127.0.0.1:34832 - "POST /logout HTTP/1.1" 200
+2025-09-19 15:57:53,477 [INFO] uvicorn.access - 127.0.0.1:34832 - "GET /login-web HTTP/1.1" 200
+2025-09-19 15:57:55,240 [INFO] uvicorn.access - 127.0.0.1:34832 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 15:57:55,260 [INFO] uvicorn.access - 127.0.0.1:34832 - "GET / HTTP/1.1" 200
+2025-09-19 16:34:37,549 [INFO] uvicorn.access - 127.0.0.1:54346 - "GET / HTTP/1.1" 200
+2025-09-19 16:34:37,604 [INFO] uvicorn.access - 127.0.0.1:54346 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:35:30,921 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 16:35:31,019 [INFO] uvicorn.access - 127.0.0.1:54347 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 16:35:44,611 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 16:35:44,702 [INFO] uvicorn.access - 127.0.0.1:46708 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 16:38:34,615 [INFO] uvicorn.access - 127.0.0.1:64196 - "GET / HTTP/1.1" 200
+2025-09-19 16:38:34,651 [INFO] uvicorn.access - 127.0.0.1:64196 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:38:40,361 [INFO] uvicorn.access - 127.0.0.1:64197 - "POST /logout HTTP/1.1" 200
+2025-09-19 16:38:40,385 [INFO] uvicorn.access - 127.0.0.1:64197 - "GET /login HTTP/1.1" 404
+2025-09-19 16:38:49,225 [INFO] uvicorn.access - 127.0.0.1:64199 - "POST /logout HTTP/1.1" 200
+2025-09-19 16:38:49,249 [INFO] uvicorn.access - 127.0.0.1:64199 - "GET /login HTTP/1.1" 404
+2025-09-19 16:38:57,101 [INFO] uvicorn.access - 127.0.0.1:64217 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:38:57,139 [INFO] uvicorn.access - 127.0.0.1:64217 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:09,944 [INFO] uvicorn.access - 127.0.0.1:38523 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 16:39:09,995 [INFO] uvicorn.access - 127.0.0.1:38523 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:10,012 [INFO] uvicorn.access - 127.0.0.1:38523 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:10,067 [INFO] uvicorn.access - 127.0.0.1:38523 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:16,526 [INFO] uvicorn.access - 127.0.0.1:38532 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 16:39:16,568 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:16,588 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:16,615 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:21,113 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:21,132 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:21,157 [INFO] uvicorn.access - 127.0.0.1:38532 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:27,758 [INFO] uvicorn.access - 127.0.0.1:38538 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:27,773 [INFO] uvicorn.access - 127.0.0.1:38538 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:27,801 [INFO] uvicorn.access - 127.0.0.1:38538 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:37,497 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:37,514 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:37,542 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:41,313 [INFO] uvicorn.access - 127.0.0.1:38549 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 16:39:41,358 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET / HTTP/1.1" 307
+2025-09-19 16:39:41,380 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:39:41,406 [INFO] uvicorn.access - 127.0.0.1:38549 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:39:47,439 [INFO] uvicorn.access - 127.0.0.1:12672 - "GET /auth/me HTTP/1.1" 401
+2025-09-19 16:40:03,761 [INFO] uvicorn.access - 127.0.0.1:45749 - "GET /register HTTP/1.1" 200
+2025-09-19 16:40:03,797 [INFO] uvicorn.access - 127.0.0.1:45749 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:40:47,025 [INFO] uvicorn.access - 127.0.0.1:45756 - "POST /auth/register HTTP/1.1" 201
+2025-09-19 16:40:57,718 [INFO] uvicorn.access - 127.0.0.1:21492 - "GET /login HTTP/1.1" 404
+2025-09-19 16:41:03,143 [INFO] uvicorn.access - 127.0.0.1:21493 - "GET /login HTTP/1.1" 404
+2025-09-19 16:41:41,593 [INFO] uvicorn.access - 127.0.0.1:21494 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:41:41,633 [INFO] uvicorn.access - 127.0.0.1:21494 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:42:21,071 [INFO] uvicorn.access - 127.0.0.1:21543 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 16:42:21,114 [INFO] uvicorn.access - 127.0.0.1:21543 - "GET / HTTP/1.1" 307
+2025-09-19 16:42:21,132 [INFO] uvicorn.access - 127.0.0.1:21543 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:42:21,171 [INFO] uvicorn.access - 127.0.0.1:21543 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:43:27,312 [INFO] uvicorn.access - 127.0.0.1:22759 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:43:27,347 [INFO] uvicorn.access - 127.0.0.1:22759 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:44:34,636 [INFO] uvicorn.access - 127.0.0.1:41006 - "POST /auth/login HTTP/1.1" 200
+2025-09-19 16:44:34,679 [INFO] uvicorn.access - 127.0.0.1:41006 - "GET / HTTP/1.1" 307
+2025-09-19 16:44:34,695 [INFO] uvicorn.access - 127.0.0.1:41006 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:44:34,733 [INFO] uvicorn.access - 127.0.0.1:41006 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:46:02,401 [INFO] uvicorn.access - 127.0.0.1:31906 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:46:02,439 [INFO] uvicorn.access - 127.0.0.1:31906 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:46:06,930 [INFO] uvicorn.access - 127.0.0.1:17411 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 16:46:06,972 [INFO] uvicorn.access - 127.0.0.1:17411 - "GET / HTTP/1.1" 200
+2025-09-19 16:46:10,684 [INFO] uvicorn.access - 127.0.0.1:17411 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 16:46:10,726 [INFO] uvicorn.access - 127.0.0.1:17411 - "GET / HTTP/1.1" 200
+2025-09-19 16:46:37,342 [INFO] uvicorn.access - 127.0.0.1:54776 - "GET /register HTTP/1.1" 200
+2025-09-19 16:46:37,377 [INFO] uvicorn.access - 127.0.0.1:54776 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:52:30,185 [INFO] uvicorn.access - 127.0.0.1:6181 - "GET /register HTTP/1.1" 200
+2025-09-19 16:52:30,233 [INFO] uvicorn.access - 127.0.0.1:6181 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:52:38,700 [INFO] uvicorn.access - 127.0.0.1:6182 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:52:38,742 [INFO] uvicorn.access - 127.0.0.1:6182 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:52:46,047 [INFO] uvicorn.access - 127.0.0.1:6214 - "GET /register HTTP/1.1" 200
+2025-09-19 16:52:46,085 [INFO] uvicorn.access - 127.0.0.1:6214 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:52:55,445 [INFO] uvicorn.access - 127.0.0.1:6230 - "GET /login-web HTTP/1.1" 200
+2025-09-19 16:52:55,495 [INFO] uvicorn.access - 127.0.0.1:6230 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:53:00,803 [INFO] uvicorn.access - 127.0.0.1:6230 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 16:53:00,850 [INFO] uvicorn.access - 127.0.0.1:6230 - "GET / HTTP/1.1" 200
+2025-09-19 16:53:00,908 [INFO] uvicorn.access - 127.0.0.1:6230 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:53:17,987 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 16:53:18,069 [INFO] uvicorn.access - 127.0.0.1:19913 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 16:56:37,213 [INFO] uvicorn.access - 127.0.0.1:12774 - "GET /auth/me HTTP/1.1" 200
+2025-09-19 16:56:42,992 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 16:56:43,069 [INFO] uvicorn.access - 127.0.0.1:12776 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 16:59:08,273 [INFO] uvicorn.access - 127.0.0.1:57065 - "GET /index HTTP/1.1" 404
+2025-09-19 16:59:11,822 [INFO] uvicorn.access - 127.0.0.1:57065 - "GET / HTTP/1.1" 200
+2025-09-19 16:59:11,911 [INFO] uvicorn.access - 127.0.0.1:57065 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 16:59:58,415 [INFO] uvicorn.access - 127.0.0.1:24228 - "GET /set_documents_dir HTTP/1.1" 404
+2025-09-19 17:00:07,988 [INFO] uvicorn.access - 127.0.0.1:24239 - "GET / HTTP/1.1" 200
+2025-09-19 17:00:08,009 [INFO] uvicorn.access - 127.0.0.1:24239 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:00:11,908 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:00:11,993 [INFO] uvicorn.access - 127.0.0.1:24239 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:02:49,604 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:02:49,720 [INFO] uvicorn.access - 127.0.0.1:12260 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:07:20,826 [INFO] uvicorn.access - 127.0.0.1:53479 - "GET / HTTP/1.1" 200
+2025-09-19 17:07:20,868 [INFO] uvicorn.access - 127.0.0.1:53479 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:07:25,969 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:07:26,052 [INFO] uvicorn.access - 127.0.0.1:53490 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:07:28,103 [INFO] uvicorn.access - 127.0.0.1:53490 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:07:28,134 [INFO] uvicorn.access - 127.0.0.1:53491 - "POST /upload HTTP/1.1" 422
+2025-09-19 17:07:28,141 [INFO] uvicorn.access - 127.0.0.1:53490 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:07:28,183 [INFO] uvicorn.access - 127.0.0.1:53490 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:07:34,152 [INFO] uvicorn.access - 127.0.0.1:32601 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:07:34,184 [INFO] uvicorn.access - 127.0.0.1:32601 - "GET / HTTP/1.1" 200
+2025-09-19 17:07:34,219 [INFO] uvicorn.access - 127.0.0.1:32601 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:08:05,926 [INFO] uvicorn.access - 127.0.0.1:37365 - "GET / HTTP/1.1" 200
+2025-09-19 17:08:05,968 [INFO] uvicorn.access - 127.0.0.1:37365 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:15:00,878 [INFO] uvicorn.access - 127.0.0.1:26125 - "GET / HTTP/1.1" 200
+2025-09-19 17:15:00,919 [INFO] uvicorn.access - 127.0.0.1:26125 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:15:07,193 [INFO] uvicorn.access - 127.0.0.1:26126 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:15:07,220 [INFO] uvicorn.access - 127.0.0.1:26126 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:15:07,248 [INFO] uvicorn.access - 127.0.0.1:26126 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:15:18,064 [INFO] uvicorn.access - 127.0.0.1:26158 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:15:18,095 [INFO] uvicorn.access - 127.0.0.1:26158 - "GET / HTTP/1.1" 200
+2025-09-19 17:15:18,117 [INFO] uvicorn.access - 127.0.0.1:26158 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:17:21,643 [INFO] uvicorn.access - 127.0.0.1:41327 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:17:21,676 [INFO] uvicorn.access - 127.0.0.1:41327 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:17:21,712 [INFO] uvicorn.access - 127.0.0.1:41327 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:17:28,336 [INFO] uvicorn.access - 127.0.0.1:41331 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:17:28,361 [INFO] uvicorn.access - 127.0.0.1:41331 - "GET / HTTP/1.1" 200
+2025-09-19 17:17:28,389 [INFO] uvicorn.access - 127.0.0.1:41331 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:17:42,385 [INFO] uvicorn.access - 127.0.0.1:41339 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:17:42,411 [INFO] uvicorn.access - 127.0.0.1:41339 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:17:42,436 [INFO] uvicorn.access - 127.0.0.1:41339 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:26:07,356 [INFO] uvicorn.access - 127.0.0.1:11435 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:26:07,401 [INFO] uvicorn.access - 127.0.0.1:11435 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:26:31,175 [INFO] uvicorn.access - 127.0.0.1:11436 - "GET /register HTTP/1.1" 500
+2025-09-19 17:26:31,176 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CODE\PY\OCR\app\web\public.py", line 16, in register_page
+    return templates.TemplateResponse("register.html", {"request": request})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\templating.py", line 112, in TemplateResponse
+    template = self.get_template(name)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\templating.py", line 94, in get_template
+    return self.env.get_template(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "app\web\templates\register.html", line 45, in template
+    node.innerHTML = 'Зарегистрированы. <a href="{{ request.url_for(\'login_page\') }}">Войти</a>.';
+    ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected char '\\' at 1563
+2025-09-19 17:27:05,929 [INFO] uvicorn.access - 127.0.0.1:11438 - "GET / HTTP/1.1" 307
+2025-09-19 17:27:05,947 [INFO] uvicorn.access - 127.0.0.1:11438 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:27:05,969 [INFO] uvicorn.access - 127.0.0.1:11438 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:27:14,051 [INFO] uvicorn.access - 127.0.0.1:4128 - "GET /register HTTP/1.1" 500
+2025-09-19 17:27:14,052 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "D:\PL\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "D:\PL\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\PL\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CODE\PY\OCR\app\web\public.py", line 16, in register_page
+    return templates.TemplateResponse("register.html", {"request": request})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\templating.py", line 112, in TemplateResponse
+    template = self.get_template(name)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\starlette\templating.py", line 94, in get_template
+    return self.env.get_template(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "D:\PL\Python312\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "app\web\templates\register.html", line 45, in template
+    node.innerHTML = 'Зарегистрированы. <a href="{{ request.url_for(\'login_page\') }}">Войти</a>.';
+    ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected char '\\' at 1563
+2025-09-19 17:35:48,749 [INFO] uvicorn.access - 127.0.0.1:32439 - "GET /register HTTP/1.1" 200
+2025-09-19 17:35:48,795 [INFO] uvicorn.access - 127.0.0.1:32439 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:38:58,180 [INFO] uvicorn.access - 127.0.0.1:57599 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:38:58,219 [INFO] uvicorn.access - 127.0.0.1:57599 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:39:00,909 [INFO] uvicorn.access - 127.0.0.1:57599 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:39:00,932 [INFO] uvicorn.access - 127.0.0.1:57599 - "GET / HTTP/1.1" 200
+2025-09-19 17:39:00,967 [INFO] uvicorn.access - 127.0.0.1:57599 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:39:08,147 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:39:08,224 [INFO] uvicorn.access - 127.0.0.1:57602 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:41:53,315 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:41:53,429 [INFO] uvicorn.access - 127.0.0.1:57604 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:41:55,366 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:41:55,442 [INFO] uvicorn.access - 127.0.0.1:57605 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:42:25,248 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:42:25,325 [INFO] uvicorn.access - 127.0.0.1:25768 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:42:27,723 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:42:27,847 [INFO] uvicorn.access - 127.0.0.1:25768 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:44:52,144 [INFO] uvicorn.access - 127.0.0.1:37361 - "GET / HTTP/1.1" 200
+2025-09-19 17:44:52,187 [INFO] uvicorn.access - 127.0.0.1:37361 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:44:54,154 [INFO] uvicorn.access - 127.0.0.1:37361 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:44:54,183 [INFO] uvicorn.access - 127.0.0.1:37361 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:44:54,205 [INFO] uvicorn.access - 127.0.0.1:37361 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:00,057 [INFO] uvicorn.access - 127.0.0.1:37363 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:45:00,079 [INFO] uvicorn.access - 127.0.0.1:37363 - "GET / HTTP/1.1" 200
+2025-09-19 17:45:00,106 [INFO] uvicorn.access - 127.0.0.1:37363 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:04,689 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:45:04,765 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:45:06,477 [INFO] uvicorn.access - 127.0.0.1:37380 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:45:06,507 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:45:06,538 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:09,092 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /register HTTP/1.1" 200
+2025-09-19 17:45:09,146 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:11,588 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:45:11,613 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:13,258 [INFO] uvicorn.access - 127.0.0.1:37380 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:45:13,278 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET / HTTP/1.1" 200
+2025-09-19 17:45:13,299 [INFO] uvicorn.access - 127.0.0.1:37380 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:45:17,138 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:45:17,215 [INFO] uvicorn.access - 127.0.0.1:12163 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:49:05,654 [INFO] uvicorn.access - 127.0.0.1:48848 - "GET / HTTP/1.1" 200
+2025-09-19 17:49:05,678 [INFO] uvicorn.access - 127.0.0.1:48848 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:49:07,634 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:49:07,713 [INFO] uvicorn.access - 127.0.0.1:48848 - "GET /search?q=l HTTP/1.1" 200
+2025-09-19 17:49:10,650 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-19 17:49:10,727 [INFO] uvicorn.access - 127.0.0.1:48864 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-19 17:51:05,082 [INFO] uvicorn.access - 127.0.0.1:5463 - "GET / HTTP/1.1" 200
+2025-09-19 17:51:05,106 [INFO] uvicorn.access - 127.0.0.1:5463 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:51:08,564 [INFO] uvicorn.access - 127.0.0.1:5463 - "GET / HTTP/1.1" 200
+2025-09-19 17:51:08,603 [INFO] uvicorn.access - 127.0.0.1:5463 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:51:10,703 [INFO] uvicorn.access - 127.0.0.1:5484 - "POST /logout HTTP/1.1" 200
+2025-09-19 17:51:10,728 [INFO] uvicorn.access - 127.0.0.1:5484 - "GET /login-web HTTP/1.1" 200
+2025-09-19 17:51:10,755 [INFO] uvicorn.access - 127.0.0.1:5484 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 17:51:12,709 [INFO] uvicorn.access - 127.0.0.1:5484 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-19 17:51:12,730 [INFO] uvicorn.access - 127.0.0.1:5484 - "GET / HTTP/1.1" 200
+2025-09-19 17:51:12,752 [INFO] uvicorn.access - 127.0.0.1:5484 - "GET /static/app.css HTTP/1.1" 404
+2025-09-19 18:02:26,198 [INFO] uvicorn.error - Shutting down
+2025-09-19 18:02:26,308 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-19 18:02:26,313 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-19 18:02:26,322 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-19 18:02:26,337 [INFO] uvicorn.error - Finished server process [18480]
