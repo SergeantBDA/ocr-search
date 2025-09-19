@@ -1,26 +1,31 @@
-<div style="padding:12px; border:1px solid #e6e6e6; background:#fff;">
-  <div><strong>Результат сканирования</strong></div>
-  <div style="margin-top:6px;">
-    Добавлено/обновлено: {{ success_count | default(0) }}, Ошибок: {{ failure_count | default(0) }}
-  </div>
-
-  {% if report %}
-    <div style="margin-top:8px;">
-      <strong>Подробности:</strong>
-      <ul>
-        {% for r in report %}
-          <li>
-            {{ r.path }} — {{ r.status }}{% if r.id %} (id={{ r.id }}){% endif %}{% if r.error %} — {{ r.error }}{% endif %}
-          </li>
-        {% endfor %}
-      </ul>
+{% extends "_layout.html" %}
+{% block content %}
+<!-- make scan report visually wide like search -->
+<div class="full-bleed">
+  <div class="card">
+    <h2>Результат сканирования</h2>
+    <div class="muted" style="margin-top:8px;">
+      Добавлено/обновлено: {{ success_count | default(0) }}, Ошибок: {{ failure_count | default(0) }}
     </div>
-  {% endif %}
 
-  <hr />
+    {% if report %}
+      <div style="margin-top:12px;">
+        <strong>Подробности:</strong>
+        <ul>
+          {% for r in report %}
+            <li class="muted">{{ r.path }} — {{ r.status }}{% if r.id %} (id={{ r.id }}){% endif %}{% if r.error %} — {{ r.error }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>
 
+<!-- recent documents in centered area -->
+<div class="container" style="margin-top:18px;">
   <div>
     <strong>Последние документы</strong>
     {% include "_results.html" %}
   </div>
 </div>
+{% endblock %}

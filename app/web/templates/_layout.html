@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <title>{{ title or "OCR Search" }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/app.css">
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
   <style>
     body { font-family: system-ui, sans-serif; margin: 0; }
@@ -20,19 +21,35 @@
     {% block content %}{% endblock %}
   </div>
 
+  <div id="spinner" role="status" aria-hidden="true">Загрузка…</div>
+
   <script>
-    // Подставляем Bearer для HTMX-запросов после логина
+    // HTMX: добавляем Authorization Bearer токен из localStorage, не затирая кастомные заголовки
     document.body.addEventListener('htmx:configRequest', function(evt) {
       try {
         const t = localStorage.getItem('token');
-        if (t) evt.detail.headers['Authorization'] = 'Bearer ' + t;
+        if (t) {
+          const hdrs = evt.detail.headers || {};
+          if (!hdrs['Authorization']) hdrs['Authorization'] = 'Bearer ' + t;
+          evt.detail.headers = hdrs;
+        }
       } catch(_) {}
     });
 
-    // helper logout: clear token and redirect to /login
-    function doLogout() {
+    // spinner show/hide on HTMX requests
+    (function(){
+      const spinner = document.getElementById('spinner');
+      if (!spinner) return;
+      document.body.addEventListener('htmx:beforeRequest', function(){ spinner.style.display = 'block'; spinner.setAttribute('aria-hidden','false'); });
+      document.body.addEventListener('htmx:afterOnLoad',  function(){ spinner.style.display = 'none';  spinner.setAttribute('aria-hidden','true'); });
+      document.body.addEventListener('htmx:responseError', function(){ spinner.style.display = 'none';  spinner.setAttribute('aria-hidden','true'); });
+    })();
+
+    // Client logout helper: clears local token and navigates to login page
+    async function doLogout() {
+      try { await fetch('/logout', { method: 'POST', credentials: 'same-origin' }); } catch(_) {}
       try { localStorage.removeItem('token'); } catch(_) {}
-      window.location.href = '/login';
+      window.location.href = '/login-web';
     }
   </script>
 </body>

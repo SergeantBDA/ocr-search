@@ -1,40 +1,29 @@
 {% extends "_layout.html" %}
 {% block content %}
-<div class="card">
-  <h1>Sign in</h1>
-  <form id="login-form" onsubmit="return handleLogin(event)">
-    <div class="field">
-      <label>Email</label><br>
-      <input name="username" type="email" required>
-    </div>
-    <div class="field">
-      <label>Password</label><br>
-      <input name="password" type="password" required>
-    </div>
-    <button class="btn" type="submit">Login</button>
-  </form>
-  <div id="login-errors" class="error"></div>
-  <p class="muted">No account? <a href="/register">Create one</a></p>
-</div>
+<div class="auth-shell">
+  <div class="card auth-card" role="main" aria-labelledby="login-title">
+    <h1 id="login-title">Вход</h1>
 
-<script>
-async function handleLogin(e){
-  e.preventDefault();
-  const form = e.target;
-  const fd = new FormData(form);
-  const r = await fetch('/auth/login', { method: 'POST', body: fd });
-  const errNode = document.querySelector('#login-errors');
-  errNode.textContent = '';
-  if (!r.ok) {
-    let txt = '';
-    try { txt = await r.text(); } catch(_) { txt = r.statusText; }
-    errNode.textContent = 'Login failed: ' + txt;
-    return false;
-  }
-  const data = await r.json();
-  try { localStorage.setItem('token', data.access_token); } catch(_) {}
-  window.location.href = '/';
-  return false;
-}
-</script>
+    <!-- Обычная форма: браузер сам отправит POST, получит Set-Cookie и follow-redirect -->
+    <form id="login-form" action="/auth/login-web" method="post" class="field">
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input id="login-email" name="username" type="email" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="login-pass">Пароль</label>
+        <input id="login-pass" name="password" type="password" required autocomplete="current-password">
+      </div>
+
+      <div>
+        <button class="btn" type="submit">Войти</button>
+      </div>
+    </form>
+
+    <div id="login-errors" class="error" role="alert" aria-live="polite"></div>
+
+    <p class="muted" style="margin-top:12px;">Нет аккаунта? <a href="{{ request.url_for('register_page') }}">Зарегистрироваться</a></p>
+  </div>
+</div>
 {% endblock %}

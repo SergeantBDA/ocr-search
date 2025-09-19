@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.responses import RedirectResponse
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -30,6 +31,35 @@ def register(user_in: UserCreate, db: Session = Depends(get_session)):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
     return UserRead.from_orm(user)
 
+@router.post("/login-web")
+def login_web(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
+    """
+    Web login: accept OAuth2 form (username=email, password), set HttpOnly cookie with JWT and redirect to "/".
+    """
+    email = (form_data.username or "").lower()
+    user = db.query(User).filter(User.email == email).one_or_none()
+    # print(user, 
+    #       form_data.password, 
+    #       form_data.username, 
+    #       verify_password(form_data.password, user.password_hash))
+    if not user or not verify_password(form_data.password, user.password_hash):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect email or password", headers={"WWW-Authenticate": "Bearer"})
+    if not user.is_active:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="User inactive")
+
+    access_token = create_access_token(data={"sub": str(user.id)})
+    resp = RedirectResponse(url="/", status_code=303)
+    # set HttpOnly cookie; secure=True as required (may block in local http)
+    resp.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=False,
+        samesite="lax",
+        max_age=3600,
+        path="/",
+    )
+    return resp
 
 @router.post("/login", response_model=Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
@@ -50,4 +80,4 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
 @router.get("/me", response_model=UserRead)
 def me(current_user: User = Depends(get_current_user)):
-    return UserRead.from_orm(current_user)
+    return UserRead.model_validate(current_user)

@@ -1,0 +1,58 @@
+:root {
+  --border: #e5e7eb;
+  --muted: #6b7280;
+}
+
+/* общие сбросы */
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color: #111827; }
+
+.container {
+  max-width: 960px;
+  margin: 4rem auto;
+  padding: 0 24px;
+}
+
+/* карточки */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+/* кнопки/поля */
+.row { display: flex; gap: 8px; align-items: center; }
+.btn { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); background: #f3f4f6; cursor: pointer; }
+.field { margin: 10px 0; }
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="file"],
+.field textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+
+.doc { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.muted { color: var(--muted); font-size: 14px; }
+.error { color: #b91c1c; margin-top: 8px; }
+
+#spinner { display: none; position: fixed; right: 16px; top: 16px; background: rgba(255,255,255,0.95); border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); z-index: 1200; font-size: 13px; }
+
+/* auth box: маленькое центрированное окно для login/register */
+.auth-shell { display: flex; align-items: center; justify-content: center; min-height: 60vh; padding: 24px 0; }
+.auth-card { width: 420px; max-width: 92vw; }
+
+/* full-bleed: расширяем секцию на всю ширину видимой области,
+   визуально растягивая форму поиска/загрузки */
+.full-bleed {
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-right: -24px;
+  padding: 18px 24px;
+}
+.full-bleed .card { border-radius: 8px; }
+
+/* небольшой отклик для узких экранов */
+@media (max-width: 640px) {
+  .row { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; }
+}

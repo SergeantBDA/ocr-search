@@ -3,7 +3,7 @@ from typing import Optional, Any, Dict
 
 from passlib.context import CryptContext
 from jose import JWTError, jwt
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
@@ -13,7 +13,7 @@ from app.models import User
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login-web")
 
 
 def get_password_hash(password: str) -> str:
@@ -41,29 +41,35 @@ def _get_user_by_email(session: Session, email: str) -> Optional[User]:
     return session.query(User).filter(User.email == email).one_or_none()
 
 
-def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
+def get_current_user(request: Request):
+    auth = request.headers.get("Authorization", "")
+    token = None
+    if auth.lower().startswith("bearer "):
+        token = auth.split(None, 1)[1]
+    else:
+        # fallback to cookie
+        token = request.cookies.get("access_token")
+
+    if not token:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated", headers={"WWW-Authenticate": "Bearer"})
+
     try:
         payload = jwt.decode(token, settings.jwt_secret.get_secret_value(), algorithms=["HS256"])
         sub = payload.get("sub")
         if sub is None:
-            raise credentials_exception
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
         user_id = int(sub)
     except JWTError:
-        raise credentials_exception
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
 
     db = SessionLocal()
     try:
-        user = _get_user_by_id(db, user_id)
+        user = db.query(User).filter(User.id == user_id).one_or_none()
     finally:
         db.close()
 
     if not user:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found", headers={"WWW-Authenticate": "Bearer"})
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
     if not user.is_active:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="User inactive")
     return user

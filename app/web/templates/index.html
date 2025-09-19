@@ -1,56 +1,40 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OCR+FINDING</title>
-  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin:20px; }
-    .row { display:flex; gap:8px; }
-    input[type="text"] { flex:1; padding:8px; }
-    button { padding:8px 12px; }
-    .doc { margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #eee; }
-    .muted { color:#666; }
-    #modal { margin-top:12px; }
-    .chooser { display:flex; gap:8px; align-items:center; }
-  </style>
-</head>
-<body>
-  <h1>Извлечение текста (OCR) и поиск документов</h1>
+{% extends "_layout.html" %}
+{% block content %}
+<!-- full-width search & upload section -->
+<div class="full-bleed">
+  <div class="card">
+    <h1>Извлечение текста (OCR) и поиск документов</h1>
 
-  <!-- Поиск -->
-  <form hx-get="/search" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner">
-    <div class="row">
-      <input type="text" name="q" placeholder="Введите запрос..." required />
-      <button type="submit">Поиск</button>
-    </div>
-  </form>
+    <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
+      <div class="row">
+        <input type="text" name="q" placeholder="Введите запрос..." required />
+        <button class="btn" type="submit">Поиск</button>
+      </div>
+    </form>
 
-  <hr />
+    <hr />
 
-  <!-- Загрузка -->
-  <form id="uploadForm"
-        hx-post="/upload"
-        hx-target="#results"
-        hx-swap="afterbegin"
-        hx-encoding="multipart/form-data"
-        hx-indicator="#spinner"
-        method="post"
-        enctype="multipart/form-data">	
-    <div class="chooser">
-      <input type="file" name="files" multiple accept="image/*,application/pdf" />
-      <button type="submit">Запустить OCR</button>
-    </div>
-  </form>
-
-  <hr />
-  <!-- Индикатор загрузки -->
-  <div id="spinner" style="display:none;">Загрузка...</div>
-
-  <div id="results">
-    <div class="muted">Результаты появятся здесь.</div>
+    <form id="uploadForm"
+          hx-post="{{ request.url_for('upload') }}"
+          hx-target="#results"
+          hx-swap="afterbegin"
+          hx-encoding="multipart/form-data"
+          hx-indicator="#spinner"
+          method="post"
+          enctype="multipart/form-data" class="field">
+      <div class="row">
+        <input type="file" name="files" multiple accept="image/*,application/pdf" />
+        <button class="btn" type="submit">Загрузить</button>
+      </div>
+      <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти</a>
+    </form>
   </div>
+</div>
 
-</body>
-</html>
+<!-- results area stays in centered container -->
+<div class="container" style="margin-top:18px;">
+  <div id="results">
+    {% include "_results.html" %}
+  </div>
+</div>
+{% endblock %}
