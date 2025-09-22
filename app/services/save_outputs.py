@@ -4,8 +4,9 @@ import unicodedata
 from pathlib import Path
 from typing import Union
 import logging
+from app.logger import logger as app_logger, attach_to_logger_names
 
-logger = logging.getLogger(__name__)
+attach_to_logger_names(["app.services.save_outputs"])
 
 INVALID_CHARS_RE = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 
@@ -73,8 +74,9 @@ def save_original(filename: str, data: bytes, dst_dir: Union[str, Path]) -> Path
     try:
         with open(dst, "wb") as fh:
             fh.write(data)
+        app_logger.info("Original file %s saved to %s", filename, dst)
     except Exception:
-        logger.exception("Failed to save original file %s to %s", filename, dst)
+        app_logger.exception("Failed to save original file %s to %s", filename, dst)
         raise
     return dst
 
@@ -93,7 +95,8 @@ def save_text(filename: str, text: str, dst_dir: Union[str, Path]) -> Path:
     try:
         with open(dst, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(text or "")
+        app_logger.info("Extracted text for %s saved to %s", filename, dst)
     except Exception:
-        logger.exception("Failed to save text for %s to %s", filename, dst)
+        app_logger.exception("Failed to save text for %s to %s", filename, dst)
         raise
     return dst

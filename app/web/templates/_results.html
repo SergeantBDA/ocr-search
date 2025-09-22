@@ -4,7 +4,7 @@
     <div class="doc">
       <strong>
         {% if d.link %}
-          <a href="{{ d.link }}">{{ d.filename }}</a>
+          <a href="{{ d.link }}" target="_blank" rel="noopener noreferrer">{{ d.filename }}</a>
         {% else %}
           {{ d.filename }}
         {% endif %}

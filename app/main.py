@@ -36,7 +36,7 @@ app.add_middleware(
 
 # mount static dir if exists
 try:
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+    app.mount("/static", StaticFiles(directory="app/static"), name="static")
 except Exception:
     pass
 

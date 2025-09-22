@@ -6,20 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/static/app.css">
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 0; }
-    .container { max-width: 480px; margin: 8vh auto; padding: 24px; }
-    .card { border: 1px solid #e5e7eb; padding: 20px; border-radius: 12px; }
-    .btn { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; background:#f3f4f6; cursor:pointer }
-    .field { margin: 10px 0 }
-    .error { color: #b91c1c; margin-top: 8px }
-    .muted { color:#6b7280; font-size: 14px }
-  </style>
 </head>
-<body>
-  <div class="container">
+<body class="{{ body_class or 'app' }}">
     {% block content %}{% endblock %}
-  </div>
 
   <div id="spinner" role="status" aria-hidden="true">Загрузка…</div>
 

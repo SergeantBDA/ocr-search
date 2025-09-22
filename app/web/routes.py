@@ -16,7 +16,9 @@ from app.services import ingest_folder
 from app.settings_store import get_documents_dir as store_get_documents_dir
 from app.services import save_outputs
 from app.config import settings
-from app.logger import logger as app_logger
+from app.logger import logger as app_logger, attach_to_logger_names
+
+attach_to_logger_names(["app.services.ingest_folder", "app.search", "app.services.ocr_dispatch", "app.services.save_outputs"])
 
 # import auth dependency
 from app.services.auth import get_current_user

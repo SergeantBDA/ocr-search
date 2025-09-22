@@ -53,14 +53,14 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 
 .logout-link {
   font-size: 0.8rem;       /* маленький размер текста */
-  color: #6c757d;          /* серый цвет (Bootstrap-стиль secondary) */
+  color: #6c757d;        /* серый цвет (Bootstrap-стиль secondary) */
   text-decoration: none;   /* без подчеркивания */
   cursor: pointer;         /* курсор-рука */
 }
 
 .logout-link:hover {
   text-decoration: underline; /* подчеркивание при наведении */
-  color: #495057;             /* более тёмный серый */
+  color: #495057;            /* более тёмный серый */
 }
 
 /* небольшой отклик для узких экранов */

@@ -3,7 +3,7 @@
 <!-- full-width search & upload section -->
 <div class="full-bleed">
   <div class="card">
-    <h1>Извлечение текста (OCR) и поиск документов</h1>
+    <h2>Извлечение текста (OCR) и поиск документов</h2>
 
     <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
       <div class="row">
@@ -32,9 +32,11 @@
 </div>
 
 <!-- results area stays in centered container -->
-<div class="container" style="margin-top:18px;">
-  <div id="results">
-    {% include "_results.html" %}
+<div class="full-bleed">
+  <div class="card">
+    <div id="results">
+      {% include "_results.html" %}
+    </div>
   </div>
 </div>
 {% endblock %}

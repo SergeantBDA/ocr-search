@@ -1324,3 +1324,265 @@ jinja2.exceptions.TemplateSyntaxError: unexpected char '\\' at 1563
 2025-09-19 18:02:26,313 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-09-19 18:02:26,322 [INFO] uvicorn.error - Application shutdown complete.
 2025-09-19 18:02:26,337 [INFO] uvicorn.error - Finished server process [18480]
+2025-09-20 22:13:37,815 [INFO] uvicorn.error - Started server process [7972]
+2025-09-20 22:13:37,817 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-20 22:13:37,818 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-20 22:13:37,819 [INFO] uvicorn.error - Application startup complete.
+2025-09-20 22:14:47,554 [INFO] uvicorn.access - 127.0.0.1:15101 - "GET / HTTP/1.1" 307
+2025-09-20 22:14:47,590 [INFO] uvicorn.access - 127.0.0.1:15101 - "GET /login-web HTTP/1.1" 200
+2025-09-20 22:14:47,682 [INFO] uvicorn.access - 127.0.0.1:15101 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:14:47,959 [INFO] uvicorn.access - 127.0.0.1:15101 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-20 22:15:32,482 [INFO] uvicorn.access - 127.0.0.1:61656 - "GET /register HTTP/1.1" 200
+2025-09-20 22:15:32,525 [INFO] uvicorn.access - 127.0.0.1:61656 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:15:39,089 [INFO] uvicorn.access - 127.0.0.1:61670 - "GET /login-web HTTP/1.1" 200
+2025-09-20 22:15:39,124 [INFO] uvicorn.access - 127.0.0.1:61670 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:15:52,925 [INFO] uvicorn.access - 127.0.0.1:61686 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 22:15:52,971 [INFO] uvicorn.access - 127.0.0.1:61686 - "GET / HTTP/1.1" 200
+2025-09-20 22:15:53,021 [INFO] uvicorn.access - 127.0.0.1:61686 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:15:58,682 [INFO] uvicorn.access - 127.0.0.1:61709 - "POST /logout HTTP/1.1" 200
+2025-09-20 22:15:58,716 [INFO] uvicorn.access - 127.0.0.1:61709 - "GET /login-web HTTP/1.1" 200
+2025-09-20 22:15:58,747 [INFO] uvicorn.access - 127.0.0.1:61709 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:16:01,961 [INFO] uvicorn.access - 127.0.0.1:61709 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 22:16:01,981 [INFO] uvicorn.access - 127.0.0.1:61709 - "GET / HTTP/1.1" 200
+2025-09-20 22:16:02,012 [INFO] uvicorn.access - 127.0.0.1:61709 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:16:14,255 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 22:16:14,344 [INFO] uvicorn.access - 127.0.0.1:61727 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-20 22:30:41,649 [INFO] uvicorn.access - 127.0.0.1:18686 - "GET / HTTP/1.1" 200
+2025-09-20 22:30:41,767 [INFO] uvicorn.access - 127.0.0.1:18686 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 22:30:47,597 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 22:30:47,675 [INFO] uvicorn.access - 127.0.0.1:18687 - "GET /search?q=%D0%B4 HTTP/1.1" 200
+2025-09-20 22:34:33,014 [INFO] uvicorn.access - 127.0.0.1:7330 - "POST /upload HTTP/1.1" 201
+2025-09-20 22:49:12,468 [INFO] uvicorn.error - Shutting down
+2025-09-20 22:49:12,578 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-20 22:49:12,579 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-20 22:49:12,580 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-20 22:49:12,580 [INFO] uvicorn.error - Finished server process [7972]
+2025-09-20 22:49:17,627 [INFO] uvicorn.error - Started server process [14192]
+2025-09-20 22:49:17,627 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-20 22:49:17,628 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-20 22:49:17,629 [INFO] uvicorn.error - Application startup complete.
+2025-09-20 22:52:16,924 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 22:52:17,025 [INFO] uvicorn.access - 127.0.0.1:50752 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 22:54:04,722 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 22:54:04,816 [INFO] uvicorn.access - 127.0.0.1:38747 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 22:57:39,475 [INFO] uvicorn.access - 127.0.0.1:25909 - "POST /upload HTTP/1.1" 401
+2025-09-20 22:58:07,333 [INFO] uvicorn.access - 127.0.0.1:28462 - "POST /upload HTTP/1.1" 401
+2025-09-20 22:58:57,819 [INFO] uvicorn.access - 127.0.0.1:9765 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 401
+2025-09-20 23:00:00,914 [INFO] uvicorn.access - 127.0.0.1:9292 - "GET / HTTP/1.1" 307
+2025-09-20 23:00:00,941 [INFO] uvicorn.access - 127.0.0.1:9292 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:00:00,971 [INFO] uvicorn.access - 127.0.0.1:9292 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:00:03,117 [INFO] uvicorn.access - 127.0.0.1:9292 - "POST /auth/login-web HTTP/1.1" 401
+2025-09-20 23:00:08,430 [INFO] uvicorn.access - 127.0.0.1:9293 - "POST /auth/login-web HTTP/1.1" 401
+2025-09-20 23:00:18,243 [INFO] uvicorn.access - 127.0.0.1:9314 - "POST /auth/login-web HTTP/1.1" 401
+2025-09-20 23:01:14,046 [INFO] uvicorn.access - 127.0.0.1:43977 - "GET /auth/login-web HTTP/1.1" 405
+2025-09-20 23:01:32,249 [INFO] uvicorn.access - 127.0.0.1:44022 - "GET / HTTP/1.1" 307
+2025-09-20 23:01:32,267 [INFO] uvicorn.access - 127.0.0.1:44022 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:01:32,297 [INFO] uvicorn.access - 127.0.0.1:44022 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:01:34,619 [INFO] uvicorn.access - 127.0.0.1:44022 - "GET /register HTTP/1.1" 200
+2025-09-20 23:01:34,647 [INFO] uvicorn.access - 127.0.0.1:44022 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:01:39,477 [INFO] uvicorn.access - 127.0.0.1:44022 - "POST /auth/register HTTP/1.1" 201
+2025-09-20 23:02:05,079 [INFO] uvicorn.access - 127.0.0.1:29927 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:02:05,136 [INFO] uvicorn.access - 127.0.0.1:29927 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:02:07,318 [INFO] uvicorn.access - 127.0.0.1:29927 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:02:07,347 [INFO] uvicorn.access - 127.0.0.1:29927 - "GET / HTTP/1.1" 200
+2025-09-20 23:02:07,373 [INFO] uvicorn.access - 127.0.0.1:29927 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:05:14,738 [INFO] uvicorn.access - 127.0.0.1:54751 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:05:46,659 [INFO] uvicorn.access - 127.0.0.1:62447 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:05:46,683 [INFO] uvicorn.access - 127.0.0.1:62447 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:05:46,713 [INFO] uvicorn.access - 127.0.0.1:62447 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:05:48,722 [INFO] uvicorn.access - 127.0.0.1:62447 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:05:48,742 [INFO] uvicorn.access - 127.0.0.1:62447 - "GET / HTTP/1.1" 200
+2025-09-20 23:05:48,767 [INFO] uvicorn.access - 127.0.0.1:62447 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:06:27,247 [INFO] uvicorn.error - Shutting down
+2025-09-20 23:06:27,357 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-20 23:06:27,358 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-20 23:06:27,360 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-20 23:06:27,361 [INFO] uvicorn.error - Finished server process [14192]
+2025-09-20 23:06:39,273 [INFO] uvicorn.error - Started server process [17580]
+2025-09-20 23:06:39,274 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-20 23:06:39,274 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-20 23:06:39,275 [INFO] uvicorn.error - Application startup complete.
+2025-09-20 23:07:08,495 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET / HTTP/1.1" 200
+2025-09-20 23:07:08,523 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:07:10,263 [INFO] uvicorn.access - 127.0.0.1:9140 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:07:10,288 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:07:10,314 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:07:12,354 [INFO] uvicorn.access - 127.0.0.1:9140 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:07:12,373 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET / HTTP/1.1" 200
+2025-09-20 23:07:12,402 [INFO] uvicorn.access - 127.0.0.1:9140 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:08:39,093 [INFO] uvicorn.access - 127.0.0.1:10327 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:09:13,848 [INFO] uvicorn.access - 127.0.0.1:6351 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:09:13,870 [INFO] uvicorn.access - 127.0.0.1:6351 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:09:13,899 [INFO] uvicorn.access - 127.0.0.1:6351 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:09:16,121 [INFO] uvicorn.access - 127.0.0.1:6367 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:09:16,141 [INFO] uvicorn.access - 127.0.0.1:6367 - "GET / HTTP/1.1" 200
+2025-09-20 23:09:16,167 [INFO] uvicorn.access - 127.0.0.1:6367 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:11:11,767 [INFO] uvicorn.access - 127.0.0.1:54012 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:11:25,643 [INFO] uvicorn.access - 127.0.0.1:54012 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:14:20,536 [INFO] uvicorn.access - 127.0.0.1:32566 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:14:20,559 [INFO] uvicorn.access - 127.0.0.1:32566 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:14:20,603 [INFO] uvicorn.access - 127.0.0.1:32566 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:14:23,127 [INFO] uvicorn.access - 127.0.0.1:32566 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:14:23,145 [INFO] uvicorn.access - 127.0.0.1:32566 - "GET / HTTP/1.1" 200
+2025-09-20 23:14:23,172 [INFO] uvicorn.access - 127.0.0.1:32566 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:14:42,504 [INFO] uvicorn.access - 127.0.0.1:32585 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:15:25,040 [INFO] uvicorn.error - Shutting down
+2025-09-20 23:15:25,151 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-20 23:15:25,171 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-20 23:15:25,171 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-20 23:15:25,172 [INFO] uvicorn.error - Finished server process [17580]
+2025-09-20 23:22:49,900 [INFO] uvicorn.error - Started server process [8820]
+2025-09-20 23:22:49,901 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-20 23:22:49,901 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-20 23:22:49,902 [INFO] uvicorn.error - Application startup complete.
+2025-09-20 23:23:00,947 [INFO] uvicorn.access - 127.0.0.1:62019 - "GET / HTTP/1.1" 200
+2025-09-20 23:23:00,994 [INFO] uvicorn.access - 127.0.0.1:62019 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:23:03,683 [INFO] uvicorn.access - 127.0.0.1:14262 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:23:03,719 [INFO] uvicorn.access - 127.0.0.1:14262 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:23:03,763 [INFO] uvicorn.access - 127.0.0.1:14262 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:23:06,160 [INFO] uvicorn.access - 127.0.0.1:14262 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:23:06,188 [INFO] uvicorn.access - 127.0.0.1:14262 - "GET / HTTP/1.1" 200
+2025-09-20 23:23:06,225 [INFO] uvicorn.access - 127.0.0.1:14262 - "GET /static/app.css HTTP/1.1" 404
+2025-09-20 23:23:22,154 [INFO] ocr-search - Original file СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\works\СТО 1070-2-2025 Обесп корп мобильной связью.pdf
+2025-09-20 23:23:22,158 [INFO] ocr-search - Extracted text for СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\txt\СТО 1070-2-2025 Обесп корп мобильной связью.pdf
+2025-09-20 23:23:29,271 [INFO] ocr-search - Original file СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\works\СТО 1202-1-2024 Политика Корпоративная система управления.pdf
+2025-09-20 23:23:29,273 [INFO] ocr-search - Extracted text for СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\txt\СТО 1202-1-2024 Политика Корпоративная система управления.pdf
+2025-09-20 23:23:29,301 [INFO] uvicorn.access - 127.0.0.1:14275 - "POST /upload HTTP/1.1" 201
+2025-09-20 23:34:57,852 [INFO] uvicorn.error - Shutting down
+2025-09-20 23:34:57,963 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-20 23:34:58,029 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-20 23:34:58,030 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-20 23:34:58,030 [INFO] uvicorn.error - Finished server process [8820]
+2025-09-20 23:35:02,189 [INFO] uvicorn.error - Started server process [8740]
+2025-09-20 23:35:02,190 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-20 23:35:02,190 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-20 23:35:02,191 [INFO] uvicorn.error - Application startup complete.
+2025-09-20 23:35:43,282 [INFO] uvicorn.access - 127.0.0.1:46432 - "GET /static HTTP/1.1" 307
+2025-09-20 23:35:43,333 [INFO] uvicorn.access - 127.0.0.1:46432 - "GET / HTTP/1.1" 404
+2025-09-20 23:35:49,107 [INFO] uvicorn.access - 127.0.0.1:46457 - "GET / HTTP/1.1" 200
+2025-09-20 23:35:49,258 [INFO] uvicorn.access - 127.0.0.1:46457 - "GET /app.css HTTP/1.1" 200
+2025-09-20 23:36:18,639 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:36:18,683 [INFO] uvicorn.access - 127.0.0.1:38070 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 23:36:29,513 [INFO] uvicorn.access - 127.0.0.1:38077 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:36:29,561 [INFO] uvicorn.access - 127.0.0.1:38077 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:36:33,979 [INFO] uvicorn.access - 127.0.0.1:38077 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:36:33,997 [INFO] uvicorn.access - 127.0.0.1:38077 - "GET / HTTP/1.1" 200
+2025-09-20 23:36:38,484 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:36:38,523 [INFO] uvicorn.access - 127.0.0.1:38096 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 23:36:43,935 [INFO] uvicorn.access - 127.0.0.1:38097 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:36:43,958 [INFO] uvicorn.access - 127.0.0.1:38097 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:36:46,249 [INFO] uvicorn.access - 127.0.0.1:38097 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:36:46,268 [INFO] uvicorn.access - 127.0.0.1:38097 - "GET / HTTP/1.1" 200
+2025-09-20 23:36:52,699 [INFO] uvicorn.access - 127.0.0.1:38119 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:36:52,718 [INFO] uvicorn.access - 127.0.0.1:38119 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:36:55,988 [INFO] uvicorn.access - 127.0.0.1:38119 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:36:56,008 [INFO] uvicorn.access - 127.0.0.1:38119 - "GET / HTTP/1.1" 200
+2025-09-20 23:37:02,524 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:37:02,561 [INFO] uvicorn.access - 127.0.0.1:47522 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 23:37:28,219 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:37:28,260 [INFO] uvicorn.access - 127.0.0.1:52546 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 23:37:38,803 [INFO] uvicorn.access - 127.0.0.1:52549 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:37:38,829 [INFO] uvicorn.access - 127.0.0.1:52549 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:37:41,902 [INFO] uvicorn.access - 127.0.0.1:52549 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:37:41,918 [INFO] uvicorn.access - 127.0.0.1:52549 - "GET / HTTP/1.1" 200
+2025-09-20 23:38:03,297 [INFO] uvicorn.access - 127.0.0.1:53734 - "GET / HTTP/1.1" 200
+2025-09-20 23:38:10,250 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:38:10,289 [INFO] uvicorn.access - 127.0.0.1:40796 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-20 23:39:26,126 [INFO] uvicorn.access - 127.0.0.1:31778 - "POST /logout HTTP/1.1" 200
+2025-09-20 23:39:26,153 [INFO] uvicorn.access - 127.0.0.1:31778 - "GET /login-web HTTP/1.1" 200
+2025-09-20 23:39:28,616 [INFO] uvicorn.access - 127.0.0.1:31778 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-20 23:39:28,643 [INFO] uvicorn.access - 127.0.0.1:31778 - "GET / HTTP/1.1" 200
+2025-09-20 23:39:32,799 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-20 23:39:32,838 [INFO] uvicorn.access - 127.0.0.1:31778 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:00:11,698 [INFO] uvicorn.access - 127.0.0.1:63015 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:00:11,749 [INFO] uvicorn.access - 127.0.0.1:63015 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:00:13,968 [INFO] uvicorn.access - 127.0.0.1:63015 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:00:13,997 [INFO] uvicorn.access - 127.0.0.1:63015 - "GET / HTTP/1.1" 200
+2025-09-21 00:00:27,363 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:00:27,404 [INFO] uvicorn.access - 127.0.0.1:63033 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:00:53,270 [INFO] uvicorn.access - 127.0.0.1:60787 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:00:53,296 [INFO] uvicorn.access - 127.0.0.1:60787 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:00:54,760 [INFO] uvicorn.access - 127.0.0.1:60787 - "GET /register HTTP/1.1" 200
+2025-09-21 00:00:58,218 [INFO] uvicorn.access - 127.0.0.1:60787 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:01:00,525 [INFO] uvicorn.access - 127.0.0.1:60787 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:01:00,544 [INFO] uvicorn.access - 127.0.0.1:60787 - "GET / HTTP/1.1" 200
+2025-09-21 00:01:12,931 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:01:12,971 [INFO] uvicorn.access - 127.0.0.1:1834 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:04:47,041 [INFO] uvicorn.access - 127.0.0.1:10567 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:04:47,069 [INFO] uvicorn.access - 127.0.0.1:10567 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:04:49,188 [INFO] uvicorn.access - 127.0.0.1:10567 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:04:49,211 [INFO] uvicorn.access - 127.0.0.1:10567 - "GET / HTTP/1.1" 200
+2025-09-21 00:04:54,932 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:04:54,971 [INFO] uvicorn.access - 127.0.0.1:10575 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:05:03,287 [INFO] uvicorn.access - 127.0.0.1:10596 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:05:03,309 [INFO] uvicorn.access - 127.0.0.1:10596 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:05:05,522 [INFO] uvicorn.access - 127.0.0.1:10596 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:05:05,540 [INFO] uvicorn.access - 127.0.0.1:10596 - "GET / HTTP/1.1" 200
+2025-09-21 00:05:37,608 [INFO] uvicorn.access - 127.0.0.1:31062 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:05:37,628 [INFO] uvicorn.access - 127.0.0.1:31062 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:05:43,432 [INFO] uvicorn.access - 127.0.0.1:31071 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:05:43,452 [INFO] uvicorn.access - 127.0.0.1:31071 - "GET / HTTP/1.1" 200
+2025-09-21 00:05:59,810 [INFO] ocr-search - Original file СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\work\СТО 1070-2-2025 Обесп корп мобильной связью.pdf
+2025-09-21 00:05:59,812 [INFO] ocr-search - Extracted text for СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\txt\СТО 1070-2-2025 Обесп корп мобильной связью_1.pdf
+2025-09-21 00:06:03,517 [INFO] ocr-search - Original file СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf saved to C:\TEMP\document\work\СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf
+2025-09-21 00:06:03,519 [INFO] ocr-search - Extracted text for СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf saved to C:\TEMP\document\txt\СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf
+2025-09-21 00:06:03,591 [INFO] uvicorn.access - 127.0.0.1:6860 - "POST /upload HTTP/1.1" 201
+2025-09-21 00:06:34,551 [INFO] uvicorn.access - 127.0.0.1:6880 - "GET / HTTP/1.1" 200
+2025-09-21 00:06:39,068 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:06:39,107 [INFO] uvicorn.access - 127.0.0.1:6890 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:10:08,218 [INFO] uvicorn.access - 127.0.0.1:49870 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:10:08,245 [INFO] uvicorn.access - 127.0.0.1:49870 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:10:11,959 [INFO] uvicorn.access - 127.0.0.1:49870 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:10:11,989 [INFO] uvicorn.access - 127.0.0.1:49870 - "GET / HTTP/1.1" 200
+2025-09-21 00:10:29,991 [INFO] ocr-search - Original file СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\work\СТО 1202-1-2024 Политика Корпоративная система управления.pdf
+2025-09-21 00:10:29,993 [INFO] ocr-search - Extracted text for СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\txt\СТО 1202-1-2024 Политика Корпоративная система управления_1.pdf
+2025-09-21 00:10:30,068 [INFO] uvicorn.access - 127.0.0.1:49887 - "POST /upload HTTP/1.1" 201
+2025-09-21 00:10:41,206 [INFO] uvicorn.access - 127.0.0.1:49901 - "GET / HTTP/1.1" 200
+2025-09-21 00:10:47,522 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:10:47,580 [INFO] uvicorn.access - 127.0.0.1:49913 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:12:26,190 [INFO] uvicorn.error - Shutting down
+2025-09-21 00:12:26,298 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-21 00:12:26,300 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-21 00:12:26,301 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-21 00:12:26,302 [INFO] uvicorn.error - Finished server process [8740]
+2025-09-21 00:12:37,300 [INFO] uvicorn.error - Started server process [13748]
+2025-09-21 00:12:37,300 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-21 00:12:37,301 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-21 00:12:37,301 [INFO] uvicorn.error - Application startup complete.
+2025-09-21 00:12:39,921 [INFO] uvicorn.access - 127.0.0.1:21223 - "GET / HTTP/1.1" 200
+2025-09-21 00:12:47,425 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-21 00:12:47,518 [INFO] uvicorn.access - 127.0.0.1:21236 - "GET /search?q=%D1%81%D0%BC%D0%B0%D1%80%D1%82%D1%84%D0%BE%D0%BD HTTP/1.1" 200
+2025-09-21 00:13:12,288 [INFO] uvicorn.access - 127.0.0.1:48560 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:13:12,328 [INFO] uvicorn.access - 127.0.0.1:48560 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:13:18,038 [INFO] uvicorn.access - 127.0.0.1:48579 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-21 00:13:18,067 [INFO] uvicorn.access - 127.0.0.1:48579 - "GET / HTTP/1.1" 200
+2025-09-21 00:14:14,211 [INFO] ocr-search - Original file OP-20_сеть+к5.pdf saved to C:\TEMP\document\work\OP-20_сеть+к5.pdf
+2025-09-21 00:14:14,214 [INFO] ocr-search - Extracted text for OP-20_сеть+к5.pdf saved to C:\TEMP\document\txt\OP-20_сеть+к5.pdf
+2025-09-21 00:14:14,246 [INFO] uvicorn.access - 127.0.0.1:27268 - "POST /upload HTTP/1.1" 201
+2025-09-21 00:15:47,248 [INFO] uvicorn.access - 127.0.0.1:62040 - "POST /logout HTTP/1.1" 200
+2025-09-21 00:15:47,274 [INFO] uvicorn.access - 127.0.0.1:62040 - "GET /login-web HTTP/1.1" 200
+2025-09-21 00:18:13,529 [INFO] uvicorn.error - Shutting down
+2025-09-21 00:18:13,655 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-21 00:18:13,657 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-21 00:18:13,661 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-21 00:18:13,662 [INFO] uvicorn.error - Finished server process [13748]
+2025-09-22 11:05:45,132 [INFO] uvicorn.error - Started server process [18096]
+2025-09-22 11:05:45,133 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-22 11:05:45,133 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-22 11:05:45,134 [INFO] uvicorn.error - Application startup complete.
+2025-09-22 11:06:21,953 [INFO] uvicorn.access - 127.0.0.1:47823 - "GET / HTTP/1.1" 307
+2025-09-22 11:06:22,075 [INFO] uvicorn.access - 127.0.0.1:47823 - "GET /login-web HTTP/1.1" 200
+2025-09-22 11:06:22,273 [INFO] uvicorn.access - 127.0.0.1:47823 - "GET /app.css HTTP/1.1" 200
+2025-09-22 11:06:22,502 [INFO] uvicorn.access - 127.0.0.1:47823 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-22 11:06:27,750 [INFO] uvicorn.access - 127.0.0.1:47824 - "GET /register HTTP/1.1" 200
+2025-09-22 11:06:33,567 [INFO] uvicorn.access - 127.0.0.1:47860 - "POST /auth/register HTTP/1.1" 201
+2025-09-22 11:07:58,394 [INFO] uvicorn.access - 127.0.0.1:30496 - "GET /login-web HTTP/1.1" 200
+2025-09-22 11:08:01,595 [INFO] uvicorn.access - 127.0.0.1:30496 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-22 11:08:01,637 [INFO] uvicorn.access - 127.0.0.1:30496 - "GET / HTTP/1.1" 200
+2025-09-22 11:08:29,732 [INFO] ocr-search - Original file СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\work\СТО 1070-2-2025 Обесп корп мобильной связью_1.pdf
+2025-09-22 11:08:29,735 [INFO] ocr-search - Extracted text for СТО 1070-2-2025 Обесп корп мобильной связью.pdf saved to C:\TEMP\document\txt\СТО 1070-2-2025 Обесп корп мобильной связью_2.pdf
+2025-09-22 11:08:33,589 [INFO] ocr-search - Original file СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf saved to C:\TEMP\document\work\СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ_1.pdf
+2025-09-22 11:08:33,591 [INFO] ocr-search - Extracted text for СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ.pdf saved to C:\TEMP\document\txt\СТО 1166-2-2020 Корпоративная сеть передачи данных АО УТЗ_1.pdf
+2025-09-22 11:08:40,533 [INFO] ocr-search - Original file СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\work\СТО 1202-1-2024 Политика Корпоративная система управления_1.pdf
+2025-09-22 11:08:40,536 [INFO] ocr-search - Extracted text for СТО 1202-1-2024 Политика Корпоративная система управления.pdf saved to C:\TEMP\document\txt\СТО 1202-1-2024 Политика Корпоративная система управления_2.pdf
+2025-09-22 11:08:40,629 [INFO] uvicorn.access - 127.0.0.1:30524 - "POST /upload HTTP/1.1" 201
