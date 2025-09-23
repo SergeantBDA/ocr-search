@@ -1,6 +1,6 @@
 import logging
 from urllib.parse import quote
-from typing import Optional, List, Dict, Annotated, Any
+from typing import Optional, List, Dict, Any
 from pathlib import Path
 
 from fastapi import APIRouter, Request, UploadFile, File, Depends
@@ -8,13 +8,13 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 
-from app import search as search_module
 from app.db import get_session, SessionLocal
-from app.models import Document, User
-from app.schemas import UserRead
+from app.models import Document
 from app.services.ocr_dispatch import extract_text
-from app.services import ingest_folder, save_outputs
+from app import search as search_module
+from app.services import ingest_folder
 from app.settings_store import get_documents_dir as store_get_documents_dir
+from app.services import save_outputs
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
 
@@ -29,16 +29,16 @@ router = APIRouter(
     tags=["web"],
     dependencies=[Depends(get_current_user)],
 )
-CurrentUser = Annotated[User, Depends(get_current_user)]
+
 templates = Jinja2Templates(directory="app/web/templates")
 
-def get_current_user_login_proxy(request: Request) -> str:
-    # заголовок выставляет обратный прокси
+def get_current_user_login(request: Request) -> str:
+    # заголовок выставляет nginx
     user = request.headers.get("X-Remote-User")
     return user or "anonymous"
 
 @router.get("/whoami")
-def whoami(request: Request, user: str = Depends(get_current_user_login_proxy)):
+def whoami(request: Request, user: str = Depends(get_current_user_login)):
     return {"user": user}
 
 @router.get("/", include_in_schema=True)
@@ -111,7 +111,6 @@ def scan_now(request: Request, db: Session = Depends(get_session)):
 async def upload_file(
     request: Request,
     files: List[UploadFile] = File(...),
-    current_user: CurrentUser = None,
 ):
     """
     Обрабатывает загрузку файлов (HTMX form hx-post with multiple files).
@@ -121,7 +120,7 @@ async def upload_file(
     - сохраняем оригинал/text в папки из settings (необязательно)
     """
     created_items = []
-    user = UserRead.model_validate(current_user, from_attributes=True)
+
     for upload in files:
         try:
             data = await upload.read()
@@ -136,13 +135,13 @@ async def upload_file(
             try:
                 if settings.output_originals_dir:
                     path_origin = save_outputs.save_original(orig_name, data, settings.output_originals_dir)
-                    # if settings.hostfs:
-                    #     try:
-                    #         # create a hostfs-prefixed path; keep forward slashes for URLs
-                    #         path_origin = Path(settings.hostfs) / Path(path_origin).relative_to(Path(settings.output_originals_dir))
-                    #     except Exception:
-                    #         path_origin = Path(path_origin)
-                    path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
+                    # if hostfs configured, build external link path (best-effort)
+                    if settings.hostfs:
+                        try:
+                            # create a hostfs-prefixed path; keep forward slashes for URLs
+                            path_origin = Path(settings.hostfs) / Path(path_origin).relative_to(Path(settings.output_originals_dir))
+                        except Exception:
+                            path_origin = Path(path_origin)
             except Exception as e:
                 app_logger.exception("Failed to save original for %s: %s", orig_name, e)
 
@@ -161,8 +160,7 @@ async def upload_file(
                     mime=mime,
                     size_bytes=len(data),
                     meta=meta or {},
-                    path_origin=str(path_origin),
-                    email=user.email
+                    path_origin=str(path_origin)
                 )
                 db.add(doc)
                 db.commit()

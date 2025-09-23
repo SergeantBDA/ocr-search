@@ -5,7 +5,7 @@
   <div class="card">
     <h2>Извлечение текста (OCR) и поиск документов</h2>
 
-    <form hx-get="{{ request.url_for('search') }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
+    <form hx-get="{{ request.url_for('search').path }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
       <div class="row">
         <input type="text" name="q" placeholder="Введите запрос..." required />
         <button class="btn" type="submit">Поиск</button>
@@ -15,7 +15,7 @@
     <hr />
 
     <form id="uploadForm"
-          hx-post="{{ request.url_for('upload') }}"
+          hx-post="{{ request.url_for('upload').path }}"
           hx-target="#results"
           hx-swap="afterbegin"
           hx-encoding="multipart/form-data"

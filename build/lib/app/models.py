@@ -16,7 +16,6 @@ class Document(Base):
     search_vector = Column(TSVECTOR, nullable=True)
     #полный путь до загруженного файла ORIGIN
     path_origin = Column(String, nullable=False)
-    email = Column(String, nullable=True)
 
 # GIN индекс по search_vector
 Index(

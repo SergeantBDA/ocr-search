@@ -24,12 +24,8 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # Import your model's Base metadata here
-try:
-    from app.db import Base  # DeclarativeBase in app.db
-    # ensure models are imported so metadata is populated
-    import app.models  # noqa: F401
-except Exception:
-    Base = None
+from app.db import Base  # DeclarativeBase in app.db
+import app.models  # noqa: F401
 
 target_metadata = Base.metadata if Base is not None else None
 

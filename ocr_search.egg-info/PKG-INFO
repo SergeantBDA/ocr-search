@@ -27,6 +27,8 @@ Requires-Dist: openpyxl>=3.1
 Requires-Dist: orjson>=3.9
 Requires-Dist: python-multipart>=0.0.9
 Requires-Dist: pyexiftool>=0.5
+Requires-Dist: passlib[bcrypt]
+Requires-Dist: python-jose[cryptography]
 Provides-Extra: dev
 Requires-Dist: pytest<8.0,>=7.3; extra == "dev"
 Requires-Dist: pytest-asyncio>=0.21; extra == "dev"
@@ -151,3 +153,36 @@ pip устанавливает pyexiftool
 ```
 
 Системные требования: exiftool должен быть установлен в вашей системе и доступен в PATH.
+
+### Сохранение копий (оригиналы и тексты)
+
+Проект может сохранять копии загруженных/обработанных файлов:
+
+- OUTPUT_ORIGINALS_DIR — каталог для сохранения оригинальных файлов (например: D:\DATA\Originals)
+- OUTPUT_TEXTS_DIR — каталог для сохранения извлечённых текстов в .txt (например: D:\DATA\Texts)
+
+Примеры для Windows в `.env`:
+```
+OUTPUT_ORIGINALS_DIR=D:\DATA\Originals
+OUTPUT_TEXTS_DIR=D:\DATA\Texts
+```
+
+Если переменные не заданы — сохранение пропускается. Сохранение не прерывает обработку — ошибки логируются и обработка продолжается.
+
+Файлы сохраняются безопасно: при совпадении имён добавляется суффикс `_1`, `_2` и т.д.
+```### Сохранение копий (оригиналы и тексты)
+
+Проект может сохранять копии загруженных/обработанных файлов:
+
+- OUTPUT_ORIGINALS_DIR — каталог для сохранения оригинальных файлов (например: D:\DATA\Originals)
+- OUTPUT_TEXTS_DIR — каталог для сохранения извлечённых текстов в .txt (например: D:\DATA\Texts)
+
+Примеры для Windows в `.env`:
+```
+OUTPUT_ORIGINALS_DIR=D:\DATA\Originals
+OUTPUT_TEXTS_DIR=D:\DATA\Texts
+```
+
+Если переменные не заданы — сохранение пропускается. Сохранение не прерывает обработку — ошибки логируются и обработка продолжается.
+
+Файлы сохраняются безопасно: при совпадении имён добавляется суффикс `_1`, `_2` и

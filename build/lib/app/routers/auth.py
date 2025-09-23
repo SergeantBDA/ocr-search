@@ -29,8 +29,7 @@ def register(user_in: UserCreate, db: Session = Depends(get_session)):
     except IntegrityError:
         db.rollback()
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
-    #return UserRead.from_orm(user)
-    return UserRead.model_validate(user, from_attributes=True)
+    return UserRead.from_orm(user)
 
 @router.post("/login-web")
 def login_web(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
@@ -55,8 +54,8 @@ def login_web(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = De
         key="access_token",
         value=access_token,
         httponly=True,
-        secure=True,
-        samesite="none",
+        secure=False,
+        samesite="lax",
         max_age=3600,
         path="/",
     )
@@ -81,4 +80,4 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
 @router.get("/me", response_model=UserRead)
 def me(current_user: User = Depends(get_current_user)):
-    return UserRead.model_validate(current_user, from_attributes=True)
+    return UserRead.model_validate(current_user)

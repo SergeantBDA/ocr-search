@@ -15,7 +15,6 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login-web")
 
-ALGORITM = "HS256"
 
 def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
@@ -30,7 +29,7 @@ def create_access_token(data: Dict[str, Any], expires_delta: Optional[timedelta]
     expire = datetime.utcnow() + (expires_delta or timedelta(minutes=settings.jwt_expire_minutes))
     to_encode.update({"exp": expire})
     key = settings.jwt_secret.get_secret_value()
-    encoded_jwt = jwt.encode(to_encode, key, algorithm=ALGORITM)
+    encoded_jwt = jwt.encode(to_encode, key, algorithm="HS256")
     return encoded_jwt
 
 
@@ -41,10 +40,6 @@ def _get_user_by_id(session: Session, user_id: int) -> Optional[User]:
 def _get_user_by_email(session: Session, email: str) -> Optional[User]:
     return session.query(User).filter(User.email == email).one_or_none()
 
-def _get_token_from_cookie_or_header(request: Request, bearer_token: Optional[str]) -> Optional[str]:
-    # Приоритет можно поменять — здесь сначала cookie, потом заголовок
-    return request.cookies.get("access_token") or bearer_token
-
 
 def get_current_user(request: Request):
     auth = request.headers.get("Authorization", "")
@@ -54,26 +49,25 @@ def get_current_user(request: Request):
     else:
         # fallback to cookie
         token = request.cookies.get("access_token")
-    
+
     if not token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated", headers={"WWW-Authenticate": "Bearer"})
 
     try:
-        payload = jwt.decode(token, settings.jwt_secret.get_secret_value(), algorithms=[ALGORITM])
+        payload = jwt.decode(token, settings.jwt_secret.get_secret_value(), algorithms=["HS256"])
         sub = payload.get("sub")
         if sub is None:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
         user_id = int(sub)
-        
     except JWTError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials")
 
     db = SessionLocal()
     try:
-        user = db.query(User).filter(User.id == user_id).one_or_none()        
+        user = db.query(User).filter(User.id == user_id).one_or_none()
     finally:
         db.close()
-    print(f'U S E R: {user}\n')
+
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
     if not user.is_active:

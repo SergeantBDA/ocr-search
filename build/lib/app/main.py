@@ -34,9 +34,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
-#app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
-
 # mount static dir if exists
 try:
     app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -89,7 +86,5 @@ if __name__ == "__main__":
         port=int(settings.app_port),
         log_level="info",
         reload=(getattr(settings, "env", "dev") == "dev"),
-        proxy_headers=True,
-        forwarded_allow_ips="*"
     )
 

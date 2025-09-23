@@ -5,7 +5,7 @@
     <h1 id="login-title">Вход</h1>
 
     <!-- Обычная форма: браузер сам отправит POST, получит Set-Cookie и follow-redirect -->
-    <form id="login-form" action="/auth/login-web" method="post" class="field">
+    <form id="login-form" action="auth/login-web" method="post" class="field">
       <div class="field">
         <label for="login-email">Email</label>
         <input id="login-email" name="username" type="email" required autocomplete="email">
@@ -23,7 +23,7 @@
 
     <div id="login-errors" class="error" role="alert" aria-live="polite"></div>
 
-    <p class="muted" style="margin-top:12px;">Нет аккаунта? <a href="{{ request.url_for('register_page') }}">Зарегистрироваться</a></p>
+    <p class="muted" style="margin-top:12px;">Нет аккаунта? <a href="{{ request.url_for('register_page').path }}">Зарегистрироваться</a></p>
   </div>
 </div>
 {% endblock %}
