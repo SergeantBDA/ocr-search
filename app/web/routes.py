@@ -2,6 +2,7 @@ import logging
 from urllib.parse import quote
 from typing import Optional, List, Dict, Annotated, Any
 from pathlib import Path
+from datetime import datetime
 
 from fastapi import APIRouter, Request, UploadFile, File, Depends
 from fastapi.templating import Jinja2Templates
@@ -42,10 +43,11 @@ def whoami(request: Request, user: str = Depends(get_current_user_login_proxy)):
     return {"user": user}
 
 @router.get("/", include_in_schema=True)
-def index(request: Request):
+def index(request: Request, current_user: CurrentUser = None):
     """
     Рендерит главную страницу (index.html) с пустым блоком результатов.
     """
+    user = UserRead.model_validate(current_user, from_attributes=True)
     context = {
         "request": request,
         "q": "",
@@ -53,6 +55,7 @@ def index(request: Request):
         "total": 0,
         "limit": 25,
         "offset": 0,
+        "current_user":user
     }
     return templates.TemplateResponse("index.html", context)
 
@@ -122,7 +125,11 @@ async def upload_file(
     """
     created_items = []
     user = UserRead.model_validate(current_user, from_attributes=True)
+    _prefix_dir = f'{datetime.now().strftime('%Y%m%d%H')}_{user.email.split('@')[0]}'
+    _output_originals_dir = f'{settings.output_originals_dir}/{_prefix_dir}'
+    _output_texts_dir     = f'{settings.output_texts_dir}/{_prefix_dir}'
     for upload in files:
+        
         try:
             data = await upload.read()
             orig_name = upload.filename or "uploaded"
@@ -135,7 +142,7 @@ async def upload_file(
             path_origin = ""
             try:
                 if settings.output_originals_dir:
-                    path_origin = save_outputs.save_original(orig_name, data, settings.output_originals_dir)
+                    path_origin = save_outputs.save_original(orig_name, data, _output_originals_dir)
                     # if settings.hostfs:
                     #     try:
                     #         # create a hostfs-prefixed path; keep forward slashes for URLs
@@ -148,7 +155,7 @@ async def upload_file(
 
             try:
                 if settings.output_texts_dir:
-                    save_outputs.save_text(orig_name, text or "", settings.output_texts_dir)
+                    save_outputs.save_text(orig_name, text or "", _output_texts_dir)
             except Exception as e:
                 app_logger.exception("Failed to save text for %s: %s", orig_name, e)
 

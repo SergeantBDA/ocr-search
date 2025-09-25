@@ -1,7 +1,7 @@
 import io
 from typing import List
 
-import pdfplumber
+import pymupdf
 from pdf2image import convert_from_bytes
 import pytesseract
 
@@ -14,25 +14,27 @@ def extract_text_from_pdf(data: bytes) -> str:
 	Попробовать извлечь текст через pdfplumber; если текста мало — отрисовать страницы и выполнить OCR через pytesseract.
 	Возвращает объединённый текст (pdfplumber + OCR при необходимости).
 	"""
-	plumber_text_parts: List[str] = []
+	text_parts: List[str] = []
 	try:
-		with pdfplumber.open(io.BytesIO(data)) as pdf:
-			for page in pdf.pages:
+		doc = pymupdf.Document(stream=data)
+		with doc as pdf:			
+			for page in pdf:
 				try:
-					text = page.extract_text()
+					text = page.get_text().strip()
 				except Exception:
 					text = None
 				if text:
-					plumber_text_parts.append(text)
-	except Exception:
+					text_parts.append(text)
+	except Exception as e:
+		print(e)
 		# Если pdfplumber упал — оставим plumber_text_parts пустым и продолжим с OCR
-		plumber_text_parts = []
+		text_parts = []
 
-	plumber_text = "\n\n".join(plumber_text_parts).strip()
+	soft_text = "\n".join(text_parts).strip()
 
 	# Если достаточно текста, возвращаем результат pdfplumber
-	if len(plumber_text) >= MIN_TOTAL_CHARS:
-		return plumber_text
+	if len(soft_text) >= MIN_TOTAL_CHARS:
+		return soft_text
 
 	# Иначе — делаем OCR по изображениям страниц
 	ocr_parts: List[str] = []
@@ -53,8 +55,8 @@ def extract_text_from_pdf(data: bytes) -> str:
 	ocr_text = "\n\n".join(ocr_parts).strip()
 
 	# Если pdfplumber дал хоть что-то, объединим оба результата, иначе вернём только OCR
-	if plumber_text and ocr_text:
-		return plumber_text + "\n\n" + ocr_text
+	if soft_text and ocr_text:
+		return soft_text + "\n\n" + ocr_text
 	if ocr_text:
 		return ocr_text
-	return plumber_text
+	return soft_text

@@ -26,7 +26,7 @@
         <input type="file" name="files" multiple accept="image/*,application/pdf" />
         <button class="btn" type="submit">Загрузить</button>
       </div>
-      <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти</a>
+      <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти ({{ current_user.email }})</a>
     </form>
   </div>
 </div>

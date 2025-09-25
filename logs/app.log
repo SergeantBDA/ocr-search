@@ -2441,3 +2441,569 @@ AttributeError: 'UserRead' object has no attribute 'get'
 2025-09-23 17:21:05,092 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-09-23 17:21:05,093 [INFO] uvicorn.error - Application shutdown complete.
 2025-09-23 17:21:05,094 [INFO] uvicorn.error - Finished server process [11336]
+2025-09-23 17:21:08,114 [INFO] uvicorn.error - Started server process [4992]
+2025-09-23 17:21:08,114 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 17:21:08,115 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 17:21:08,115 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 17:21:46,279 [INFO] uvicorn.access - 10.192.3.64:53165:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:21:55,684 [INFO] ocr-search - Original file (AL) Счет на оплату № ALER-050261 от 01.09.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\(AL) Счет на оплату No ALER-050261 от 01.09.2024.pdf
+2025-09-23 17:21:55,685 [INFO] ocr-search - Extracted text for (AL) Счет на оплату № ALER-050261 от 01.09.2024.pdf saved to D:\SHARE\_OCR_TEXT\(AL) Счет на оплату No ALER-050261 от 01.09.2024.pdf
+2025-09-23 17:21:55,792 [INFO] uvicorn.access - 10.192.3.64:53165:0 - "POST /upload HTTP/1.1" 201
+2025-09-23 17:25:18,750 [INFO] uvicorn.access - 10.192.3.64:53209:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:29:06,321 [INFO] uvicorn.access - 10.192.3.64:53238:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:29:32,884 [INFO] ocr-search - Original file (AL) Счет на оплату № ALER-013495 от 01.03.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\(AL) Счет на оплату No ALER-013495 от 01.03.2024.pdf
+2025-09-23 17:29:32,886 [INFO] ocr-search - Extracted text for (AL) Счет на оплату № ALER-013495 от 01.03.2024.pdf saved to D:\SHARE\_OCR_TEXT\(AL) Счет на оплату No ALER-013495 от 01.03.2024.pdf
+2025-09-23 17:29:33,352 [INFO] ocr-search - Original file (AL) Счет на оплату № ALER-008736 от 14.02.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\(AL) Счет на оплату No ALER-008736 от 14.02.2024.pdf
+2025-09-23 17:29:33,353 [INFO] ocr-search - Extracted text for (AL) Счет на оплату № ALER-008736 от 14.02.2024.pdf saved to D:\SHARE\_OCR_TEXT\(AL) Счет на оплату No ALER-008736 от 14.02.2024.pdf
+2025-09-23 17:29:33,800 [INFO] ocr-search - Original file (AL) Счет на оплату № ALER-071640 от 19.12.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\(AL) Счет на оплату No ALER-071640 от 19.12.2024.pdf
+2025-09-23 17:29:33,802 [INFO] ocr-search - Extracted text for (AL) Счет на оплату № ALER-071640 от 19.12.2024.pdf saved to D:\SHARE\_OCR_TEXT\(AL) Счет на оплату No ALER-071640 от 19.12.2024.pdf
+2025-09-23 17:29:33,810 [INFO] uvicorn.access - 10.192.3.64:53238:0 - "POST /upload HTTP/1.1" 201
+2025-09-23 17:30:09,069 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-23 17:30:11,002 [INFO] uvicorn.access - 10.192.3.64:53238:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82 HTTP/1.1" 200
+2025-09-23 17:49:10,415 [INFO] uvicorn.error - Shutting down
+2025-09-23 17:49:10,515 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 17:49:10,516 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 17:49:10,517 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 17:49:10,517 [INFO] uvicorn.error - Finished server process [4992]
+2025-09-23 17:49:13,662 [INFO] uvicorn.error - Started server process [7388]
+2025-09-23 17:49:13,662 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 17:49:13,663 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 17:49:13,663 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 17:57:06,834 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:57:09,746 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 17:57:09,767 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 17:57:28,490 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-23 17:57:28,528 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:58:27,668 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:58:32,004 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /me HTTP/1.1" 404
+2025-09-23 17:58:32,622 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /me HTTP/1.1" 404
+2025-09-23 17:58:38,385 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /auth/me HTTP/1.1" 200
+2025-09-23 17:58:44,550 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 17:59:36,211 [INFO] uvicorn.error - Shutting down
+2025-09-23 17:59:36,312 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 17:59:36,312 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 17:59:36,313 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 17:59:36,313 [INFO] uvicorn.error - Finished server process [7388]
+2025-09-23 17:59:39,244 [INFO] uvicorn.error - Started server process [10584]
+2025-09-23 17:59:39,245 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 17:59:39,245 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 17:59:39,246 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 17:59:47,509 [INFO] uvicorn.error - Shutting down
+2025-09-23 17:59:47,610 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 17:59:47,610 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 17:59:47,611 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 17:59:47,611 [INFO] uvicorn.error - Finished server process [10584]
+2025-09-23 17:59:49,865 [INFO] uvicorn.error - Started server process [10028]
+2025-09-23 17:59:49,866 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 17:59:49,868 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 17:59:49,869 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 17:59:52,840 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:00:06,061 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 18:00:06,110 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:00:17,194 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-23 18:00:17,210 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:02:11,832 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 18:02:11,879 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:02:23,071 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-23 18:02:23,097 [INFO] uvicorn.access - 10.192.3.64:53682:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:05:31,634 [INFO] ocr-search - Original file УПД №00000057880 от 31.08.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\УПД No00000057880 от 31.08.2025.pdf
+2025-09-23 18:05:31,635 [INFO] ocr-search - Extracted text for УПД №00000057880 от 31.08.2025.pdf saved to D:\SHARE\_OCR_TEXT\УПД No00000057880 от 31.08.2025.pdf
+2025-09-23 18:05:32,362 [INFO] ocr-search - Original file УПД №00000058174 от 08.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\УПД No00000058174 от 08.09.2025.pdf
+2025-09-23 18:05:32,363 [INFO] ocr-search - Extracted text for УПД №00000058174 от 08.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\УПД No00000058174 от 08.09.2025.pdf
+2025-09-23 18:05:33,060 [INFO] ocr-search - Original file УПД №00000058194 от 08.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\УПД No00000058194 от 08.09.2025.pdf
+2025-09-23 18:05:33,060 [INFO] ocr-search - Extracted text for УПД №00000058194 от 08.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\УПД No00000058194 от 08.09.2025.pdf
+2025-09-23 18:05:33,643 [INFO] ocr-search - Original file УПД №00000057673 от 29.08.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\УПД No00000057673 от 29.08.2025.pdf
+2025-09-23 18:05:33,644 [INFO] ocr-search - Extracted text for УПД №00000057673 от 29.08.2025.pdf saved to D:\SHARE\_OCR_TEXT\УПД No00000057673 от 29.08.2025.pdf
+2025-09-23 18:05:34,282 [INFO] ocr-search - Original file УПД №00000040149 от 01.08.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\УПД No00000040149 от 01.08.2024.pdf
+2025-09-23 18:05:34,284 [INFO] ocr-search - Extracted text for УПД №00000040149 от 01.08.2024.pdf saved to D:\SHARE\_OCR_TEXT\УПД No00000040149 от 01.08.2024.pdf
+2025-09-23 18:05:34,293 [INFO] uvicorn.access - 10.192.3.64:53802:0 - "POST /upload HTTP/1.1" 201
+2025-09-23 18:05:59,356 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-23 18:06:00,368 [INFO] uvicorn.access - 10.192.3.64:53802:0 - "GET /search?q=%D0%A3%D0%9F%D0%94 HTTP/1.1" 200
+2025-09-23 18:06:29,130 [INFO] uvicorn.access - 10.192.3.64:53802:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 18:06:29,174 [INFO] uvicorn.access - 10.192.3.64:53802:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:06:48,763 [INFO] uvicorn.access - 10.192.3.64:53802:0 - "GET /register HTTP/1.1" 200
+2025-09-23 18:09:29,597 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:09:44,498 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-23 18:09:44,533 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:09:54,489 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "GET /search?q=%20 HTTP/1.1" 200
+2025-09-23 18:10:26,692 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 18:10:26,742 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:10:36,983 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-23 18:10:37,014 [INFO] uvicorn.access - 10.192.3.64:56489:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:19:05,367 [INFO] uvicorn.error - Shutting down
+2025-09-23 18:19:05,470 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 18:19:05,471 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 18:19:05,472 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 18:19:05,473 [INFO] uvicorn.error - Finished server process [10028]
+2025-09-23 18:19:08,492 [INFO] uvicorn.error - Started server process [6516]
+2025-09-23 18:19:08,493 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 18:19:08,494 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 18:19:08,495 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 18:19:27,281 [INFO] uvicorn.access - 10.192.3.64:56607:0 - "GET / HTTP/1.1" 200
+2025-09-23 18:19:36,454 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-23 18:19:38,080 [INFO] uvicorn.access - 10.192.3.64:56612:0 - "GET /search?q=%D1%81%D1%85%D0%B5%D0%BC%D0%B0 HTTP/1.1" 200
+2025-09-23 18:19:52,754 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-23 18:19:54,498 [INFO] uvicorn.access - 10.192.3.64:56612:0 - "GET /search?q=%D0%A1%D1%85%D0%B5%D0%BC HTTP/1.1" 200
+2025-09-23 18:34:59,466 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   LIMIT :limit OFFSET :offset   
+2025-09-23 18:35:00,516 [INFO] uvicorn.access - 10.192.3.64:56794:0 - "GET /search?q=%D0%A3%D0%9F%D0%94 HTTP/1.1" 200
+2025-09-23 18:36:03,857 [INFO] uvicorn.error - Shutting down
+2025-09-23 18:36:03,958 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 18:36:03,959 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 18:36:03,960 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 18:36:03,960 [INFO] uvicorn.error - Finished server process [6516]
+2025-09-23 18:36:07,042 [INFO] uvicorn.error - Started server process [1896]
+2025-09-23 18:36:07,043 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 18:36:07,045 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 18:36:07,046 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 18:37:13,337 [INFO] uvicorn.error - Shutting down
+2025-09-23 18:37:13,439 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 18:37:13,440 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 18:37:13,442 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 18:37:13,442 [INFO] uvicorn.error - Finished server process [1896]
+2025-09-23 18:37:15,722 [INFO] uvicorn.error - Started server process [9696]
+2025-09-23 18:37:15,722 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 18:37:15,724 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 18:37:15,725 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 18:37:23,670 [INFO] uvicorn.error - Shutting down
+2025-09-23 18:37:23,772 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 18:37:23,773 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 18:37:23,775 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 18:37:23,776 [INFO] uvicorn.error - Finished server process [9696]
+2025-09-23 18:37:25,951 [INFO] uvicorn.error - Started server process [1992]
+2025-09-23 18:37:25,952 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 18:37:25,953 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 18:37:25,954 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 18:37:43,498 [INFO] uvicorn.access - 10.192.3.64:56828:0 - "GET /search?q=%D0%A3%D0%9F%D0%94 HTTP/1.1" 500
+2025-09-23 18:37:43,499 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 73, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: search_documents() got an unexpected keyword argument 'limit'
+2025-09-23 18:37:49,840 [INFO] uvicorn.access - 10.192.3.64:56828:0 - "GET /search?q=%D0%A1%D1%85%D0%B5%D0%BC%D0%B0 HTTP/1.1" 500
+2025-09-23 18:37:49,841 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 73, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: search_documents() got an unexpected keyword argument 'limit'
+2025-09-23 18:37:53,748 [INFO] uvicorn.access - 10.192.3.64:56828:0 - "GET /search?q=%D0%A1%D1%85%D0%B5%D0%BC%D0%B0 HTTP/1.1" 500
+2025-09-23 18:37:53,749 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2476, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 73, in search
+    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: search_documents() got an unexpected keyword argument 'limit'
+2025-09-23 18:38:38,213 [INFO] uvicorn.error - Shutting down
+2025-09-23 18:38:38,323 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-23 18:38:38,323 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-23 18:38:38,323 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-23 18:38:38,323 [INFO] uvicorn.error - Finished server process [1992]
+2025-09-23 18:38:40,546 [INFO] uvicorn.error - Started server process [6336]
+2025-09-23 18:38:40,546 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-23 18:38:40,556 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-23 18:38:40,556 [INFO] uvicorn.error - Application startup complete.
+2025-09-23 18:38:43,646 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-09-23 18:38:45,515 [INFO] uvicorn.access - 10.192.3.64:56828:0 - "GET /search?q=%D0%A1%D1%85%D0%B5%D0%BC%D0%B0 HTTP/1.1" 200
+2025-09-23 18:56:46,799 [INFO] uvicorn.access - 10.192.3.64:57181:0 - "POST /logout HTTP/1.1" 200
+2025-09-23 18:56:46,865 [INFO] uvicorn.access - 10.192.3.64:57181:0 - "GET /login-web HTTP/1.1" 200
+2025-09-23 18:56:46,932 [INFO] uvicorn.access - 10.192.3.64:57181:0 - "GET /app.css HTTP/1.1" 304
+2025-09-24 08:26:57,306 [INFO] uvicorn.access - 10.192.3.127:49559:0 - "GET /app.css HTTP/1.1" 304
+2025-09-24 08:27:04,178 [INFO] uvicorn.access - 10.192.3.127:49559:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-24 10:13:12,141 [INFO] uvicorn.access - 10.192.3.64:49323:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-24 10:53:46,366 [INFO] uvicorn.access - 10.192.3.64:64705:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-24 10:53:46,435 [INFO] uvicorn.access - 10.192.3.64:64705:0 - "GET / HTTP/1.1" 200
+2025-09-24 10:53:46,462 [INFO] uvicorn.access - 10.192.3.64:64705:0 - "GET /app.css HTTP/1.1" 304
+2025-09-24 14:07:31,627 [INFO] uvicorn.error - Shutting down
+2025-09-24 14:07:31,730 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 14:07:31,732 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 14:07:31,733 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 14:07:31,734 [INFO] uvicorn.error - Finished server process [6336]
+2025-09-24 14:07:43,324 [INFO] uvicorn.error - Started server process [9280]
+2025-09-24 14:07:43,325 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 14:07:43,326 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 14:07:43,326 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 14:12:03,930 [INFO] uvicorn.access - 10.192.3.64:63933:0 - "GET / HTTP/1.1" 307
+2025-09-24 14:12:03,972 [INFO] uvicorn.access - 10.192.3.64:63933:0 - "GET /login-web HTTP/1.1" 200
+2025-09-24 14:12:16,861 [INFO] uvicorn.access - 10.192.3.64:63933:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-24 14:12:16,919 [INFO] uvicorn.access - 10.192.3.64:63933:0 - "GET / HTTP/1.1" 200
+2025-09-24 14:12:45,891 [INFO] uvicorn.access - 10.192.3.64:63933:0 - "POST /upload HTTP/1.1" 500
+2025-09-24 14:12:45,892 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 128, in upload_file
+    _output_originals_dir = f'{settings.output_originals_dir}/{datetime.now().strftime('%Y%m%d%H')}_{user.split('@')[0]}'
+                                                                                                     ^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UserRead' object has no attribute 'split'
+2025-09-24 14:14:49,102 [INFO] uvicorn.error - Shutting down
+2025-09-24 14:14:49,202 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 14:14:49,203 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 14:14:49,204 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 14:14:49,204 [INFO] uvicorn.error - Finished server process [9280]
+2025-09-24 14:15:12,341 [INFO] uvicorn.error - Started server process [10156]
+2025-09-24 14:15:12,342 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 14:15:12,344 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 14:15:12,344 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 14:15:16,837 [INFO] uvicorn.access - 10.192.3.64:63973:0 - "GET / HTTP/1.1" 200
+2025-09-24 14:15:19,667 [INFO] uvicorn.access - 10.192.3.64:63973:0 - "GET / HTTP/1.1" 200
+2025-09-24 14:15:44,491 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 14:15:44,493 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 14:15:45,106 [INFO] ocr-search - Original file ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 14:15:45,108 [INFO] ocr-search - Extracted text for ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 14:15:45,684 [INFO] ocr-search - Original file Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 14:15:45,684 [INFO] ocr-search - Extracted text for Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 14:15:45,699 [INFO] uvicorn.access - 10.192.3.64:63973:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 14:54:00,247 [INFO] uvicorn.error - Shutting down
+2025-09-24 14:54:00,350 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 14:54:00,351 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 14:54:00,352 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 14:54:00,353 [INFO] uvicorn.error - Finished server process [10156]
+2025-09-24 14:54:03,905 [INFO] uvicorn.error - Started server process [11488]
+2025-09-24 14:54:03,906 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 14:54:03,907 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 14:54:03,908 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 14:54:36,304 [INFO] uvicorn.access - 10.192.3.64:60983:0 - "GET / HTTP/1.1" 200
+2025-09-24 14:55:34,343 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 14:55:34,343 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 14:55:38,422 [INFO] ocr-search - Original file ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 14:55:38,423 [INFO] ocr-search - Extracted text for ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 14:55:48,699 [INFO] ocr-search - Original file Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092414_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 14:55:48,699 [INFO] ocr-search - Extracted text for Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092414_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 14:55:48,714 [INFO] uvicorn.access - 10.192.3.64:61021:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 15:07:11,922 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:07:12,027 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:07:12,027 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:07:12,027 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:07:12,027 [INFO] uvicorn.error - Finished server process [11488]
+2025-09-24 15:07:16,430 [INFO] uvicorn.error - Started server process [12044]
+2025-09-24 15:07:16,431 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:07:16,433 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:07:16,433 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:07:29,662 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:07:29,763 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:07:29,764 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:07:29,767 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:07:29,768 [INFO] uvicorn.error - Finished server process [12044]
+2025-09-24 15:07:32,144 [INFO] uvicorn.error - Started server process [11236]
+2025-09-24 15:07:32,145 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:07:32,146 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:07:32,146 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:07:32,353 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:07:32,453 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:07:32,453 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:07:32,455 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:07:32,455 [INFO] uvicorn.error - Finished server process [11236]
+2025-09-24 15:07:34,883 [INFO] uvicorn.error - Started server process [10244]
+2025-09-24 15:07:34,884 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:07:34,885 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:07:34,886 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:07:58,436 [INFO] uvicorn.access - 10.192.3.64:61330:0 - "GET / HTTP/1.1" 200
+2025-09-24 15:08:23,675 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 15:08:23,677 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 15:08:27,859 [INFO] ocr-search - Original file ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092415_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 15:08:27,859 [INFO] ocr-search - Extracted text for ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_TEXT\2025092415_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 15:08:38,351 [INFO] ocr-search - Original file Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092415_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 15:08:38,352 [INFO] ocr-search - Extracted text for Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092415_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 15:08:38,362 [INFO] uvicorn.access - 10.192.3.64:61330:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 15:09:49,399 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:09:49,500 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:09:49,500 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:09:49,501 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:09:49,502 [INFO] uvicorn.error - Finished server process [10244]
+2025-09-24 15:09:51,961 [INFO] uvicorn.error - Started server process [11452]
+2025-09-24 15:09:51,962 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:09:51,962 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:09:51,963 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:10:02,273 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:10:02,374 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:10:02,375 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:10:02,375 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:10:02,375 [INFO] uvicorn.error - Finished server process [11452]
+2025-09-24 15:10:04,986 [INFO] uvicorn.error - Started server process [10500]
+2025-09-24 15:10:04,987 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:10:04,987 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:10:04,988 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:10:15,559 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:10:15,659 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:10:15,660 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:10:15,660 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:10:15,660 [INFO] uvicorn.error - Finished server process [10500]
+2025-09-24 15:10:18,143 [INFO] uvicorn.error - Started server process [11672]
+2025-09-24 15:10:18,143 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:10:18,144 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:10:18,144 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:10:24,401 [INFO] uvicorn.access - 10.192.3.64:61359:0 - "GET / HTTP/1.1" 200
+2025-09-24 15:10:24,460 [INFO] uvicorn.access - 10.192.3.64:61359:0 - "GET /app.css HTTP/1.1" 304
+2025-09-24 15:10:43,580 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025_1.pdf
+2025-09-24 15:10:43,580 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025_1.pdf
+2025-09-24 15:10:43,596 [INFO] uvicorn.access - 10.192.3.64:61359:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 15:37:36,695 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:37:36,802 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:37:36,802 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:37:36,802 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:37:36,802 [INFO] uvicorn.error - Finished server process [11672]
+2025-09-24 15:37:40,297 [INFO] uvicorn.error - Started server process [2896]
+2025-09-24 15:37:40,297 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:37:40,299 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:37:40,299 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:37:56,326 [INFO] uvicorn.access - 10.192.3.64:50394:0 - "GET / HTTP/1.1" 307
+2025-09-24 15:37:56,349 [INFO] uvicorn.access - 10.192.3.64:50394:0 - "GET /login-web HTTP/1.1" 200
+2025-09-24 15:38:06,009 [INFO] uvicorn.access - 10.192.3.64:50400:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-24 15:38:06,046 [INFO] uvicorn.access - 10.192.3.64:50400:0 - "GET / HTTP/1.1" 200
+2025-09-24 15:38:29,425 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025_2.pdf
+2025-09-24 15:38:29,425 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092415_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025_2.pdf
+2025-09-24 15:38:29,456 [INFO] uvicorn.access - 10.192.3.64:50410:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 15:39:39,390 [INFO] uvicorn.error - Shutting down
+2025-09-24 15:39:39,490 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 15:39:39,490 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 15:39:39,491 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 15:39:39,491 [INFO] uvicorn.error - Finished server process [2896]
+2025-09-24 15:39:41,740 [INFO] uvicorn.error - Started server process [2064]
+2025-09-24 15:39:41,740 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 15:39:41,741 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 15:39:41,742 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 15:58:10,925 [INFO] uvicorn.access - 10.192.3.127:57620:0 - "GET /app.css HTTP/1.1" 304
+2025-09-24 15:58:15,090 [INFO] uvicorn.access - 10.192.3.127:57620:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-24 16:35:25,910 [INFO] uvicorn.error - Shutting down
+2025-09-24 16:35:26,013 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 16:35:26,014 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 16:35:26,015 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 16:35:26,016 [INFO] uvicorn.error - Finished server process [2064]
+2025-09-24 16:35:29,382 [INFO] uvicorn.error - Started server process [11160]
+2025-09-24 16:35:29,382 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 16:35:29,383 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 16:35:29,383 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 16:35:37,759 [INFO] uvicorn.error - Shutting down
+2025-09-24 16:35:37,859 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 16:35:37,860 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 16:35:37,860 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 16:35:37,861 [INFO] uvicorn.error - Finished server process [11160]
+2025-09-24 16:35:40,165 [INFO] uvicorn.error - Started server process [3116]
+2025-09-24 16:35:40,169 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 16:35:40,170 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 16:35:40,171 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 16:37:25,390 [INFO] uvicorn.access - 10.192.3.64:50335:0 - "GET / HTTP/1.1" 200
+2025-09-24 16:37:46,205 [INFO] ocr-search - Original file Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092416_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 16:37:46,206 [INFO] ocr-search - Extracted text for Счет на оплату №00000058566 от 18.09.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092416_bakhtin_da\Счет на оплату No00000058566 от 18.09.2025.pdf
+2025-09-24 16:37:46,614 [INFO] ocr-search - Original file ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092416_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 16:37:46,615 [INFO] ocr-search - Extracted text for ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf saved to D:\SHARE\_OCR_TEXT\2025092416_bakhtin_da\ПЭ STS-2126, STS-2126-1 Алерс-СТГТ-Алерс 15.09.25.pdf
+2025-09-24 16:37:46,931 [INFO] ocr-search - Original file Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092416_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 16:37:46,931 [INFO] ocr-search - Extracted text for Акт выполненных работ №00000058200 от 10.07.2025.pdf saved to D:\SHARE\_OCR_TEXT\2025092416_bakhtin_da\Акт выполненных работ No00000058200 от 10.07.2025.pdf
+2025-09-24 16:37:46,946 [INFO] uvicorn.access - 10.192.3.64:50335:0 - "POST /upload HTTP/1.1" 201
+2025-09-24 16:39:43,126 [INFO] uvicorn.error - Shutting down
+2025-09-24 16:39:43,227 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-24 16:39:43,227 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-24 16:39:43,228 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-24 16:39:43,228 [INFO] uvicorn.error - Finished server process [3116]
+2025-09-24 16:39:45,642 [INFO] uvicorn.error - Started server process [6432]
+2025-09-24 16:39:45,643 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-24 16:39:45,643 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-24 16:39:45,643 [INFO] uvicorn.error - Application startup complete.
+2025-09-24 16:48:15,253 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "GET / HTTP/1.1" 307
+2025-09-24 16:48:15,314 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "GET /login-web HTTP/1.1" 200
+2025-09-24 16:48:27,224 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-24 16:48:27,266 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "GET / HTTP/1.1" 200
+2025-09-24 16:48:33,262 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-09-24 16:48:33,281 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "GET /search?q=%D1%82%D0%BE%D0%B2%D0%B0%D1%80 HTTP/1.1" 200
+2025-09-24 16:48:46,679 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "POST /logout HTTP/1.1" 200
+2025-09-24 16:48:46,742 [INFO] uvicorn.access - 10.192.3.64:62246:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 08:21:45,596 [INFO] uvicorn.access - 10.192.3.127:60312:0 - "GET /app.css HTTP/1.1" 304
+2025-09-25 08:21:47,890 [INFO] uvicorn.access - 10.192.3.127:60312:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-25 09:49:29,193 [INFO] uvicorn.access - 10.192.3.64:52602:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-25 10:02:13,693 [INFO] uvicorn.access - 10.192.3.64:52963:0 - "GET / HTTP/1.1" 307
+2025-09-25 10:02:13,755 [INFO] uvicorn.access - 10.192.3.64:52963:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 10:02:13,865 [INFO] uvicorn.access - 10.192.3.64:52963:0 - "GET /app.css HTTP/1.1" 304
+2025-09-25 10:04:21,796 [INFO] uvicorn.access - 10.192.3.64:53002:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-25 10:04:21,825 [INFO] uvicorn.access - 10.192.3.64:53002:0 - "GET / HTTP/1.1" 200
+2025-09-25 10:52:40,684 [INFO] uvicorn.error - Shutting down
+2025-09-25 10:52:40,786 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-25 10:52:40,787 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-25 10:52:40,788 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-25 10:52:40,788 [INFO] uvicorn.error - Finished server process [6432]

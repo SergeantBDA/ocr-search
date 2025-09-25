@@ -7,18 +7,19 @@ import logging
 from app.logger import logger as app_logger
 
 def search_documents(session: Session, query: str, limit: int = 25, offset: int = 0) -> Dict[str, Any]:
+#def search_documents(session: Session, query: str) -> Dict[str, Any]:
     """
     Ищет документы по PostgreSQL full-text (search_vector) + pg_trgm.
     Возвращает dict: {"total": int, "items": [{"id":..., "filename":..., "snippet":...}, ...]}
     """
     q = (query or "").strip()
     if not q:
-        # Пустой запрос — вернём последние документы и общее количество
+        # Пустой запрос — вернём последние 10 документов и общее количество
         total = session.execute(text("SELECT count(*) FROM documents")).scalar_one()
         rows = session.execute(
             text(
                 "SELECT id, filename, path_origin, left(coalesce(content,''), 800) AS snippet "
-                "FROM documents ORDER BY created_at DESC LIMIT :limit OFFSET :offset"
+                "FROM documents ORDER BY created_at DESC LIMIT 10"
             ),
             {"limit": limit, "offset": offset},
         ).mappings().all()
@@ -29,10 +30,13 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
         return {"total": int(total), "items": items}
 
     # Непустой запрос — комбинируем full-text и триграммы
-    params = {"q": q, "limit": limit, "offset": offset}
+    params = {"q": q}
     tsq = "plainto_tsquery('simple', :q)"
 
-    where_sql = f"({{tsq}} @@ {tsq}) OR (content ILIKE '%' || :q || '%') OR (similarity(content, :q) > 0.2)".replace("{tsq}", "search_vector")
+    where_sql = f"({{tsq}} @@ {tsq}) OR                \
+                  (filename ILIKE '%' || :q || '%') OR \
+                  (content  ILIKE '%' || :q || '%') OR \
+                  (similarity(content, :q) > 0.2)".replace("{tsq}", "search_vector")
     # total count
     count_sql = f"SELECT count(*) FROM documents WHERE {where_sql}"
     total = session.execute(text(count_sql), params).scalar_one()
@@ -49,7 +53,6 @@ def search_documents(session: Session, query: str, limit: int = 25, offset: int 
     FROM documents
     WHERE {where_sql}
     ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, {tsq}), 0), COALESCE(similarity(content, :q), 0)) DESC
-    LIMIT :limit OFFSET :offset
     """
     app_logger.debug("Search SQL: %s", select_sql.replace("\n", " ").replace("  ", " "))
     rows = session.execute(text(select_sql), params).mappings().all()
