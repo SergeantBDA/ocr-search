@@ -3007,3 +3007,455 @@ AttributeError: 'UserRead' object has no attribute 'split'
 2025-09-25 10:52:40,787 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-09-25 10:52:40,788 [INFO] uvicorn.error - Application shutdown complete.
 2025-09-25 10:52:40,788 [INFO] uvicorn.error - Finished server process [6432]
+2025-09-25 10:52:52,562 [INFO] uvicorn.error - Started server process [3600]
+2025-09-25 10:52:52,563 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-25 10:52:52,564 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-25 10:52:52,564 [INFO] uvicorn.error - Application startup complete.
+2025-09-25 10:55:20,110 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "POST /logout HTTP/1.1" 200
+2025-09-25 10:55:20,172 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 10:55:26,507 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "GET /register HTTP/1.1" 200
+2025-09-25 10:55:37,902 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 10:55:48,134 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-25 10:55:48,171 [INFO] uvicorn.access - 10.192.3.64:58220:0 - "GET / HTTP/1.1" 200
+2025-09-25 17:02:28,028 [INFO] uvicorn.access - 10.192.3.64:60351:0 - "GET / HTTP/1.1" 307
+2025-09-25 17:02:28,059 [INFO] uvicorn.access - 10.192.3.64:60351:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 17:02:28,134 [INFO] uvicorn.access - 10.192.3.64:60351:0 - "GET /app.css HTTP/1.1" 304
+2025-09-25 17:03:55,477 [INFO] uvicorn.access - 10.192.3.69:60234:0 - "GET / HTTP/1.1" 307
+2025-09-25 17:03:55,524 [INFO] uvicorn.access - 10.192.3.69:60234:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 17:03:55,562 [INFO] uvicorn.access - 10.192.3.69:60234:0 - "GET /app.css HTTP/1.1" 200
+2025-09-25 17:03:55,922 [INFO] uvicorn.access - 10.192.3.69:60234:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-25 17:03:59,583 [INFO] uvicorn.access - 10.192.3.69:60234:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-09-25 17:07:30,547 [INFO] uvicorn.access - 10.192.3.64:60426:0 - "GET / HTTP/1.1" 307
+2025-09-25 17:07:30,591 [INFO] uvicorn.access - 10.192.3.64:60426:0 - "GET /login-web HTTP/1.1" 200
+2025-09-25 18:01:06,936 [INFO] uvicorn.access - 10.192.3.64:57515:0 - "GET / HTTP/1.1" 307
+2025-09-25 18:01:06,954 [INFO] uvicorn.access - 10.192.3.64:57515:0 - "GET /login-web HTTP/1.1" 200
+2025-09-26 09:56:56,709 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET / HTTP/1.1" 307
+2025-09-26 09:56:56,723 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET / HTTP/1.1" 307
+2025-09-26 09:56:56,730 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET /login-web HTTP/1.1" 200
+2025-09-26 09:56:56,762 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET /login-web HTTP/1.1" 200
+2025-09-26 09:56:56,893 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET /app.css HTTP/1.1" 304
+2025-09-26 09:56:57,595 [INFO] uvicorn.access - 10.192.3.64:55476:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-26 09:58:52,972 [INFO] uvicorn.access - 10.192.3.64:55888:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-26 09:58:52,997 [INFO] uvicorn.access - 10.192.3.64:55888:0 - "GET / HTTP/1.1" 200
+2025-09-26 09:58:55,749 [INFO] uvicorn.access - 10.192.3.64:55888:0 - "POST /logout HTTP/1.1" 200
+2025-09-26 09:58:55,759 [INFO] uvicorn.access - 10.192.3.64:55888:0 - "GET /login-web HTTP/1.1" 200
+2025-09-26 15:18:21,204 [INFO] uvicorn.access - 10.192.3.127:60469:0 - "GET /app.css HTTP/1.1" 304
+2025-09-26 15:18:28,961 [INFO] uvicorn.access - 10.192.3.127:60469:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-29 16:38:48,876 [INFO] uvicorn.error - Started server process [6160]
+2025-09-29 16:38:48,878 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 16:38:48,878 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 16:38:48,879 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 16:38:57,569 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "GET / HTTP/1.1" 307
+2025-09-29 16:38:57,616 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "GET /login-web HTTP/1.1" 200
+2025-09-29 16:38:57,679 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "GET /app.css HTTP/1.1" 200
+2025-09-29 16:39:39,690 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-29 16:39:59,726 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-29 16:39:59,784 [INFO] uvicorn.access - 10.132.18.91:57280:0 - "GET / HTTP/1.1" 200
+2025-09-29 16:47:22,342 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "GET / HTTP/1.1" 307
+2025-09-29 16:47:22,396 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "GET /login-web HTTP/1.1" 200
+2025-09-29 16:47:22,490 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "GET /app.css HTTP/1.1" 304
+2025-09-29 16:47:22,577 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-29 16:47:29,724 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-29 16:47:29,751 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "GET / HTTP/1.1" 200
+2025-09-29 16:48:02,550 [INFO] uvicorn.access - 10.192.3.64:49674:0 - "POST /upload HTTP/1.1" 500
+2025-09-29 16:48:02,551 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 142, in upload_file
+    for orig_name, data, text in tp.map(run, files):
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable coroutine object
+2025-09-29 16:56:18,385 [INFO] uvicorn.error - Shutting down
+2025-09-29 16:56:18,487 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 16:56:18,488 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 16:56:18,490 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 16:56:18,490 [INFO] uvicorn.error - Finished server process [6160]
+2025-09-29 16:56:34,317 [INFO] uvicorn.error - Started server process [6184]
+2025-09-29 16:56:34,317 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 16:56:34,317 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 16:56:34,317 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 16:56:41,134 [INFO] uvicorn.access - 10.192.3.64:58959:0 - "GET / HTTP/1.1" 200
+2025-09-29 16:57:03,355 [INFO] uvicorn.access - 10.192.3.64:58959:0 - "POST /upload HTTP/1.1" 500
+2025-09-29 16:57:03,356 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 142, in upload_file
+    for orig_name, data, text in tp.map(run, files):
+                       ^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\LANG\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 139, in run
+    return _orig_name, _data, bx.extract_text_bytes(_data, filename=_orig_name, mime=_mime)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 365, in extract_text_bytes
+    return extractor.extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 118, in extract_text
+    doc = fitz.open(stream=self.payload.content, filetype="pdf")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pymupdf\__init__.py", line 2925, in __init__
+    raise TypeError(f"bad stream: {type(stream)=}.")
+TypeError: bad stream: type(stream)=<class 'coroutine'>.
+2025-09-29 17:04:32,905 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:04:33,022 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:04:33,022 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:04:33,022 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:04:33,022 [INFO] uvicorn.error - Finished server process [6184]
+2025-09-29 17:20:28,000 [INFO] uvicorn.error - Started server process [2764]
+2025-09-29 17:20:28,001 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:20:28,005 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:20:28,005 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:20:47,723 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:20:47,824 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:20:47,825 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:20:47,827 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:20:47,828 [INFO] uvicorn.error - Finished server process [2764]
+2025-09-29 17:20:50,466 [INFO] uvicorn.error - Started server process [6284]
+2025-09-29 17:20:50,467 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:20:50,469 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:20:50,469 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:20:59,424 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:20:59,525 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:20:59,526 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:20:59,527 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:20:59,527 [INFO] uvicorn.error - Finished server process [6284]
+2025-09-29 17:22:46,299 [INFO] uvicorn.error - Started server process [7664]
+2025-09-29 17:22:46,299 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:22:46,314 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:22:46,314 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:22:56,000 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:22:58,564 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:22:59,941 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:23:04,816 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET /auth/me HTTP/1.1" 200
+2025-09-29 17:23:10,131 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:24:05,303 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "POST /upload HTTP/1.1" 500
+2025-09-29 17:24:05,303 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 153, in upload_file
+    for orig_name, data, text in tp.map(run_sync, payloads):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\LANG\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 148, in run_sync
+    return _filename, _data, _text
+                             ^^^^^
+NameError: name '_text' is not defined. Did you mean: 'text'?
+2025-09-29 17:24:24,200 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:24:24,316 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:24:24,317 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:24:24,320 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:24:24,320 [INFO] uvicorn.error - Finished server process [7664]
+2025-09-29 17:24:29,774 [INFO] uvicorn.error - Started server process [4020]
+2025-09-29 17:24:29,775 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:24:29,777 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:24:29,778 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:24:33,270 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:25:03,736 [INFO] ocr-search - Original file 0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-09-29 17:25:03,737 [INFO] ocr-search - Extracted text for 0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-09-29 17:25:14,533 [INFO] uvicorn.access - 10.192.3.64:59358:0 - "POST /upload HTTP/1.1" 500
+2025-09-29 17:25:14,533 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 176, in upload_file
+    mime=mime,
+         ^^^^
+NameError: name 'mime' is not defined. Did you mean: '_mime'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 193, in upload_file
+    app_logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
+                                                                        ^^^^^^
+NameError: name 'upload' is not defined
+2025-09-29 17:26:12,114 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:26:12,216 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:26:12,217 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:26:12,219 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:26:12,220 [INFO] uvicorn.error - Finished server process [4020]
+2025-09-29 17:28:50,113 [INFO] uvicorn.error - Started server process [1104]
+2025-09-29 17:28:50,114 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:28:50,116 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:28:50,117 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:28:55,732 [INFO] uvicorn.access - 10.192.3.64:59485:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:29:20,887 [INFO] ocr-search - Original file 0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-09-29 17:29:21,163 [INFO] ocr-search - Extracted text for 0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-09-29 17:29:21,176 [ERROR] ocr-search - Upload processing failed for name 'mime' is not defined
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 176, in upload_file
+    mime=mime,
+         ^^^^
+NameError: name 'mime' is not defined. Did you mean: '_mime'?
+2025-09-29 17:29:29,744 [INFO] uvicorn.access - 10.192.3.64:59485:0 - "POST /upload HTTP/1.1" 500
+2025-09-29 17:29:29,744 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:29:29,845 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:29:29,846 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:29:29,847 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:29:29,848 [INFO] uvicorn.error - Finished server process [1104]
+2025-09-29 17:31:32,050 [INFO] uvicorn.error - Started server process [3708]
+2025-09-29 17:31:32,052 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:31:32,052 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:31:32,052 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:31:41,954 [INFO] uvicorn.access - 10.192.3.64:59552:0 - "GET / HTTP/1.1" 200
+2025-09-29 17:32:09,611 [INFO] ocr-search - Original file 0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-09-29 17:32:09,613 [INFO] ocr-search - Extracted text for 0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-09-29 17:32:09,845 [INFO] ocr-search - Original file 0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-09-29 17:32:09,847 [INFO] ocr-search - Extracted text for 0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-09-29 17:32:09,847 [INFO] ocr-search - Original file 0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-09-29 17:32:09,847 [INFO] ocr-search - Extracted text for 0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-09-29 17:32:09,868 [INFO] ocr-search - Original file 0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-09-29 17:32:09,868 [INFO] ocr-search - Extracted text for 0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-09-29 17:32:15,600 [INFO] ocr-search - Original file 0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092917_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-09-29 17:32:15,600 [INFO] ocr-search - Extracted text for 0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092917_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-09-29 17:32:15,600 [INFO] uvicorn.access - 10.192.3.64:59552:0 - "POST /upload HTTP/1.1" 201
+2025-09-29 17:38:48,962 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:38:49,064 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:38:49,066 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:38:49,068 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:38:49,069 [INFO] uvicorn.error - Finished server process [3708]
+2025-09-29 17:38:52,663 [INFO] uvicorn.error - Started server process [1012]
+2025-09-29 17:38:52,664 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:38:52,665 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:38:52,666 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:42:29,595 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:42:29,696 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:42:29,697 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:42:29,698 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:42:29,698 [INFO] uvicorn.error - Finished server process [1012]
+2025-09-29 17:42:32,189 [INFO] uvicorn.error - Started server process [6080]
+2025-09-29 17:42:32,189 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:42:32,191 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:42:32,191 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:43:59,089 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:43:59,190 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:43:59,190 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:43:59,192 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:43:59,192 [INFO] uvicorn.error - Finished server process [6080]
+2025-09-29 17:44:01,965 [INFO] uvicorn.error - Started server process [9472]
+2025-09-29 17:44:01,965 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:44:01,965 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:44:01,965 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:58:52,728 [INFO] uvicorn.error - Shutting down
+2025-09-29 17:58:52,830 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 17:58:52,832 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 17:58:52,835 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 17:58:52,835 [INFO] uvicorn.error - Finished server process [9472]
+2025-09-29 17:58:56,350 [INFO] uvicorn.error - Started server process [3156]
+2025-09-29 17:58:56,351 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 17:58:56,354 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 17:58:56,354 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 17:59:41,108 [INFO] uvicorn.access - 10.192.3.64:61839:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-09-29 17:59:56,034 [INFO] uvicorn.access - 10.192.3.64:61839:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-29 17:59:56,055 [INFO] uvicorn.access - 10.192.3.64:61839:0 - "GET / HTTP/1.1" 200
+2025-09-29 18:00:04,401 [INFO] ocr-search - PDF TEXT LEN:0
+2025-09-29 18:00:04,417 [INFO] ocr-search - PDF TEXT LEN:0
+2025-09-29 18:00:17,766 [INFO] ocr-search - Original file 0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092918_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-09-29 18:00:17,766 [INFO] ocr-search - Extracted text for 0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092918_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-09-29 18:00:20,867 [INFO] ocr-search - Original file 0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092918_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-09-29 18:00:20,867 [INFO] ocr-search - Extracted text for 0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025092918_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-09-29 18:00:20,891 [INFO] uvicorn.access - 10.192.3.64:61839:0 - "POST /upload HTTP/1.1" 201
+2025-09-29 18:07:29,077 [INFO] uvicorn.access - 10.192.3.64:61994:0 - "GET / HTTP/1.1" 200
+2025-09-29 18:09:46,095 [INFO] ocr-search - PDF TEXT LEN:5747
+2025-09-29 18:09:46,095 [INFO] ocr-search - PDF TEXT LEN:2957
+2025-09-29 18:09:46,098 [INFO] ocr-search - Original file 435_выписка из реестра АБК.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092918_bakhtin_da\435_выписка из реестра АБК.pdf
+2025-09-29 18:09:46,099 [INFO] ocr-search - Extracted text for 435_выписка из реестра АБК.pdf saved to D:\SHARE\_OCR_TEXT\2025092918_bakhtin_da\435_выписка из реестра АБК.pdf
+2025-09-29 18:09:46,112 [INFO] ocr-search - Original file CS TTS_май 2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025092918_bakhtin_da\CS TTS_май 2023.pdf
+2025-09-29 18:09:46,113 [INFO] ocr-search - Extracted text for CS TTS_май 2023.pdf saved to D:\SHARE\_OCR_TEXT\2025092918_bakhtin_da\CS TTS_май 2023.pdf
+2025-09-29 18:09:46,122 [INFO] uvicorn.access - 10.192.3.64:62201:0 - "POST /upload HTTP/1.1" 201
+2025-09-29 18:11:25,619 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-09-29 18:11:25,626 [INFO] uvicorn.access - 10.192.3.64:62242:0 - "GET /search?q=%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3 HTTP/1.1" 200
+2025-09-29 18:14:06,812 [INFO] uvicorn.error - Shutting down
+2025-09-29 18:14:06,917 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 18:14:06,917 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 18:14:06,917 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 18:14:06,918 [INFO] uvicorn.error - Finished server process [3156]
+2025-09-29 18:14:10,544 [INFO] uvicorn.error - Started server process [5796]
+2025-09-29 18:14:10,545 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 18:14:10,546 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 18:14:10,547 [INFO] uvicorn.error - Application startup complete.
+2025-09-29 18:27:13,289 [INFO] uvicorn.error - Shutting down
+2025-09-29 18:27:13,391 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-29 18:27:13,392 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-29 18:27:13,393 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-29 18:27:13,394 [INFO] uvicorn.error - Finished server process [5796]
+2025-09-29 18:27:17,095 [INFO] uvicorn.error - Started server process [8060]
+2025-09-29 18:27:17,096 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-29 18:27:17,097 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-29 18:27:17,097 [INFO] uvicorn.error - Application startup complete.

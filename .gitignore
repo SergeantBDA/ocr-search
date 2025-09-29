@@ -1,5 +1,7 @@
 __pycache__/
 ocr_search.egg-info/
+build/
+logs/
 .env
 alembic.ini
 uvicorn.log
