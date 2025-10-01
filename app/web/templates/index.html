@@ -3,17 +3,26 @@
 <!-- full-width search & upload section -->
 <div class="full-bleed">
   <div class="card">
-    <h2>Извлечение текста (OCR) и поиск документов</h2>
-
+    <div class="page-header">
+    <h2>Извлечение текста (OCR) и поиск документов</h2> 
+    <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти ({{ current_user.email }})</a>
+    </div>
     <form hx-get="{{ request.url_for('search').path }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
-      <div class="row">
-        <input type="text" name="q" placeholder="Введите запрос..." required />
-        <button class="btn" type="submit">Поиск</button>
+      <div class="row search-row">
+        <input type="text" name="q" placeholder="Введите запрос..." required class="w-50"/>
+        <input type="email" name="ocr_user" class="auto" placeholder="user/email" />
+          <div class="inline-field auto">
+            <label for="ocr_from" class="form-label">от</label>
+            <input type="datetime-local" name="ocr_from" />   
+          </div>
+          <div class="inline-field auto">
+            <label for="ocr_to" class="form-label">до</label>
+            <input type="datetime-local" name="ocr_to" />            
+          </div>        
+          <button class="btn" type="submit">Поиск</button>
       </div>
     </form>
-
     <hr />
-
     <form id="uploadForm"
           hx-post="{{ request.url_for('upload').path }}"
           hx-target="#results"
@@ -22,11 +31,10 @@
           hx-indicator="#spinner"
           method="post"
           enctype="multipart/form-data" class="field">
-      <div class="row">
-        <input type="file" name="files" multiple accept="image/*,application/pdf" />
+      <div class="row upload-row">
+        <input type="file" name="files" multiple accept="*.*" />
         <button class="btn" type="submit">Загрузить</button>
       </div>
-      <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти ({{ current_user.email }})</a>
     </form>
   </div>
 </div>

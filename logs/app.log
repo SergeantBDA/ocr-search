@@ -3459,3 +3459,690 @@ NameError: name 'mime' is not defined. Did you mean: '_mime'?
 2025-09-29 18:27:17,096 [INFO] uvicorn.error - Waiting for application startup.
 2025-09-29 18:27:17,097 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
 2025-09-29 18:27:17,097 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 11:32:25,773 [INFO] uvicorn.error - Started server process [6244]
+2025-09-30 11:32:25,773 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 11:32:25,773 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 11:32:25,773 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 11:40:22,345 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "GET / HTTP/1.1" 307
+2025-09-30 11:40:22,407 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "GET /login-web HTTP/1.1" 200
+2025-09-30 11:40:22,470 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "GET /app.css HTTP/1.1" 304
+2025-09-30 11:40:22,564 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-09-30 11:40:34,189 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-09-30 11:40:34,251 [INFO] uvicorn.access - 10.192.3.64:57926:0 - "GET / HTTP/1.1" 200
+2025-09-30 11:46:21,549 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000001.pdf
+2025-09-30 11:46:21,549 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000001.pdf
+2025-09-30 11:46:21,783 [INFO] ocr-search - Original file 0000-000002.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000002.pdf
+2025-09-30 11:46:21,783 [INFO] ocr-search - Extracted text for 0000-000002.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000002.pdf
+2025-09-30 11:46:21,783 [INFO] uvicorn.access - 10.192.3.64:58075:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 11:54:24,336 [INFO] uvicorn.error - Shutting down
+2025-09-30 11:54:24,437 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 11:54:24,438 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 11:54:24,440 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 11:54:24,441 [INFO] uvicorn.error - Finished server process [6244]
+2025-09-30 11:54:28,021 [INFO] uvicorn.error - Started server process [5984]
+2025-09-30 11:54:28,022 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 11:54:28,023 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 11:54:28,024 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 11:54:41,815 [INFO] uvicorn.access - 10.192.3.64:58253:0 - "GET / HTTP/1.1" 200
+2025-09-30 11:54:57,815 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000001_1.pdf
+2025-09-30 11:54:57,816 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000001_1.pdf
+2025-09-30 11:54:57,842 [INFO] ocr-search - Original file 0000-000002.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000002_1.pdf
+2025-09-30 11:54:57,844 [INFO] ocr-search - Extracted text for 0000-000002.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000002_1.pdf
+2025-09-30 11:54:57,853 [INFO] uvicorn.access - 10.192.3.64:58253:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 11:57:09,067 [INFO] uvicorn.error - Shutting down
+2025-09-30 11:57:09,182 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 11:57:09,182 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 11:57:09,182 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 11:57:09,182 [INFO] uvicorn.error - Finished server process [5984]
+2025-09-30 11:57:12,821 [INFO] uvicorn.error - Started server process [10608]
+2025-09-30 11:57:12,822 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 11:57:12,823 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 11:57:12,823 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 11:57:22,841 [INFO] uvicorn.access - 10.192.3.64:58291:0 - "GET / HTTP/1.1" 200
+2025-09-30 11:57:49,126 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000001.pdf
+2025-09-30 11:57:49,126 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000001.pdf
+2025-09-30 11:57:49,142 [INFO] ocr-search - Original file 0000-000002.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000002.pdf
+2025-09-30 11:57:49,142 [INFO] ocr-search - Extracted text for 0000-000002.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000002.pdf
+2025-09-30 11:57:49,142 [INFO] uvicorn.access - 10.192.3.64:58291:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 11:58:46,750 [INFO] uvicorn.error - Shutting down
+2025-09-30 11:58:46,851 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 11:58:46,852 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 11:58:46,854 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 11:58:46,854 [INFO] uvicorn.error - Finished server process [10608]
+2025-09-30 11:58:53,622 [INFO] uvicorn.error - Started server process [8684]
+2025-09-30 11:58:53,623 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 11:58:53,626 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 11:58:53,626 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 11:59:10,715 [INFO] uvicorn.access - 10.192.3.64:58291:0 - "GET / HTTP/1.1" 200
+2025-09-30 11:59:31,759 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000001_1.pdf
+2025-09-30 11:59:31,760 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000001_1.pdf
+2025-09-30 11:59:31,779 [INFO] ocr-search - Original file 0000-000002.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093011_bakhtin_da\0000-000002_1.pdf
+2025-09-30 11:59:31,780 [INFO] ocr-search - Extracted text for 0000-000002.pdf saved to D:\SHARE\_OCR_TEXT\2025093011_bakhtin_da\0000-000002_1.pdf
+2025-09-30 11:59:31,785 [INFO] uvicorn.access - 10.192.3.64:58291:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 12:01:22,531 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:01:22,638 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:01:22,638 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:01:22,638 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:01:22,638 [INFO] uvicorn.error - Finished server process [8684]
+2025-09-30 12:01:25,195 [INFO] uvicorn.error - Started server process [7536]
+2025-09-30 12:01:25,196 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:01:25,196 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:01:25,196 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:01:26,853 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:01:26,964 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:01:26,965 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:01:26,966 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:01:26,967 [INFO] uvicorn.error - Finished server process [7536]
+2025-09-30 12:01:29,510 [INFO] uvicorn.error - Started server process [10420]
+2025-09-30 12:01:29,510 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:01:29,510 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:01:29,510 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:01:41,076 [INFO] uvicorn.access - 10.192.3.64:58367:0 - "GET / HTTP/1.1" 200
+2025-09-30 12:01:52,658 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093012_bakhtin_da\0000-000001.pdf
+2025-09-30 12:01:52,658 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093012_bakhtin_da\0000-000001.pdf
+2025-09-30 12:01:52,674 [INFO] ocr-search - Original file 0000-000002.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093012_bakhtin_da\0000-000002.pdf
+2025-09-30 12:01:52,689 [INFO] ocr-search - Extracted text for 0000-000002.pdf saved to D:\SHARE\_OCR_TEXT\2025093012_bakhtin_da\0000-000002.pdf
+2025-09-30 12:01:52,689 [INFO] uvicorn.access - 10.192.3.64:58367:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 12:02:27,419 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:02:27,519 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:02:27,519 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:02:27,520 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:02:27,520 [INFO] uvicorn.error - Finished server process [10420]
+2025-09-30 12:02:30,030 [INFO] uvicorn.error - Started server process [9052]
+2025-09-30 12:02:30,030 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:02:30,031 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:02:30,032 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:09:18,824 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:09:18,926 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:09:18,927 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:09:18,928 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:09:18,928 [INFO] uvicorn.error - Finished server process [9052]
+2025-09-30 12:09:22,615 [INFO] uvicorn.error - Started server process [10836]
+2025-09-30 12:09:22,615 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:09:22,615 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:09:22,631 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:09:31,244 [INFO] uvicorn.access - 10.192.3.64:58477:0 - "GET / HTTP/1.1" 200
+2025-09-30 12:09:48,832 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093012_bakhtin_da\0000-000001_1.pdf
+2025-09-30 12:09:48,832 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093012_bakhtin_da\0000-000001_1.pdf
+2025-09-30 12:09:48,852 [INFO] uvicorn.access - 10.192.3.64:58477:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 12:09:55,013 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:09:55,114 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:09:55,115 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:09:55,116 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:09:55,117 [INFO] uvicorn.error - Finished server process [10836]
+2025-09-30 12:13:18,494 [INFO] uvicorn.error - Started server process [7996]
+2025-09-30 12:13:18,495 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:13:18,495 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:13:18,495 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:13:41,279 [INFO] uvicorn.access - 10.192.3.64:58523:0 - "GET / HTTP/1.1" 200
+2025-09-30 12:13:53,008 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093012_bakhtin_da\0000-000001_2.pdf
+2025-09-30 12:13:53,009 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093012_bakhtin_da\0000-000001_2.pdf
+2025-09-30 12:13:53,034 [INFO] uvicorn.access - 10.192.3.64:58523:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 12:14:23,934 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:14:24,039 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:14:24,041 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:14:24,043 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:14:24,044 [INFO] uvicorn.error - Finished server process [7996]
+2025-09-30 12:14:26,709 [INFO] uvicorn.error - Started server process [10464]
+2025-09-30 12:14:26,710 [INFO] uvicorn.error - Waiting for application startup.
+2025-09-30 12:14:26,711 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-09-30 12:14:26,712 [INFO] uvicorn.error - Application startup complete.
+2025-09-30 12:14:28,190 [INFO] uvicorn.access - 10.192.3.64:58523:0 - "GET / HTTP/1.1" 200
+2025-09-30 12:14:42,052 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025093012_bakhtin_da\0000-000001_3.pdf
+2025-09-30 12:14:42,054 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025093012_bakhtin_da\0000-000001_3.pdf
+2025-09-30 12:14:42,079 [INFO] uvicorn.access - 10.192.3.64:58552:0 - "POST /upload HTTP/1.1" 201
+2025-09-30 12:15:00,985 [INFO] uvicorn.error - Shutting down
+2025-09-30 12:15:01,087 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-09-30 12:15:01,088 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-09-30 12:15:01,090 [INFO] uvicorn.error - Application shutdown complete.
+2025-09-30 12:15:01,091 [INFO] uvicorn.error - Finished server process [10464]
+2025-10-01 11:26:42,782 [INFO] uvicorn.error - Started server process [7636]
+2025-10-01 11:26:42,782 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:26:42,782 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:26:42,782 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:29:45,845 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:29:45,947 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:29:45,948 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:29:45,949 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:29:45,949 [INFO] uvicorn.error - Finished server process [7636]
+2025-10-01 11:31:02,845 [INFO] uvicorn.error - Started server process [10064]
+2025-10-01 11:31:02,846 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:31:02,848 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:31:02,849 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:37:03,833 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:37:03,935 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:37:03,941 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:37:03,943 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:37:03,943 [INFO] uvicorn.error - Finished server process [10064]
+2025-10-01 11:37:07,627 [INFO] uvicorn.error - Started server process [8352]
+2025-10-01 11:37:07,628 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:37:07,630 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:37:07,631 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:37:57,534 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "GET / HTTP/1.1" 307
+2025-10-01 11:37:57,589 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 11:37:57,652 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 11:37:57,750 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-01 11:38:07,063 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 11:38:07,115 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "GET / HTTP/1.1" 200
+2025-10-01 11:39:41,409 [ERROR] ocr-search - OSD упал: (1, 'Error opening data file C:\\Program Files\\Tesseract-OCR/tessdata/osd.traineddata Please make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory. Failed loading language \'osd\' Tesseract couldn\'t load any languages! Could not initialize tesseract.')
+2025-10-01 11:39:41,417 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100111_bakhtin_da\0000-000001.pdf
+2025-10-01 11:39:41,418 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100111_bakhtin_da\0000-000001.pdf
+2025-10-01 11:39:41,544 [INFO] uvicorn.access - 10.192.3.64:54823:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 11:46:33,387 [INFO] uvicorn.access - 10.192.3.64:55000:0 - "GET / HTTP/1.1" 200
+2025-10-01 11:46:46,076 [ERROR] ocr-search - OSD упал: name 're' is not defined
+2025-10-01 11:46:46,082 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100111_bakhtin_da\0000-000001_1.pdf
+2025-10-01 11:46:46,084 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100111_bakhtin_da\0000-000001_1.pdf
+2025-10-01 11:46:46,091 [INFO] uvicorn.access - 10.192.3.64:55000:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 11:47:20,870 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:47:20,972 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:47:20,973 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:47:20,974 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:47:20,974 [INFO] uvicorn.error - Finished server process [8352]
+2025-10-01 11:47:32,010 [INFO] uvicorn.error - Started server process [10432]
+2025-10-01 11:47:32,011 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:47:32,012 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:47:32,014 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:47:32,476 [INFO] uvicorn.access - 10.192.3.64:55000:0 - "GET / HTTP/1.1" 200
+2025-10-01 11:47:41,003 [INFO] ocr-search - OSD результат: angle=90, confidence=20.01 (size=2480x3507)
+2025-10-01 11:47:41,043 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 11:47:41,053 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100111_bakhtin_da\0000-000001_2.pdf
+2025-10-01 11:47:41,054 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100111_bakhtin_da\0000-000001_2.pdf
+2025-10-01 11:47:41,107 [INFO] uvicorn.access - 10.192.3.64:55000:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 11:51:38,354 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:51:38,456 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:51:38,457 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:51:38,458 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:51:38,458 [INFO] uvicorn.error - Finished server process [10432]
+2025-10-01 11:51:42,339 [INFO] uvicorn.error - Started server process [5048]
+2025-10-01 11:51:42,340 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:51:42,341 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:51:42,341 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:51:53,257 [INFO] uvicorn.access - 10.192.3.64:55082:0 - "GET / HTTP/1.1" 200
+2025-10-01 11:52:03,118 [INFO] ocr-search - OSD результат: angle=90, confidence=20.01 (size=2480x3507)
+2025-10-01 11:52:03,149 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 11:52:03,164 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100111_bakhtin_da\0000-000001_3.pdf
+2025-10-01 11:52:03,164 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100111_bakhtin_da\0000-000001_3.pdf
+2025-10-01 11:52:03,180 [INFO] uvicorn.access - 10.192.3.64:55082:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 11:52:31,970 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:52:32,071 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:52:32,071 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:52:32,072 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:52:32,072 [INFO] uvicorn.error - Finished server process [5048]
+2025-10-01 11:52:34,670 [INFO] uvicorn.error - Started server process [5672]
+2025-10-01 11:52:34,671 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:52:34,672 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:52:34,673 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:53:17,806 [INFO] uvicorn.error - Shutting down
+2025-10-01 11:53:17,914 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 11:53:17,915 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 11:53:17,918 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 11:53:17,918 [INFO] uvicorn.error - Finished server process [5672]
+2025-10-01 11:53:20,517 [INFO] uvicorn.error - Started server process [4748]
+2025-10-01 11:53:20,517 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 11:53:20,519 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 11:53:20,519 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 11:58:02,875 [INFO] ocr-search - OSD результат: angle=90, confidence=19.20 (size=2480x3507)
+2025-10-01 11:58:02,931 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 11:58:02,942 [INFO] ocr-search - Original file 0000-000009.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100111_bakhtin_da\0000-000009.pdf
+2025-10-01 11:58:02,943 [INFO] ocr-search - Extracted text for 0000-000009.pdf saved to D:\SHARE\_OCR_TEXT\2025100111_bakhtin_da\0000-000009.pdf
+2025-10-01 11:58:02,964 [INFO] uvicorn.access - 10.192.3.64:55214:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 12:59:35,802 [INFO] uvicorn.access - 10.192.3.64:52201:0 - "POST /upload HTTP/1.1" 401
+2025-10-01 13:03:02,578 [INFO] uvicorn.access - 10.192.3.64:52293:0 - "GET / HTTP/1.1" 307
+2025-10-01 13:03:02,671 [INFO] uvicorn.access - 10.192.3.64:52293:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 13:03:13,661 [INFO] uvicorn.access - 10.192.3.64:52300:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 13:03:13,702 [INFO] uvicorn.access - 10.192.3.64:52300:0 - "GET / HTTP/1.1" 200
+2025-10-01 13:03:25,707 [INFO] ocr-search - OSD результат: angle=0, confidence=27.57 (size=2480x3507)
+2025-10-01 13:03:25,707 [INFO] ocr-search - Original file письмо_Бойко_16122016.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100113_bakhtin_da\письмо_Бойко_16122016.pdf
+2025-10-01 13:03:25,707 [INFO] ocr-search - Extracted text for письмо_Бойко_16122016.pdf saved to D:\SHARE\_OCR_TEXT\2025100113_bakhtin_da\письмо_Бойко_16122016.pdf
+2025-10-01 13:03:25,722 [INFO] uvicorn.access - 10.192.3.64:52300:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 13:42:16,646 [INFO] uvicorn.error - Shutting down
+2025-10-01 13:42:16,747 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 13:42:16,748 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 13:42:16,749 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 13:42:16,750 [INFO] uvicorn.error - Finished server process [4748]
+2025-10-01 13:42:23,930 [INFO] uvicorn.error - Started server process [1952]
+2025-10-01 13:42:23,930 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 13:42:23,946 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 13:42:23,946 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 13:42:26,642 [INFO] uvicorn.access - 10.192.3.64:58987:0 - "GET / HTTP/1.1" 200
+2025-10-01 13:42:43,745 [INFO] ocr-search - OSD результат: angle=90, confidence=20.01 (size=2480x3507)
+2025-10-01 13:42:43,789 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 13:42:43,789 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100113_bakhtin_da\0000-000001.pdf
+2025-10-01 13:42:43,789 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100113_bakhtin_da\0000-000001.pdf
+2025-10-01 13:42:43,883 [INFO] uvicorn.access - 10.192.3.64:58996:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 13:43:00,854 [INFO] uvicorn.error - Shutting down
+2025-10-01 13:43:00,957 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 13:43:00,958 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 13:43:00,960 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 13:43:00,961 [INFO] uvicorn.error - Finished server process [1952]
+2025-10-01 13:43:03,754 [INFO] uvicorn.error - Started server process [7708]
+2025-10-01 13:43:03,754 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 13:43:03,756 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 13:43:03,756 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 13:44:13,665 [INFO] uvicorn.error - Shutting down
+2025-10-01 13:44:13,767 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 13:44:13,768 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 13:44:13,769 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 13:44:13,769 [INFO] uvicorn.error - Finished server process [7708]
+2025-10-01 13:44:16,460 [INFO] uvicorn.error - Started server process [8524]
+2025-10-01 13:44:16,460 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 13:44:16,462 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 13:44:16,462 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 13:44:26,320 [INFO] uvicorn.access - 10.192.3.64:58996:0 - "GET / HTTP/1.1" 200
+2025-10-01 13:44:35,571 [INFO] ocr-search - OSD результат: angle=90, confidence=20.01 (size=2480x3507)
+2025-10-01 13:44:35,613 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 13:44:40,571 [INFO] ocr-search - Original file 0000-000001.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100113_bakhtin_da\0000-000001_1.pdf
+2025-10-01 13:44:40,571 [INFO] ocr-search - Extracted text for 0000-000001.pdf saved to D:\SHARE\_OCR_TEXT\2025100113_bakhtin_da\0000-000001_1.pdf
+2025-10-01 13:44:40,653 [INFO] uvicorn.access - 10.192.3.64:58996:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 14:45:48,608 [INFO] uvicorn.error - Shutting down
+2025-10-01 14:45:48,709 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 14:45:48,710 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 14:45:48,711 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 14:45:48,712 [INFO] uvicorn.error - Finished server process [8524]
+2025-10-01 14:45:52,606 [INFO] uvicorn.error - Started server process [488]
+2025-10-01 14:45:52,607 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 14:45:52,609 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 14:45:52,609 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 14:46:05,347 [INFO] uvicorn.error - Shutting down
+2025-10-01 14:46:05,448 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 14:46:05,449 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 14:46:05,451 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 14:46:05,451 [INFO] uvicorn.error - Finished server process [488]
+2025-10-01 14:46:08,145 [INFO] uvicorn.error - Started server process [9408]
+2025-10-01 14:46:08,146 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 14:46:08,147 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 14:46:08,148 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 14:46:28,307 [INFO] uvicorn.error - Shutting down
+2025-10-01 14:46:28,407 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 14:46:28,408 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 14:46:28,410 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 14:46:28,410 [INFO] uvicorn.error - Finished server process [9408]
+2025-10-01 14:46:31,204 [INFO] uvicorn.error - Started server process [10348]
+2025-10-01 14:46:31,204 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 14:46:31,206 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 14:46:31,206 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 14:48:04,655 [INFO] uvicorn.error - Shutting down
+2025-10-01 14:48:04,756 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 14:48:04,756 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 14:48:04,758 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 14:48:04,758 [INFO] uvicorn.error - Finished server process [10348]
+2025-10-01 14:48:07,960 [INFO] uvicorn.error - Started server process [10016]
+2025-10-01 14:48:07,961 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 14:48:07,964 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 14:48:07,964 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 14:48:20,332 [INFO] uvicorn.access - 10.192.3.64:60707:0 - "GET / HTTP/1.1" 307
+2025-10-01 14:48:20,348 [INFO] uvicorn.access - 10.192.3.64:60707:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 14:48:30,673 [INFO] uvicorn.access - 10.192.3.64:60707:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 14:48:30,709 [INFO] uvicorn.access - 10.192.3.64:60707:0 - "GET / HTTP/1.1" 200
+2025-10-01 14:49:31,578 [INFO] uvicorn.access - 10.192.3.64:60773:0 - "GET / HTTP/1.1" 200
+2025-10-01 14:49:43,894 [INFO] uvicorn.access - 10.192.3.64:60773:0 - "GET / HTTP/1.1" 200
+2025-10-01 14:51:18,782 [INFO] ocr-search - Original file Счет-фактура № 1 от 09.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 1 от 09.01.2024.pdf
+2025-10-01 14:51:18,784 [INFO] ocr-search - Extracted text for Счет-фактура № 1 от 09.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 1 от 09.01.2024.pdf
+2025-10-01 14:51:18,814 [INFO] ocr-search - Original file Счет-фактура № 2 от 09.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 2 от 09.01.2024.pdf
+2025-10-01 14:51:18,816 [INFO] ocr-search - Extracted text for Счет-фактура № 2 от 09.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 2 от 09.01.2024.pdf
+2025-10-01 14:51:18,824 [INFO] ocr-search - Original file Счет-фактура № 3 от 09.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 3 от 09.01.2024.pdf
+2025-10-01 14:51:18,825 [INFO] ocr-search - Extracted text for Счет-фактура № 3 от 09.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 3 от 09.01.2024.pdf
+2025-10-01 14:51:18,852 [INFO] ocr-search - Original file Счет-фактура № 4 от 09.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 4 от 09.01.2024.pdf
+2025-10-01 14:51:18,854 [INFO] ocr-search - Extracted text for Счет-фактура № 4 от 09.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 4 от 09.01.2024.pdf
+2025-10-01 14:51:18,864 [INFO] ocr-search - Original file Счет-фактура № 5 от 16.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 5 от 16.01.2024.pdf
+2025-10-01 14:51:18,866 [INFO] ocr-search - Extracted text for Счет-фактура № 5 от 16.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 5 от 16.01.2024.pdf
+2025-10-01 14:51:18,872 [INFO] ocr-search - Original file Счет-фактура № 6 от 16.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 6 от 16.01.2024.pdf
+2025-10-01 14:51:18,873 [INFO] ocr-search - Extracted text for Счет-фактура № 6 от 16.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 6 от 16.01.2024.pdf
+2025-10-01 14:51:18,897 [INFO] ocr-search - Original file Счет-фактура № 17 от 25.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 17 от 25.01.2024.pdf
+2025-10-01 14:51:18,898 [INFO] ocr-search - Extracted text for Счет-фактура № 17 от 25.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 17 от 25.01.2024.pdf
+2025-10-01 14:51:18,904 [INFO] ocr-search - Original file Счет-фактура № 18 от 25.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 18 от 25.01.2024.pdf
+2025-10-01 14:51:18,906 [INFO] ocr-search - Extracted text for Счет-фактура № 18 от 25.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 18 от 25.01.2024.pdf
+2025-10-01 14:51:18,912 [INFO] ocr-search - Original file Счет-фактура № 19 от 22.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 19 от 22.01.2024.pdf
+2025-10-01 14:51:18,913 [INFO] ocr-search - Extracted text for Счет-фактура № 19 от 22.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 19 от 22.01.2024.pdf
+2025-10-01 14:51:18,926 [INFO] ocr-search - Original file Счет-фактура № 24 от 31.01.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100114_bakhtin_da\Счет-фактура No 24 от 31.01.2024.pdf
+2025-10-01 14:51:18,927 [INFO] ocr-search - Extracted text for Счет-фактура № 24 от 31.01.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100114_bakhtin_da\Счет-фактура No 24 от 31.01.2024.pdf
+2025-10-01 14:51:18,934 [INFO] uvicorn.access - 10.192.3.64:60773:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 14:51:56,314 [INFO] uvicorn.error - Shutting down
+2025-10-01 14:51:56,415 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 14:51:56,415 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 14:51:56,416 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 14:51:56,416 [INFO] uvicorn.error - Finished server process [10016]
+2025-10-01 14:51:59,373 [INFO] uvicorn.error - Started server process [10040]
+2025-10-01 14:51:59,375 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 14:51:59,377 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 14:51:59,377 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 14:56:22,839 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:56:22,873 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82 HTTP/1.1" 200
+2025-10-01 14:57:54,308 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:57:54,321 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC%D0%B0 HTTP/1.1" 200
+2025-10-01 14:57:57,173 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:57:57,187 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC HTTP/1.1" 200
+2025-10-01 14:58:00,257 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:00,271 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3 HTTP/1.1" 200
+2025-10-01 14:58:02,978 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:02,993 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC HTTP/1.1" 200
+2025-10-01 14:58:18,630 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:18,643 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3 HTTP/1.1" 200
+2025-10-01 14:58:21,480 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:21,495 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0 HTTP/1.1" 200
+2025-10-01 14:58:23,822 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:23,822 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC HTTP/1.1" 200
+2025-10-01 14:58:28,753 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:28,767 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3 HTTP/1.1" 200
+2025-10-01 14:58:29,659 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:29,682 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0 HTTP/1.1" 200
+2025-10-01 14:58:30,509 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:30,522 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80 HTTP/1.1" 200
+2025-10-01 14:58:31,644 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:31,658 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84 HTTP/1.1" 200
+2025-10-01 14:58:32,492 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:32,508 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0 HTTP/1.1" 200
+2025-10-01 14:58:33,399 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:33,432 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8 HTTP/1.1" 200
+2025-10-01 14:58:37,592 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:37,607 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3 HTTP/1.1" 200
+2025-10-01 14:58:41,006 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:41,019 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0 HTTP/1.1" 200
+2025-10-01 14:58:49,098 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:49,111 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B5%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC HTTP/1.1" 200
+2025-10-01 14:58:52,462 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 14:58:52,478 [INFO] uvicorn.access - 10.192.3.64:60887:0 - "GET /search?q=%D0%B4%D0%B8%D0%B0%D1%84%D1%80%D0%B0%D0%B3%D0%BC HTTP/1.1" 200
+2025-10-01 15:07:49,612 [INFO] uvicorn.access - 10.192.3.64:61408:0 - "GET / HTTP/1.1" 200
+2025-10-01 15:09:50,676 [INFO] uvicorn.error - Shutting down
+2025-10-01 15:09:50,778 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 15:09:50,779 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 15:09:50,781 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 15:09:50,782 [INFO] uvicorn.error - Finished server process [10040]
+2025-10-01 15:13:10,476 [INFO] uvicorn.error - Started server process [1924]
+2025-10-01 15:13:10,476 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 15:13:10,476 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 15:13:10,476 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 15:16:53,085 [INFO] uvicorn.access - 10.192.3.64:61578:0 - "GET / HTTP/1.1" 200
+2025-10-01 15:17:05,766 [INFO] uvicorn.access - 10.192.3.64:61600:0 - "GET / HTTP/1.1" 200
+2025-10-01 15:17:39,442 [INFO] uvicorn.access - 10.192.3.64:61621:0 - "POST /logout HTTP/1.1" 200
+2025-10-01 15:17:39,505 [INFO] uvicorn.access - 10.192.3.64:61621:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 15:17:46,328 [INFO] uvicorn.access - 10.192.3.64:61621:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 15:17:46,350 [INFO] uvicorn.access - 10.192.3.64:61621:0 - "GET / HTTP/1.1" 200
+2025-10-01 15:18:30,213 [INFO] ocr-search - OSD результат: angle=90, confidence=18.16 (size=2480x3507)
+2025-10-01 15:18:30,253 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:30,269 [INFO] ocr-search - OSD результат: angle=90, confidence=14.08 (size=2480x3507)
+2025-10-01 15:18:30,311 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:30,353 [INFO] ocr-search - OSD результат: angle=270, confidence=0.80 (size=2480x3507)
+2025-10-01 15:18:30,353 [INFO] ocr-search - OSD низкая уверенность (0.80 < 3.00)
+2025-10-01 15:18:30,398 [INFO] ocr-search - Повернул по OSD на 270°
+2025-10-01 15:18:35,809 [INFO] ocr-search - Original file СЧФ 2024-02 40 Сервис-Инжиниринг.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 40 Сервис-Инжиниринг.pdf
+2025-10-01 15:18:35,810 [INFO] ocr-search - Extracted text for СЧФ 2024-02 40 Сервис-Инжиниринг.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 40 Сервис-Инжиниринг.pdf
+2025-10-01 15:18:35,894 [INFO] ocr-search - Original file СЧФ 2024-02 41 ВЭМ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 41 ВЭМ.pdf
+2025-10-01 15:18:35,895 [INFO] ocr-search - Extracted text for СЧФ 2024-02 41 ВЭМ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 41 ВЭМ.pdf
+2025-10-01 15:18:36,358 [INFO] ocr-search - Original file СЧФ 2024-02 42 ИРАО-ИНЖ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 42 ИРАО-ИНЖ.pdf
+2025-10-01 15:18:36,359 [INFO] ocr-search - Extracted text for СЧФ 2024-02 42 ИРАО-ИНЖ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 42 ИРАО-ИНЖ.pdf
+2025-10-01 15:18:36,407 [INFO] ocr-search - Original file СЧФ 2024-02 43 ИП_Дубинин.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 43 ИП_Дубинин.pdf
+2025-10-01 15:18:36,409 [INFO] ocr-search - Extracted text for СЧФ 2024-02 43 ИП_Дубинин.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 43 ИП_Дубинин.pdf
+2025-10-01 15:18:36,421 [INFO] ocr-search - Original file СЧФ 2024-02 44 МегаФон.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 44 МегаФон.pdf
+2025-10-01 15:18:36,422 [INFO] ocr-search - Extracted text for СЧФ 2024-02 44 МегаФон.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 44 МегаФон.pdf
+2025-10-01 15:18:36,431 [INFO] ocr-search - Original file СЧФ 2024-02 45 МегаФон.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 45 МегаФон.pdf
+2025-10-01 15:18:36,432 [INFO] ocr-search - Extracted text for СЧФ 2024-02 45 МегаФон.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 45 МегаФон.pdf
+2025-10-01 15:18:36,978 [INFO] ocr-search - Original file СЧФ 2024-02 46 МЦ_Эко-безопасность.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 46 МЦ_Эко-безопасность.pdf
+2025-10-01 15:18:36,989 [INFO] ocr-search - Extracted text for СЧФ 2024-02 46 МЦ_Эко-безопасность.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 46 МЦ_Эко-безопасность.pdf
+2025-10-01 15:18:37,002 [INFO] ocr-search - Original file СЧФ 2024-02 47 ПАО МТС_л.с. 278357687570.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 47 ПАО МТС_л.с. 278357687570.pdf
+2025-10-01 15:18:37,003 [INFO] ocr-search - Extracted text for СЧФ 2024-02 47 ПАО МТС_л.с. 278357687570.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 47 ПАО МТС_л.с. 278357687570.pdf
+2025-10-01 15:18:39,012 [INFO] ocr-search - OSD результат: angle=90, confidence=16.73 (size=2480x3507)
+2025-10-01 15:18:39,057 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:47,294 [INFO] ocr-search - Original file СЧФ 2024-02 48 ЦВЛ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 48 ЦВЛ.pdf
+2025-10-01 15:18:47,295 [INFO] ocr-search - Extracted text for СЧФ 2024-02 48 ЦВЛ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 48 ЦВЛ.pdf
+2025-10-01 15:18:47,799 [INFO] ocr-search - Original file СЧФ 2024-02 49 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 49 ПромСистемы.pdf
+2025-10-01 15:18:47,801 [INFO] ocr-search - Extracted text for СЧФ 2024-02 49 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 49 ПромСистемы.pdf
+2025-10-01 15:18:47,814 [INFO] ocr-search - Original file СЧФ 2024-02 50 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 50 ПромСистемы.pdf
+2025-10-01 15:18:47,815 [INFO] ocr-search - Extracted text for СЧФ 2024-02 50 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 50 ПромСистемы.pdf
+2025-10-01 15:18:49,760 [INFO] ocr-search - OSD результат: angle=90, confidence=15.13 (size=2480x3507)
+2025-10-01 15:18:49,797 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:54,938 [INFO] ocr-search - Original file СЧФ 2024-02 51 СиловыеМашины.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 51 СиловыеМашины.pdf
+2025-10-01 15:18:54,939 [INFO] ocr-search - Extracted text for СЧФ 2024-02 51 СиловыеМашины.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 51 СиловыеМашины.pdf
+2025-10-01 15:18:54,993 [INFO] ocr-search - Original file СЧФ 2024-02 52 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 52 ПромСистемы.pdf
+2025-10-01 15:18:54,994 [INFO] ocr-search - Extracted text for СЧФ 2024-02 52 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 52 ПромСистемы.pdf
+2025-10-01 15:18:55,014 [INFO] ocr-search - Original file СЧФ 2024-02 53 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 53 ПромСистемы.pdf
+2025-10-01 15:18:55,015 [INFO] ocr-search - Extracted text for СЧФ 2024-02 53 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 53 ПромСистемы.pdf
+2025-10-01 15:18:55,024 [INFO] ocr-search - Original file СЧФ 2024-02 54 ВендэксРитейл.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 54 ВендэксРитейл.pdf
+2025-10-01 15:18:55,026 [INFO] ocr-search - Extracted text for СЧФ 2024-02 54 ВендэксРитейл.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 54 ВендэксРитейл.pdf
+2025-10-01 15:18:58,589 [INFO] ocr-search - OSD результат: angle=90, confidence=9.39 (size=2480x3507)
+2025-10-01 15:18:58,631 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:58,677 [INFO] ocr-search - OSD результат: angle=90, confidence=11.84 (size=2480x3507)
+2025-10-01 15:18:58,724 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:18:58,765 [INFO] ocr-search - OSD результат: angle=90, confidence=15.26 (size=2480x3507)
+2025-10-01 15:18:58,814 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:03,756 [INFO] ocr-search - Original file СЧФ 2024-02 55 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-02 55 ПромСистемы.pdf
+2025-10-01 15:19:03,757 [INFO] ocr-search - Extracted text for СЧФ 2024-02 55 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-02 55 ПромСистемы.pdf
+2025-10-01 15:19:03,919 [INFO] ocr-search - Original file СЧФ 2024-03 56 РГТ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 56 РГТ.pdf
+2025-10-01 15:19:03,920 [INFO] ocr-search - Extracted text for СЧФ 2024-03 56 РГТ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 56 РГТ.pdf
+2025-10-01 15:19:03,928 [INFO] ocr-search - Original file СЧФ 2024-03 57 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 57 ПромСистемы.pdf
+2025-10-01 15:19:03,929 [INFO] ocr-search - Extracted text for СЧФ 2024-03 57 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 57 ПромСистемы.pdf
+2025-10-01 15:19:07,430 [INFO] ocr-search - OSD результат: angle=90, confidence=12.25 (size=2480x3507)
+2025-10-01 15:19:07,446 [INFO] ocr-search - OSD результат: angle=90, confidence=12.44 (size=2480x3507)
+2025-10-01 15:19:07,468 [INFO] ocr-search - OSD результат: angle=90, confidence=11.87 (size=2480x3507)
+2025-10-01 15:19:07,476 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:07,495 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:07,514 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:12,720 [INFO] ocr-search - Original file СЧФ 2024-03 58 СиловыеМашины.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 58 СиловыеМашины.pdf
+2025-10-01 15:19:12,722 [INFO] ocr-search - Extracted text for СЧФ 2024-03 58 СиловыеМашины.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 58 СиловыеМашины.pdf
+2025-10-01 15:19:13,079 [INFO] ocr-search - Original file СЧФ 2024-03 59 РУСЭЛПРОМ-ЛЭЗ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 59 РУСЭЛПРОМ-ЛЭЗ.pdf
+2025-10-01 15:19:13,080 [INFO] ocr-search - Extracted text for СЧФ 2024-03 59 РУСЭЛПРОМ-ЛЭЗ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 59 РУСЭЛПРОМ-ЛЭЗ.pdf
+2025-10-01 15:19:13,453 [INFO] ocr-search - Original file СЧФ 2024-03 61 ИРАО-ЭГ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 61 ИРАО-ЭГ.pdf
+2025-10-01 15:19:13,455 [INFO] ocr-search - Extracted text for СЧФ 2024-03 61 ИРАО-ЭГ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 61 ИРАО-ЭГ.pdf
+2025-10-01 15:19:16,886 [INFO] ocr-search - OSD результат: angle=90, confidence=14.39 (size=2480x3507)
+2025-10-01 15:19:16,934 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:17,032 [INFO] ocr-search - OSD результат: angle=90, confidence=12.57 (size=2480x3507)
+2025-10-01 15:19:17,078 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:17,161 [INFO] ocr-search - OSD результат: angle=90, confidence=13.01 (size=2480x3507)
+2025-10-01 15:19:17,204 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:22,105 [INFO] ocr-search - Original file СЧФ 2024-03 62 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 62 ПромСистемы.pdf
+2025-10-01 15:19:22,120 [INFO] ocr-search - Extracted text for СЧФ 2024-03 62 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 62 ПромСистемы.pdf
+2025-10-01 15:19:27,064 [INFO] ocr-search - OSD результат: angle=90, confidence=12.95 (size=2480x3507)
+2025-10-01 15:19:27,101 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:34,778 [INFO] ocr-search - OSD результат: angle=90, confidence=11.58 (size=2480x3507)
+2025-10-01 15:19:34,814 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:41,525 [INFO] ocr-search - OSD результат: angle=90, confidence=15.00 (size=2480x3507)
+2025-10-01 15:19:41,562 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:44,712 [INFO] ocr-search - Original file СЧФ 2024-03 63 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 63 ПромСистемы.pdf
+2025-10-01 15:19:44,712 [INFO] ocr-search - Extracted text for СЧФ 2024-03 63 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 63 ПромСистемы.pdf
+2025-10-01 15:19:44,774 [INFO] ocr-search - Original file СЧФ 2024-03 64 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 64 ПромСистемы.pdf
+2025-10-01 15:19:44,775 [INFO] ocr-search - Extracted text for СЧФ 2024-03 64 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 64 ПромСистемы.pdf
+2025-10-01 15:19:48,353 [INFO] ocr-search - OSD результат: angle=90, confidence=17.86 (size=2480x3507)
+2025-10-01 15:19:48,401 [INFO] ocr-search - OSD результат: angle=90, confidence=18.39 (size=2480x3507)
+2025-10-01 15:19:48,404 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:48,451 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:48,488 [INFO] ocr-search - OSD результат: angle=90, confidence=15.89 (size=2480x3507)
+2025-10-01 15:19:48,532 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:54,043 [INFO] ocr-search - Original file СЧФ 2024-03 65 ВЭМ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 65 ВЭМ.pdf
+2025-10-01 15:19:54,044 [INFO] ocr-search - Extracted text for СЧФ 2024-03 65 ВЭМ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 65 ВЭМ.pdf
+2025-10-01 15:19:54,242 [INFO] ocr-search - Original file СЧФ 2024-03 66 ИРАО-ИНЖ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 66 ИРАО-ИНЖ.pdf
+2025-10-01 15:19:54,243 [INFO] ocr-search - Extracted text for СЧФ 2024-03 66 ИРАО-ИНЖ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 66 ИРАО-ИНЖ.pdf
+2025-10-01 15:19:54,251 [INFO] ocr-search - Original file СЧФ 2024-03 67 ЦВЛ.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 67 ЦВЛ.pdf
+2025-10-01 15:19:54,252 [INFO] ocr-search - Extracted text for СЧФ 2024-03 67 ЦВЛ.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 67 ЦВЛ.pdf
+2025-10-01 15:19:58,202 [INFO] ocr-search - OSD результат: angle=90, confidence=21.61 (size=2480x3507)
+2025-10-01 15:19:58,245 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:58,384 [INFO] ocr-search - OSD результат: angle=90, confidence=20.22 (size=2480x3507)
+2025-10-01 15:19:58,399 [INFO] ocr-search - OSD результат: angle=90, confidence=16.68 (size=2480x3507)
+2025-10-01 15:19:58,429 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:19:58,447 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:20:07,316 [INFO] ocr-search - Original file СЧФ 2024-03 68 ПромСистемы.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 68 ПромСистемы.pdf
+2025-10-01 15:20:07,322 [INFO] ocr-search - Extracted text for СЧФ 2024-03 68 ПромСистемы.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 68 ПромСистемы.pdf
+2025-10-01 15:20:07,689 [INFO] ocr-search - Original file СЧФ 2024-03 069 ВендэксРитейл УПД.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 069 ВендэксРитейл УПД.pdf
+2025-10-01 15:20:07,689 [INFO] ocr-search - Extracted text for СЧФ 2024-03 069 ВендэксРитейл УПД.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 069 ВендэксРитейл УПД.pdf
+2025-10-01 15:20:09,064 [INFO] ocr-search - Original file СЧФ 2024-03 70 МЦ_Эко-безопасность.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 70 МЦ_Эко-безопасность.pdf
+2025-10-01 15:20:09,067 [INFO] ocr-search - Extracted text for СЧФ 2024-03 70 МЦ_Эко-безопасность.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 70 МЦ_Эко-безопасность.pdf
+2025-10-01 15:20:11,807 [INFO] ocr-search - OSD результат: angle=90, confidence=18.86 (size=2480x3507)
+2025-10-01 15:20:11,843 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:20:21,240 [INFO] ocr-search - Original file СЧФ 2024-03 071 МегаФон УПД.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 071 МегаФон УПД.pdf
+2025-10-01 15:20:21,242 [INFO] ocr-search - Extracted text for СЧФ 2024-03 071 МегаФон УПД.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 071 МегаФон УПД.pdf
+2025-10-01 15:20:21,252 [INFO] ocr-search - Original file СЧФ 2024-03 72 МегаФон.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 72 МегаФон.pdf
+2025-10-01 15:20:21,253 [INFO] ocr-search - Extracted text for СЧФ 2024-03 72 МегаФон.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 72 МегаФон.pdf
+2025-10-01 15:20:21,262 [INFO] ocr-search - Original file СЧФ 2024-03 73 ПАО МТС_л.с. 278357687570.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 73 ПАО МТС_л.с. 278357687570.pdf
+2025-10-01 15:20:21,263 [INFO] ocr-search - Extracted text for СЧФ 2024-03 73 ПАО МТС_л.с. 278357687570.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 73 ПАО МТС_л.с. 278357687570.pdf
+2025-10-01 15:20:23,869 [INFO] ocr-search - OSD результат: angle=90, confidence=13.11 (size=2480x3507)
+2025-10-01 15:20:23,908 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-01 15:20:29,405 [INFO] ocr-search - Original file СЧФ 2024-03 74 Гефест.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100115_bakhtin_da\СЧФ 2024-03 74 Гефест.pdf
+2025-10-01 15:20:29,410 [INFO] ocr-search - Extracted text for СЧФ 2024-03 74 Гефест.pdf saved to D:\SHARE\_OCR_TEXT\2025100115_bakhtin_da\СЧФ 2024-03 74 Гефест.pdf
+2025-10-01 15:20:29,420 [INFO] uvicorn.access - 10.192.3.64:61674:0 - "POST /upload HTTP/1.1" 201
+2025-10-01 16:54:05,198 [INFO] uvicorn.error - Shutting down
+2025-10-01 16:54:05,300 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 16:54:05,302 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 16:54:05,303 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 16:54:05,304 [INFO] uvicorn.error - Finished server process [1924]
+2025-10-01 16:54:13,571 [INFO] uvicorn.error - Started server process [2860]
+2025-10-01 16:54:13,572 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 16:54:13,573 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 16:54:13,574 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 16:54:35,793 [INFO] uvicorn.access - 10.192.3.64:59178:0 - "GET / HTTP/1.1" 307
+2025-10-01 16:54:35,816 [INFO] uvicorn.access - 10.192.3.64:59178:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 16:54:35,891 [INFO] uvicorn.access - 10.192.3.64:59178:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 16:54:36,161 [INFO] uvicorn.access - 10.192.3.64:59178:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-01 16:54:55,376 [INFO] uvicorn.access - 10.192.3.64:59195:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 16:54:55,417 [INFO] uvicorn.access - 10.192.3.64:59195:0 - "GET / HTTP/1.1" 200
+2025-10-01 16:55:41,069 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "GET / HTTP/1.1" 307
+2025-10-01 16:55:41,132 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 16:55:41,290 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 16:55:46,276 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 16:55:58,479 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 16:55:58,517 [INFO] uvicorn.access - 10.192.3.64:59242:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:05:33,368 [INFO] uvicorn.access - 10.192.3.64:59638:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:05:33,427 [INFO] uvicorn.access - 10.192.3.64:59638:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:06:03,304 [INFO] uvicorn.access - 10.192.3.64:59665:0 - "GET / HTTP/1.1" 307
+2025-10-01 17:06:03,348 [INFO] uvicorn.access - 10.192.3.64:59665:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:06:09,971 [INFO] uvicorn.access - 10.192.3.64:59665:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:06:09,987 [INFO] uvicorn.access - 10.192.3.64:59665:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:06:53,428 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET / HTTP/1.1" 307
+2025-10-01 17:06:53,444 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:06:53,510 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:07:35,546 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-01 17:09:08,304 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:09:08,333 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:09:08,358 [INFO] uvicorn.access - 10.132.18.90:7062:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:11:20,403 [INFO] uvicorn.access - 10.132.18.90:7389:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:11:20,434 [INFO] uvicorn.access - 10.132.18.90:7389:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:27:48,028 [INFO] uvicorn.access - 10.132.18.90:8328:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:27:48,057 [INFO] uvicorn.access - 10.132.18.90:8328:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:27:51,892 [INFO] uvicorn.access - 10.132.18.90:8328:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:27:52,623 [INFO] uvicorn.access - 10.132.18.90:8328:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:28:02,547 [INFO] uvicorn.access - 10.132.18.90:8350:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:28:02,632 [INFO] uvicorn.access - 10.132.18.90:8350:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-01 17:28:15,698 [INFO] uvicorn.access - 10.192.3.64:60102:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:28:15,743 [INFO] uvicorn.access - 10.192.3.64:60102:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:28:39,723 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "GET / HTTP/1.1" 307
+2025-10-01 17:28:39,735 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:28:39,770 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:29:21,816 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-01 17:29:36,032 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:29:36,054 [INFO] uvicorn.access - 10.132.18.91:64986:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:33:43,348 [INFO] uvicorn.access - 10.132.18.91:65303:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:33:43,379 [INFO] uvicorn.access - 10.132.18.91:65303:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:38:10,006 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:38:10,039 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:38:54,965 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:38:54,984 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:40:07,645 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:40:07,663 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:40:42,486 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "POST /logout HTTP/1.1" 200
+2025-10-01 17:40:42,513 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:40:42,544 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:40:56,747 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:40:56,764 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:40:56,792 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:41:18,304 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:41:18,322 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:42:13,358 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 17:42:13,507 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-01 17:44:07,321 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:44:07,349 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:45:39,454 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:45:39,480 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:45:41,106 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:45:41,601 [INFO] uvicorn.access - 10.132.18.91:49157:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:49:45,836 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:49:45,869 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:50:31,397 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:50:31,413 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:50:44,104 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:50:44,119 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:50:55,324 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:50:55,343 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:51:12,067 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:51:12,090 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:52:04,606 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:52:04,622 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:52:13,672 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:52:13,690 [INFO] uvicorn.access - 10.132.18.91:49801:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:56:08,362 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:56:08,392 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:56:47,306 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:56:47,340 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:57:07,858 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:57:23,760 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "POST /logout HTTP/1.1" 200
+2025-10-01 17:57:23,776 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:57:23,793 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 17:57:30,299 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:57:30,315 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:57:44,111 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "GET / HTTP/1.1" 307
+2025-10-01 17:57:44,135 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 17:57:44,190 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 17:57:49,904 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 17:57:57,358 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 17:57:57,383 [INFO] uvicorn.access - 10.192.3.64:59515:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:59:19,619 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET / HTTP/1.1" 200
+2025-10-01 17:59:19,641 [INFO] uvicorn.access - 10.132.18.91:61154:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:04:37,454 [INFO] uvicorn.access - 10.132.18.91:61614:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:04:37,484 [INFO] uvicorn.access - 10.132.18.91:61614:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:10:37,959 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:10:37,993 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:11:26,919 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:11:26,936 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:11:29,482 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:13:05,948 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:13:05,982 [INFO] uvicorn.access - 10.132.18.91:61882:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:34:14,279 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:34:14,316 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:35:04,060 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:35:04,089 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:35:05,203 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:35:05,819 [INFO] uvicorn.access - 10.132.18.91:62806:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:42:23,622 [INFO] uvicorn.access - 10.132.18.91:63210:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:42:23,665 [INFO] uvicorn.access - 10.132.18.91:63210:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:42:25,257 [INFO] uvicorn.access - 10.132.18.91:63210:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:42:25,273 [INFO] uvicorn.access - 10.132.18.91:63210:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:45:44,441 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:45:44,464 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 18:45:46,030 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:45:46,045 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:45:47,957 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:45:47,973 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:45:52,543 [INFO] uvicorn.error - Shutting down
+2025-10-01 18:45:52,645 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-01 18:45:52,646 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-01 18:45:52,648 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-01 18:45:52,648 [INFO] uvicorn.error - Finished server process [2860]
+2025-10-01 18:46:00,604 [INFO] uvicorn.error - Started server process [7556]
+2025-10-01 18:46:00,605 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-01 18:46:00,607 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-01 18:46:00,608 [INFO] uvicorn.error - Application startup complete.
+2025-10-01 18:46:20,695 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:46:20,746 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:46:23,655 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:46:25,317 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "POST /logout HTTP/1.1" 200
+2025-10-01 18:46:25,339 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 18:46:25,362 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:46:32,420 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 18:46:42,090 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 18:46:51,277 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 18:46:51,296 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:46:51,326 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:47:48,072 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:47:48,100 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:47:49,409 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:47:50,036 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:47:53,320 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:09,647 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:09,676 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:48:11,000 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:11,638 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:15,311 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:25,919 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:48:25,935 [INFO] uvicorn.access - 10.132.18.91:63387:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:50:32,613 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:50:32,641 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 18:50:48,817 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:51:30,158 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET / HTTP/1.1" 200
+2025-10-01 18:51:30,192 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET /app.css HTTP/1.1" 304

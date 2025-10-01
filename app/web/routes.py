@@ -19,7 +19,7 @@ from app.services import ingest_folder, save_outputs
 from app.settings_store import get_documents_dir as store_get_documents_dir
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
-from app.services import bytes_xtractor as bx
+from app.services import bytes_xtractor2 as bx
 
 from concurrent.futures import ThreadPoolExecutor
 
@@ -133,66 +133,72 @@ async def upload_file(
     _output_originals_dir = f'{settings.output_originals_dir}/{_prefix_dir}'
     _output_texts_dir     = f'{settings.output_texts_dir}/{_prefix_dir}'
 
-    # 1) асинхронно считываем все файлы -> получаем bytes
-    payloads: list[tuple[str | None, str | None, bytes]] = []
-    for f in files:
-        _data = await f.read()                      # ВАЖНО: тут await!
-        _filename = f.filename or "uploaded"
-        _mime = (f.content_type or "").lower() or None
-        payloads.append((_filename, _mime, _data))
-
     # 2) синхронная функция для пула
     def run_sync(args: tuple[str | None, str | None, bytes]):
         _filename, _mime, _data = args
         _text = bx.extract_text_bytes(_data, filename=_filename, mime=_mime)
         return _filename, _mime, _data, _text
 
-    # 3) параллельно обрабатываем bytes
-    max_workers = 4 #settings.max_workers or 4
-    with ThreadPoolExecutor(max_workers=max_workers) as tp:
-        for orig_name, mime, data, text in tp.map(run_sync, payloads):
-            try:
-                # Save outputs if configured (errors logged but do not break processing)
-                path_origin = ""
-                try:
-                    if settings.output_originals_dir:
-                        path_origin = save_outputs.save_original(orig_name, data, _output_originals_dir)
-                        path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
-                except Exception as e:
-                    app_logger.exception("Failed to save original for %s: %s", orig_name, e)
+    # 1) асинхронно считываем все файлы -> получаем bytes
 
-                try:
-                    if settings.output_texts_dir:
-                        save_outputs.save_text(orig_name, text or "", _output_texts_dir)
-                except Exception as e:
-                    app_logger.exception("Failed to save text for %s: %s", orig_name, e)
+    def batch_iter(data, batch):
+        for i in range(0, len(data), batch):
+            yield data[i : i + batch]
 
-                # Save to DB
-                db = SessionLocal()
-                try:
-                    doc = Document(
-                        filename=orig_name,
-                        content=text,
-                        mime=mime,
-                        size_bytes=len(data),
-                        meta={},
-                        path_origin=str(path_origin),
-                        email=user.email
-                    )
-                    db.add(doc)
-                    db.commit()
-                    db.refresh(doc)
-                    created_items.append({"id": doc.id, 
-                                        "filename": doc.filename, 
-                                        "link": f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}' if settings.httpfs and doc.path_origin else None, 
-                                        "snippet": (doc.content or "")[:800]})
-                finally:
-                    db.close()
+    for era_files in  batch_iter(files, 3):
+        payloads: list[tuple[str | None, str | None, bytes]] = []
+        for f in era_files:
+            _filename = f.filename or "uploaded"
+            _data = await f.read()                      # ВАЖНО: тут await!            
+            _mime = (f.content_type or "").lower() or None
+            payloads.append((_filename, _mime, _data))
 
-            except Exception as exc:
-                #app_logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
-                app_logger.exception("Upload processing failed for %s", exc)
-                return HTMLResponse(f'<div class="muted">Ошибка при обработке файлов: {exc}</div>', status_code=500)
+        # 3) параллельно обрабатываем bytes
+        max_workers = 4 #settings.max_workers or 4
+        with ThreadPoolExecutor(max_workers=max_workers) as tp:
+            for orig_name, mime, data, text in tp.map(run_sync, payloads):
+                try:
+                    # Save outputs if configured (errors logged but do not break processing)
+                    path_origin = ""
+                    try:
+                        if settings.output_originals_dir:
+                            path_origin = save_outputs.save_original(orig_name, data, _output_originals_dir)
+                            path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
+                    except Exception as e:
+                        app_logger.exception("Failed to save original for %s: %s", orig_name, e)
+
+                    try:
+                        if settings.output_texts_dir:
+                            save_outputs.save_text(orig_name, text or "", _output_texts_dir)
+                    except Exception as e:
+                        app_logger.exception("Failed to save text for %s: %s", orig_name, e)
+
+                    # Save to DB
+                    db = SessionLocal()
+                    try:
+                        doc = Document(
+                            filename=orig_name,
+                            content=text,
+                            mime=mime,
+                            size_bytes=len(data),
+                            meta={},
+                            path_origin=str(path_origin),
+                            email=user.email
+                        )
+                        db.add(doc)
+                        db.commit()
+                        db.refresh(doc)
+                        created_items.append({"id": doc.id, 
+                                            "filename": doc.filename, 
+                                            "link": f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}' if settings.httpfs and doc.path_origin else None, 
+                                            "snippet": (doc.content or "")[:800]})
+                    finally:
+                        db.close()
+
+                except Exception as exc:
+                    #app_logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
+                    app_logger.exception("Upload processing failed for %s", exc)
+                    return HTMLResponse(f'<div class="muted">Ошибка при обработке файлов: {exc}</div>', status_code=500)
 
     if created_items:
         context = {"request": request, "items": created_items}

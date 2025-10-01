@@ -7,6 +7,18 @@
 * { box-sizing: border-box; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color: #111827; }
 
+.page-header {
+  display: flex;
+  justify-content: space-between; /* h2 слева, ссылка справа */
+  align-items: center;            /* выравнивание по вертикали */
+  margin-bottom: 20px;            /* отступ вниз от заголовка */
+}
+ 
+.page-header h2 {
+  margin: 0;                      /* убираем ли шний отступ у h2 */
+}
+
+
 .container {
   max-width: 960px;
   margin: 4rem auto;
@@ -22,15 +34,28 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 }
 
 /* кнопки/поля */
-.row { display: flex; gap: 8px; align-items: center; }
-.btn { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); background: #f3f4f6; cursor: pointer; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.btn { padding: 10px 14px;
+  border-radius: 6px; /* привели к единому радиусу с инпутами */
+  border: 1px solid var(--border);
+  background: #fff;   /* фон как у инпутов */
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn:hover {
+  background: #f3f4f6; /* лёгкий hover эффект */
+  border-color: #d1d5db;
+ }
 .field { margin: 10px 0; }
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="password"],
+.field input[type="date"],
+.field input[type="datetime-local"],
 .field input[type="file"],
 .field textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
-
 .doc { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
 .muted { color: var(--muted); font-size: 14px; }
 .error { color: #b91c1c; margin-top: 8px; }
@@ -84,8 +109,71 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
   color: #495057;            /* более тёмный серый */
 }
 
+.btn.shrink { flex: 0 0 auto; }
 /* небольшой отклик для узких экранов */
+/* На очень узких экранах — стекаем в колонку */
 @media (max-width: 640px) {
-  .row { flex-direction: column; align-items: stretch; }
-  .btn { width: 100%; }
+  .search-row { flex-wrap: wrap; }
+  .w-50, .auto, .search-row .btn { flex: 1 1 100%; }
+}
+
+/* Контейнер строки поиска */
+.search-row { flex-wrap: nowrap; }
+/* Поиск: фиксированные значения */
+.w-50   { flex: 0 1 calc(50%); min-width: 220px; }
+.w-40   { flex: 0 1 calc(40%); min-width: 180px; }
+.w-25   { flex: 0 1 calc(25%); min-width: 160px; }
+.w-125  { flex: 0 1 calc(12.5%); min-width: 140px; }
+
+/* Остальные поля делят оставшееся место */
+.auto { flex: 1 1 0; min-width: 160px; }
+
+/* Инлайн-пара: метка  поле в одну строку */
+.inline-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0; /* чтобы не раздувалась внутри flex */
+}
+.inline-field label {
+  white-space: nowrap;
+  font-size: 12px;
+}
+.inline-field input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto; /* переопределяем 100%, чтобы не прыгало */
+}
+
+/* Кнопка не растягивается, занимает естественную ширину */
+.search-row .btn { flex: 0 0 auto; }
+
+
+/* Чтобы label и input внутри блока .w-125 не "разрывали" верстку */
+.w-125 label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.w-125 input {
+  width: 100%;
+}
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* расстояние между инпутом и кнопкой */
+  margin-top: 12px;
+}
+/* Поле файла занимает всё свободное место */
+.upload-row .file-input {
+  flex: 1 1 auto;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+} 
+/* Кнопка остаётся компактной */
+.upload-row .btn {
+  flex: 0 0 auto;
 }
