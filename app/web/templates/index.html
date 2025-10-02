@@ -9,8 +9,8 @@
     </div>
     <form hx-get="{{ request.url_for('search').path }}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#spinner" class="field" style="margin-top:12px;">
       <div class="row search-row">
-        <input type="text" name="q" placeholder="Введите запрос..." required class="w-50"/>
-        <input type="email" name="ocr_user" class="auto" placeholder="user/email" />
+        <input type="text" name="q" placeholder="Введите запрос..." class="w-50"/>
+        <input type="text" name="ocr_user" class="auto" placeholder="user/email" />
           <div class="inline-field auto">
             <label for="ocr_from" class="form-label">от</label>
             <input type="datetime-local" name="ocr_from" />   
@@ -36,12 +36,7 @@
         <button class="btn" type="submit">Загрузить</button>
       </div>
     </form>
-  </div>
-</div>
-
-<!-- results area stays in centered container -->
-<div class="full-bleed">
-  <div class="card">
+    <hr />
     <div id="results">
       {% include "_results.html" %}
     </div>

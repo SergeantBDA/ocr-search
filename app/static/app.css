@@ -115,6 +115,8 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 @media (max-width: 640px) {
   .search-row { flex-wrap: wrap; }
   .w-50, .auto, .search-row .btn { flex: 1 1 100%; }
+  .upload-row {flex-direction: row;}
+  .upload-row .btn {width: auto;}
 }
 
 /* Контейнер строки поиска */
@@ -126,7 +128,7 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 .w-125  { flex: 0 1 calc(12.5%); min-width: 140px; }
 
 /* Остальные поля делят оставшееся место */
-.auto { flex: 1 1 0; min-width: 160px; }
+.auto { flex: 1 1 0; min-width: 200px; }
 
 /* Инлайн-пара: метка  поле в одну строку */
 .inline-field {
@@ -160,14 +162,12 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 }
 
 .upload-row {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* расстояние между инпутом и кнопкой */
-  margin-top: 12px;
+  flex-wrap: nowrap;
 }
 /* Поле файла занимает всё свободное место */
 .upload-row .file-input {
-  flex: 1 1 auto;
+  width: auto;
+  flex: 1 1 auto;  
   padding: 6px;
   border: 1px solid var(--border);
   border-radius: 6px;

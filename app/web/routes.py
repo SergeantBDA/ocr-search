@@ -5,7 +5,7 @@ from typing import Optional, List, Dict, Annotated, Any
 from pathlib import Path
 from datetime import datetime
 
-from fastapi import APIRouter, Request, UploadFile, File, Depends
+from fastapi import APIRouter, Request, UploadFile, File, Depends, Query
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
@@ -64,9 +64,12 @@ def index(request: Request, current_user: CurrentUser = None):
     return templates.TemplateResponse("index.html", context)
 
 @router.get("/search", include_in_schema=True)
-def search(
+async def search(
     request: Request,
-    q: Optional[str] = "",
+    q: str = Query("", description="строка поиска"),
+    ocr_user: Optional[str] = Query(None, description="email/user"),
+    ocr_from: Optional[str] = Query(None, description="filter от"),
+    ocr_to  : Optional[str] = Query(None, description="filter до"),
     limit: int = 25,
     offset: int = 0,
     db: Session = Depends(get_session),
@@ -74,11 +77,15 @@ def search(
     """
     HTMX: возвращает partial со списком результатов (_results.html).
     """
-    q = (q or "").strip()
-    result = search_module.search_documents(db, q, limit=limit, offset=offset)
+    print(q, ocr_user, ocr_from, ocr_to)
+
+    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=ocr_from, ocr_to=ocr_to, limit=limit, offset=offset)
     context = {
         "request": request,
         "q": q,
+        "ocr_user":ocr_user,
+        "ocr_from":ocr_from,
+        "ocr_to":ocr_to,
         "items": result.get("items", []),
         "total": result.get("total", 0),
         "limit": limit,

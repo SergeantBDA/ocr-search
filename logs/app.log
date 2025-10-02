@@ -4146,3 +4146,1223 @@ NameError: name 'mime' is not defined. Did you mean: '_mime'?
 2025-10-01 18:50:48,817 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET / HTTP/1.1" 200
 2025-10-01 18:51:30,158 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET / HTTP/1.1" 200
 2025-10-01 18:51:30,192 [INFO] uvicorn.access - 10.132.18.91:63701:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 19:08:41,783 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:08:41,818 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 19:10:11,641 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:10:11,673 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 19:11:08,501 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:11:08,519 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 19:12:49,393 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:12:49,417 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET /app.css HTTP/1.1" 200
+2025-10-01 19:12:50,362 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:12:50,381 [INFO] uvicorn.access - 10.132.18.91:64458:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 19:13:38,657 [INFO] uvicorn.access - 10.192.3.64:56302:0 - "GET / HTTP/1.1" 307
+2025-10-01 19:13:38,705 [INFO] uvicorn.access - 10.192.3.64:56302:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 19:13:51,145 [INFO] uvicorn.access - 10.192.3.64:56302:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 19:13:51,168 [INFO] uvicorn.access - 10.192.3.64:56302:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:19:51,232 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:19:51,267 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 19:20:03,233 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:20:11,002 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-01 19:20:11,126 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-01 19:21:06,649 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "POST /logout HTTP/1.1" 200
+2025-10-01 19:21:06,668 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET /login-web HTTP/1.1" 200
+2025-10-01 19:21:06,698 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET /app.css HTTP/1.1" 304
+2025-10-01 19:21:12,586 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 19:21:58,994 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-01 19:22:08,350 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-01 19:22:08,373 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET / HTTP/1.1" 200
+2025-10-01 19:22:08,402 [INFO] uvicorn.access - 10.132.18.91:51547:0 - "GET /app.css HTTP/1.1" 304
+2025-10-02 11:36:06,870 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 401
+2025-10-02 11:36:47,927 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 401
+2025-10-02 11:36:49,779 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 401
+2025-10-02 11:36:53,189 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D0%A1%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 401
+2025-10-02 11:36:57,846 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D1%84%D0%B0%D0%BA%D1%82%D1%83%D1%80%D0%B0&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 401
+2025-10-02 11:36:59,396 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET / HTTP/1.1" 307
+2025-10-02 11:36:59,411 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 11:36:59,446 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /app.css HTTP/1.1" 304
+2025-10-02 11:37:08,128 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 11:37:08,153 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET / HTTP/1.1" 200
+2025-10-02 11:37:22,522 [DEBUG] ocr-search - Search SQL:    SELECT    id,    filename,    path_origin,    ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,    ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,    similarity(content, :q) AS sim   FROM documents   WHERE (search_vector @@ plainto_tsquery('simple', :q)) OR                 (filename ILIKE '%' || :q || '%') OR          (content ILIKE '%' || :q || '%') OR          (similarity(content, :q) > 0.2)   ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC   
+2025-10-02 11:37:22,644 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-02 11:37:44,571 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET / HTTP/1.1" 200
+2025-10-02 11:37:51,872 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 11:37:51,895 [INFO] uvicorn.access - 10.132.18.91:65325:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 14:18:32,463 [INFO] uvicorn.access - 10.192.3.127:54616:0 - "GET / HTTP/1.1" 307
+2025-10-02 14:18:32,669 [INFO] uvicorn.access - 10.192.3.127:54616:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 14:18:32,988 [INFO] uvicorn.access - 10.192.3.127:54616:0 - "GET /app.css HTTP/1.1" 200
+2025-10-02 14:18:33,539 [INFO] uvicorn.access - 10.192.3.127:54616:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-02 14:19:56,180 [INFO] uvicorn.access - 10.136.97.113:51553:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 14:19:56,246 [INFO] uvicorn.access - 10.136.97.113:51553:0 - "GET /app.css HTTP/1.1" 200
+2025-10-02 14:20:07,414 [INFO] uvicorn.access - 10.136.97.113:51553:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-02 14:20:59,409 [INFO] uvicorn.access - 10.136.97.113:51553:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-02 14:23:28,006 [INFO] uvicorn.access - 10.136.97.113:51636:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 14:30:12,100 [INFO] uvicorn.access - 10.136.97.113:51718:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 14:30:12,171 [INFO] uvicorn.access - 10.136.97.113:51718:0 - "GET / HTTP/1.1" 200
+2025-10-02 15:51:42,280 [INFO] uvicorn.error - Shutting down
+2025-10-02 15:51:42,381 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 15:51:42,383 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 15:51:42,385 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 15:51:42,386 [INFO] uvicorn.error - Finished server process [7556]
+2025-10-02 15:51:53,691 [INFO] uvicorn.error - Started server process [2768]
+2025-10-02 15:51:53,692 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 15:51:53,694 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 15:51:53,694 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 15:52:11,132 [INFO] uvicorn.error - Shutting down
+2025-10-02 15:52:11,234 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 15:52:11,234 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 15:52:11,235 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 15:52:11,237 [INFO] uvicorn.error - Finished server process [2768]
+2025-10-02 15:52:13,846 [INFO] uvicorn.error - Started server process [9124]
+2025-10-02 15:52:13,847 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 15:52:13,848 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 15:52:13,849 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 15:52:38,390 [INFO] uvicorn.error - Shutting down
+2025-10-02 15:52:38,490 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 15:52:38,491 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 15:52:38,493 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 15:52:38,494 [INFO] uvicorn.error - Finished server process [9124]
+2025-10-02 15:52:41,119 [INFO] uvicorn.error - Started server process [10556]
+2025-10-02 15:52:41,120 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 15:52:41,121 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 15:52:41,121 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 15:53:38,374 [INFO] uvicorn.error - Shutting down
+2025-10-02 15:53:38,477 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 15:53:38,478 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 15:53:38,481 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 15:53:38,482 [INFO] uvicorn.error - Finished server process [10556]
+2025-10-02 15:53:40,989 [INFO] uvicorn.error - Started server process [5200]
+2025-10-02 15:53:40,990 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 15:53:40,992 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 15:53:40,992 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:04:33,573 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:04:33,676 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:04:33,678 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:04:33,680 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:04:33,681 [INFO] uvicorn.error - Finished server process [5200]
+2025-10-02 16:04:37,322 [INFO] uvicorn.error - Started server process [7788]
+2025-10-02 16:04:37,323 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:04:37,324 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:04:37,325 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:06:47,557 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:06:47,658 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:06:47,660 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:06:47,662 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:06:47,662 [INFO] uvicorn.error - Finished server process [7788]
+2025-10-02 16:06:50,303 [INFO] uvicorn.error - Started server process [7128]
+2025-10-02 16:06:50,303 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:06:50,306 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:06:50,306 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:34:17,808 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:34:17,910 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:34:17,911 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:34:17,913 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:34:17,913 [INFO] uvicorn.error - Finished server process [7128]
+2025-10-02 16:42:19,381 [INFO] uvicorn.error - Started server process [6988]
+2025-10-02 16:42:19,381 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:42:19,382 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:42:19,382 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:42:54,438 [INFO] uvicorn.access - 10.132.18.91:52415:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 16:42:54,517 [INFO] uvicorn.access - 10.132.18.91:52415:0 - "GET / HTTP/1.1" 200
+2025-10-02 16:42:54,579 [INFO] uvicorn.access - 10.132.18.91:52415:0 - "GET /app.css HTTP/1.1" 304
+2025-10-02 16:43:35,469 [INFO] uvicorn.access - 10.132.18.91:52415:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=2025-10-01T22%3A42&ocr_to=2025-10-01T10%3A43 HTTP/1.1" 500
+2025-10-02 16:43:35,470 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 81, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 56, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR   
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': ''}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 16:43:38,118 [INFO] uvicorn.access - 10.132.18.91:52415:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=2025-10-01T22%3A42&ocr_to=2025-10-01T10%3A43 HTTP/1.1" 500
+2025-10-02 16:43:38,118 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 81, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 56, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR   
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': ''}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 16:46:11,471 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:46:11,573 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:46:11,574 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:46:11,577 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:46:11,577 [INFO] uvicorn.error - Finished server process [6988]
+2025-10-02 16:46:15,294 [INFO] uvicorn.error - Started server process [5592]
+2025-10-02 16:46:15,294 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:46:15,295 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:46:15,295 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:46:19,639 [INFO] uvicorn.access - 10.132.18.91:52576:0 - "GET / HTTP/1.1" 200
+2025-10-02 16:47:16,318 [INFO] uvicorn.access - 10.132.18.91:52576:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=2025-10-01T13%3A46&ocr_to=2025-10-01T10%3A46 HTTP/1.1" 500
+2025-10-02 16:47:16,319 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 81, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 57, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR   
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': 'bakhtin_da@interrao.ru'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 16:51:50,189 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:51:50,291 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:51:50,292 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:51:50,294 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:51:50,294 [INFO] uvicorn.error - Finished server process [5592]
+2025-10-02 16:51:53,000 [INFO] uvicorn.error - Started server process [5980]
+2025-10-02 16:51:53,001 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:51:53,003 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:51:53,004 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:51:56,440 [INFO] uvicorn.access - 10.132.18.91:65475:0 - "GET / HTTP/1.1" 200
+2025-10-02 16:52:14,420 [INFO] uvicorn.access - 10.132.18.91:65475:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=2025-10-01T17%3A52&ocr_to=2025-10-01T10%3A52 HTTP/1.1" 500
+2025-10-02 16:52:14,420 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 81, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 57, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR   
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': 'bakhtin_da@interrao.ru'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 16:58:36,699 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:58:36,799 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:58:36,801 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:58:36,802 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:58:36,803 [INFO] uvicorn.error - Finished server process [5980]
+2025-10-02 16:58:39,661 [INFO] uvicorn.error - Started server process [3212]
+2025-10-02 16:58:39,662 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 16:58:39,663 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 16:58:39,664 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 16:58:40,232 [INFO] uvicorn.access - 10.132.18.91:49393:0 - "GET / HTTP/1.1" 200
+2025-10-02 16:58:45,040 [INFO] uvicorn.access - 10.132.18.91:49393:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 16:58:58,962 [INFO] uvicorn.access - 10.132.18.91:49393:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 16:59:35,684 [INFO] uvicorn.error - Shutting down
+2025-10-02 16:59:35,784 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 16:59:35,784 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 16:59:35,785 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 16:59:35,785 [INFO] uvicorn.error - Finished server process [3212]
+2025-10-02 17:02:08,055 [INFO] uvicorn.error - Started server process [6840]
+2025-10-02 17:02:08,056 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:02:08,056 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:02:08,056 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:02:17,154 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:02:18,912 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:02:23,563 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:03:25,961 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:03:32,362 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:03:38,692 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:03:41,498 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 17:03:41,536 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 17:03:47,970 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 17:03:47,985 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:03:52,142 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:04:26,530 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:04:26,631 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:04:26,631 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:04:26,633 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:04:26,633 [INFO] uvicorn.error - Finished server process [6840]
+2025-10-02 17:04:29,259 [INFO] uvicorn.error - Started server process [10916]
+2025-10-02 17:04:29,260 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:04:29,260 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:04:29,261 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:04:29,474 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:04:33,126 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:04:54,176 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:04:55,370 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 17:04:55,393 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 17:05:13,683 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 17:05:13,698 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:05:26,183 [INFO] uvicorn.access - 10.132.18.91:55636:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=2025-09-30T17%3A05&ocr_to=2025-10-02T17%3A05 HTTP/1.1" 500
+2025-10-02 17:05:26,184 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 81, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 59, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR 
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': 'bakhtin_da@interrao.ru'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 17:09:25,699 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=2025-09-30T17%3A05&ocr_to= HTTP/1.1" 422
+2025-10-02 17:09:25,700 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:09:31,801 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:09:31,902 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:09:31,902 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:09:31,903 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:09:31,903 [INFO] uvicorn.error - Finished server process [10916]
+2025-10-02 17:09:54,134 [INFO] uvicorn.error - Started server process [3288]
+2025-10-02 17:09:54,134 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:09:54,134 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:09:54,134 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:10:45,962 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:10:47,335 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 17:10:47,362 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 17:10:53,800 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 17:10:53,821 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:11:04,192 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:12:27,236 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:12:27,350 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:12:27,352 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:12:27,352 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:12:27,352 [INFO] uvicorn.error - Finished server process [3288]
+2025-10-02 17:12:30,035 [INFO] uvicorn.error - Started server process [5128]
+2025-10-02 17:12:30,036 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:12:30,039 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:12:30,039 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:12:48,663 [INFO] uvicorn.access - 10.132.18.91:56049:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:14:20,372 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:14:20,472 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:14:20,473 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:14:20,473 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:14:20,473 [INFO] uvicorn.error - Finished server process [5128]
+2025-10-02 17:14:23,175 [INFO] uvicorn.error - Started server process [10192]
+2025-10-02 17:14:23,175 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:14:23,176 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:14:23,176 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:16:20,608 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:16:20,709 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:16:20,710 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:16:20,713 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:16:20,713 [INFO] uvicorn.error - Finished server process [10192]
+2025-10-02 17:16:23,342 [INFO] uvicorn.error - Started server process [1072]
+2025-10-02 17:16:23,342 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:16:23,342 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:16:23,342 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:16:31,984 [INFO] uvicorn.access - 10.132.18.91:56460:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:16:37,197 [INFO] uvicorn.access - 10.132.18.91:56460:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:19:08,494 [INFO] uvicorn.access - 10.132.18.91:56602:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:19:12,779 [INFO] uvicorn.access - 10.132.18.91:56602:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:19:22,601 [INFO] uvicorn.access - 10.132.18.91:56602:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=bakhtin_da%40interrao.ru&ocr_from=2025-10-07T17%3A19&ocr_to=2025-10-02T17%3A19 HTTP/1.1" 500
+2025-10-02 17:19:22,602 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 82, in search
+    result = search_module.search_documents(db, q, ocr_user, ocr_from, ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 57, in search_documents
+    total = session.execute(text(count_sql), params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near ":"
+LINE 5:                    (created_at BETWEEN :ocr_from::timestamp ...
+                                               ^
+[SQL: SELECT count(*) FROM documents WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s)) OR 
+                   (filename ILIKE '%%' || %(q)s || '%%') OR 
+                   (content  ILIKE '%%' || %(q)s || '%%') OR 
+                   (similarity(content, %(q)s) > 0.2)) AND 
+                   (created_at BETWEEN :ocr_from::timestamp AND :ocr_to::timestamp) AND 
+                   (%(ocr_user)s = '' OR email ILIKE '%%' || %(ocr_user)s || '%%')]
+[parameters: {'q': 'счет', 'ocr_user': 'bakhtin_da@interrao.ru'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 17:27:19,234 [INFO] uvicorn.access - 10.132.18.91:56935:0 - "GET / HTTP/1.1" 200
+2025-10-02 17:27:20,863 [INFO] uvicorn.access - 10.132.18.91:56935:0 - "GET /search?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:29:21,877 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:29:21,979 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:29:21,981 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:29:21,982 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:29:21,982 [INFO] uvicorn.error - Finished server process [1072]
+2025-10-02 17:29:25,636 [INFO] uvicorn.error - Started server process [10916]
+2025-10-02 17:29:25,636 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:29:25,636 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:29:25,636 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:29:42,809 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:29:42,927 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:29:42,928 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:29:42,930 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:29:42,930 [INFO] uvicorn.error - Finished server process [10916]
+2025-10-02 17:29:45,495 [INFO] uvicorn.error - Started server process [8364]
+2025-10-02 17:29:45,496 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:29:45,498 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:29:45,498 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:29:53,081 [INFO] uvicorn.access - 10.132.18.91:57093:0 - "GET /search?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:30:03,121 [INFO] uvicorn.access - 10.132.18.91:57093:0 - "GET /search?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 17:37:18,135 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:37:18,237 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:37:18,238 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:37:18,239 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:37:18,239 [INFO] uvicorn.error - Finished server process [8364]
+2025-10-02 17:37:21,875 [INFO] uvicorn.error - Started server process [8432]
+2025-10-02 17:37:21,876 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:37:21,878 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:37:21,878 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:50:37,784 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:50:37,887 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:50:37,889 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:50:37,892 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:50:37,893 [INFO] uvicorn.error - Finished server process [8432]
+2025-10-02 17:50:41,629 [INFO] uvicorn.error - Started server process [2476]
+2025-10-02 17:50:41,629 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:50:41,631 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:50:41,632 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:51:37,964 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:51:38,065 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:51:38,065 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:51:38,067 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:51:38,068 [INFO] uvicorn.error - Finished server process [2476]
+2025-10-02 17:51:40,913 [INFO] uvicorn.error - Started server process [9124]
+2025-10-02 17:51:40,913 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:51:40,917 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:51:40,917 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:51:42,259 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:51:42,360 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:51:42,361 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:51:42,364 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:51:42,365 [INFO] uvicorn.error - Finished server process [9124]
+2025-10-02 17:51:44,908 [INFO] uvicorn.error - Started server process [7688]
+2025-10-02 17:51:44,908 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:51:44,910 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:51:44,911 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 17:59:55,912 [INFO] uvicorn.error - Shutting down
+2025-10-02 17:59:56,015 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 17:59:56,016 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 17:59:56,019 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 17:59:56,019 [INFO] uvicorn.error - Finished server process [7688]
+2025-10-02 17:59:58,644 [INFO] uvicorn.error - Started server process [11220]
+2025-10-02 17:59:58,645 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 17:59:58,647 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 17:59:58,647 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:00:22,513 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:00:22,614 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:00:22,615 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:00:22,618 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:00:22,619 [INFO] uvicorn.error - Finished server process [11220]
+2025-10-02 18:00:25,242 [INFO] uvicorn.error - Started server process [5632]
+2025-10-02 18:00:25,242 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:00:25,245 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:00:25,245 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:00:43,308 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:00:43,410 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:00:43,411 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:00:43,414 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:00:43,415 [INFO] uvicorn.error - Finished server process [5632]
+2025-10-02 18:00:45,935 [INFO] uvicorn.error - Started server process [7384]
+2025-10-02 18:00:45,936 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:00:45,938 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:00:45,938 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:00:54,653 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:00:55,860 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 18:00:55,879 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 18:01:02,318 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 18:01:02,338 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:01:06,219 [INFO] uvicorn.access - 10.132.18.91:58133:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 18:03:35,591 [INFO] uvicorn.access - 10.132.18.91:64595:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=2025-09-30T18%3A03&ocr_to= HTTP/1.1" 422
+2025-10-02 18:10:28,661 [INFO] uvicorn.access - 10.132.18.91:64842:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=2025-09-30T18%3A03&ocr_to=2025-10-02T18%3A10 HTTP/1.1" 500
+2025-10-02 18:10:28,661 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near "OR"
+LINE 3:                      OR (filename ILIKE '%' || $1::VARCHAR |...
+                             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 82, in search
+    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=ocr_from, ocr_to=ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 64, in search_documents
+    total = session.execute(count_sql, params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near "OR"
+LINE 3:                      OR (filename ILIKE '%' || $1::VARCHAR |...
+                             ^
+[SQL: SELECT count(*) FROM documents 
+                          WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s::VARCHAR)) OR 
+                     OR (filename ILIKE '%%' || %(q)s::VARCHAR || '%%') 
+                     OR (content  ILIKE '%%' || %(q)s::VARCHAR || '%%') 
+                     OR (similarity(content, %(q)s::VARCHAR) > 0.2)) 
+                     AND (%(ocr_from)s::TIMESTAMP WITHOUT TIME ZONE IS NULL OR created_at >= %(ocr_from)s::TIMESTAMP WITHOUT TIME ZONE)
+                     AND (%(ocr_to)s::TIMESTAMP WITHOUT TIME ZONE   IS NULL OR created_at <= %(ocr_to)s::TIMESTAMP WITHOUT TIME ZONE  )
+                     AND (%(ocr_user)s::VARCHAR IS NULL OR email ILIKE '%%' || %(ocr_user)s::VARCHAR || '%%')
+                          ]
+[parameters: {'q': 'счет', 'ocr_from': datetime.datetime(2025, 9, 30, 18, 3), 'ocr_to': datetime.datetime(2025, 10, 2, 18, 10), 'ocr_user': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 18:14:09,769 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:14:09,824 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:14:09,924 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:14:09,925 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:14:09,925 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:14:09,926 [INFO] uvicorn.error - Finished server process [7384]
+2025-10-02 18:14:13,583 [INFO] uvicorn.error - Started server process [5416]
+2025-10-02 18:14:13,584 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:14:13,585 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:14:13,585 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:14:22,259 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:14:26,152 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 422
+2025-10-02 18:15:55,445 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:15:55,546 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:15:55,547 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:15:55,547 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:15:55,547 [INFO] uvicorn.error - Finished server process [5416]
+2025-10-02 18:15:58,091 [INFO] uvicorn.error - Started server process [10072]
+2025-10-02 18:15:58,105 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:15:58,108 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:15:58,109 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:16:02,273 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:16:04,865 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 500
+2025-10-02 18:16:04,865 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.SyntaxError: syntax error at or near "OR"
+LINE 3:                      OR (filename ILIKE '%' || $1::VARCHAR |...
+                             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 82, in search
+    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=ocr_from, ocr_to=ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 67, in search_documents
+    total = session.execute(count_sql, params).scalar_one()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2260, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\LANG\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\LANG\Python312\Lib\site-packages\psycopg\cursor.py", line 97, in execute
+    raise ex.with_traceback(None)
+sqlalchemy.exc.ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near "OR"
+LINE 3:                      OR (filename ILIKE '%' || $1::VARCHAR |...
+                             ^
+[SQL: SELECT count(*) FROM documents 
+                          WHERE ((search_vector @@ plainto_tsquery('simple', %(q)s::VARCHAR)) OR 
+                     OR (filename ILIKE '%%' || %(q)s::VARCHAR || '%%') 
+                     OR (content  ILIKE '%%' || %(q)s::VARCHAR || '%%') 
+                     OR (similarity(content, %(q)s::VARCHAR) > 0.2)) 
+                     AND (%(ocr_from)s::TIMESTAMP WITHOUT TIME ZONE IS NULL OR created_at >= %(ocr_from)s::TIMESTAMP WITHOUT TIME ZONE)
+                     AND (%(ocr_to)s::TIMESTAMP WITHOUT TIME ZONE   IS NULL OR created_at <= %(ocr_to)s::TIMESTAMP WITHOUT TIME ZONE  )
+                     AND (%(ocr_user)s::VARCHAR IS NULL OR email ILIKE '%%' || %(ocr_user)s::VARCHAR || '%%')
+                          ]
+[parameters: {'q': 'счет', 'ocr_from': '2000-01-01T00:00', 'ocr_to': '2100-01-01T00:00', 'ocr_user': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-02 18:16:21,410 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:16:21,511 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:16:21,512 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:16:21,514 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:16:21,515 [INFO] uvicorn.error - Finished server process [10072]
+2025-10-02 18:16:24,100 [INFO] uvicorn.error - Started server process [10340]
+2025-10-02 18:16:24,101 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:16:24,104 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:16:24,105 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:16:25,841 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:16:25,942 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:16:25,942 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:16:25,944 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:16:25,944 [INFO] uvicorn.error - Finished server process [10340]
+2025-10-02 18:16:28,436 [INFO] uvicorn.error - Started server process [5880]
+2025-10-02 18:16:28,436 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:16:28,438 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:16:28,438 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:16:44,502 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:16:44,602 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:16:44,602 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:16:44,604 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:16:44,604 [INFO] uvicorn.error - Finished server process [5880]
+2025-10-02 18:16:47,160 [INFO] uvicorn.error - Started server process [8044]
+2025-10-02 18:16:47,160 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:16:47,162 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:16:47,163 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:16:51,403 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:16:56,523 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 500
+2025-10-02 18:16:56,524 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 82, in search
+    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=ocr_from, ocr_to=ocr_to, limit=limit, offset=offset)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\search.py", line 88, in search_documents
+    app_logger.debug("Search SQL: %s", select_sql.replace("\n", " ").replace("  ", " "))
+                                       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TextClause' object has no attribute 'replace'
+2025-10-02 18:17:44,070 [INFO] uvicorn.error - Shutting down
+2025-10-02 18:17:44,172 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-02 18:17:44,172 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-02 18:17:44,172 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-02 18:17:44,172 [INFO] uvicorn.error - Finished server process [8044]
