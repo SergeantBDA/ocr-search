@@ -23,17 +23,24 @@
       </div>
     </form>
     <hr />
+
     <form id="uploadForm"
-          hx-post="{{ request.url_for('upload').path }}"
-          hx-target="#results"
-          hx-swap="afterbegin"
-          hx-encoding="multipart/form-data"
-          hx-indicator="#spinner"
+          action="{{ request.url_for('upload').path }}"
           method="post"
-          enctype="multipart/form-data" class="field">
+          enctype="multipart/form-data"
+          class="field">
       <div class="row upload-row">
         <input type="file" name="files" multiple accept="*.*" />
-        <button class="btn" type="submit">Загрузить</button>
+        <button class="btn"
+                type="button"
+                hx-post="{{ request.url_for('upload').path }}"
+                hx-target="#results"
+                hx-swap="afterbegin"
+                hx-encoding="multipart/form-data"
+                hx-indicator="#spinner"
+                hx-include="#uploadForm input[name='files']">
+          Загрузить
+        </button>
       </div>
     </form>
     <hr />

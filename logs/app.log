@@ -5366,3 +5366,1087 @@ AttributeError: 'TextClause' object has no attribute 'replace'
 2025-10-02 18:17:44,172 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-10-02 18:17:44,172 [INFO] uvicorn.error - Application shutdown complete.
 2025-10-02 18:17:44,172 [INFO] uvicorn.error - Finished server process [8044]
+2025-10-02 18:17:46,861 [INFO] uvicorn.error - Started server process [3540]
+2025-10-02 18:17:46,861 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-02 18:17:46,861 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-02 18:17:46,861 [INFO] uvicorn.error - Application startup complete.
+2025-10-02 18:17:56,279 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:17:58,890 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-02 18:17:59,025 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-02 18:18:50,461 [INFO] ocr-search - Original file Счет-фактура № 1 от 09.01.2024.xlsx saved to D:\SHARE\_OCR_ORIGIN\2025100218_bakhtin_da\Счет-фактура No 1 от 09.01.2024.xlsx
+2025-10-02 18:18:50,463 [INFO] ocr-search - Extracted text for Счет-фактура № 1 от 09.01.2024.xlsx saved to D:\SHARE\_OCR_TEXT\2025100218_bakhtin_da\Счет-фактура No 1 от 09.01.2024.xlsx
+2025-10-02 18:18:50,555 [INFO] ocr-search - Original file Счет-фактура № 1 от 14.01.2025.xlsx saved to D:\SHARE\_OCR_ORIGIN\2025100218_bakhtin_da\Счет-фактура No 1 от 14.01.2025.xlsx
+2025-10-02 18:18:50,556 [INFO] ocr-search - Extracted text for Счет-фактура № 1 от 14.01.2025.xlsx saved to D:\SHARE\_OCR_TEXT\2025100218_bakhtin_da\Счет-фактура No 1 от 14.01.2025.xlsx
+2025-10-02 18:18:50,564 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "POST /upload HTTP/1.1" 201
+2025-10-02 18:19:22,850 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-02 18:19:22,856 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=&ocr_user=&ocr_from=2025-10-02T06%3A18&ocr_to= HTTP/1.1" 200
+2025-10-02 18:19:41,786 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-02 18:19:41,917 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /search?q=&ocr_user=bakhtin_da&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-02 18:20:03,222 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:21:59,215 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:22:16,968 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "POST /logout HTTP/1.1" 200
+2025-10-02 18:22:16,990 [INFO] uvicorn.access - 10.132.18.91:64942:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 18:24:26,906 [INFO] uvicorn.access - 10.132.18.91:65524:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 18:24:26,925 [INFO] uvicorn.access - 10.132.18.91:65524:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:26:08,169 [INFO] uvicorn.access - 10.192.3.64:64608:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-02 18:26:33,052 [INFO] uvicorn.access - 10.192.3.64:64642:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-02 18:33:47,923 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "GET / HTTP/1.1" 307
+2025-10-02 18:33:47,969 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "GET /login-web HTTP/1.1" 200
+2025-10-02 18:33:48,002 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "GET /app.css HTTP/1.1" 200
+2025-10-02 18:33:56,003 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-02 18:33:56,030 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:34:29,351 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-02 18:34:29,466 [INFO] uvicorn.access - 10.192.3.64:65001:0 - "GET /search?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-02 18:41:05,934 [INFO] uvicorn.access - 10.132.18.91:49542:0 - "GET / HTTP/1.1" 200
+2025-10-02 18:41:07,449 [INFO] uvicorn.access - 10.132.18.91:49542:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-03 10:21:57,510 [INFO] uvicorn.error - Started server process [5520]
+2025-10-03 10:21:57,511 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 10:21:57,511 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 10:21:57,513 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 10:22:06,662 [INFO] uvicorn.error - Shutting down
+2025-10-03 10:22:06,763 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 10:22:06,763 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 10:22:06,764 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 10:22:06,765 [INFO] uvicorn.error - Finished server process [5520]
+2025-10-03 11:10:00,583 [INFO] uvicorn.error - Started server process [8516]
+2025-10-03 11:10:00,583 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 11:10:00,584 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 11:10:00,584 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 11:47:32,873 [INFO] uvicorn.access - 10.132.18.91:61610:0 - "GET / HTTP/1.1" 307
+2025-10-03 11:47:32,931 [INFO] uvicorn.access - 10.132.18.91:61610:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 11:47:33,014 [INFO] uvicorn.access - 10.132.18.91:61610:0 - "GET /app.css HTTP/1.1" 200
+2025-10-03 11:47:53,159 [INFO] uvicorn.access - 10.132.18.91:61610:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-03 11:51:44,271 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-03 11:51:44,332 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "GET / HTTP/1.1" 200
+2025-10-03 11:53:08,911 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "POST / HTTP/1.1" 405
+2025-10-03 11:53:26,645 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "POST / HTTP/1.1" 405
+2025-10-03 11:53:39,246 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "POST / HTTP/1.1" 405
+2025-10-03 11:53:41,535 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "GET / HTTP/1.1" 200
+2025-10-03 11:55:07,782 [INFO] uvicorn.access - 10.132.18.91:61790:0 - "POST / HTTP/1.1" 405
+2025-10-03 11:55:34,607 [INFO] uvicorn.error - Shutting down
+2025-10-03 11:55:34,710 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 11:55:34,711 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 11:55:34,712 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 11:55:34,712 [INFO] uvicorn.error - Finished server process [8516]
+2025-10-03 13:44:01,125 [INFO] uvicorn.error - Started server process [1452]
+2025-10-03 13:44:01,126 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 13:44:01,128 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 13:44:01,128 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 13:44:33,916 [INFO] uvicorn.access - 10.132.18.91:55868:0 - "GET / HTTP/1.1" 307
+2025-10-03 13:44:33,962 [INFO] uvicorn.access - 10.132.18.91:55868:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 13:44:34,026 [INFO] uvicorn.access - 10.132.18.91:55868:0 - "GET /app.css HTTP/1.1" 200
+2025-10-03 13:51:06,865 [INFO] uvicorn.access - 10.132.18.91:56110:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-03 13:51:06,914 [INFO] uvicorn.access - 10.132.18.91:56110:0 - "GET / HTTP/1.1" 200
+2025-10-03 13:52:05,465 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf
+2025-10-03 13:52:05,465 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf
+2025-10-03 13:52:05,465 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf
+2025-10-03 13:52:09,255 [INFO] ocr-search - OSD результат: angle=90, confidence=11.80 (size=2480x3507)
+2025-10-03 13:52:09,298 [INFO] ocr-search - OSD результат: angle=90, confidence=18.04 (size=2480x3507)
+2025-10-03 13:52:09,300 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:09,344 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:17,634 [INFO] ocr-search - OSD результат: angle=0, confidence=19.48 (size=2480x3507)
+2025-10-03 13:52:17,694 [INFO] ocr-search - OSD результат: angle=0, confidence=18.61 (size=2480x3507)
+2025-10-03 13:52:24,657 [INFO] ocr-search - OSD результат: angle=90, confidence=21.68 (size=2480x3507)
+2025-10-03 13:52:24,700 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:25,352 [INFO] ocr-search - OSD результат: angle=0, confidence=16.83 (size=2480x3507)
+2025-10-03 13:52:31,904 [INFO] ocr-search - OSD результат: angle=90, confidence=18.79 (size=2480x3507)
+2025-10-03 13:52:31,943 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:36,237 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000002_Отчет переработчика.pdf
+2025-10-03 13:52:36,239 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000002_Отчет переработчика.pdf
+2025-10-03 13:52:36,409 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000003_Отчет переработчика.pdf
+2025-10-03 13:52:36,410 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000003_Отчет переработчика.pdf
+2025-10-03 13:52:36,419 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-10-03 13:52:36,420 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-10-03 13:52:36,428 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf
+2025-10-03 13:52:36,429 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf
+2025-10-03 13:52:36,429 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf
+2025-10-03 13:52:40,568 [INFO] ocr-search - OSD результат: angle=90, confidence=17.75 (size=2480x3507)
+2025-10-03 13:52:40,576 [INFO] ocr-search - OSD результат: angle=90, confidence=14.14 (size=2480x3507)
+2025-10-03 13:52:40,600 [INFO] ocr-search - OSD результат: angle=90, confidence=14.54 (size=2480x3507)
+2025-10-03 13:52:40,610 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:40,622 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:40,649 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:49,982 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000005_Отчет переработчика.pdf
+2025-10-03 13:52:49,983 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000005_Отчет переработчика.pdf
+2025-10-03 13:52:52,605 [INFO] ocr-search - OSD результат: angle=90, confidence=28.62 (size=2480x3507)
+2025-10-03 13:52:52,644 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:52,887 [INFO] ocr-search - OSD результат: angle=90, confidence=29.81 (size=2480x3507)
+2025-10-03 13:52:52,925 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:58,748 [INFO] ocr-search - OSD результат: angle=90, confidence=8.76 (size=2480x3507)
+2025-10-03 13:52:58,787 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:52:58,815 [INFO] ocr-search - OSD результат: angle=90, confidence=6.38 (size=2480x3507)
+2025-10-03 13:52:58,853 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:00,247 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000006_Отчет переработчика.pdf
+2025-10-03 13:53:00,248 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000006_Отчет переработчика.pdf
+2025-10-03 13:53:00,479 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000007_Отчет переработчика.pdf
+2025-10-03 13:53:00,480 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000007_Отчет переработчика.pdf
+2025-10-03 13:53:00,490 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000008.pdf
+2025-10-03 13:53:00,490 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf
+2025-10-03 13:53:00,491 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf
+2025-10-03 13:53:01,581 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000008.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000008.pdf
+2025-10-03 13:53:01,583 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000008.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000008.pdf
+2025-10-03 13:53:03,710 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 13:53:03,748 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:03,848 [INFO] ocr-search - OSD результат: angle=90, confidence=15.34 (size=2480x3507)
+2025-10-03 13:53:03,885 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:13,075 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 13:53:13,113 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:14,807 [INFO] ocr-search - OSD результат: angle=90, confidence=29.85 (size=2480x3507)
+2025-10-03 13:53:14,845 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:20,469 [INFO] ocr-search - OSD результат: angle=90, confidence=3.48 (size=2480x3507)
+2025-10-03 13:53:20,507 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:22,011 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000008_Отчет переработчика.pdf
+2025-10-03 13:53:22,012 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000008_Отчет переработчика.pdf
+2025-10-03 13:53:22,023 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000009_Отчет переработчика.pdf
+2025-10-03 13:53:22,024 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000009_Отчет переработчика.pdf
+2025-10-03 13:53:22,032 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf
+2025-10-03 13:53:22,033 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf
+2025-10-03 13:53:22,033 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf
+2025-10-03 13:53:25,607 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 13:53:25,629 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 13:53:25,649 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:25,673 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:25,784 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 13:53:25,841 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:36,595 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 13:53:36,627 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 13:53:36,635 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 13:53:36,635 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:36,670 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:36,678 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:43,343 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000010_Отчет переработчика.pdf
+2025-10-03 13:53:43,345 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000010_Отчет переработчика.pdf
+2025-10-03 13:53:43,372 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-10-03 13:53:43,373 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-10-03 13:53:43,382 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-10-03 13:53:43,383 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-10-03 13:53:43,391 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf
+2025-10-03 13:53:43,392 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf
+2025-10-03 13:53:43,392 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf
+2025-10-03 13:53:47,490 [INFO] ocr-search - OSD результат: angle=90, confidence=21.65 (size=2480x3507)
+2025-10-03 13:53:47,532 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:47,536 [INFO] ocr-search - OSD результат: angle=90, confidence=16.69 (size=2480x3507)
+2025-10-03 13:53:47,577 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:47,691 [INFO] ocr-search - OSD результат: angle=90, confidence=15.28 (size=2480x3507)
+2025-10-03 13:53:47,729 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:54,898 [INFO] ocr-search - OSD результат: angle=90, confidence=18.80 (size=2480x3507)
+2025-10-03 13:53:54,940 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:53:59,760 [INFO] ocr-search - OSD результат: angle=90, confidence=31.37 (size=2480x3507)
+2025-10-03 13:53:59,801 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:02,649 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-10-03 13:54:02,650 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-10-03 13:54:02,659 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-10-03 13:54:02,660 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-10-03 13:54:04,182 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-10-03 13:54:04,183 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-10-03 13:54:04,193 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf
+2025-10-03 13:54:04,194 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf
+2025-10-03 13:54:04,195 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf
+2025-10-03 13:54:08,671 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 13:54:08,709 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:08,773 [INFO] ocr-search - OSD результат: angle=90, confidence=16.69 (size=2480x3507)
+2025-10-03 13:54:08,811 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:09,281 [INFO] ocr-search - OSD результат: angle=0, confidence=6.97 (size=3372x2481)
+2025-10-03 13:54:17,533 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 13:54:17,574 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:20,438 [INFO] ocr-search - OSD результат: angle=90, confidence=31.37 (size=2480x3507)
+2025-10-03 13:54:20,483 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:21,391 [INFO] ocr-search - OSD результат: angle=0, confidence=27.92 (size=3507x2480)
+2025-10-03 13:54:24,559 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000016_Отчет переработчика.pdf
+2025-10-03 13:54:24,560 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000016_Отчет переработчика.pdf
+2025-10-03 13:54:25,658 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000017_Отчет переработчика.pdf
+2025-10-03 13:54:25,660 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000017_Отчет переработчика.pdf
+2025-10-03 13:54:27,774 [INFO] ocr-search - OSD результат: angle=90, confidence=31.92 (size=2480x3507)
+2025-10-03 13:54:27,805 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:32,114 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000018_Отчет переработчика.pdf
+2025-10-03 13:54:32,115 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000018_Отчет переработчика.pdf
+2025-10-03 13:54:32,125 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf
+2025-10-03 13:54:32,126 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf
+2025-10-03 13:54:32,126 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf
+2025-10-03 13:54:35,573 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 13:54:35,586 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 13:54:35,612 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:35,624 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 13:54:35,627 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:35,665 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:45,421 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 13:54:45,422 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 13:54:45,464 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:45,466 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:45,480 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 13:54:45,518 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:55,318 [INFO] ocr-search - OSD результат: angle=90, confidence=31.92 (size=2480x3507)
+2025-10-03 13:54:55,345 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:54:59,670 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000019_Отчет переработчика.pdf
+2025-10-03 13:54:59,671 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000019_Отчет переработчика.pdf
+2025-10-03 13:54:59,682 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000020_Отчет переработчика.pdf
+2025-10-03 13:54:59,683 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000020_Отчет переработчика.pdf
+2025-10-03 13:54:59,691 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000021_Отчет переработчика.pdf
+2025-10-03 13:54:59,692 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000021_Отчет переработчика.pdf
+2025-10-03 13:54:59,699 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf
+2025-10-03 13:54:59,700 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf
+2025-10-03 13:54:59,700 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf
+2025-10-03 13:55:03,912 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 13:55:03,950 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:03,982 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 13:55:04,023 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:04,459 [INFO] ocr-search - OSD результат: angle=0, confidence=9.63 (size=3375x2483)
+2025-10-03 13:55:12,964 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 13:55:12,976 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 13:55:13,005 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:13,018 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:13,231 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000022_Отчет переработчика.pdf
+2025-10-03 13:55:13,232 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000022_Отчет переработчика.pdf
+2025-10-03 13:55:21,014 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000023_Отчет переработчика.pdf
+2025-10-03 13:55:21,016 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000023_Отчет переработчика.pdf
+2025-10-03 13:55:21,027 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000024_Отчет переработчика.pdf
+2025-10-03 13:55:21,028 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000024_Отчет переработчика.pdf
+2025-10-03 13:55:21,036 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf
+2025-10-03 13:55:21,036 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf
+2025-10-03 13:55:21,036 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf
+2025-10-03 13:55:24,547 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 13:55:24,570 [INFO] ocr-search - OSD результат: angle=90, confidence=21.73 (size=2480x3507)
+2025-10-03 13:55:24,587 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:24,607 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 13:55:24,610 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:24,646 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:32,109 [INFO] ocr-search - OSD результат: angle=90, confidence=18.73 (size=2480x3507)
+2025-10-03 13:55:32,132 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:33,722 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 13:55:33,738 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 13:55:33,754 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:33,789 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:41,764 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000025_Отчет переработчика.pdf
+2025-10-03 13:55:41,765 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000025_Отчет переработчика.pdf
+2025-10-03 13:55:41,776 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-10-03 13:55:41,777 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-10-03 13:55:41,785 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000027_Отчет переработчика.pdf
+2025-10-03 13:55:41,787 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000027_Отчет переработчика.pdf
+2025-10-03 13:55:41,794 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf
+2025-10-03 13:55:41,794 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf
+2025-10-03 13:55:41,795 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf
+2025-10-03 13:55:45,705 [INFO] ocr-search - OSD результат: angle=90, confidence=11.68 (size=2480x3507)
+2025-10-03 13:55:45,752 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:45,898 [INFO] ocr-search - OSD результат: angle=0, confidence=15.78 (size=3507x2480)
+2025-10-03 13:55:45,920 [INFO] ocr-search - OSD результат: angle=0, confidence=18.16 (size=3507x2480)
+2025-10-03 13:55:53,789 [INFO] ocr-search - OSD результат: angle=90, confidence=28.30 (size=3507x2480)
+2025-10-03 13:55:53,822 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:55:58,610 [INFO] ocr-search - OSD результат: angle=0, confidence=34.60 (size=3507x2480)
+2025-10-03 13:56:00,514 [INFO] ocr-search - OSD результат: angle=0, confidence=34.60 (size=3507x2480)
+2025-10-03 13:56:01,444 [INFO] ocr-search - OSD результат: angle=90, confidence=17.37 (size=3507x2480)
+2025-10-03 13:56:01,480 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:04,794 [INFO] ocr-search - OSD результат: angle=0, confidence=6.41 (size=3507x2480)
+2025-10-03 13:56:06,166 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000028_Отчет переработчика.pdf
+2025-10-03 13:56:06,167 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000028_Отчет переработчика.pdf
+2025-10-03 13:56:06,174 [INFO] ocr-search - OSD результат: angle=0, confidence=6.41 (size=3507x2480)
+2025-10-03 13:56:07,540 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-10-03 13:56:07,540 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-10-03 13:56:07,760 [INFO] ocr-search - OSD результат: angle=90, confidence=19.61 (size=3507x2480)
+2025-10-03 13:56:07,794 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:10,617 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-10-03 13:56:10,618 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-10-03 13:56:10,628 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf
+2025-10-03 13:56:10,628 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf
+2025-10-03 13:56:10,629 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf
+2025-10-03 13:56:14,143 [INFO] ocr-search - OSD результат: angle=90, confidence=22.30 (size=2480x3507)
+2025-10-03 13:56:14,182 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:14,208 [INFO] ocr-search - OSD результат: angle=90, confidence=22.30 (size=2480x3507)
+2025-10-03 13:56:14,247 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:14,323 [INFO] ocr-search - OSD результат: angle=90, confidence=17.30 (size=2480x3507)
+2025-10-03 13:56:14,360 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:22,074 [INFO] ocr-search - OSD результат: angle=90, confidence=16.91 (size=2480x3507)
+2025-10-03 13:56:22,111 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:22,113 [INFO] ocr-search - OSD результат: angle=90, confidence=16.91 (size=2480x3507)
+2025-10-03 13:56:22,151 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:27,154 [INFO] ocr-search - OSD результат: angle=90, confidence=31.58 (size=2480x3507)
+2025-10-03 13:56:27,190 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:29,703 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000031_Отчет переработчика.pdf
+2025-10-03 13:56:29,703 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000031_Отчет переработчика.pdf
+2025-10-03 13:56:29,796 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000032_Отчет переработчика.pdf
+2025-10-03 13:56:29,797 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000032_Отчет переработчика.pdf
+2025-10-03 13:56:31,603 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000033_Отчет переработчика.pdf
+2025-10-03 13:56:31,604 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000033_Отчет переработчика.pdf
+2025-10-03 13:56:31,613 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf
+2025-10-03 13:56:31,614 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf
+2025-10-03 13:56:31,614 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf
+2025-10-03 13:56:34,692 [INFO] ocr-search - OSD результат: angle=90, confidence=14.73 (size=2480x3507)
+2025-10-03 13:56:34,736 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:34,752 [INFO] ocr-search - OSD результат: angle=90, confidence=17.30 (size=2480x3507)
+2025-10-03 13:56:34,787 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:43,655 [INFO] ocr-search - OSD результат: angle=90, confidence=16.35 (size=2480x3507)
+2025-10-03 13:56:43,686 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:47,312 [INFO] ocr-search - OSD результат: angle=90, confidence=31.58 (size=2480x3507)
+2025-10-03 13:56:47,366 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:51,823 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000034_Отчет переработчика.pdf
+2025-10-03 13:56:51,823 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000034_Отчет переработчика.pdf
+2025-10-03 13:56:52,888 [INFO] ocr-search - OSD результат: angle=90, confidence=27.31 (size=2480x3507)
+2025-10-03 13:56:52,925 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:56:59,879 [INFO] ocr-search - OSD результат: angle=90, confidence=24.96 (size=2480x3507)
+2025-10-03 13:56:59,909 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:57:01,807 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000035_Отчет переработчика.pdf
+2025-10-03 13:57:01,809 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000035_Отчет переработчика.pdf
+2025-10-03 13:57:01,821 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000036_Отчет переработчика.pdf
+2025-10-03 13:57:01,822 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000036_Отчет переработчика.pdf
+2025-10-03 13:57:01,831 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf
+2025-10-03 13:57:01,832 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf
+2025-10-03 13:57:01,836 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf
+2025-10-03 13:57:02,658 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000037_Отчет переработчика.pdf
+2025-10-03 13:57:02,659 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000037_Отчет переработчика.pdf
+2025-10-03 13:57:02,671 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000038_Отчет переработчика.pdf
+2025-10-03 13:57:02,673 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000038_Отчет переработчика.pdf
+2025-10-03 13:57:05,053 [INFO] ocr-search - OSD результат: angle=0, confidence=12.53 (size=2480x3360)
+2025-10-03 13:57:13,803 [INFO] ocr-search - OSD результат: angle=0, confidence=7.84 (size=3368x2481)
+2025-10-03 13:57:22,362 [INFO] ocr-search - OSD результат: angle=0, confidence=6.90 (size=2481x3368)
+2025-10-03 13:57:36,904 [INFO] ocr-search - OSD результат: angle=0, confidence=6.34 (size=2481x3366)
+2025-10-03 13:57:49,945 [INFO] ocr-search - OSD результат: angle=0, confidence=6.44 (size=2481x3365)
+2025-10-03 13:58:04,998 [INFO] ocr-search - OSD результат: angle=0, confidence=5.28 (size=2481x3363)
+2025-10-03 13:58:14,235 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\0000-000039_Отчет переработчика.pdf
+2025-10-03 13:58:14,237 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\0000-000039_Отчет переработчика.pdf
+2025-10-03 13:58:14,260 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 13:58:14,260 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 13:58:14,261 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 13:58:17,168 [INFO] ocr-search - OSD результат: angle=0, confidence=17.71 (size=2480x3507)
+2025-10-03 13:58:17,194 [INFO] ocr-search - OSD результат: angle=0, confidence=16.83 (size=2480x3505)
+2025-10-03 13:58:17,275 [INFO] ocr-search - OSD результат: angle=0, confidence=15.77 (size=2480x3505)
+2025-10-03 13:58:23,887 [INFO] ocr-search - OSD результат: angle=0, confidence=14.81 (size=2480x3507)
+2025-10-03 13:58:23,967 [INFO] ocr-search - OSD результат: angle=0, confidence=12.66 (size=2480x3505)
+2025-10-03 13:58:24,015 [INFO] ocr-search - OSD результат: angle=0, confidence=14.03 (size=2480x3505)
+2025-10-03 13:58:26,451 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 13:58:26,452 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 13:58:26,845 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 13:58:26,846 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 13:58:26,854 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 13:58:26,855 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 13:58:26,859 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 13:58:26,859 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf
+2025-10-03 13:58:26,859 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf
+2025-10-03 13:58:29,802 [INFO] ocr-search - OSD результат: angle=0, confidence=16.99 (size=2480x3505)
+2025-10-03 13:58:29,813 [INFO] ocr-search - OSD результат: angle=0, confidence=14.82 (size=2480x3505)
+2025-10-03 13:58:29,980 [INFO] ocr-search - OSD результат: angle=0, confidence=18.03 (size=2480x3507)
+2025-10-03 13:58:34,503 [INFO] ocr-search - OSD результат: angle=0, confidence=19.69 (size=2480x3505)
+2025-10-03 13:58:36,758 [INFO] ocr-search - OSD результат: angle=0, confidence=14.09 (size=2480x3505)
+2025-10-03 13:58:39,988 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 13:58:39,988 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 13:58:39,988 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет пеработчика 0000-000018.pdf
+2025-10-03 13:58:40,000 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет пеработчика 0000-000018.pdf
+2025-10-03 13:58:40,205 [INFO] ocr-search - OSD результат: angle=90, confidence=17.39 (size=2480x3505)
+2025-10-03 13:58:40,244 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:58:45,474 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет переработчика No 1 от 12.12.2022.pdf
+2025-10-03 13:58:45,475 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет переработчика No 1 от 12.12.2022.pdf
+2025-10-03 13:58:45,483 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf
+2025-10-03 13:58:45,483 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf
+2025-10-03 13:58:45,484 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf
+2025-10-03 13:58:48,910 [INFO] ocr-search - OSD результат: angle=0, confidence=18.78 (size=2480x3505)
+2025-10-03 13:58:48,911 [INFO] ocr-search - OSD результат: angle=0, confidence=21.35 (size=2480x3507)
+2025-10-03 13:58:48,949 [INFO] ocr-search - OSD результат: angle=0, confidence=19.81 (size=2480x3505)
+2025-10-03 13:58:55,216 [INFO] ocr-search - OSD результат: angle=0, confidence=14.01 (size=2480x3505)
+2025-10-03 13:58:55,413 [INFO] ocr-search - OSD результат: angle=0, confidence=14.01 (size=2480x3505)
+2025-10-03 13:58:58,950 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет переработчика No 1 от 21.02.2023.pdf
+2025-10-03 13:58:58,951 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет переработчика No 1 от 21.02.2023.pdf
+2025-10-03 13:58:58,958 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет переработчика No 2 от 03.04.2023.pdf
+2025-10-03 13:58:58,959 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет переработчика No 2 от 03.04.2023.pdf
+2025-10-03 13:58:58,964 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет переработчика No 3 от 14.02.2024.pdf
+2025-10-03 13:58:58,965 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет переработчика No 3 от 14.02.2024.pdf
+2025-10-03 13:58:58,970 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf
+2025-10-03 13:58:58,970 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Счет и УПД.pdf
+2025-10-03 13:59:02,661 [INFO] ocr-search - OSD результат: angle=0, confidence=16.45 (size=2480x3508)
+2025-10-03 13:59:03,475 [INFO] ocr-search - OSD результат: angle=90, confidence=10.74 (size=2478x3365)
+2025-10-03 13:59:03,507 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 13:59:08,936 [INFO] ocr-search - OSD результат: angle=270, confidence=10.04 (size=2480x3508)
+2025-10-03 13:59:08,970 [INFO] ocr-search - Повернул по OSD на 270°
+2025-10-03 13:59:15,486 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Отчет переработчика No 3 от 25.04.2023.pdf
+2025-10-03 13:59:15,487 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Отчет переработчика No 3 от 25.04.2023.pdf
+2025-10-03 13:59:20,442 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Счет и УПД.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100313_bakhtin_da\Счет и УПД.pdf
+2025-10-03 13:59:20,444 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Счет и УПД.pdf saved to D:\SHARE\_OCR_TEXT\2025100313_bakhtin_da\Счет и УПД.pdf
+2025-10-03 14:00:05,952 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf
+2025-10-03 14:00:05,953 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf
+2025-10-03 14:00:05,953 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf
+2025-10-03 14:00:09,337 [INFO] ocr-search - OSD результат: angle=90, confidence=18.04 (size=2480x3507)
+2025-10-03 14:00:09,374 [INFO] ocr-search - OSD результат: angle=90, confidence=11.80 (size=2480x3507)
+2025-10-03 14:00:09,381 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:09,416 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:17,867 [INFO] ocr-search - OSD результат: angle=0, confidence=19.48 (size=2480x3507)
+2025-10-03 14:00:17,906 [INFO] ocr-search - OSD результат: angle=0, confidence=18.61 (size=2480x3507)
+2025-10-03 14:00:25,188 [INFO] ocr-search - OSD результат: angle=90, confidence=21.68 (size=2480x3507)
+2025-10-03 14:00:25,229 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:25,868 [INFO] ocr-search - OSD результат: angle=0, confidence=16.83 (size=2480x3507)
+2025-10-03 14:00:32,867 [INFO] ocr-search - OSD результат: angle=90, confidence=18.79 (size=2480x3507)
+2025-10-03 14:00:32,907 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:37,457 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000002_Отчет переработчика.pdf
+2025-10-03 14:00:37,458 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000002_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000002_Отчет переработчика.pdf
+2025-10-03 14:00:37,470 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000003_Отчет переработчика.pdf
+2025-10-03 14:00:37,472 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000003_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000003_Отчет переработчика.pdf
+2025-10-03 14:00:37,481 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-10-03 14:00:37,482 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000004_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000004_Отчет переработчика.pdf
+2025-10-03 14:00:37,490 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf
+2025-10-03 14:00:37,491 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf
+2025-10-03 14:00:37,491 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf
+2025-10-03 14:00:42,040 [INFO] ocr-search - OSD результат: angle=90, confidence=17.75 (size=2480x3507)
+2025-10-03 14:00:42,045 [INFO] ocr-search - OSD результат: angle=90, confidence=14.14 (size=2480x3507)
+2025-10-03 14:00:42,057 [INFO] ocr-search - OSD результат: angle=90, confidence=14.54 (size=2480x3507)
+2025-10-03 14:00:42,086 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:42,093 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:42,113 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:52,070 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000005_Отчет переработчика.pdf
+2025-10-03 14:00:52,072 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000005_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000005_Отчет переработчика.pdf
+2025-10-03 14:00:54,813 [INFO] ocr-search - OSD результат: angle=90, confidence=28.62 (size=2480x3507)
+2025-10-03 14:00:54,853 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:00:55,123 [INFO] ocr-search - OSD результат: angle=90, confidence=29.81 (size=2480x3507)
+2025-10-03 14:00:55,165 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:01,572 [INFO] ocr-search - OSD результат: angle=90, confidence=8.76 (size=2480x3507)
+2025-10-03 14:01:01,616 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:01,635 [INFO] ocr-search - OSD результат: angle=90, confidence=6.38 (size=2480x3507)
+2025-10-03 14:01:01,694 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:03,302 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000006_Отчет переработчика.pdf
+2025-10-03 14:01:03,303 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000006_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000006_Отчет переработчика.pdf
+2025-10-03 14:01:03,519 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000007_Отчет переработчика.pdf
+2025-10-03 14:01:03,520 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000007_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000007_Отчет переработчика.pdf
+2025-10-03 14:01:03,531 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000008.pdf
+2025-10-03 14:01:03,531 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf
+2025-10-03 14:01:03,531 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf
+2025-10-03 14:01:04,696 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000008.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000008.pdf
+2025-10-03 14:01:04,697 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000008.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000008.pdf
+2025-10-03 14:01:07,052 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 14:01:07,092 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:07,299 [INFO] ocr-search - OSD результат: angle=90, confidence=15.34 (size=2480x3507)
+2025-10-03 14:01:07,341 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:17,425 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 14:01:17,464 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:19,304 [INFO] ocr-search - OSD результат: angle=90, confidence=29.85 (size=2480x3507)
+2025-10-03 14:01:19,354 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:25,054 [INFO] ocr-search - OSD результат: angle=90, confidence=3.48 (size=2480x3507)
+2025-10-03 14:01:25,092 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:26,610 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000008_Отчет переработчика.pdf
+2025-10-03 14:01:26,611 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000008_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000008_Отчет переработчика.pdf
+2025-10-03 14:01:26,621 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000009_Отчет переработчика.pdf
+2025-10-03 14:01:26,622 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000009_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000009_Отчет переработчика.pdf
+2025-10-03 14:01:26,630 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf
+2025-10-03 14:01:26,631 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf
+2025-10-03 14:01:26,631 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf
+2025-10-03 14:01:30,347 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 14:01:30,382 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 14:01:30,385 [INFO] ocr-search - OSD результат: angle=90, confidence=19.96 (size=2480x3507)
+2025-10-03 14:01:30,388 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:30,427 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:30,430 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:41,999 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 14:01:42,024 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 14:01:42,036 [INFO] ocr-search - OSD результат: angle=90, confidence=21.30 (size=2480x3507)
+2025-10-03 14:01:42,043 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:42,070 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:42,080 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:49,141 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000010_Отчет переработчика.pdf
+2025-10-03 14:01:49,142 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000010_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000010_Отчет переработчика.pdf
+2025-10-03 14:01:49,199 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-10-03 14:01:49,200 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000011_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000011_Отчет переработчика.pdf
+2025-10-03 14:01:49,209 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-10-03 14:01:49,210 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000012_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000012_Отчет переработчика.pdf
+2025-10-03 14:01:49,218 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf
+2025-10-03 14:01:49,219 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf
+2025-10-03 14:01:49,219 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf
+2025-10-03 14:01:53,626 [INFO] ocr-search - OSD результат: angle=90, confidence=16.69 (size=2480x3507)
+2025-10-03 14:01:53,666 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:53,677 [INFO] ocr-search - OSD результат: angle=90, confidence=21.65 (size=2480x3507)
+2025-10-03 14:01:53,717 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:01:53,820 [INFO] ocr-search - OSD результат: angle=90, confidence=15.28 (size=2480x3507)
+2025-10-03 14:01:53,860 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:01,948 [INFO] ocr-search - OSD результат: angle=90, confidence=18.80 (size=2480x3507)
+2025-10-03 14:02:01,990 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:06,724 [INFO] ocr-search - OSD результат: angle=90, confidence=31.37 (size=2480x3507)
+2025-10-03 14:02:06,752 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:09,640 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-10-03 14:02:09,642 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000013_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000013_Отчет переработчика.pdf
+2025-10-03 14:02:09,651 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-10-03 14:02:09,652 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000014_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000014_Отчет переработчика.pdf
+2025-10-03 14:02:10,998 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-10-03 14:02:11,000 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000015_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000015_Отчет переработчика.pdf
+2025-10-03 14:02:11,009 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf
+2025-10-03 14:02:11,010 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf
+2025-10-03 14:02:11,011 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf
+2025-10-03 14:02:15,793 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 14:02:15,844 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:15,888 [INFO] ocr-search - OSD результат: angle=90, confidence=16.69 (size=2480x3507)
+2025-10-03 14:02:15,935 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:16,499 [INFO] ocr-search - OSD результат: angle=0, confidence=6.97 (size=3372x2481)
+2025-10-03 14:02:25,041 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 14:02:25,090 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:28,247 [INFO] ocr-search - OSD результат: angle=90, confidence=31.37 (size=2480x3507)
+2025-10-03 14:02:28,287 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:30,211 [INFO] ocr-search - OSD результат: angle=0, confidence=27.92 (size=3507x2480)
+2025-10-03 14:02:32,522 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000016_Отчет переработчика.pdf
+2025-10-03 14:02:32,523 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000016_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000016_Отчет переработчика.pdf
+2025-10-03 14:02:34,063 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000017_Отчет переработчика.pdf
+2025-10-03 14:02:34,063 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000017_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000017_Отчет переработчика.pdf
+2025-10-03 14:02:35,783 [INFO] ocr-search - OSD результат: angle=90, confidence=31.92 (size=2480x3507)
+2025-10-03 14:02:35,821 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:40,160 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000018_Отчет переработчика.pdf
+2025-10-03 14:02:40,161 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000018_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000018_Отчет переработчика.pdf
+2025-10-03 14:02:40,170 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf
+2025-10-03 14:02:40,171 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf
+2025-10-03 14:02:40,171 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf
+2025-10-03 14:02:43,666 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 14:02:43,697 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 14:02:43,698 [INFO] ocr-search - OSD результат: angle=90, confidence=15.05 (size=2480x3507)
+2025-10-03 14:02:43,705 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:43,742 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:43,745 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:53,714 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 14:02:53,729 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 14:02:53,737 [INFO] ocr-search - OSD результат: angle=90, confidence=16.65 (size=2480x3507)
+2025-10-03 14:02:53,753 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:53,769 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:02:53,787 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:03,678 [INFO] ocr-search - OSD результат: angle=90, confidence=31.92 (size=2480x3507)
+2025-10-03 14:03:03,725 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:08,132 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000019_Отчет переработчика.pdf
+2025-10-03 14:03:08,133 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000019_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000019_Отчет переработчика.pdf
+2025-10-03 14:03:08,143 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000020_Отчет переработчика.pdf
+2025-10-03 14:03:08,143 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000020_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000020_Отчет переработчика.pdf
+2025-10-03 14:03:08,152 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000021_Отчет переработчика.pdf
+2025-10-03 14:03:08,152 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000021_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000021_Отчет переработчика.pdf
+2025-10-03 14:03:08,160 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf
+2025-10-03 14:03:08,161 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf
+2025-10-03 14:03:08,161 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf
+2025-10-03 14:03:12,433 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 14:03:12,443 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 14:03:12,474 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:12,484 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:12,988 [INFO] ocr-search - OSD результат: angle=0, confidence=9.63 (size=3375x2483)
+2025-10-03 14:03:21,768 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 14:03:21,787 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 14:03:21,810 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:21,829 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:21,939 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000022_Отчет переработчика.pdf
+2025-10-03 14:03:21,941 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000022_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000022_Отчет переработчика.pdf
+2025-10-03 14:03:29,886 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000023_Отчет переработчика.pdf
+2025-10-03 14:03:29,887 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000023_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000023_Отчет переработчика.pdf
+2025-10-03 14:03:29,912 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000024_Отчет переработчика.pdf
+2025-10-03 14:03:29,913 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000024_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000024_Отчет переработчика.pdf
+2025-10-03 14:03:29,921 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf
+2025-10-03 14:03:29,921 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf
+2025-10-03 14:03:29,922 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf
+2025-10-03 14:03:33,347 [INFO] ocr-search - OSD результат: angle=90, confidence=21.73 (size=2480x3507)
+2025-10-03 14:03:33,384 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:33,409 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 14:03:33,423 [INFO] ocr-search - OSD результат: angle=90, confidence=19.58 (size=2480x3507)
+2025-10-03 14:03:33,458 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:33,466 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:41,166 [INFO] ocr-search - OSD результат: angle=90, confidence=18.73 (size=2480x3507)
+2025-10-03 14:03:41,208 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:42,666 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 14:03:42,713 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:42,774 [INFO] ocr-search - OSD результат: angle=90, confidence=18.81 (size=2480x3507)
+2025-10-03 14:03:42,813 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:50,738 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000025_Отчет переработчика.pdf
+2025-10-03 14:03:50,740 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000025_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000025_Отчет переработчика.pdf
+2025-10-03 14:03:50,970 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-10-03 14:03:50,971 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000026_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000026_Отчет переработчика.pdf
+2025-10-03 14:03:50,981 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000027_Отчет переработчика.pdf
+2025-10-03 14:03:50,982 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000027_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000027_Отчет переработчика.pdf
+2025-10-03 14:03:50,990 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf
+2025-10-03 14:03:50,990 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf
+2025-10-03 14:03:50,991 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf
+2025-10-03 14:03:55,024 [INFO] ocr-search - OSD результат: angle=90, confidence=11.68 (size=2480x3507)
+2025-10-03 14:03:55,063 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:03:55,250 [INFO] ocr-search - OSD результат: angle=0, confidence=15.78 (size=3507x2480)
+2025-10-03 14:03:55,315 [INFO] ocr-search - OSD результат: angle=0, confidence=18.16 (size=3507x2480)
+2025-10-03 14:04:03,515 [INFO] ocr-search - OSD результат: angle=90, confidence=28.30 (size=3507x2480)
+2025-10-03 14:04:03,549 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:08,281 [INFO] ocr-search - OSD результат: angle=0, confidence=34.60 (size=3507x2480)
+2025-10-03 14:04:10,250 [INFO] ocr-search - OSD результат: angle=0, confidence=34.60 (size=3507x2480)
+2025-10-03 14:04:11,171 [INFO] ocr-search - OSD результат: angle=90, confidence=17.37 (size=3507x2480)
+2025-10-03 14:04:11,203 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:13,927 [INFO] ocr-search - OSD результат: angle=0, confidence=6.41 (size=3507x2480)
+2025-10-03 14:04:15,573 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000028_Отчет переработчика.pdf
+2025-10-03 14:04:15,574 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000028_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000028_Отчет переработчика.pdf
+2025-10-03 14:04:15,970 [INFO] ocr-search - OSD результат: angle=0, confidence=6.41 (size=3507x2480)
+2025-10-03 14:04:17,323 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-10-03 14:04:17,324 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000029_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000029_Отчет переработчика.pdf
+2025-10-03 14:04:17,532 [INFO] ocr-search - OSD результат: angle=90, confidence=19.61 (size=3507x2480)
+2025-10-03 14:04:17,567 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:20,415 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-10-03 14:04:20,416 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000030_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000030_Отчет переработчика.pdf
+2025-10-03 14:04:20,425 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf
+2025-10-03 14:04:20,426 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf
+2025-10-03 14:04:20,426 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf
+2025-10-03 14:04:23,891 [INFO] ocr-search - OSD результат: angle=90, confidence=22.30 (size=2480x3507)
+2025-10-03 14:04:23,940 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:23,953 [INFO] ocr-search - OSD результат: angle=90, confidence=22.30 (size=2480x3507)
+2025-10-03 14:04:23,991 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:24,100 [INFO] ocr-search - OSD результат: angle=90, confidence=17.30 (size=2480x3507)
+2025-10-03 14:04:24,137 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:31,819 [INFO] ocr-search - OSD результат: angle=90, confidence=16.91 (size=2480x3507)
+2025-10-03 14:04:31,823 [INFO] ocr-search - OSD результат: angle=90, confidence=16.91 (size=2480x3507)
+2025-10-03 14:04:31,852 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:31,852 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:36,788 [INFO] ocr-search - OSD результат: angle=90, confidence=31.58 (size=2480x3507)
+2025-10-03 14:04:36,826 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:39,515 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000031_Отчет переработчика.pdf
+2025-10-03 14:04:39,516 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000031_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000031_Отчет переработчика.pdf
+2025-10-03 14:04:39,535 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000032_Отчет переработчика.pdf
+2025-10-03 14:04:39,536 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000032_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000032_Отчет переработчика.pdf
+2025-10-03 14:04:41,293 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000033_Отчет переработчика.pdf
+2025-10-03 14:04:41,295 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000033_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000033_Отчет переработчика.pdf
+2025-10-03 14:04:41,303 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf
+2025-10-03 14:04:41,304 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf
+2025-10-03 14:04:41,304 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf
+2025-10-03 14:04:44,375 [INFO] ocr-search - OSD результат: angle=90, confidence=14.73 (size=2480x3507)
+2025-10-03 14:04:44,419 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:44,497 [INFO] ocr-search - OSD результат: angle=90, confidence=17.30 (size=2480x3507)
+2025-10-03 14:04:44,536 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:53,846 [INFO] ocr-search - OSD результат: angle=90, confidence=16.35 (size=2480x3507)
+2025-10-03 14:04:53,885 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:04:57,308 [INFO] ocr-search - OSD результат: angle=90, confidence=31.58 (size=2480x3507)
+2025-10-03 14:04:57,346 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:05:01,992 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000034_Отчет переработчика.pdf
+2025-10-03 14:05:01,994 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000034_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000034_Отчет переработчика.pdf
+2025-10-03 14:05:03,356 [INFO] ocr-search - OSD результат: angle=90, confidence=27.31 (size=2480x3507)
+2025-10-03 14:05:03,389 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:05:10,613 [INFO] ocr-search - OSD результат: angle=90, confidence=24.96 (size=2480x3507)
+2025-10-03 14:05:10,654 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:05:12,579 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000035_Отчет переработчика.pdf
+2025-10-03 14:05:12,580 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000035_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000035_Отчет переработчика.pdf
+2025-10-03 14:05:12,591 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000036_Отчет переработчика.pdf
+2025-10-03 14:05:12,593 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000036_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000036_Отчет переработчика.pdf
+2025-10-03 14:05:12,602 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf
+2025-10-03 14:05:12,602 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf
+2025-10-03 14:05:12,606 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf
+2025-10-03 14:05:13,406 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000037_Отчет переработчика.pdf
+2025-10-03 14:05:13,415 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000037_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000037_Отчет переработчика.pdf
+2025-10-03 14:05:13,415 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000038_Отчет переработчика.pdf
+2025-10-03 14:05:13,432 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000038_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000038_Отчет переработчика.pdf
+2025-10-03 14:05:15,846 [INFO] ocr-search - OSD результат: angle=0, confidence=12.53 (size=2480x3360)
+2025-10-03 14:05:24,644 [INFO] ocr-search - OSD результат: angle=0, confidence=7.84 (size=3368x2481)
+2025-10-03 14:05:32,765 [INFO] ocr-search - OSD результат: angle=0, confidence=6.90 (size=2481x3368)
+2025-10-03 14:05:46,993 [INFO] ocr-search - OSD результат: angle=0, confidence=6.34 (size=2481x3366)
+2025-10-03 14:06:00,161 [INFO] ocr-search - OSD результат: angle=0, confidence=6.44 (size=2481x3365)
+2025-10-03 14:06:15,099 [INFO] ocr-search - OSD результат: angle=0, confidence=5.28 (size=2481x3363)
+2025-10-03 14:06:24,049 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\0000-000039_Отчет переработчика.pdf
+2025-10-03 14:06:24,050 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/0000-000039_Отчет переработчика.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\0000-000039_Отчет переработчика.pdf
+2025-10-03 14:06:24,070 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 14:06:24,071 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 14:06:24,072 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 14:06:27,081 [INFO] ocr-search - OSD результат: angle=0, confidence=16.83 (size=2480x3505)
+2025-10-03 14:06:27,163 [INFO] ocr-search - OSD результат: angle=0, confidence=17.71 (size=2480x3507)
+2025-10-03 14:06:27,351 [INFO] ocr-search - OSD результат: angle=0, confidence=15.77 (size=2480x3505)
+2025-10-03 14:06:34,453 [INFO] ocr-search - OSD результат: angle=0, confidence=12.66 (size=2480x3505)
+2025-10-03 14:06:34,508 [INFO] ocr-search - OSD результат: angle=0, confidence=14.81 (size=2480x3507)
+2025-10-03 14:06:34,588 [INFO] ocr-search - OSD результат: angle=0, confidence=14.03 (size=2480x3505)
+2025-10-03 14:06:37,183 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 14:06:37,185 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-01 = 22983 = xo-0001 = Refurb-5-1.pdf
+2025-10-03 14:06:37,523 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 14:06:37,525 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-05 = 24305_1 = оп-11 = BK-590 = Refurb-7-1.pdf
+2025-10-03 14:06:37,532 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 14:06:37,533 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2020-07 = 26545 = отчет-32 = BK-630 = IMPORT775-1.pdf
+2025-10-03 14:06:37,540 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 14:06:37,540 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf
+2025-10-03 14:06:37,540 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf
+2025-10-03 14:06:40,565 [INFO] ocr-search - OSD результат: angle=0, confidence=16.99 (size=2480x3505)
+2025-10-03 14:06:40,613 [INFO] ocr-search - OSD результат: angle=0, confidence=14.82 (size=2480x3505)
+2025-10-03 14:06:40,771 [INFO] ocr-search - OSD результат: angle=0, confidence=18.03 (size=2480x3507)
+2025-10-03 14:06:45,045 [INFO] ocr-search - OSD результат: angle=0, confidence=19.69 (size=2480x3505)
+2025-10-03 14:06:47,343 [INFO] ocr-search - OSD результат: angle=0, confidence=14.09 (size=2480x3505)
+2025-10-03 14:06:50,411 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 14:06:50,412 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\OT Oberfl = AG2015P-31 = 2021-02 = 28521 = отчет-1 = BK-752 = IMPORT911-1.pdf
+2025-10-03 14:06:50,420 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет пеработчика 0000-000018.pdf
+2025-10-03 14:06:50,421 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет пеработчика 0000-000018.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет пеработчика 0000-000018.pdf
+2025-10-03 14:06:50,660 [INFO] ocr-search - OSD результат: angle=90, confidence=17.39 (size=2480x3505)
+2025-10-03 14:06:50,702 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:06:55,824 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет переработчика No 1 от 12.12.2022.pdf
+2025-10-03 14:06:55,825 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 12.12.2022.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет переработчика No 1 от 12.12.2022.pdf
+2025-10-03 14:06:55,833 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf
+2025-10-03 14:06:55,833 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf
+2025-10-03 14:06:55,833 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf
+2025-10-03 14:06:59,062 [INFO] ocr-search - OSD результат: angle=0, confidence=19.81 (size=2480x3505)
+2025-10-03 14:06:59,062 [INFO] ocr-search - OSD результат: angle=0, confidence=21.35 (size=2480x3507)
+2025-10-03 14:06:59,120 [INFO] ocr-search - OSD результат: angle=0, confidence=18.78 (size=2480x3505)
+2025-10-03 14:07:05,463 [INFO] ocr-search - OSD результат: angle=0, confidence=14.01 (size=2480x3505)
+2025-10-03 14:07:05,628 [INFO] ocr-search - OSD результат: angle=0, confidence=14.01 (size=2480x3505)
+2025-10-03 14:07:09,160 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет переработчика No 1 от 21.02.2023.pdf
+2025-10-03 14:07:09,160 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 1 от 21.02.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет переработчика No 1 от 21.02.2023.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет переработчика No 2 от 03.04.2023.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 2 от 03.04.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет переработчика No 2 от 03.04.2023.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет переработчика No 3 от 14.02.2024.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 14.02.2024.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет переработчика No 3 от 14.02.2024.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf
+2025-10-03 14:07:09,175 [INFO] ocr-search - To executor: Отчет_переработчика_(2.4)/Счет и УПД.pdf
+2025-10-03 14:07:12,654 [INFO] ocr-search - OSD результат: angle=0, confidence=16.45 (size=2480x3508)
+2025-10-03 14:07:13,567 [INFO] ocr-search - OSD результат: angle=90, confidence=10.74 (size=2478x3365)
+2025-10-03 14:07:13,603 [INFO] ocr-search - Повернул по OSD на 90°
+2025-10-03 14:07:18,914 [INFO] ocr-search - OSD результат: angle=270, confidence=10.04 (size=2480x3508)
+2025-10-03 14:07:18,953 [INFO] ocr-search - Повернул по OSD на 270°
+2025-10-03 14:07:25,096 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Отчет переработчика No 3 от 25.04.2023.pdf
+2025-10-03 14:07:25,097 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Отчет переработчика № 3 от 25.04.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Отчет переработчика No 3 от 25.04.2023.pdf
+2025-10-03 14:07:29,892 [INFO] ocr-search - Original file Отчет_переработчика_(2.4)/Счет и УПД.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Счет и УПД.pdf
+2025-10-03 14:07:29,892 [INFO] ocr-search - Extracted text for Отчет_переработчика_(2.4)/Счет и УПД.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Счет и УПД.pdf
+2025-10-03 14:22:20,330 [INFO] uvicorn.access - 10.132.18.91:50135:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:22:22,411 [INFO] uvicorn.access - 10.132.18.91:50135:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:25:44,698 [INFO] uvicorn.error - Shutting down
+2025-10-03 14:25:44,800 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 14:25:44,801 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 14:25:44,804 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 14:25:44,804 [INFO] uvicorn.error - Finished server process [1452]
+2025-10-03 14:25:53,345 [INFO] uvicorn.error - Started server process [6768]
+2025-10-03 14:25:53,361 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 14:25:53,361 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 14:25:53,361 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 14:26:00,878 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:26:03,774 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "POST /logout HTTP/1.1" 200
+2025-10-03 14:26:03,802 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 14:26:10,813 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-03 14:26:10,830 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:27:29,035 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:27:30,972 [INFO] uvicorn.access - 10.132.18.91:50296:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:30:22,553 [INFO] uvicorn.access - 10.132.18.91:51027:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:30:25,536 [INFO] uvicorn.access - 10.132.18.91:51027:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:32:05,353 [INFO] ocr-search - To executor: Взаимозачет_задолженности/Claim_fully signed_w date 17102023.pdf
+2025-10-03 14:32:05,354 [INFO] ocr-search - To executor: Взаимозачет_задолженности/DS_8_vozmeshchenie_signed (003).pdf
+2025-10-03 14:32:05,355 [INFO] ocr-search - To executor: Взаимозачет_задолженности/Settlement agreement_fully signed w date 17102023.pdf
+2025-10-03 14:32:09,249 [INFO] ocr-search - OSD результат: angle=0, confidence=9.25 (size=2480x3507)
+2025-10-03 14:32:09,486 [INFO] ocr-search - OSD результат: angle=0, confidence=6.23 (size=2480x3507)
+2025-10-03 14:32:15,629 [INFO] ocr-search - Original file Взаимозачет_задолженности/Claim_fully signed_w date 17102023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Claim_fully signed_w date 17102023.pdf
+2025-10-03 14:32:15,630 [INFO] ocr-search - Extracted text for Взаимозачет_задолженности/Claim_fully signed_w date 17102023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Claim_fully signed_w date 17102023.pdf
+2025-10-03 14:32:15,662 [INFO] ocr-search - Original file Взаимозачет_задолженности/DS_8_vozmeshchenie_signed (003).pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\DS_8_vozmeshchenie_signed (003).pdf
+2025-10-03 14:32:15,664 [INFO] ocr-search - Extracted text for Взаимозачет_задолженности/DS_8_vozmeshchenie_signed (003).pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\DS_8_vozmeshchenie_signed (003).pdf
+2025-10-03 14:32:20,347 [INFO] ocr-search - OSD результат: angle=0, confidence=4.70 (size=2480x3507)
+2025-10-03 14:32:25,512 [INFO] ocr-search - Original file Взаимозачет_задолженности/Settlement agreement_fully signed w date 17102023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Settlement agreement_fully signed w date 17102023.pdf
+2025-10-03 14:32:25,513 [INFO] ocr-search - Extracted text for Взаимозачет_задолженности/Settlement agreement_fully signed w date 17102023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Settlement agreement_fully signed w date 17102023.pdf
+2025-10-03 14:32:25,529 [INFO] ocr-search - To executor: Взаимозачет_задолженности/Акт взаимозачета с датой.pdf
+2025-10-03 14:32:25,529 [INFO] ocr-search - To executor: Взаимозачет_задолженности/Ведомость расчетов ООО НЕРКОН.pdf
+2025-10-03 14:32:25,530 [INFO] ocr-search - To executor: Взаимозачет_задолженности/Взаимозачет по договору AG 2015P 47_71 .msg
+2025-10-03 14:32:28,481 [INFO] ocr-search - OSD результат: angle=0, confidence=2.65 (size=2480x3505)
+2025-10-03 14:32:28,481 [INFO] ocr-search - OSD низкая уверенность (2.65 < 3.00)
+2025-10-03 14:32:28,586 [INFO] ocr-search - OSD результат: angle=0, confidence=12.37 (size=2480x3507)
+2025-10-03 14:32:34,013 [INFO] ocr-search - Original file Взаимозачет_задолженности/Акт взаимозачета с датой.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Акт взаимозачета с датой.pdf
+2025-10-03 14:32:34,015 [INFO] ocr-search - Extracted text for Взаимозачет_задолженности/Акт взаимозачета с датой.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Акт взаимозачета с датой.pdf
+2025-10-03 14:32:35,705 [INFO] ocr-search - Original file Взаимозачет_задолженности/Ведомость расчетов ООО НЕРКОН.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Ведомость расчетов ООО НЕРКОН.pdf
+2025-10-03 14:32:35,706 [INFO] ocr-search - Extracted text for Взаимозачет_задолженности/Ведомость расчетов ООО НЕРКОН.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Ведомость расчетов ООО НЕРКОН.pdf
+2025-10-03 14:32:35,717 [INFO] uvicorn.access - 10.132.18.91:51027:0 - "POST /upload HTTP/1.1" 500
+2025-10-03 14:32:35,718 [ERROR] uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\applications.py", line 289, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\LANG\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\LANG\Python312\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\fastapi\routing.py", line 190, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 167, in upload_file
+    for orig_name, mime, data, text in tp.map(run_sync, payloads):
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\LANG\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 146, in run_sync
+    _text = bx.extract_text_bytes(_data, filename=_filename, mime=_mime)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor2.py", line 501, in extract_text_bytes
+    return extractor.extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor2.py", line 422, in extract_text
+    app_loger.info("Неподдерживаемый тип: %s / %s",
+    ^^^^^^^^^
+NameError: name 'app_loger' is not defined. Did you mean: 'app_logger'?
+2025-10-03 14:32:53,687 [INFO] uvicorn.error - Shutting down
+2025-10-03 14:32:53,789 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 14:32:53,791 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 14:32:53,794 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 14:32:53,795 [INFO] uvicorn.error - Finished server process [6768]
+2025-10-03 14:38:48,614 [INFO] uvicorn.error - Started server process [9080]
+2025-10-03 14:38:48,614 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 14:38:48,619 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 14:38:48,619 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 14:40:40,041 [INFO] uvicorn.access - 10.132.18.91:51358:0 - "GET / HTTP/1.1" 200
+2025-10-03 14:42:17,393 [INFO] uvicorn.error - Shutting down
+2025-10-03 14:42:17,494 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 14:42:17,495 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 14:42:17,497 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 14:42:17,498 [INFO] uvicorn.error - Finished server process [9080]
+2025-10-03 14:42:20,413 [INFO] uvicorn.error - Started server process [1648]
+2025-10-03 14:42:20,414 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 14:42:20,416 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 14:42:20,417 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 14:42:35,815 [INFO] uvicorn.error - Shutting down
+2025-10-03 14:42:35,915 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 14:42:35,916 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 14:42:35,918 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 14:42:35,919 [INFO] uvicorn.error - Finished server process [1648]
+2025-10-03 14:42:42,272 [INFO] uvicorn.error - Started server process [7612]
+2025-10-03 14:42:42,273 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 14:42:42,277 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 14:42:42,277 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 14:45:25,913 [INFO] ocr-search - To executor: Claim_fully signed_w date 17102023.pdf
+2025-10-03 14:45:25,914 [INFO] ocr-search - To executor: DS_8_vozmeshchenie_signed (003).pdf
+2025-10-03 14:45:25,914 [INFO] ocr-search - To executor: Settlement agreement_fully signed w date 17102023.pdf
+2025-10-03 14:45:29,749 [INFO] ocr-search - OSD результат: angle=0, confidence=9.25 (size=2480x3507)
+2025-10-03 14:45:29,894 [INFO] ocr-search - OSD результат: angle=0, confidence=6.23 (size=2480x3507)
+2025-10-03 14:45:35,886 [INFO] ocr-search - Original file Claim_fully signed_w date 17102023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Claim_fully signed_w date 17102023_1.pdf
+2025-10-03 14:45:35,887 [INFO] ocr-search - Extracted text for Claim_fully signed_w date 17102023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Claim_fully signed_w date 17102023_1.pdf
+2025-10-03 14:45:35,922 [INFO] ocr-search - Original file DS_8_vozmeshchenie_signed (003).pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\DS_8_vozmeshchenie_signed (003)_1.pdf
+2025-10-03 14:45:35,924 [INFO] ocr-search - Extracted text for DS_8_vozmeshchenie_signed (003).pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\DS_8_vozmeshchenie_signed (003)_1.pdf
+2025-10-03 14:45:39,762 [INFO] ocr-search - OSD результат: angle=0, confidence=4.70 (size=2480x3507)
+2025-10-03 14:45:44,885 [INFO] ocr-search - Original file Settlement agreement_fully signed w date 17102023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Settlement agreement_fully signed w date 17102023_1.pdf
+2025-10-03 14:45:44,886 [INFO] ocr-search - Extracted text for Settlement agreement_fully signed w date 17102023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Settlement agreement_fully signed w date 17102023_1.pdf
+2025-10-03 14:45:44,896 [INFO] ocr-search - To executor: Акт взаимозачета с датой.pdf
+2025-10-03 14:45:44,897 [INFO] ocr-search - To executor: Ведомость расчетов ООО НЕРКОН.pdf
+2025-10-03 14:45:44,898 [INFO] ocr-search - To executor: Взаимозачет по договору AG 2015P 47_71 .msg
+2025-10-03 14:45:45,233 [INFO] ocr-search - Неподдерживаемый тип: application/octet-stream / Взаимозачет по договору AG 2015P 47_71 .msg
+2025-10-03 14:45:47,853 [INFO] ocr-search - OSD результат: angle=0, confidence=2.65 (size=2480x3505)
+2025-10-03 14:45:47,853 [INFO] ocr-search - OSD низкая уверенность (2.65 < 3.00)
+2025-10-03 14:45:47,919 [INFO] ocr-search - OSD результат: angle=0, confidence=12.37 (size=2480x3507)
+2025-10-03 14:45:53,425 [INFO] ocr-search - Original file Акт взаимозачета с датой.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Акт взаимозачета с датой_1.pdf
+2025-10-03 14:45:53,426 [INFO] ocr-search - Extracted text for Акт взаимозачета с датой.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Акт взаимозачета с датой_1.pdf
+2025-10-03 14:45:55,097 [INFO] ocr-search - Original file Ведомость расчетов ООО НЕРКОН.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Ведомость расчетов ООО НЕРКОН_1.pdf
+2025-10-03 14:45:55,099 [INFO] ocr-search - Extracted text for Ведомость расчетов ООО НЕРКОН.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Ведомость расчетов ООО НЕРКОН_1.pdf
+2025-10-03 14:45:55,107 [INFO] ocr-search - Original file Взаимозачет по договору AG 2015P 47_71 .msg saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Взаимозачет по договору AG 2015P 47_71 .msg
+2025-10-03 14:45:55,108 [INFO] ocr-search - Extracted text for Взаимозачет по договору AG 2015P 47_71 .msg saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Взаимозачет по договору AG 2015P 47_71 .msg
+2025-10-03 14:45:55,113 [INFO] ocr-search - To executor: ВЭМ=AG2019S-2=ДС_5=Расторжение.pdf
+2025-10-03 14:45:55,113 [INFO] ocr-search - To executor: Доверенность №3 от 10.01.2018_Попов И.В..pdf
+2025-10-03 14:45:55,114 [INFO] ocr-search - To executor: Есина.pdf
+2025-10-03 14:45:58,055 [INFO] ocr-search - OSD результат: angle=0, confidence=19.24 (size=2480x3507)
+2025-10-03 14:45:58,261 [INFO] ocr-search - OSD результат: angle=0, confidence=20.36 (size=2455x3475)
+2025-10-03 14:45:58,408 [INFO] ocr-search - OSD результат: angle=0, confidence=38.89 (size=2480x3505)
+2025-10-03 14:46:02,834 [INFO] ocr-search - Original file ВЭМ=AG2019S-2=ДС_5=Расторжение.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\ВЭМ=AG2019S-2=ДС_5=Расторжение.pdf
+2025-10-03 14:46:02,835 [INFO] ocr-search - Extracted text for ВЭМ=AG2019S-2=ДС_5=Расторжение.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\ВЭМ=AG2019S-2=ДС_5=Расторжение.pdf
+2025-10-03 14:46:06,640 [INFO] ocr-search - OSD результат: angle=0, confidence=25.08 (size=2450x3480)
+2025-10-03 14:46:11,675 [INFO] ocr-search - Original file Доверенность №3 от 10.01.2018_Попов И.В..pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Доверенность No3 от 10.01.2018_Попов И.В..pdf
+2025-10-03 14:46:11,676 [INFO] ocr-search - Extracted text for Доверенность №3 от 10.01.2018_Попов И.В..pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Доверенность No3 от 10.01.2018_Попов И.В..pdf
+2025-10-03 14:46:11,687 [INFO] ocr-search - Original file Есина.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Есина.pdf
+2025-10-03 14:46:11,688 [INFO] ocr-search - Extracted text for Есина.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Есина.pdf
+2025-10-03 14:46:11,692 [INFO] ocr-search - To executor: Письмо о зачете 10.02.2017.pdf
+2025-10-03 14:46:11,692 [INFO] ocr-search - To executor: Письмо о опознании платежа.pdf
+2025-10-03 14:46:11,693 [INFO] ocr-search - To executor: Письмо о перезачёте ДС.pdf
+2025-10-03 14:46:15,485 [INFO] ocr-search - OSD результат: angle=0, confidence=21.93 (size=2480x3505)
+2025-10-03 14:46:15,597 [INFO] ocr-search - OSD результат: angle=0, confidence=26.64 (size=2480x3505)
+2025-10-03 14:46:15,613 [INFO] ocr-search - OSD результат: angle=0, confidence=39.65 (size=2484x3509)
+2025-10-03 14:46:19,592 [INFO] ocr-search - Original file Письмо о зачете 10.02.2017.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Письмо о зачете 10.02.2017.pdf
+2025-10-03 14:46:19,593 [INFO] ocr-search - Extracted text for Письмо о зачете 10.02.2017.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Письмо о зачете 10.02.2017.pdf
+2025-10-03 14:46:19,601 [INFO] ocr-search - Original file Письмо о опознании платежа.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Письмо о опознании платежа.pdf
+2025-10-03 14:46:19,602 [INFO] ocr-search - Extracted text for Письмо о опознании платежа.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Письмо о опознании платежа.pdf
+2025-10-03 14:46:19,748 [INFO] ocr-search - Original file Письмо о перезачёте ДС.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Письмо о перезачёте ДС.pdf
+2025-10-03 14:46:19,749 [INFO] ocr-search - Extracted text for Письмо о перезачёте ДС.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Письмо о перезачёте ДС.pdf
+2025-10-03 14:46:19,757 [INFO] ocr-search - To executor: Письмо об изменении платежа.pdf
+2025-10-03 14:46:19,757 [INFO] ocr-search - To executor: Письмо от 23.11.20 Баррус.pdf
+2025-10-03 14:46:19,757 [INFO] ocr-search - To executor: письмо.pdf
+2025-10-03 14:46:22,891 [INFO] ocr-search - OSD результат: angle=0, confidence=18.87 (size=2480x3505)
+2025-10-03 14:46:22,967 [INFO] ocr-search - OSD результат: angle=0, confidence=22.33 (size=2478x3435)
+2025-10-03 14:46:23,105 [INFO] ocr-search - OSD результат: angle=0, confidence=20.50 (size=2480x3507)
+2025-10-03 14:46:28,066 [INFO] ocr-search - Original file Письмо об изменении платежа.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Письмо об изменении платежа.pdf
+2025-10-03 14:46:28,067 [INFO] ocr-search - Extracted text for Письмо об изменении платежа.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Письмо об изменении платежа.pdf
+2025-10-03 14:46:28,076 [INFO] ocr-search - Original file Письмо от 23.11.20 Баррус.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Письмо от 23.11.20 Баррус.pdf
+2025-10-03 14:46:28,078 [INFO] ocr-search - Extracted text for Письмо от 23.11.20 Баррус.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Письмо от 23.11.20 Баррус.pdf
+2025-10-03 14:46:28,085 [INFO] ocr-search - Original file письмо.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\письмо.pdf
+2025-10-03 14:46:28,086 [INFO] ocr-search - Extracted text for письмо.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\письмо.pdf
+2025-10-03 14:46:28,091 [INFO] ocr-search - To executor: письмо_Бойко_16122016.pdf
+2025-10-03 14:46:28,091 [INFO] ocr-search - To executor: Прочие_документы__Ак зачета взаимных требований.pdf
+2025-10-03 14:46:28,092 [INFO] ocr-search - To executor: Силовые машины от 01.11.2021.pdf
+2025-10-03 14:46:31,500 [INFO] ocr-search - OSD результат: angle=0, confidence=22.44 (size=2480x3507)
+2025-10-03 14:46:31,528 [INFO] ocr-search - OSD результат: angle=0, confidence=27.57 (size=2480x3507)
+2025-10-03 14:46:31,835 [INFO] ocr-search - OSD результат: angle=0, confidence=29.26 (size=2484x3509)
+2025-10-03 14:46:34,917 [INFO] ocr-search - Original file письмо_Бойко_16122016.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\письмо_Бойко_16122016.pdf
+2025-10-03 14:46:34,918 [INFO] ocr-search - Extracted text for письмо_Бойко_16122016.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\письмо_Бойко_16122016.pdf
+2025-10-03 14:46:34,927 [INFO] ocr-search - Original file Прочие_документы__Ак зачета взаимных требований.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Прочие_документы__Ак зачета взаимных требований.pdf
+2025-10-03 14:46:34,928 [INFO] ocr-search - Extracted text for Прочие_документы__Ак зачета взаимных требований.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Прочие_документы__Ак зачета взаимных требований.pdf
+2025-10-03 14:46:40,490 [INFO] ocr-search - OSD результат: angle=0, confidence=23.19 (size=2484x3509)
+2025-10-03 14:46:44,061 [INFO] ocr-search - Original file Силовые машины от 01.11.2021.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Силовые машины от 01.11.2021.pdf
+2025-10-03 14:46:44,062 [INFO] ocr-search - Extracted text for Силовые машины от 01.11.2021.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Силовые машины от 01.11.2021.pdf
+2025-10-03 14:46:44,071 [INFO] ocr-search - To executor: Снимок.png
+2025-10-03 14:46:44,072 [INFO] ocr-search - To executor: Согласие о зачете 16.02.2017.pdf
+2025-10-03 14:46:44,073 [INFO] ocr-search - To executor: Соглашение о взаимозачёте от 01.09.2023.pdf
+2025-10-03 14:46:45,779 [ERROR] ocr-search - OSD упал: (1, 'Estimating resolution as 97 Warning. Invalid resolution 0 dpi. Using 70 instead. Too few characters. Skipping this page Error during processing.')
+2025-10-03 14:46:45,781 [ERROR] ocr-search - Ошибка OCR изображения: Unsupported image object
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor2.py", line 290, in extract_text
+    return pytesseract.image_to_string(img, lang=self.ocr_lang)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ^
+  File "C:\LANG\Python312\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pytesseract\pytesseract.py", line 341, in run_and_get_output
+    with save(image) as (temp_name, input_filename):
+         ^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pytesseract\pytesseract.py", line 214, in save
+    image, extension = prepare(image)
+                       ^^^^^^^^^^^^^^
+  File "C:\LANG\Python312\Lib\site-packages\pytesseract\pytesseract.py", line 191, in prepare
+    raise TypeError('Unsupported image object')
+TypeError: Unsupported image object
+2025-10-03 14:46:45,807 [INFO] ocr-search - Original file Снимок.png saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Снимок.png
+2025-10-03 14:46:45,810 [INFO] ocr-search - Extracted text for Снимок.png saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Снимок.png
+2025-10-03 14:46:46,989 [INFO] ocr-search - OSD результат: angle=0, confidence=19.37 (size=2480x3507)
+2025-10-03 14:46:47,332 [INFO] ocr-search - OSD результат: angle=0, confidence=29.92 (size=2480x3507)
+2025-10-03 14:46:49,856 [INFO] ocr-search - Original file Согласие о зачете 16.02.2017.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Согласие о зачете 16.02.2017.pdf
+2025-10-03 14:46:49,858 [INFO] ocr-search - Extracted text for Согласие о зачете 16.02.2017.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Согласие о зачете 16.02.2017.pdf
+2025-10-03 14:46:53,936 [INFO] ocr-search - Original file Соглашение о взаимозачёте от 01.09.2023.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Соглашение о взаимозачёте от 01.09.2023.pdf
+2025-10-03 14:46:53,937 [INFO] ocr-search - Extracted text for Соглашение о взаимозачёте от 01.09.2023.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Соглашение о взаимозачёте от 01.09.2023.pdf
+2025-10-03 14:46:53,947 [INFO] ocr-search - To executor: Соглашение о зачете встречных требований  от 01.11.2021г..pdf
+2025-10-03 14:46:53,948 [INFO] ocr-search - To executor: Соглашение о зачете встречных требований №1 от 24.12.2021.pdf
+2025-10-03 14:46:53,948 [INFO] ocr-search - To executor: Соглашение о зачете от 14.12.2022.pdf
+2025-10-03 14:46:57,446 [INFO] ocr-search - OSD результат: angle=0, confidence=20.75 (size=2480x3505)
+2025-10-03 14:46:57,653 [INFO] ocr-search - OSD результат: angle=0, confidence=38.38 (size=2480x3505)
+2025-10-03 14:46:57,843 [INFO] ocr-search - OSD результат: angle=0, confidence=10.40 (size=2480x3505)
+2025-10-03 14:47:04,344 [INFO] ocr-search - OSD результат: angle=0, confidence=17.49 (size=2480x3505)
+2025-10-03 14:47:05,298 [INFO] ocr-search - OSD результат: angle=0, confidence=8.74 (size=2480x3505)
+2025-10-03 14:47:08,811 [INFO] ocr-search - Original file Соглашение о зачете встречных требований  от 01.11.2021г..pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Соглашение о зачете встречных требований от 01.11.2021г..pdf
+2025-10-03 14:47:08,812 [INFO] ocr-search - Extracted text for Соглашение о зачете встречных требований  от 01.11.2021г..pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Соглашение о зачете встречных требований от 01.11.2021г..pdf
+2025-10-03 14:47:08,823 [INFO] ocr-search - Original file Соглашение о зачете встречных требований №1 от 24.12.2021.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Соглашение о зачете встречных требований No1 от 24.12.2021.pdf
+2025-10-03 14:47:08,824 [INFO] ocr-search - Extracted text for Соглашение о зачете встречных требований №1 от 24.12.2021.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Соглашение о зачете встречных требований No1 от 24.12.2021.pdf
+2025-10-03 14:47:09,156 [INFO] ocr-search - Original file Соглашение о зачете от 14.12.2022.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Соглашение о зачете от 14.12.2022.pdf
+2025-10-03 14:47:09,157 [INFO] ocr-search - Extracted text for Соглашение о зачете от 14.12.2022.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Соглашение о зачете от 14.12.2022.pdf
+2025-10-03 14:47:09,166 [INFO] ocr-search - To executor: Соглашение от 01.08.2022r_Силовые машины.pdf
+2025-10-03 14:47:09,166 [INFO] ocr-search - To executor: Счёт (членские взносы 3 кв.2022г).pdf
+2025-10-03 14:47:09,175 [INFO] ocr-search - To executor: Черепов С.В. № 78-554-н-78-2021-14-38 от 01.11.2021.pdf
+2025-10-03 14:47:14,127 [INFO] ocr-search - OSD результат: angle=0, confidence=28.36 (size=2484x3509)
+2025-10-03 14:47:15,333 [INFO] ocr-search - OSD результат: angle=0, confidence=35.52 (size=2482x3510)
+2025-10-03 14:47:20,824 [INFO] ocr-search - OSD результат: angle=0, confidence=4.04 (size=2484x3509)
+2025-10-03 14:47:22,170 [INFO] ocr-search - Original file Соглашение от 01.08.2022r_Силовые машины.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Соглашение от 01.08.2022r_Силовые машины.pdf
+2025-10-03 14:47:22,171 [INFO] ocr-search - Extracted text for Соглашение от 01.08.2022r_Силовые машины.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Соглашение от 01.08.2022r_Силовые машины.pdf
+2025-10-03 14:47:22,183 [INFO] ocr-search - Original file Счёт (членские взносы 3 кв.2022г).pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Счёт (членские взносы 3 кв.2022г).pdf
+2025-10-03 14:47:22,184 [INFO] ocr-search - Extracted text for Счёт (членские взносы 3 кв.2022г).pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Счёт (членские взносы 3 кв.2022г).pdf
+2025-10-03 14:47:34,317 [INFO] ocr-search - OSD результат: angle=0, confidence=41.72 (size=2392x3509)
+2025-10-03 14:47:56,294 [INFO] ocr-search - OSD результат: angle=0, confidence=35.75 (size=2363x3509)
+2025-10-03 14:48:08,271 [INFO] ocr-search - OSD результат: angle=0, confidence=3.12 (size=2482x3510)
+2025-10-03 14:48:10,715 [INFO] ocr-search - Original file Черепов С.В. № 78-554-н-78-2021-14-38 от 01.11.2021.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\Черепов С.В. No 78-554-н-78-2021-14-38 от 01.11.2021.pdf
+2025-10-03 14:48:10,716 [INFO] ocr-search - Extracted text for Черепов С.В. № 78-554-н-78-2021-14-38 от 01.11.2021.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\Черепов С.В. No 78-554-н-78-2021-14-38 от 01.11.2021.pdf
+2025-10-03 14:48:10,731 [INFO] ocr-search - To executor: ЭкоПроект 5072-К_AG2016S_119 Акт взаимозачета.pdf
+2025-10-03 14:48:10,731 [INFO] ocr-search - To executor: ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf
+2025-10-03 14:48:10,731 [INFO] ocr-search - To executor: ЭкоПроект AG2024S_146 Акт взаимозачета 2024-12-17.pdf
+2025-10-03 14:48:14,294 [INFO] ocr-search - OSD результат: angle=0, confidence=16.47 (size=2480x3507)
+2025-10-03 14:48:14,479 [INFO] ocr-search - OSD результат: angle=0, confidence=18.48 (size=2480x3507)
+2025-10-03 14:48:14,928 [INFO] ocr-search - OSD результат: angle=0, confidence=33.90 (size=2480x3507)
+2025-10-03 14:48:18,205 [INFO] ocr-search - Original file ЭкоПроект 5072-К_AG2016S_119 Акт взаимозачета.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\ЭкоПроект 5072-К_AG2016S_119 Акт взаимозачета.pdf
+2025-10-03 14:48:18,206 [INFO] ocr-search - Extracted text for ЭкоПроект 5072-К_AG2016S_119 Акт взаимозачета.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\ЭкоПроект 5072-К_AG2016S_119 Акт взаимозачета.pdf
+2025-10-03 14:48:22,009 [INFO] ocr-search - Original file ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf
+2025-10-03 14:48:22,010 [INFO] ocr-search - Extracted text for ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf
+2025-10-03 14:48:22,019 [INFO] ocr-search - Original file ЭкоПроект AG2024S_146 Акт взаимозачета 2024-12-17.pdf saved to D:\SHARE\_OCR_ORIGIN\2025100314_bakhtin_da\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-12-17.pdf
+2025-10-03 14:48:22,020 [INFO] ocr-search - Extracted text for ЭкоПроект AG2024S_146 Акт взаимозачета 2024-12-17.pdf saved to D:\SHARE\_OCR_TEXT\2025100314_bakhtin_da\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-12-17.pdf
+2025-10-03 14:48:22,034 [INFO] uvicorn.access - 10.132.18.91:51579:0 - "POST /upload HTTP/1.1" 201
+2025-10-03 14:48:44,189 [INFO] uvicorn.access - 10.132.18.91:51579:0 - "POST /logout HTTP/1.1" 200
+2025-10-03 14:48:44,218 [INFO] uvicorn.access - 10.132.18.91:51579:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 14:50:04,221 [INFO] uvicorn.access - 10.132.18.91:51579:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-03 14:50:04,243 [INFO] uvicorn.access - 10.132.18.91:51579:0 - "GET / HTTP/1.1" 200
+2025-10-03 15:02:01,759 [INFO] uvicorn.access - 10.132.18.91:52073:0 - "POST /logout HTTP/1.1" 200
+2025-10-03 15:02:01,780 [INFO] uvicorn.access - 10.132.18.91:52073:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 15:02:06,892 [INFO] uvicorn.access - 10.132.18.91:52073:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-03 15:05:51,066 [INFO] uvicorn.error - Shutting down
+2025-10-03 15:05:51,167 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 15:05:51,168 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 15:05:51,168 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 15:05:51,168 [INFO] uvicorn.error - Finished server process [7612]

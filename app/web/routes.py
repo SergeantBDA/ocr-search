@@ -154,11 +154,12 @@ async def upload_file(
 
     for era_files in  batch_iter(files, 3):
         payloads: list[tuple[str | None, str | None, bytes]] = []
-        for f in era_files:
+        for f in era_files:            
             _filename = f.filename or "uploaded"
             _data = await f.read()                      # ВАЖНО: тут await!            
             _mime = (f.content_type or "").lower() or None
             payloads.append((_filename, _mime, _data))
+            app_logger.info(f"To executor: {_filename}")
 
         # 3) параллельно обрабатываем bytes
         max_workers = 4 #settings.max_workers or 4

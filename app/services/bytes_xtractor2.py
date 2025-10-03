@@ -236,12 +236,12 @@ class PDFExtractor(BytesExtractor):
     """PDF: сперва текстовый слой, затем OCR-фоллбек с учётом ориентации."""
     def extract_text(self) -> str:
         if fitz is None:
-            app_loger.warning("PyMuPDF не установлен — пропускаю PDF.")
+            app_logger.warning("PyMuPDF не установлен — пропускаю PDF.")
             return ""
         try:
             doc = fitz.open(stream=self.payload.content, filetype="pdf")
         except Exception as e:
-            app_loger.exception("Ошибка открытия PDF: %s", e)
+            app_logger.exception("Ошибка открытия PDF: %s", e)
             return ""
 
         # 1) прямой текст
@@ -278,18 +278,18 @@ class ImageExtractor(BytesExtractor):
     """OCR изображений с определением ориентации (OSD)."""
     def extract_text(self) -> str:
         if Image is None or pytesseract is None:
-            app_loger.warning("Pillow/pytesseract не установлены — пропускаю изображение.")
+            app_logger.warning("Pillow/pytesseract не установлены — пропускаю изображение.")
             return ""
         try:
             img = Image.open(io.BytesIO(self.payload.content))
         except Exception as e:
-            app_loger.exception("Ошибка открытия изображения: %s", e)
+            app_logger.exception("Ошибка открытия изображения: %s", e)
             return ""
         img = _rotate_by_osd(img)
         try:
             return pytesseract.image_to_string(img, lang=self.ocr_lang)
         except Exception as e:
-            app_loger.exception("Ошибка OCR изображения: %s", e)
+            app_logger.exception("Ошибка OCR изображения: %s", e)
             return ""
 
 class EMLExtractor(BytesExtractor):
@@ -297,7 +297,7 @@ class EMLExtractor(BytesExtractor):
         try:
             msg = BytesParser(policy=policy.default).parsebytes(self.payload.content)
         except Exception as e:
-            app_loger.exception("Ошибка парсинга EML: %s", e)
+            app_logger.exception("Ошибка парсинга EML: %s", e)
             return ""
         lines = []
         def _safe(val): return "" if val is None else str(val)
@@ -336,19 +336,19 @@ class EMLExtractor(BytesExtractor):
 class RTFExtractor(BytesExtractor):
     def extract_text(self) -> str:
         if rtf_to_text is None:
-            app_loger.warning("striprtf не установлен — пропускаю RTF.")
+            app_logger.warning("striprtf не установлен — пропускаю RTF.")
             return ""
         try:
             rtf_content = self.payload.content.decode("utf-8", errors="ignore")
             return rtf_to_text(rtf_content) if rtf_content else ""
         except Exception as e:
-            app_loger.exception("Ошибка чтения RTF: %s", e)
+            app_logger.exception("Ошибка чтения RTF: %s", e)
             return ""
 
 class HTMLExtractor(BytesExtractor):
     def extract_text(self) -> str:
         if BeautifulSoup is None:
-            app_loger.warning("beautifulsoup4 не установлен — пропускаю HTML.")
+            app_logger.warning("beautifulsoup4 не установлен — пропускаю HTML.")
             return ""
         html = self._decode_text_like()
         try:
@@ -375,13 +375,13 @@ class XMLExtractor(HTMLExtractor):
 class DOCXExtractor(BytesExtractor):
     def extract_text(self) -> str:
         if DocxDocument is None:
-            app_loger.warning("python-docx не установлен — пропускаю DOCX.")
+            app_logger.warning("python-docx не установлен — пропускаю DOCX.")
             return ""
         bio = io.BytesIO(self.payload.content)
         try:
             doc = DocxDocument(bio)
         except Exception as e:
-            app_loger.exception("Ошибка чтения DOCX: %s", e)
+            app_logger.exception("Ошибка чтения DOCX: %s", e)
             return ""
         parts = []
         for p in doc.paragraphs:
@@ -394,13 +394,13 @@ class DOCXExtractor(BytesExtractor):
 class ExcelExtractor(BytesExtractor):
     def extract_text(self) -> str:
         if pd is None:
-            app_loger.warning("pandas не установлен — пропускаю Excel.")
+            app_logger.warning("pandas не установлен — пропускаю Excel.")
             return ""
         bio = io.BytesIO(self.payload.content)
         try:
             frames: Dict[str, "pd.DataFrame"] = pd.read_excel(bio, sheet_name=None, header=None)
         except Exception as e:
-            app_loger.exception("Ошибка чтения Excel: %s", e)
+            app_logger.exception("Ошибка чтения Excel: %s", e)
             return ""
         parts = []
         for sheet, df in frames.items():
@@ -419,7 +419,7 @@ class PlainTextExtractor(BytesExtractor):
 
 class UnsupportedExtractor(BytesExtractor):
     def extract_text(self) -> str:
-        app_loger.info("Неподдерживаемый тип: %s / %s",
+        app_logger.info("Неподдерживаемый тип: %s / %s",
                     self.payload.mime, self.payload.filename)
         return ""
 
