@@ -24,12 +24,14 @@ class Settings(BaseSettings):
     # JWT settings
     jwt_secret: SecretStr = Field(..., env="JWT_SECRET")
     jwt_expire_minutes: int = Field(60, env="JWT_EXPIRE_MINUTES")
+    # BROKER
+    redis_url: Optional[str] = Field(None, env="REDIS_UR")
+    dramatiq_ns: Optional[str] = Field(None, env="DRAMATIQ_NS")
 
     # жёстко указываем .env в корне проекта
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),
         env_file_encoding="utf-8",
-    )   
-
+    )
 settings = Settings()
 
