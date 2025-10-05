@@ -12,7 +12,7 @@
     <form
       hx-get="{{ request.url_for('search').path }}"
       hx-target="#results"
-      hx-swap="innerHTML"
+      hx-swap="outerHTML"
       hx-indicator="#spinner"
       class="field"
       style="margin-top:12px;"
@@ -36,7 +36,7 @@
  
     <!-- Загрузка + запуск фоновой обработки -->
     <form id="uploadForm"
-          hx-post="{{ request.url_for('upload').path }}"
+          hx-post="{{ request.url_for('upload').path }}" hx-target="#job-panel"
           hx-trigger="submit"
           hx-target="#job-panel"
           hx-swap="innerHTML"

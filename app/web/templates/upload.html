@@ -6,8 +6,7 @@
 <form id="upload-form"
       hx-post="{{ url_for('upload') }}"
       hx-trigger="submit"
-      hx-target="#job-panel"
-      hx-swap="innerHTML"
+      hx-swap="none"
       enctype="multipart/form-data">
   <input type="file" name="files" multiple required />
   <button type="submit" class="btn btn-primary">Загрузить</button>

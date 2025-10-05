@@ -4,6 +4,7 @@ from .base import BytesExtractor
 # ------------------------- logging --------------------------------------
 from app.logger import logger as app_logger, attach_to_logger_names
 attach_to_logger_names(["app.services.extractors.pdf"])
+RUSSIAN_CHARS = set(r".:,-+=()!0123456789абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
 # -------- optional imports (защищены) ----------
 try:
     import fitz  # PyMuPDF

@@ -25,21 +25,22 @@ def ext_from_filename(filename: Optional[str]) -> Optional[str]:
 def _guess_ext(filename: Optional[str], mime: Optional[str]) -> str:
     name = ext_from_filename(filename)
     mime = normalized_mime(mime)
-    if name.endswith(".docx") or mime == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+
+    if name.endswith("docx") or mime == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
         return "docx"
-    if name.endswith((".eml",".msg")) or mime in {"message/rfc822","application/eml"}:
+    if name.endswith(("eml","msg")) or mime in {"message/rfc822","application/eml"}:
         return "email"
-    if name.endswith((".htm","html","xhtml","xml")) or mime in {"text/html","application/xhtml+xml"}:
+    if name.endswith(("htm","html","xhtml","xml")) or mime in {"text/html","application/xhtml+xml"}:
         return "html"
-    if name.endswith(".pdf") or mime == "application/pdf":
+    if name.endswith("pdf") or mime == "application/pdf":
         return "pdf"
-    if any(name.endswith(x) for x in (".png",".jpg",".jpeg",".tif",".tiff",".bmp")) or mime.startswith("image/"):
+    if any(name.endswith(x) for x in (".png",".jpg",".jpeg",".tif",".tiff",".bmp")) or mime in {"image/"}:
         return "image"
-    if name.endswith(".rtf") or mime in {"application/rtf", "text/rtf"}:
+    if name.endswith("rtf") or mime in {"application/rtf", "text/rtf"}:
         return "rtf"           
-    if name.endswith((".txt",".csv")) or mime in {"text"}:
+    if name.endswith(("txt","csv")) or mime in {"text"}:
         return "txt"
-    if name.endswith((".xlsx",".xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+    if name.endswith(("xlsx","xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
         return "xls"
     return 'uns'
  
