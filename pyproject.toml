@@ -39,15 +39,22 @@ dependencies = [
   "pyexiftool>=0.5",
   "passlib[bcrypt]==3.2.2",
   "python-jose[cryptography]",
-  "pydantic[email]"
+  "pydantic[email]",
+  "dramatiq==1.18.0",
+  "redis==5.0.1",
+  "msg-parser",
+  "extract_msg",
+  "beautifullsoup4",
+  "watchdog"
 ]
+
 
 [project.optional-dependencies]
 dev = [
   "pytest>=7.3,<8.0",
   "pytest-asyncio>=0.21",
   "pytest-cov>=4.0",
-  "black>=24.0",
+  "black>=24.0",p
   "ruff>=0.12"
 ]
 

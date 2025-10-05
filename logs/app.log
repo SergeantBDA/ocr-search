@@ -6450,3 +6450,413 @@ TypeError: Unsupported image object
 2025-10-03 15:05:51,168 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-10-03 15:05:51,168 [INFO] uvicorn.error - Application shutdown complete.
 2025-10-03 15:05:51,168 [INFO] uvicorn.error - Finished server process [7612]
+2025-10-03 15:05:55,144 [INFO] uvicorn.error - Started server process [5968]
+2025-10-03 15:05:55,145 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-03 15:05:55,148 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-03 15:05:55,148 [INFO] uvicorn.error - Application startup complete.
+2025-10-03 15:50:52,467 [INFO] uvicorn.access - 10.132.18.91:50715:0 - "POST /upload HTTP/1.1" 307
+2025-10-03 15:50:52,492 [INFO] uvicorn.access - 10.132.18.91:50715:0 - "POST /login-web HTTP/1.1" 405
+2025-10-03 15:50:58,671 [INFO] uvicorn.access - 10.132.18.91:50715:0 - "GET /login-web HTTP/1.1" 200
+2025-10-03 16:08:56,857 [INFO] uvicorn.error - Shutting down
+2025-10-03 16:08:56,959 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-03 16:08:56,961 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-03 16:08:56,964 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-03 16:08:56,964 [INFO] uvicorn.error - Finished server process [5968]
+2025-10-05 01:09:00,818 [INFO] uvicorn.error - Started server process [5432]
+2025-10-05 01:09:00,825 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 01:09:00,825 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 01:09:00,825 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 01:09:15,335 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET / HTTP/1.1" 307
+2025-10-05 01:09:15,382 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET /login-web HTTP/1.1" 200
+2025-10-05 01:09:15,461 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET /app.css HTTP/1.1" 200
+2025-10-05 01:09:57,488 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-05 01:10:10,753 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-05 01:10:10,795 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET / HTTP/1.1" 200
+2025-10-05 01:12:15,351 [INFO] uvicorn.access - 10.132.18.91:55083:0 - "GET /?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:14:17,467 [INFO] uvicorn.access - 10.132.18.91:55491:0 - "GET /?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:26:20,797 [INFO] uvicorn.access - 10.132.18.91:56225:0 - "GET /?q=&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:27:31,129 [INFO] uvicorn.access - 10.132.18.91:56225:0 - "GET /?q=%D1%81%D1%87%D0%B5%D1%82&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:28:31,663 [INFO] uvicorn.access - 10.132.18.91:56225:0 - "GET /?q=%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:28:59,046 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-05 01:28:59,078 [INFO] uvicorn.access - 10.132.18.91:56225:0 - "GET /search?q=%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:34:37,530 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET / HTTP/1.1" 307
+2025-10-05 01:34:37,546 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET /login-web HTTP/1.1" 200
+2025-10-05 01:34:37,840 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET /app.css HTTP/1.1" 200
+2025-10-05 01:34:38,576 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-05 01:35:00,611 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-05 01:35:00,642 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET / HTTP/1.1" 200
+2025-10-05 01:35:06,315 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-05 01:35:06,343 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET /search?q=%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:35:45,938 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET / HTTP/1.1" 200
+2025-10-05 01:35:53,156 [DEBUG] ocr-search - Search SQL: 
+    SELECT
+      id,
+      filename,
+      path_origin,
+      ts_headline('simple', content, plainto_tsquery('simple', :q), 'MaxFragments=3, MinWords=3, ShortWord=3') AS snippet,
+      ts_rank_cd(search_vector, plainto_tsquery('simple', :q)) AS rank,
+      similarity(content, :q) AS sim
+    FROM documents
+    WHERE ((search_vector @@ plainto_tsquery('simple', :q))  
+                     OR (filename ILIKE '%' || :q || '%') 
+                     OR (content  ILIKE '%' || :q || '%') 
+                     OR (similarity(content, :q) > 0.2)) 
+                     AND (:ocr_from IS NULL OR created_at >= :ocr_from)
+                     AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
+                     AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')
+    ORDER BY GREATEST(COALESCE(ts_rank_cd(search_vector, plainto_tsquery('simple', :q)), 0), COALESCE(similarity(content, :q), 0)) DESC
+    
+2025-10-05 01:35:53,182 [INFO] uvicorn.access - 10.136.36.216:54073:0 - "GET /search?q=%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 200
+2025-10-05 01:56:15,918 [INFO] uvicorn.error - Shutting down
+2025-10-05 01:56:16,019 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 01:56:16,020 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 01:56:16,022 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 01:56:16,022 [INFO] uvicorn.error - Finished server process [5432]
+2025-10-05 01:56:35,612 [INFO] uvicorn.error - Started server process [7012]
+2025-10-05 01:56:35,613 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 01:56:35,615 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 01:56:35,615 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 01:57:22,175 [INFO] uvicorn.error - Shutting down
+2025-10-05 01:57:22,277 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 01:57:22,278 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 01:57:22,279 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 01:57:22,280 [INFO] uvicorn.error - Finished server process [7012]
+2025-10-05 01:57:25,148 [INFO] uvicorn.error - Started server process [5580]
+2025-10-05 01:57:25,148 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 01:57:25,150 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 01:57:25,151 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 01:59:36,317 [INFO] uvicorn.error - Shutting down
+2025-10-05 01:59:36,417 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 01:59:36,418 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 01:59:36,419 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 01:59:36,420 [INFO] uvicorn.error - Finished server process [5580]
+2025-10-05 01:59:39,327 [INFO] uvicorn.error - Started server process [492]
+2025-10-05 01:59:39,328 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 01:59:39,329 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 01:59:39,330 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:08:03,362 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:08:03,463 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:08:03,464 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:08:03,466 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:08:03,466 [INFO] uvicorn.error - Finished server process [492]
+2025-10-05 02:08:11,569 [INFO] uvicorn.error - Started server process [6924]
+2025-10-05 02:08:11,570 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:08:11,572 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:08:11,572 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:12:18,241 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "GET /?q=%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE&ocr_user=&ocr_from=&ocr_to= HTTP/1.1" 307
+2025-10-05 02:12:18,276 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "GET /login-web HTTP/1.1" 200
+2025-10-05 02:12:35,536 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-05 02:12:35,592 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:12:56,163 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:14:56,684 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:16:06,008 [INFO] uvicorn.access - 10.132.18.91:55889:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:37:37,759 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:37:37,860 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:37:37,861 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:37:37,862 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:37:37,862 [INFO] uvicorn.error - Finished server process [6924]
+2025-10-05 02:37:41,911 [INFO] uvicorn.error - Started server process [1720]
+2025-10-05 02:37:41,911 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:37:41,913 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:37:41,914 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:37:49,216 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:37:49,317 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:37:49,317 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:37:49,319 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:37:49,319 [INFO] uvicorn.error - Finished server process [1720]
+2025-10-05 02:37:52,347 [INFO] uvicorn.error - Started server process [5640]
+2025-10-05 02:37:52,348 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:37:52,349 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:37:52,349 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:37:59,448 [INFO] uvicorn.access - 10.132.18.91:58392:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:39:17,453 [INFO] uvicorn.access - 10.132.18.91:58392:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:39:17,682 [DEBUG] app.web.routes.process_upload - Received args=('5bdd9cf5-2499-4b38-a00d-7de5656f7296', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100502_bakhtin_da\\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf', 'filename': 'ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf', 'mime': 'application/pdf'}], 'D:\\SHARE\\_OCR_TEXT\\2025100502_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 02:39:17,682 [INFO] ocr-search - process_upload START job_id=5bdd9cf5-2499-4b38-a00d-7de5656f7296 files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da
+2025-10-05 02:39:17,682 [WARNING] ocr-search - job_update(running) failed: name 'job_update' is not defined
+2025-10-05 02:39:17,683 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100502_bakhtin_da\ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf mime=application/pdf
+2025-10-05 02:39:17,683 [ERROR] ocr-search - process_upload failed for ЭкоПроект AG2024S_146 Акт взаимозачета 2024-11-01.pdf: name 'kin' is not defined
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 230, in process_upload
+    text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 83, in extract_text_file
+    return get_extractor(payload, ocr_lang=ocr_lang).extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 61, in get_extractor
+    cls = EXTRACTOR_BY_KIND[kin]
+                            ^^^
+NameError: name 'kin' is not defined. Did you mean: 'kind'?
+2025-10-05 02:39:17,698 [DEBUG] app.web.routes.process_upload - Completed after 16.43ms.
+2025-10-05 02:40:06,007 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:40:06,107 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:40:06,108 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:40:06,110 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:40:06,110 [INFO] uvicorn.error - Finished server process [5640]
+2025-10-05 02:40:09,113 [INFO] uvicorn.error - Started server process [10124]
+2025-10-05 02:40:09,164 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:40:09,166 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:40:09,167 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:40:13,107 [INFO] uvicorn.access - 10.132.18.91:58392:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:40:56,184 [INFO] uvicorn.access - 10.132.18.91:58392:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:40:56,305 [DEBUG] app.web.routes.process_upload - Received args=('63fc467f-2893-470d-8cd8-8ea9e4dcd741', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100502_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100502_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 02:40:56,305 [INFO] ocr-search - process_upload START job_id=63fc467f-2893-470d-8cd8-8ea9e4dcd741 files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da
+2025-10-05 02:40:56,305 [WARNING] ocr-search - job_update(running) failed: name 'job_update' is not defined
+2025-10-05 02:40:56,306 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100502_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 02:40:56,306 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: name 'kin' is not defined
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 230, in process_upload
+    text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 83, in extract_text_file
+    return get_extractor(payload, ocr_lang=ocr_lang).extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 61, in get_extractor
+    cls = EXTRACTOR_BY_KIND[kind]
+                            ^^^
+NameError: name 'kin' is not defined. Did you mean: 'kind'?
+2025-10-05 02:40:56,307 [DEBUG] app.web.routes.process_upload - Completed after 2.06ms.
+2025-10-05 02:43:57,388 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:43:57,498 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:43:57,499 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:43:57,501 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:43:57,501 [INFO] uvicorn.error - Finished server process [10124]
+2025-10-05 02:44:00,507 [INFO] uvicorn.error - Started server process [9108]
+2025-10-05 02:44:00,508 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:44:00,510 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:44:00,510 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:44:47,497 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:44:47,597 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:44:47,598 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:44:47,601 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:44:47,602 [INFO] uvicorn.error - Finished server process [9108]
+2025-10-05 02:44:50,434 [INFO] uvicorn.error - Started server process [2552]
+2025-10-05 02:44:50,434 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:44:50,434 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:44:50,434 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:44:52,378 [INFO] uvicorn.access - 10.132.18.91:58682:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:45:03,296 [INFO] uvicorn.access - 10.132.18.91:58682:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:45:03,331 [DEBUG] app.web.routes.process_upload - Received args=('55f1b710-19c7-48d5-bd08-96eecd2d654f', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100502_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100502_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 02:45:03,332 [INFO] ocr-search - process_upload START job_id=55f1b710-19c7-48d5-bd08-96eecd2d654f files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da
+2025-10-05 02:45:03,332 [WARNING] ocr-search - job_update(running) failed: name 'job_update' is not defined
+2025-10-05 02:45:03,332 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100502_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 02:45:03,333 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: name 'kin' is not defined
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 230, in process_upload
+    text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 83, in extract_text_file
+    return get_extractor(payload, ocr_lang=ocr_lang).extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 61, in get_extractor
+    cls = EXTRACTOR_BY_KIND[kind]
+                            ^^^
+NameError: name 'kin' is not defined. Did you mean: 'kind'?
+2025-10-05 02:45:03,335 [DEBUG] app.web.routes.process_upload - Completed after 2.86ms.
+2025-10-05 02:48:32,224 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:48:32,326 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:48:32,327 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:48:32,329 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:48:32,329 [INFO] uvicorn.error - Finished server process [2552]
+2025-10-05 02:48:36,104 [INFO] uvicorn.error - Started server process [4644]
+2025-10-05 02:48:36,104 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:48:36,106 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:48:36,106 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:49:21,045 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:49:21,145 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:49:21,146 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:49:21,148 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:49:21,148 [INFO] uvicorn.error - Finished server process [4644]
+2025-10-05 02:49:45,825 [INFO] uvicorn.error - Started server process [9484]
+2025-10-05 02:49:45,825 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:49:45,827 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:49:45,827 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:50:20,314 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:50:20,415 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:50:20,416 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:50:20,417 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:50:20,418 [INFO] uvicorn.error - Finished server process [9484]
+2025-10-05 02:50:53,683 [INFO] uvicorn.error - Started server process [9372]
+2025-10-05 02:50:53,683 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:50:53,699 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:50:53,699 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:50:58,520 [INFO] uvicorn.access - 10.132.18.91:58908:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:51:09,398 [INFO] uvicorn.access - 10.132.18.91:58908:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:51:09,790 [DEBUG] app.web.routes.process_upload - Received args=('9ed3f9ae-b6a7-4553-8a03-1b3f3d5c5bdc', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100502_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100502_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 02:51:09,791 [INFO] ocr-search - process_upload START job_id=9ed3f9ae-b6a7-4553-8a03-1b3f3d5c5bdc files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da
+2025-10-05 02:51:09,792 [WARNING] ocr-search - job_update(running) failed: name 'job_update' is not defined
+2025-10-05 02:51:09,792 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100502_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 02:51:09,792 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: name 'kin' is not defined
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 230, in process_upload
+    text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 83, in extract_text_file
+    return get_extractor(payload, ocr_lang=ocr_lang).extract_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\services\bytes_xtractor.py", line 61, in get_extractor
+    cls = EXTRACTOR_BY_KIND[kind]
+                            ^^^
+NameError: name 'kin' is not defined. Did you mean: 'kind'?
+2025-10-05 02:51:09,796 [DEBUG] app.web.routes.process_upload - Completed after 5.07ms.
+2025-10-05 02:52:22,286 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:52:22,389 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:52:22,391 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:52:22,392 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:52:22,392 [INFO] uvicorn.error - Finished server process [9372]
+2025-10-05 02:52:25,366 [INFO] uvicorn.error - Started server process [9588]
+2025-10-05 02:52:25,366 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:52:25,367 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:52:25,367 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:53:07,475 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:53:07,576 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:53:07,576 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:53:07,577 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:53:07,577 [INFO] uvicorn.error - Finished server process [9588]
+2025-10-05 02:53:11,389 [INFO] uvicorn.error - Started server process [3748]
+2025-10-05 02:53:11,389 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:53:11,390 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:53:11,390 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:53:50,842 [INFO] uvicorn.access - 10.132.18.91:59029:0 - "GET / HTTP/1.1" 200
+2025-10-05 02:54:03,105 [INFO] uvicorn.access - 10.132.18.91:59029:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 02:54:03,560 [DEBUG] app.web.routes.process_upload - Received args=('1f027100-466f-45ab-9865-6680987fc3ca', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100502_bakhtin_da\\Товарная накладная (ТОРГ-12) № 10 от 28.02.2025.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 10 от 28.02.2025.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100502_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 02:54:03,560 [INFO] ocr-search - process_upload START job_id=1f027100-466f-45ab-9865-6680987fc3ca files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da
+2025-10-05 02:54:03,560 [WARNING] ocr-search - job_update(running) failed: '1f027100-466f-45ab-9865-6680987fc3ca'
+2025-10-05 02:54:03,561 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100502_bakhtin_da\Товарная накладная (ТОРГ-12) № 10 от 28.02.2025.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 02:54:05,827 [INFO] ocr-search - Extracted text for Товарная накладная (ТОРГ-12) № 10 от 28.02.2025.xlsx saved to D:\SHARE\_OCR_TEXT\2025100502_bakhtin_da\Товарная накладная (ТОРГ-12) No 10 от 28.02.2025.xlsx
+2025-10-05 02:54:06,126 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 10 от 28.02.2025.xlsx: '1f027100-466f-45ab-9865-6680987fc3ca'
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 253, in process_upload
+    JOBS[job_id]["items"].append(
+    ~~~~^^^^^^^^
+KeyError: '1f027100-466f-45ab-9865-6680987fc3ca'
+2025-10-05 02:54:06,127 [DEBUG] app.web.routes.process_upload - Completed after 2567.43ms.
+2025-10-05 02:58:45,807 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:58:45,938 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:58:45,939 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:58:45,939 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:58:45,939 [INFO] uvicorn.error - Finished server process [3748]
+2025-10-05 02:58:49,797 [INFO] uvicorn.error - Started server process [10076]
+2025-10-05 02:58:49,798 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:58:49,798 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:58:49,799 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:59:36,629 [INFO] uvicorn.error - Shutting down
+2025-10-05 02:59:36,731 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 02:59:36,732 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 02:59:36,734 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 02:59:36,735 [INFO] uvicorn.error - Finished server process [10076]
+2025-10-05 02:59:39,628 [INFO] uvicorn.error - Started server process [8808]
+2025-10-05 02:59:39,628 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 02:59:39,630 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 02:59:39,630 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 02:59:46,279 [INFO] uvicorn.access - 10.132.18.91:59250:0 - "GET / HTTP/1.1" 200
+2025-10-05 03:00:13,520 [INFO] uvicorn.access - 10.132.18.91:59250:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 03:00:19,743 [INFO] uvicorn.access - 10.132.18.91:59250:0 - "GET / HTTP/1.1" 200
+2025-10-05 03:00:28,355 [DEBUG] app.web.routes.process_upload - Received args=('07515312-bbe6-4a3c-963e-e896beb6c1d1', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100503_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100503_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 03:00:28,355 [INFO] ocr-search - process_upload START job_id=07515312-bbe6-4a3c-963e-e896beb6c1d1 files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da
+2025-10-05 03:00:28,355 [WARNING] ocr-search - job_update(running) failed: '07515312-bbe6-4a3c-963e-e896beb6c1d1'
+2025-10-05 03:00:28,356 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 03:00:28,582 [INFO] ocr-search - Extracted text for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx saved to D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) No 54 от 24.12.2024.xlsx
+2025-10-05 03:00:28,685 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: '07515312-bbe6-4a3c-963e-e896beb6c1d1'
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 253, in process_upload
+    JOBS[job_id]["items"].append(
+    ~~~~^^^^^^^^
+KeyError: '07515312-bbe6-4a3c-963e-e896beb6c1d1'
+2025-10-05 03:00:28,686 [DEBUG] app.web.routes.process_upload - Completed after 331.39ms.
+2025-10-05 03:10:52,126 [INFO] uvicorn.error - Shutting down
+2025-10-05 03:10:52,240 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 03:10:52,240 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 03:10:52,240 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 03:10:52,240 [INFO] uvicorn.error - Finished server process [8808]
+2025-10-05 03:11:44,242 [INFO] uvicorn.error - Started server process [8068]
+2025-10-05 03:11:44,242 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 03:11:44,242 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 03:11:44,242 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 03:11:45,569 [INFO] uvicorn.error - Shutting down
+2025-10-05 03:11:45,670 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 03:11:45,670 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 03:11:45,672 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 03:11:45,672 [INFO] uvicorn.error - Finished server process [8068]
+2025-10-05 03:17:30,620 [INFO] uvicorn.error - Started server process [9160]
+2025-10-05 03:17:30,621 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 03:17:30,622 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 03:17:30,622 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 03:17:45,413 [INFO] uvicorn.access - 10.132.18.91:59641:0 - "GET / HTTP/1.1" 307
+2025-10-05 03:17:45,431 [INFO] uvicorn.access - 10.132.18.91:59641:0 - "GET /login-web HTTP/1.1" 200
+2025-10-05 03:17:54,613 [INFO] uvicorn.access - 10.132.18.91:59641:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-05 03:17:54,650 [INFO] uvicorn.access - 10.132.18.91:59641:0 - "GET / HTTP/1.1" 200
+2025-10-05 03:18:05,348 [INFO] uvicorn.access - 10.132.18.91:59641:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 03:18:06,086 [DEBUG] app.web.routes.process_upload - Received args=('2fcd2132-b735-475f-9177-9e35f5075b53', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100503_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100503_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 03:18:06,086 [INFO] ocr-search - process_upload START job_id=2fcd2132-b735-475f-9177-9e35f5075b53 files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da
+2025-10-05 03:18:06,086 [WARNING] ocr-search - job_update(running) failed: '2fcd2132-b735-475f-9177-9e35f5075b53'
+2025-10-05 03:18:06,087 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 03:18:06,332 [INFO] ocr-search - Extracted text for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx saved to D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) No 54 от 24.12.2024_1.xlsx
+2025-10-05 03:18:06,442 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: '2fcd2132-b735-475f-9177-9e35f5075b53'
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 257, in process_upload
+    JOBS[job_id]["items"].append(
+    ~~~~^^^^^^^^
+KeyError: '2fcd2132-b735-475f-9177-9e35f5075b53'
+2025-10-05 03:18:06,443 [DEBUG] app.web.routes.process_upload - Completed after 356.64ms.
+2025-10-05 03:20:11,849 [INFO] uvicorn.error - Shutting down
+2025-10-05 03:20:11,950 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 03:20:11,950 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 03:20:11,951 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 03:20:11,951 [INFO] uvicorn.error - Finished server process [9160]
+2025-10-05 03:20:15,779 [INFO] uvicorn.error - Started server process [1356]
+2025-10-05 03:20:15,780 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-05 03:20:15,781 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-05 03:20:15,781 [INFO] uvicorn.error - Application startup complete.
+2025-10-05 03:20:43,730 [INFO] uvicorn.access - 10.132.18.91:57180:0 - "GET / HTTP/1.1" 200
+2025-10-05 03:20:53,596 [INFO] uvicorn.access - 10.132.18.91:57180:0 - "POST /upload HTTP/1.1" 202
+2025-10-05 03:20:53,872 [DEBUG] app.web.routes.process_upload - Received args=('ec861c4e-052d-478d-94a5-4836a566c397', [{'path': 'D:\\SHARE\\_OCR_ORIGIN\\2025100503_bakhtin_da\\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'filename': 'Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx', 'mime': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}], 'D:\\SHARE\\_OCR_TEXT\\2025100503_bakhtin_da', 'bakhtin_da@interrao.ru') kwargs={}.
+2025-10-05 03:20:53,878 [INFO] ocr-search - process_upload START job_id=ec861c4e-052d-478d-94a5-4836a566c397 files=1 texts_dir=D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da
+2025-10-05 03:20:53,879 [WARNING] ocr-search - job_update(running) failed: 'ec861c4e-052d-478d-94a5-4836a566c397'
+2025-10-05 03:20:53,880 [INFO] ocr-search - process_upload file=D:\SHARE\_OCR_ORIGIN\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx mime=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+2025-10-05 03:20:54,140 [INFO] ocr-search - Extracted text for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx saved to D:\SHARE\_OCR_TEXT\2025100503_bakhtin_da\Товарная накладная (ТОРГ-12) No 54 от 24.12.2024_2.xlsx
+2025-10-05 03:20:54,227 [ERROR] ocr-search - process_upload failed for Товарная накладная (ТОРГ-12) № 54 от 24.12.2024.xlsx: 'ec861c4e-052d-478d-94a5-4836a566c397'
+Traceback (most recent call last):
+  File "c:\PROJECT\PY\OCR\ocr-with-login\app\web\routes.py", line 257, in process_upload
+    JOBS[job_id]["items"].append(
+    ~~~~^^^^^^^^
+KeyError: 'ec861c4e-052d-478d-94a5-4836a566c397'
+2025-10-05 03:20:54,228 [DEBUG] app.web.routes.process_upload - Completed after 354.45ms.
+2025-10-05 03:25:08,139 [INFO] uvicorn.error - Shutting down
+2025-10-05 03:25:08,240 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-05 03:25:08,241 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-05 03:25:08,245 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-05 03:25:08,245 [INFO] uvicorn.error - Finished server process [1356]

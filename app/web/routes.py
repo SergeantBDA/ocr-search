@@ -1,3 +1,6 @@
+from app.infra.broker import broker
+import uuid
+import shutil
 import asyncio
 import logging
 from urllib.parse import quote
@@ -5,25 +8,26 @@ from typing import Optional, List, Dict, Annotated, Any
 from pathlib import Path
 from datetime import datetime
 
+import dramatiq
 from fastapi import APIRouter, Request, UploadFile, File, Depends, Query
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from sqlalchemy.orm import Session
 
 from app import search as search_module
 from app.db import get_session, SessionLocal
 from app.models import Document, User
 from app.schemas import UserRead
-from app.services.ocr_dispatch import extract_text
-from app.services import ingest_folder, save_outputs
+#from app.services.ocr_dispatch import extract_text
+from app.services import save_outputs
 from app.settings_store import get_documents_dir as store_get_documents_dir
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
-from app.services import bytes_xtractor2 as bx
+from app.services import bytes_xtractor as bx
 
 from concurrent.futures import ThreadPoolExecutor
 
-attach_to_logger_names(["app.service.bytes_xtractor","app.services.ingest_folder", "app.search", "app.services.ocr_dispatch", "app.services.save_outputs"])
+attach_to_logger_names(["app.web.routes"])
 
 # import auth dependency
 from app.services.auth import get_current_user
@@ -36,6 +40,9 @@ router = APIRouter(
 )
 CurrentUser = Annotated[User, Depends(get_current_user)]
 templates = Jinja2Templates(directory="app/web/templates")
+
+# В test: in-memory. В проде — используйте Redis/БД.
+JOBS: dict[str, dict] = {}
 
 def get_current_user_login_proxy(request: Request) -> str:
     # заголовок выставляет обратный прокси
@@ -121,6 +128,9 @@ def scan_now(request: Request, db: Session = Depends(get_session)):
     }
     return templates.TemplateResponse("_scan_report.html", context)
 
+# ================
+# POST /upload
+# ================
 @router.post("/upload", name="upload", include_in_schema=True)
 async def upload_file(
     request: Request,
@@ -128,88 +138,140 @@ async def upload_file(
     current_user: CurrentUser = None,
 ):
     """
-    Обрабатывает загрузку файлов (HTMX form hx-post with multiple files).
-    - Берём только UploadFile.filename and UploadFile.content_type
-    - extract_text -> (text, meta)
-    - meta сохраняется из extract_text
-    - сохраняем оригинал/text в папки из settings (необязательно)
+    Только загрузка файлов в "пользовательский" каталог и постановка задания в Dramatiq.
+    Возвращает 202 Accepted + {"job_id": "..."}.
     """
-    created_items = []
     user = UserRead.model_validate(current_user, from_attributes=True)
-    _prefix_dir = f'{datetime.now().strftime('%Y%m%d%H')}_{user.email.split('@')[0]}'
-    _output_originals_dir = f'{settings.output_originals_dir}/{_prefix_dir}'
-    _output_texts_dir     = f'{settings.output_texts_dir}/{_prefix_dir}'
 
-    # 2) синхронная функция для пула
-    def run_sync(args: tuple[str | None, str | None, bytes]):
-        _filename, _mime, _data = args
-        _text = bx.extract_text_bytes(_data, filename=_filename, mime=_mime)
-        return _filename, _mime, _data, _text
+    # Каталог для оригиналов: <output_originals_dir>/<YYYYMMDDHH>_<login>
+    prefix = f"{datetime.now().strftime('%Y%m%d%H')}_{user.email.split('@')[0]}"
+    upload_dir = Path(settings.output_originals_dir) / prefix
+    upload_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1) асинхронно считываем все файлы -> получаем bytes
+    saved_paths: list[dict] = []  # [{path, filename, mime}]
+    for f in files:
+        filename = f.filename or "uploaded"
+        mime = (f.content_type or "").lower() or None
+        dst = upload_dir / filename
+        with dst.open("wb") as w:
+            shutil.copyfileobj(f.file, w)
+        saved_paths.append({"path": str(dst), "filename": filename, "mime": mime})
 
-    def batch_iter(data, batch):
-        for i in range(0, len(data), batch):
-            yield data[i : i + batch]
+    if not saved_paths:
+        return HTMLResponse('<div class="muted">Файлы не были загружены.</div>', status_code=400)
 
-    for era_files in  batch_iter(files, 3):
-        payloads: list[tuple[str | None, str | None, bytes]] = []
-        for f in era_files:            
-            _filename = f.filename or "uploaded"
-            _data = await f.read()                      # ВАЖНО: тут await!            
-            _mime = (f.content_type or "").lower() or None
-            payloads.append((_filename, _mime, _data))
-            app_logger.info(f"To executor: {_filename}")
+    # Каталог для текстов (по той же сигнатуре)
+    texts_dir = Path(settings.output_texts_dir) / prefix
+    texts_dir.mkdir(parents=True, exist_ok=True)
 
-        # 3) параллельно обрабатываем bytes
-        max_workers = 4 #settings.max_workers or 4
-        with ThreadPoolExecutor(max_workers=max_workers) as tp:
-            for orig_name, mime, data, text in tp.map(run_sync, payloads):
-                try:
-                    # Save outputs if configured (errors logged but do not break processing)
-                    path_origin = ""
-                    try:
-                        if settings.output_originals_dir:
-                            path_origin = save_outputs.save_original(orig_name, data, _output_originals_dir)
-                            path_origin = Path( *(settings.hostfs, *path_origin.parts[1:]) )
-                    except Exception as e:
-                        app_logger.exception("Failed to save original for %s: %s", orig_name, e)
+    # Создаем job и кидаем в Dramatiq
+    job_id = str(uuid.uuid4())
+    JOBS[job_id] = {
+        "status": "queued",
+        "created_at": datetime.utcnow().isoformat(),
+        "total": len(saved_paths),
+        "done": 0,
+        "items": [],
+        "error": None,
+    }
 
-                    try:
-                        if settings.output_texts_dir:
-                            save_outputs.save_text(orig_name, text or "", _output_texts_dir)
-                    except Exception as e:
-                        app_logger.exception("Failed to save text for %s: %s", orig_name, e)
+    process_upload.send(job_id, saved_paths, str(texts_dir), user.email)
 
-                    # Save to DB
-                    db = SessionLocal()
-                    try:
-                        doc = Document(
-                            filename=orig_name,
-                            content=text,
-                            mime=mime,
-                            size_bytes=len(data),
-                            meta={},
-                            path_origin=str(path_origin),
-                            email=user.email
-                        )
-                        db.add(doc)
-                        db.commit()
-                        db.refresh(doc)
-                        created_items.append({"id": doc.id, 
-                                            "filename": doc.filename, 
-                                            "link": f'http://{settings.httpfs}/{doc.path_origin.replace("\\", "/")}' if settings.httpfs and doc.path_origin else None, 
-                                            "snippet": (doc.content or "")[:800]})
-                    finally:
-                        db.close()
+    # Возвращаем JSON — удобно для JS/HTMX
+    return JSONResponse({"job_id": job_id}, status_code=202)
 
-                except Exception as exc:
-                    #app_logger.exception("Upload processing failed for %s: %s", getattr(upload, "filename", "<unknown>"), exc)
-                    app_logger.exception("Upload processing failed for %s", exc)
-                    return HTMLResponse(f'<div class="muted">Ошибка при обработке файлов: {exc}</div>', status_code=500)
 
-    if created_items:
-        context = {"request": request, "items": created_items}
-        return templates.TemplateResponse("_results.html", context, status_code=201)
+# ================
+# GET /jobs/{id} — partial для HTMX
+# ================
+@router.get("/jobs/{job_id}", include_in_schema=False)
+def job_status(job_id: str, request: Request):
+    job = JOBS.get(job_id)
+    if not job:
+        return HTMLResponse(f'<div class="text-danger">Задание {job_id} не найдено</div>', status_code=404)
 
-    return HTMLResponse('<div class="muted">Файлы не были загружены.</div>', status_code=400)
+    if job["status"] in ("queued", "running"):
+        # отдаём маленький partial с прогрессом
+        return templates.TemplateResponse(
+            "_job_progress.html",
+            {"request": request, "job": job, "job_id": job_id},
+            status_code=200,
+        )
+
+    if job["status"] == "error":
+        return HTMLResponse(f'<div class="text-danger">Ошибка: {job["error"]}</div>', status_code=500)
+
+    # status == done — вернём список результатов тем же шаблоном, что и раньше
+    return templates.TemplateResponse(
+        "_results.html",
+        {"request": request, "items": job.get("items") or []},
+        status_code=200,
+    )
+
+
+# =======================
+# Dramatiq actor
+# =======================
+# 1) ЯВНОЕ имя очереди — так проще не промахнуться при запуске
+@dramatiq.actor(queue_name="upload", max_retries=0)
+def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: str):
+    app_logger.info("process_upload START job_id=%s files=%d texts_dir=%s", job_id, len(files), texts_dir)
+    try:
+        if job_id in JOBS:
+            JOBS[job_id] = {'status':'started', "progress":0, "items":[]}
+        else:
+            JOBS[job_id].update({'status':'started', "progress":0, "items":[]})
+
+    except Exception as e:
+        app_logger.warning("job_update(running) failed: %s", e)
+    done = 0
+    for f in files:
+        path = f["path"]
+        filename = f["filename"]
+        mime = f.get("mime")
+        app_logger.info("process_upload file=%s mime=%s", path, mime)
+        try:
+            text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
+            try:
+                save_outputs.save_text(filename, text, Path(texts_dir))
+            except Exception as e:
+                app_logger.exception("save_text failed for %s: %s", filename, e)
+ 
+            db = SessionLocal()
+            try:
+                p = Path(path)
+                path_origin = Path(*(settings.hostfs, *p.parts[1:])) if settings.hostfs else p
+                doc = Document(
+                    filename=filename,
+                    content=text,
+                    mime=mime,
+                    size_bytes=p.stat().st_size if p.exists() else 0,
+                    meta={},
+                    path_origin=str(path_origin),
+                    email=user_email,
+                )
+                db.add(doc)
+                db.commit()
+                db.refresh(doc)
+                link = f'http://{settings.httpfs}/{doc.path_origin.replace("\\\\", "/")}' if settings.httpfs and doc.path_origin else None
+                JOBS[job_id]["items"].append(
+                    {
+                        "id": doc.id,
+                        "filename": doc.filename,
+                        "link": link,
+                        "snippet": (doc.content or "")[:100]
+                    })
+            finally:
+                db.close()
+ 
+            done += 1
+            if job_id in JOBS:
+                JOBS[job_id]["done"] = done
+        except Exception as exc:
+            app_logger.exception("process_upload failed for %s: %s", filename, exc)
+            JOBS[job_id]["status"] = "error"
+            JOBS[job_id]["error"] = str(exc)
+            return
+    if job_id in JOBS:
+        JOBS[job_id]["status"] = "done"
+        app_logger.info("process_upload DONE job_id=%s", job_id)

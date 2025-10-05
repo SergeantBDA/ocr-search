@@ -1,0 +1,42 @@
+{% extends "_layout.html" %}
+{% block content %}
+
+<h2>Загрузка и распознавание</h2>
+
+<form id="upload-form"
+      hx-post="{{ url_for('upload') }}"
+      hx-trigger="submit"
+      hx-target="#job-panel"
+      hx-swap="innerHTML"
+      enctype="multipart/form-data">
+  <input type="file" name="files" multiple required />
+  <button type="submit" class="btn btn-primary">Загрузить</button>
+</form>
+
+<div id="job-panel" class="mt-3">
+  <!-- сюда прилетит ответ 202 {"job_id": "..."} и скрипт запустит поллинг -->
+</div>
+
+<script>
+document.addEventListener("htmx:afterOnLoad", function (e) {
+  // Если ответом был JSON с job_id — запускаем поллинг /jobs/{id}
+  try {
+    const xhr = e.detail.xhr;
+    const resp = JSON.parse(xhr.responseText);
+    if (resp.job_id) {
+      const jobId = resp.job_id;
+      const panel = document.getElementById("job-panel");
+      // Начальный вывод
+      panel.innerHTML = `<div class="muted">Задание ${jobId} создано. Идёт обработка…</div>`;
+      // Вешаем htmx-поллинг
+      panel.setAttribute("hx-get", `/jobs/${jobId}`);
+      panel.setAttribute("hx-trigger", "load delay:500ms, every 2s");
+      panel.setAttribute("hx-swap", "innerHTML");
+      // Стартуем немедленно
+      htmx.trigger(panel, "load");
+    }
+  } catch(_) { /* текстовый ответ — игнорируем */ }
+});
+</script>
+
+{% endblock %}
