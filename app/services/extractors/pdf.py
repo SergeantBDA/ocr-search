@@ -1,4 +1,5 @@
 from __future__ import annotations
+import io
 import re
 from .base import BytesExtractor
 # ------------------------- logging --------------------------------------
@@ -157,6 +158,7 @@ class PDFExtractor(BytesExtractor):
         if fitz is None:
             app_logger.warning("PyMuPDF не установлен — пропускаю PDF.")
             return ""
+        
         try:
             if self.payload.path:
                 doc = fitz.open(self.payload.path)
@@ -179,15 +181,17 @@ class PDFExtractor(BytesExtractor):
 
         # 2) OCR fallback при отсутствии/скупости текста
         need_ocr = not whole_text or (not looks_like_russian(whole_text[:300]) and pytesseract and Image)
+        
         if need_ocr and Image is not None and pytesseract is not None:
             ocr_parts = []
             for page in doc:
                 try:                    
-                    pix = page.get_pixmap(dpi=300, alpha=False)
+                    pix = page.get_pixmap(dpi=300, alpha=False)                    
                     img = Image.open(io.BytesIO(pix.tobytes("png")))
                     img = _rotate_by_osd(img)[0]                    
                     ocr_parts.append(pytesseract.image_to_string(img, lang=self.ocr_lang))
-                except Exception:
+                except Exception as e:
+                    app_logger.exception("Ошибка распознования: %s", e)
                     # продолжаем собирать со следующих страниц
                     continue            
             ocr_text = "\n".join(ocr_parts).strip()

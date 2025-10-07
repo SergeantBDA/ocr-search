@@ -1,11 +1,13 @@
 from app.services import bytes_xtractor as bx
 
-file = "test.pdf"
+_ext  = "msg"
+_path = "C:\\PROJECT\\PY\\OCR\\ocr-with-login\\app\\tests\\test.{}"
+_file = _path.format(_ext)
 #print( bx._guess_ext(file, "") )
 
-txt = bx.extract_text_file(file)
+extract_txt = bx.extract_text_file(_file)
 
-with open(f'{file}.txt', mode='w') as f:
-    f.write(txt)
+with open( _path.format('txt'), mode='w' ) as f:
+    f.write(extract_txt)
 
 

@@ -46,7 +46,18 @@ async def search(
     offset: int = 0,
     db: Session = Depends(get_session),
 ):
-    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=ocr_from, ocr_to=ocr_to, limit=limit, offset=offset)
+    def _parse_dt(val: Optional[str]) -> Optional[datetime]:
+        if not val:
+            return None
+        try:
+            # 'YYYY-MM-DDTHH:MM' или 'YYYY-MM-DDTHH:MM:SS'
+            return datetime.fromisoformat(val)
+        except ValueError:
+            return None
+    _ocr_from = _parse_dt(ocr_from)
+    _ocr_to   = _parse_dt(ocr_from)
+    print(f"Поиск: {q}, {ocr_user}, {ocr_from}, {ocr_to}")
+    result = search_module.search_documents(db, q=q, ocr_user=ocr_user, ocr_from=_ocr_from, ocr_to=_ocr_to, limit=limit, offset=offset)
     context = {"request": request, "q": q, "ocr_user": ocr_user, "ocr_from": ocr_from, "ocr_to": ocr_to,
                "items": result.get("items", []), "total": result.get("total", 0), "limit": limit, "offset": offset}
     return templates.TemplateResponse("_results.html", context)
