@@ -1,6 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request, Form
 from fastapi.security import OAuth2PasswordRequestForm
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
+
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -11,7 +13,7 @@ from app.services.auth import get_password_hash, verify_password, create_access_
 from app.services.auth import oauth2_scheme  # exported for docs if needed
 
 router = APIRouter(tags=["auth"])
-
+templates = Jinja2Templates(directory="app/web/templates")
 
 @router.post("/register", response_model=UserRead, status_code=201)
 def register(user_in: UserCreate, db: Session = Depends(get_session)):
@@ -32,8 +34,13 @@ def register(user_in: UserCreate, db: Session = Depends(get_session)):
     #return UserRead.from_orm(user)
     return UserRead.model_validate(user, from_attributes=True)
 
+@router.get("/login-web", name="login_page", response_class=HTMLResponse)
+def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
 @router.post("/login-web")
-def login_web(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
+def login_web(request: Request, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)):
     """
     Web login: accept OAuth2 form (username=email, password), set HttpOnly cookie with JWT and redirect to "/".
     """
@@ -44,7 +51,8 @@ def login_web(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = De
     #       form_data.username, 
     #       verify_password(form_data.password, user.password_hash))
     if not user or not verify_password(form_data.password, user.password_hash):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect email or password", headers={"WWW-Authenticate": "Bearer"})
+        #raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect email or password", headers={"WWW-Authenticate": "Bearer"})
+        return templates.TemplateResponse("login.html", {"request": request, "error":True, "email":email}, status_code=401)
     if not user.is_active:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="User inactive")
 

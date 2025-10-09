@@ -177,3 +177,16 @@ body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color
 .upload-row .btn {
   flex: 0 0 auto;
 }
+
+/* Прогресс-строка с процентом справа */
+.ocr-progress-row { display:flex; align-items:center; gap:.5rem; margin:.5rem 0; }
+.ocr-progress     { flex:1 1 auto; height:6px; background:#eee; border-radius:4px; overflow:hidden; }
+.ocr-progress-bar { height:100%; background:#3b82f6; transition: width .25s ease; }
+.ocr-pct          { min-width:3ch; text-align:right; font-variant-numeric: tabular-nums; }
+.ocr-job-id       { margin-top:.25rem; }
+ 
+/* Если хотите показывать процент внутри полосы, но скрытым (для скринридеров) */
+.visually-hidden {
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}

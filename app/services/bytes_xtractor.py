@@ -6,7 +6,7 @@ from typing import Optional, Type
 from .extractors import (
     BytesPayload, BytesExtractor,
     DOCXExtractor, EMLMSGExtractor, HTMLExtractor, 
-    PDFExtractor, ImageExtractor, RTFExtractor, 
+    PDFExtractor, PDFExtractorFast, ImageExtractor, RTFExtractor, 
     PlainTextExtractor, UnsupportedExtractor, ExcelExtractor,
 )
 
@@ -49,7 +49,7 @@ EXTRACTOR_BY_KIND: dict[str, Type[BytesExtractor]] = {
     "docx": DOCXExtractor,
     "email": EMLMSGExtractor,
     "html": HTMLExtractor,
-    "pdf": PDFExtractor,
+    "pdf": PDFExtractorFast,
     "image": ImageExtractor,
     "rtf":RTFExtractor,
     "txt": PlainTextExtractor,

@@ -3,6 +3,7 @@ from .doc   import DOCXExtractor
 from .email import EMLMSGExtractor
 from .html  import HTMLExtractor
 from .pdf   import PDFExtractor, ImageExtractor
+from .pdf_fast import PDFExtractorFast
 from .rtf   import RTFExtractor
 from .txt   import PlainTextExtractor, UnsupportedExtractor
 from .xls   import ExcelExtractor

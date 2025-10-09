@@ -3,7 +3,9 @@
 <div class="auth-shell">
   <div class="card auth-card" role="main" aria-labelledby="login-title">
     <h1 id="login-title">Вход</h1>
-
+    {% if error %}
+      <div class="error" role="alert">Неверный Email или пароль.</div>
+    {% endif %}
     <!-- Обычная форма: браузер сам отправит POST, получит Set-Cookie и follow-redirect -->
     <form id="login-form" action="auth/login-web" method="post" class="field">
       <div class="field">

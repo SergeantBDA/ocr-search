@@ -10,7 +10,7 @@
 <body class="{{ body_class or 'app' }}">
     {% block content %}{% endblock %}
 
-  <div id="spinner" role="status" aria-hidden="true">Загрузка…</div>
+  <div id="spinner" role="status" aria-hidden="true"></div>
 
   <script>
     // HTMX: добавляем Authorization Bearer токен из localStorage, не затирая кастомные заголовки
@@ -26,13 +26,23 @@
     });
 
     // spinner show/hide on HTMX requests
-    (function(){
-      const spinner = document.getElementById('spinner');
-      if (!spinner) return;
-      document.body.addEventListener('htmx:beforeRequest', function(){ spinner.style.display = 'block'; spinner.setAttribute('aria-hidden','false'); });
-      document.body.addEventListener('htmx:afterOnLoad',  function(){ spinner.style.display = 'none';  spinner.setAttribute('aria-hidden','true'); });
-      document.body.addEventListener('htmx:responseError', function(){ spinner.style.display = 'none';  spinner.setAttribute('aria-hidden','true'); });
-    })();
+  (function () {
+    const spinner = document.getElementById('spinner');
+    const show = () => spinner && spinner.classList.remove('d-none');
+    const hide = () => spinner && spinner.classList.add('d-none');
+  
+    // ПОПРАВИТЬ ЭТОТ БЛОК:
+    document.body.addEventListener('htmx:beforeRequest', (e) => {
+      const p =
+        (e.detail && e.detail.requestConfig && e.detail.requestConfig.path) ||
+        (e.detail && e.detail.pathInfo && e.detail.pathInfo.path) || '';
+      if (p.startsWith('/jobs/')) return;   // ← не показывать спиннер для поллинга статуса
+      show();
+    });
+  
+    document.body.addEventListener('htmx:afterOnLoad', hide);
+    document.body.addEventListener('htmx:responseError', hide);
+  })();
 
     // Client logout helper: clears local token and navigates to login page
     async function doLogout() {
