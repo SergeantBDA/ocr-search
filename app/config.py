@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     app_port: int = Field(8000, env="APP_PORT")
 
     # Новое поле: каталог с документами (может быть пустым)
-    documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
+    # documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
 
     # выходные каталоги для сохранения оригиналов и текстов (опционально)
     output_originals_dir: Optional[str] = Field(None, env="OUTPUT_ORIGINALS_DIR")
@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     jwt_secret: SecretStr = Field(..., env="JWT_SECRET")
     jwt_expire_minutes: int = Field(60, env="JWT_EXPIRE_MINUTES")
     # BROKER
-    redis_url: Optional[str] = Field(None, env="REDIS_UR")
+    redis_url: Optional[str] = Field(None, env="REDIS_URL")
     dramatiq_ns: Optional[str] = Field(None, env="DRAMATIQ_NS")
 
     # жёстко указываем .env в корне проекта

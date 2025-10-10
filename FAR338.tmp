@@ -1,12 +1,13 @@
 # Example environment variables for ocr-search — copy to .env and update values
-
-DATABASE_URL=postgresql+psycopg://user:pass@localhost:5432/ocr
+DATABASE_URL=postgresql+psycopg://postgres:frendship@localhost:5432/ocr
 ENV=dev
 
 # Application host and port
 APP_HOST=127.0.0.1
 APP_PORT=8000
 
+# PostgreSQL connection (SQLAlchemy style using psycopg)
+# Replace user, password, host, port and dbname
 OUTPUT_ORIGINALS_DIR=D:/SHARE/_OCR_ORIGIN
 OUTPUT_TEXTS_DIR=D:/SHARE/_OCR_TEXT
 
@@ -17,4 +18,4 @@ JWT_SECRET=6283
 JWT_EXPIRE_MINUTES=60
 
 REDIS_URL=redis://127.0.0.1:6379/0
-DRAMATIQ_NS=ocr-search
+DRAMATIQ_NAMESPACE=ocr-search
