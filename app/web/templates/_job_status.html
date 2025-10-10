@@ -1,0 +1,44 @@
+{# ВАЖНО: весь тост заменяется сервером. Мы синхронизируем полосу и текст прогресса через CSS-переменную --pct #}
+<div id="job-{{ job_id }}"
+     class="toast"
+     style="--pct: {{ (progress or 0) | int }}%"
+     hx-get="/jobs/{{ job_id }}"
+     hx-trigger="every 2s"
+     hx-swap="outerHTML">
+  {% if status == "failed" %}
+    <div class="toast-title error">Ошибка обработки</div>
+    <div class="toast-body">{{ error }}</div>
+    <script>
+      (function(){
+        const id = "{{ job_id }}";
+        const key = "ocr_jobs";
+        const list = JSON.parse(localStorage.getItem(key) || "[]");
+        localStorage.setItem(key, JSON.stringify(list.filter(x => x !== id)));
+      })();
+    </script>
+  {% elif status == "done" %}
+    <div class="toast-title">Готово</div>
+    <div class="toast-body">
+      Прогресс: <span class="pct">100%</span>
+      <div class="progress"><div class="bar"></div></div>
+    </div>
+    <script>
+      setTimeout(function(){
+        const el = document.getElementById("job-{{ job_id }}");
+        if (el) el.remove();
+      }, 5000);
+      (function(){
+        const id = "{{ job_id }}";
+        const key = "ocr_jobs";
+        const list = JSON.parse(localStorage.getItem(key) || "[]");
+        localStorage.setItem(key, JSON.stringify(list.filter(x => x !== id)));
+      })();
+    </script>
+  {% else %}
+    <div class="toast-title">Обработка…</div>
+    <div class="toast-body">
+      Прогресс: <span class="pct">{{ (progress or 0) | int }}%</span>
+      <div class="progress"><div class="bar"></div></div>
+    </div>
+  {% endif %}
+</div>

@@ -100,19 +100,23 @@ async def upload_file(request: Request, files: List[UploadFile] = File(...), cur
 
     # Отправляем в очередь Dramatiq (Memurai/Redis как брокер)
     process_upload.send(job_id, saved_paths, str(texts_dir), user.email)
-    return templates.TemplateResponse("_job_progress.html", {"request": request, "job_id": job_id, "job": {"status":"queued","done":0,"total": len(saved_paths)}}, status_code=200, headers={"Cache-Control":"no-store"})
+    #return templates.TemplateResponse("_job_progress.html", {"request": request, "job_id": job_id, "job": {"status":"queued","done":0,"total": len(saved_paths)}}, status_code=200, headers={"Cache-Control":"no-store"})
+    return templates.TemplateResponse("_job_started.html", {"request": request, "job_id": job_id}, status_code=202)
 
 @router.get("/jobs/{job_id}", include_in_schema=False)
-def job_status(job_id: str, request: Request):
-    job = job_get(job_id)
-    if not job:
-        return HTMLResponse(f'<div class="text-danger">Задание {job_id} не найдено</div>', status_code=404)
-
-    status = job.get("status")
-    if status in ("queued", "running"):
-        return templates.TemplateResponse("_job_progress.html", {"request": request, "job": job, "job_id": job_id}, headers={"Cache-Control":"no-store"})
-    if status == "error":
-        return HTMLResponse(f'<div class="text-danger">Ошибка: {job.get('error')}</div>', status_code=500)
-
-    # done
-    return templates.TemplateResponse("_results.html", {"request": request, "items": job.get("items") or []}, headers={"Cache-Control":"no-store"})
+def job_status(request: Request, job_id: str):
+    info = job_get(job_id) or {}
+    # Прогресс должен быть целым 0..100, без «None» и строк с мусором
+    try:
+        progress = int(float(info.get("progress", 0)))
+    except (TypeError, ValueError):
+        progress = 0
+    status = info.get("status") or ("done" if progress >= 100 else "started")
+    error = info.get("error")
+    return templates.TemplateResponse("_job_status.html", {
+        "request": request,
+        "job_id": job_id,
+        "status": status,
+        "progress": progress,
+        "error": error,
+    })

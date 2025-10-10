@@ -1,9 +1,8 @@
-
+# app/broker/workers.py
 from __future__ import annotations
 
 from pathlib import Path
 from datetime import datetime
-from typing import Sequence
 
 import dramatiq
 
@@ -14,27 +13,39 @@ from app.services import save_outputs
 from app.db import SessionLocal
 from app.models import Document
 
-from app.logger import logger as app_logger, attach_to_logger_names
-attach_to_logger_names(["app.broker.workers"])
+from app.logger_worker import worker_log
+
 
 @dramatiq.actor(queue_name="upload", max_retries=0, store_results=True)
 def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: str) -> dict:
     """
-    Актёр обработки загрузки:
+    Обработка загруженных файлов:
       - OCR/извлечение текста
-      - сохранение текстов на диск
-      - запись в БД
-      - обновление статуса в Redis (Memurai)
-    Возвращает короткий отчёт.
-    """
-    app_logger.info("process_upload START job_id=%s files=%d texts_dir=%s", job_id, len(files), texts_dir)
+      - сохранение текстов на диск (best-effort)
+      - запись документа в БД
+      - обновление статуса/прогресса в сторе (Redis/Memurai)
 
-    # Инициализируем статус
+    Параметры:
+      job_id: идентификатор задания (str)
+      files: список словарей {'path': str, 'filename': str, 'mime': Optional[str]}
+      texts_dir: каталог для сохранения извлечённых текстов
+      user_email: email пользователя (для записи в БД)
+
+    Возвращает краткий отчёт для result backend.
+    """
+    total = max(1, len(files))
+    worker_log.info(
+        "process_upload START job_id=%s files=%d texts_dir=%s",
+        job_id, len(files), texts_dir
+    )
+
+    # Инициализируем статус задания — прогресс в процентах
     job_set(job_id, {
-        "status": "running",
+        "status": "started",
         "created_at": datetime.utcnow().isoformat(),
         "total": len(files),
         "done": 0,
+        "progress": 0,
         "items": [],
         "error": None,
     })
@@ -46,17 +57,20 @@ def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: s
         path = f["path"]
         filename = f["filename"]
         mime = f.get("mime")
-        app_logger.info("process_upload file=%s mime=%s", path, mime)
+        worker_log.info("process_upload file=%s mime=%s", path, mime)
+
         try:
+            # 1) OCR
+            print(path)
             text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
 
-            # сохранить текстовый файл (best-effort)
+            # 2) Сохранить извлечённый текст (best-effort)
             try:
                 save_outputs.save_text(filename, text, Path(texts_dir))
             except Exception as e:
-                app_logger.exception("save_text failed for %s: %s", filename, e)
+                worker_log.exception("save_text failed for %s: %s", filename, e)
 
-            # сохранить в БД
+            # 3) Записать документ в БД
             db = SessionLocal()
             try:
                 p = Path(path)
@@ -74,24 +88,32 @@ def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: s
                 db.commit()
                 db.refresh(doc)
 
-                link = f"http://{settings.httpfs}/{doc.path_origin.replace('\\', '/')}" if settings.httpfs and doc.path_origin else None
+                link = (
+                    f"http://{settings.httpfs}/{doc.path_origin.replace('\\', '/')}"
+                    if settings.httpfs and doc.path_origin else None
+                )
                 items.append({
                     "id": doc.id,
                     "filename": doc.filename,
                     "link": link,
-                    "snippet": (doc.content or "")[:100]
+                    "snippet": (doc.content or "")[:100],
                 })
             finally:
                 db.close()
 
+            # 4) Обновить прогресс
             done += 1
-            # обновляем прогресс
-            job_update(job_id, done=done, items=items)
-        except Exception as exc:
-            app_logger.exception("process_upload failed for %s: %s", filename, exc)
-            job_update(job_id, status="error", error=str(exc))
-            return {"ok": False, "error": str(exc), "processed": done, "items": items}
+            pct = int(done * 100 / total)
+            job_update(job_id, status="started", done=done, progress=pct, items=items)
 
-    job_update(job_id, status="done", done=done, items=items)
-    app_logger.info("process_upload DONE job_id=%s", job_id)
-    return {"ok": True, "processed": done, "items": items}
+        except Exception as exc:
+            # Ошибка на конкретном файле — фиксируем и завершаем задание как failed
+            worker_log.exception("process_upload failed for %s: %s", filename, exc)
+            pct = int(done * 100 / total)
+            job_update(job_id, status="failed", done=done, progress=pct, error=str(exc), items=items)
+            return {"ok": False, "error": str(exc), "processed": done, "progress": pct, "items": items}
+
+    # Финальное обновление: 100%
+    job_update(job_id, status="done", done=done, progress=100, items=items)
+    worker_log.info("process_upload DONE job_id=%s", job_id)
+    return {"ok": True, "processed": done, "progress": 100, "items": items}

@@ -34,7 +34,7 @@ def _guess_ext(filename: Optional[str], mime: Optional[str]) -> str:
         return "html"
     if name.endswith("pdf") or mime == "application/pdf":
         return "pdf"
-    if any(name.endswith(x) for x in (".png",".jpg",".jpeg",".tif",".tiff",".bmp")) or mime in {"image/"}:
+    if any(name.endswith(x) for x in ("png","jpg","jpeg","tif","tiff","bmp")) or mime in {"image/"}:
         return "image"
     if name.endswith("rtf") or mime in {"application/rtf", "text/rtf"}:
         return "rtf"           

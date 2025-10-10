@@ -1,0 +1,24 @@
+<div id="job-{{ job_id }}"
+     class="toast"
+     style="--pct: 0%"
+     hx-get="/jobs/{{ job_id }}"
+     hx-trigger="load, every 2s"
+     hx-swap="outerHTML">
+  <div class="toast-title">Обработка загруженных файлов</div>
+  <div class="toast-body">
+    Прогресс: <span class="pct">0%</span>
+    <div class="progress"><div class="bar"></div></div>
+  </div>
+</div>
+<script>
+  // Запоминаем job_id, чтобы восстановить опрос после F5
+  (function(){
+    const id = "{{ job_id }}";
+    const key = "ocr_jobs";
+    const list = JSON.parse(localStorage.getItem(key) || "[]");
+    if (!list.includes(id)) {
+      list.push(id);
+      localStorage.setItem(key, JSON.stringify(list));
+    }
+  })();
+</script>

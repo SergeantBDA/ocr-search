@@ -1,21 +1,23 @@
 {% extends "_layout.html" %}
 {% block content %}
-<!-- full-width search & upload section -->
 <div class="full-bleed">
   <div class="card">
     <div class="page-header">
       <h2>Извлечение текста (OCR) и поиск документов</h2>
-      <a href="#" onclick="doLogout(); return false;" class="logout-link">Выйти ({{ current_user.email }})</a>
+      {% if current_user and current_user.email %}
+        <a href="#" onclick="doLogout?.(); return false;" class="logout-link">Выйти ({{ current_user.email }})</a>
+      {% endif %}
     </div>
- 
-    <!-- Поиск -->
+    <!-- Форма поиска (GET, HTMX) — заполняет только #results -->
     <form
+      id="searchForm"
       hx-get="{{ request.url_for('search').path }}"
       hx-target="#results"
       hx-swap="innerHTML"
       hx-indicator="#spinner"
       class="field"
       style="margin-top:12px;"
+      hx-on:submit="try{document.querySelectorAll('[id^=job-]').forEach(n=>n.remove()); localStorage.setItem('ocr_jobs','[]');}catch(e){}"
     >
       <div class="row search-row">
         <input type="text" name="q" placeholder="Введите запрос..." class="w-50" />
@@ -31,65 +33,60 @@
         <button class="btn" type="submit">Поиск</button>
       </div>
     </form>
- 
     <hr />
- 
-    <!-- Загрузка + запуск фоновой обработки -->
-    <form id="uploadForm"
-          hx-post="{{ request.url_for('upload').path }}" hx-target="#job-panel"
-          hx-trigger="submit"
-          hx-target="#job-panel"
-          hx-swap="innerHTML"
-          hx-encoding="multipart/form-data"
-          hx-indicator="#spinner"
-          enctype="multipart/form-data"
-          class="field">
+    <!-- Форма загрузки (POST, HTMX) — уведомления только в #notifications -->
+    <form
+      id="uploadForm"
+      hx-post="{{ request.url_for('upload').path }}"
+      hx-target="#notifications"
+      hx-swap="afterbegin"
+      hx-encoding="multipart/form-data"
+      hx-indicator="#spinner"
+      class="field"
+    >
       <div class="row upload-row">
-        <input type="file" name="files" multiple accept="*.*" required />
+        <input type="file" name="files" multiple accept="*.*" />
         <button class="btn" type="submit">Загрузить</button>
       </div>
     </form>
- 
-    <!-- Панель прогресса задания (HTMX-поллинг /jobs/{id}) -->
-    <div id="job-panel" class="mt-3"></div>
- 
     <hr />
- 
-    <!-- Результаты поиска (и тут же можно видеть результаты загрузки, если хотите переносить их сюда вручную) -->
+    <!-- Результаты поиска -->
     <div id="results">
       {% include "_results.html" %}
     </div>
- 
+    <!-- Зона уведомлений (прогресс/готово) -->
+    <div id="notifications" class="toasts"></div>
+    <!-- Восстановление активных задач после F5 -->
+    <script>
+      (function restoreJobs(){
+        const key = "ocr_jobs";
+        const ids = JSON.parse(localStorage.getItem(key) || "[]");
+        if (!ids.length) return;
+        const notif = document.getElementById("notifications");
+        if (!notif) return;
+        // Добавляем «пустые» тосты: HTMX сам подменит их ответом /jobs/{id}
+        const html = ids.map(id => (`
+          <div id="job-${id}"
+                class="toast"
+                style="--pct: 0%"
+                hx-get="/jobs/${id}"
+                hx-trigger="load, every 2s"
+                hx-swap="outerHTML">
+              <div class="toast-title">Обработка…</div>
+              <div class="toast-body">
+                Прогресс: <span class="pct">0%</span>
+                <div class="progress"><div class="bar"></div></div>
+              </div>
+          </div>
+        `)).join("");
+        notif.insertAdjacentHTML("afterbegin", html);
+        // Активируем HTMX для вставленного DOM
+        if (window.htmx && typeof htmx.process === "function") {
+          htmx.process(notif);
+        }
+      })();
+    </script>
+
   </div>
 </div>
- 
-<script>
-  // После ответа на POST /upload (202 + {"job_id": ...}) запускаем поллинг /jobs/{id}
-  document.addEventListener("htmx:afterOnLoad", function (e) {
-    // интересуют только ответы именно формы upload
-    if (!e.detail || !e.detail.elt || e.detail.elt.id !== "uploadForm") return;
- 
-    try {
-      const xhr = e.detail.xhr;
-      const resp = JSON.parse(xhr.responseText || "{}");
-      if (!resp.job_id) return;
- 
-      const jobId = resp.job_id;
-      const panel = document.getElementById("job-panel");
- 
-      // Первичное сообщение
-      panel.innerHTML = `<div class="muted">Задание ${jobId} создано. Идёт обработка…</div>`;
- 
-      // Назначаем на панель поллинг статуса
-      panel.setAttribute("hx-get", `/jobs/${jobId}`);
-      panel.setAttribute("hx-trigger", "load delay:500ms, every 2s");
-      panel.setAttribute("hx-swap", "innerHTML");
- 
-      // Старт первого запроса
-      if (window.htmx) htmx.trigger(panel, "load");
-    } catch (_) {
-      // Если ответ не JSON (ошибка и т.п.) — ничего не делаем
-    }
-  });
-</script>
 {% endblock %}
