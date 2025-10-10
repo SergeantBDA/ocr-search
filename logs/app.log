@@ -808,3 +808,133 @@ TypeError: HTTPConnection.url_for() missing 1 required positional argument: '_HT
 2025-10-09 21:14:06,458 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
 2025-10-09 21:14:06,460 [INFO] uvicorn.error - Application shutdown complete.
 2025-10-09 21:14:06,461 [INFO] uvicorn.error - Finished server process [7888]
+2025-10-09 21:14:14,443 [INFO] uvicorn.error - Started server process [2428]
+2025-10-09 21:14:14,444 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 21:14:14,446 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 21:14:14,446 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 21:14:27,039 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-09 21:15:23,220 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:15:27,894 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:15:31,912 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-09 21:15:54,177 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/login-web HTTP/1.1" 401
+2025-10-09 21:17:44,864 [INFO] uvicorn.access - 10.132.18.91:55947:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:54:17,996 [INFO] uvicorn.error - Shutting down
+2025-10-09 21:54:18,098 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 21:54:18,099 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 21:54:18,100 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 21:54:18,101 [INFO] uvicorn.error - Finished server process [2428]
+2025-10-09 21:54:24,500 [INFO] uvicorn.error - Started server process [7380]
+2025-10-09 21:54:24,501 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 21:54:24,502 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 21:54:24,503 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 21:54:26,983 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:54:37,468 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 21:54:44,583 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET / HTTP/1.1" 307
+2025-10-09 21:54:44,606 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 21:54:54,451 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-09 21:54:54,492 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET / HTTP/1.1" 200
+2025-10-09 21:54:59,710 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /logout HTTP/1.1" 200
+2025-10-09 21:54:59,736 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 21:55:07,782 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 21:55:15,923 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:55:29,330 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET / HTTP/1.1" 307
+2025-10-09 21:55:29,346 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 21:55:37,050 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 21:55:46,970 [INFO] uvicorn.access - 10.132.18.91:57434:0 - "POST /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 21:57:53,282 [INFO] uvicorn.error - Shutting down
+2025-10-09 21:57:53,383 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 21:57:53,384 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 21:57:53,387 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 21:57:53,388 [INFO] uvicorn.error - Finished server process [7380]
+2025-10-09 21:57:56,250 [INFO] uvicorn.error - Started server process [9496]
+2025-10-09 21:57:56,250 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 21:57:56,252 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 21:57:56,252 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 21:58:03,473 [INFO] uvicorn.error - Shutting down
+2025-10-09 21:58:03,573 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 21:58:03,573 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 21:58:03,575 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 21:58:03,575 [INFO] uvicorn.error - Finished server process [9496]
+2025-10-09 21:58:06,277 [INFO] uvicorn.error - Started server process [2584]
+2025-10-09 21:58:06,278 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 21:58:06,279 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 21:58:06,279 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 21:58:46,114 [INFO] uvicorn.error - Shutting down
+2025-10-09 21:58:46,216 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 21:58:46,217 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 21:58:46,218 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 21:58:46,218 [INFO] uvicorn.error - Finished server process [2584]
+2025-10-09 21:58:49,037 [INFO] uvicorn.error - Started server process [1092]
+2025-10-09 21:58:49,038 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 21:58:49,039 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 21:58:49,040 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 22:00:11,237 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 22:00:14,031 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 22:00:14,700 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 22:00:15,186 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/auth/login-web HTTP/1.1" 404
+2025-10-09 22:00:25,195 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:00:32,016 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:00:32,030 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:00:33,037 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:00:33,047 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:00:40,000 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:00:40,014 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:00:41,157 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:00:41,171 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:00:47,590 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:01:12,882 [INFO] uvicorn.error - Shutting down
+2025-10-09 22:01:12,983 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 22:01:12,984 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 22:01:12,986 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 22:01:12,987 [INFO] uvicorn.error - Finished server process [1092]
+2025-10-09 22:01:16,526 [INFO] uvicorn.error - Started server process [6368]
+2025-10-09 22:01:16,532 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 22:01:16,533 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 22:01:16,534 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 22:01:39,930 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:01:39,941 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:01:41,105 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 307
+2025-10-09 22:01:41,115 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /auth/login-web HTTP/1.1" 405
+2025-10-09 22:01:49,705 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 22:01:58,218 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:02:03,419 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:02:12,171 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-09 22:02:12,204 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 200
+2025-10-09 22:02:14,610 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /logout HTTP/1.1" 200
+2025-10-09 22:02:14,631 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 22:02:20,287 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:02:27,057 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-09 22:02:27,072 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 200
+2025-10-09 22:02:39,866 [INFO] uvicorn.error - Shutting down
+2025-10-09 22:02:39,971 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 22:02:39,972 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 22:02:39,973 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 22:02:39,974 [INFO] uvicorn.error - Finished server process [6368]
+2025-10-09 22:02:47,108 [INFO] uvicorn.error - Started server process [8552]
+2025-10-09 22:02:47,109 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 22:02:47,111 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 22:02:47,111 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 22:02:51,121 [INFO] uvicorn.error - Shutting down
+2025-10-09 22:02:51,221 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 22:02:51,221 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 22:02:51,223 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 22:02:51,224 [INFO] uvicorn.error - Finished server process [8552]
+2025-10-09 22:02:59,618 [INFO] uvicorn.error - Started server process [3560]
+2025-10-09 22:02:59,619 [INFO] uvicorn.error - Waiting for application startup.
+2025-10-09 22:02:59,621 [INFO] ocr-search - 🚀 OCR-SEARCH запущен
+2025-10-09 22:02:59,622 [INFO] uvicorn.error - Application startup complete.
+2025-10-09 22:03:07,777 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 22:03:14,056 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:03:23,442 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-09 22:03:23,482 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 200
+2025-10-09 22:03:27,028 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 200
+2025-10-09 22:03:28,710 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /logout HTTP/1.1" 200
+2025-10-09 22:03:28,731 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET /login-web HTTP/1.1" 200
+2025-10-09 22:03:37,331 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 200
+2025-10-09 22:03:51,878 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "POST /auth/login-web HTTP/1.1" 303
+2025-10-09 22:03:51,894 [INFO] uvicorn.access - 10.132.18.91:57763:0 - "GET / HTTP/1.1" 200
+2025-10-09 22:04:03,188 [INFO] uvicorn.error - Shutting down
+2025-10-09 22:04:03,289 [INFO] uvicorn.error - Waiting for application shutdown.
+2025-10-09 22:04:03,290 [INFO] ocr-search - 🛑 OCR-SEARCH остановлен
+2025-10-09 22:04:03,291 [INFO] uvicorn.error - Application shutdown complete.
+2025-10-09 22:04:03,292 [INFO] uvicorn.error - Finished server process [3560]

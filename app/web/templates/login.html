@@ -7,7 +7,7 @@
       <div class="error" role="alert">Неверный Email или пароль.</div>
     {% endif %}
     <!-- Обычная форма: браузер сам отправит POST, получит Set-Cookie и follow-redirect -->
-    <form id="login-form" action="auth/login-web" method="post" class="field">
+    <form id="login-form" action="/auth/login-web" method="post" class="field">
       <div class="field">
         <label for="login-email">Email</label>
         <input id="login-email" name="username" type="email" required autocomplete="email">

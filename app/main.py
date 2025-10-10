@@ -61,7 +61,7 @@ async def on_401(request: Request, exc):
     accept = request.headers.get("accept", "")
     path = request.url.path or ""
     if "text/html" in accept and not any(path.startswith(p) for p in WHITELIST_PREFIXES):
-        return RedirectResponse(url="/login-web")
+        return RedirectResponse(url="/auth/login-web")
     return JSONResponse({"detail": "Not authenticated"}, status_code=401)
 
 
