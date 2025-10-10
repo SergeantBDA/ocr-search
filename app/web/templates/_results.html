@@ -9,8 +9,10 @@
           {{ d.filename }}
         {% endif %}
       </strong>
-      {% if d.snippet %}
+      {% if d.snippet_is_html %}
         <p>{{ d.snippet | safe }}</p>
+      {% else %}
+        <p>{{ d.snippet | e }}</p>
       {% endif %}
       <div style="font-size:12px;color:#666;">id: {{ d.id }}</div>
     </div>

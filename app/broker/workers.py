@@ -9,12 +9,12 @@ import dramatiq
 
 from app.broker.config import redis_broker, result_backend, job_update, job_set
 from app.config import settings
-from app.logger import logger as app_logger, attach_to_logger_names
 from app.services import bytes_xtractor as bx
 from app.services import save_outputs
 from app.db import SessionLocal
 from app.models import Document
 
+from app.logger import logger as app_logger, attach_to_logger_names
 attach_to_logger_names(["app.broker.workers"])
 
 @dramatiq.actor(queue_name="upload", max_retries=0, store_results=True)

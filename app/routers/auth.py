@@ -15,6 +15,14 @@ from app.services.auth import oauth2_scheme  # exported for docs if needed
 router = APIRouter(tags=["auth"])
 templates = Jinja2Templates(directory="app/web/templates")
 
+@router.get("/register", response_class=HTMLResponse)
+def register_page(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+    
+@router.get("/login-web", response_class=HTMLResponse)
+def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
 @router.post("/register", response_model=UserRead, status_code=201)
 def register(user_in: UserCreate, db: Session = Depends(get_session)):
     email = user_in.email.lower()

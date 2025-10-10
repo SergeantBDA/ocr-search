@@ -4,7 +4,8 @@ from app.config import settings
 from sqlalchemy import text, bindparam, String, DateTime, Integer
 
 import logging
-from app.logger import logger as app_logger
+from app.logger import logger as app_logger, attach_to_logger_names
+attach_to_logger_names(["app.search"])
 
 def search_documents(session: Session, 
                      q,
@@ -24,17 +25,18 @@ def search_documents(session: Session,
         # Пустой запрос — вернём последние 10 документов и общее количество
         total = session.execute(text("SELECT count(*) FROM documents")).scalar_one()
         rows  = session.execute(
-            text(
-                "SELECT id, filename, path_origin, left(coalesce(content,''), 800) AS snippet "
-                "FROM documents ORDER BY created_at DESC LIMIT 10"
+            text("SELECT null as id, '' as filename, '' as path_origin, 'Пустой запрос' AS snippet"
+                #"SELECT id, filename, path_origin, left(coalesce(content,''), 800) AS snippet "
+                #"FROM documents ORDER BY created_at DESC LIMIT 10"
             ),
             {"limit": limit, "offset": offset},
         ).mappings().all()
-        items = [{"id"      : r["id"], 
-                  "filename": r["filename"], 
-                  "link"    :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}',
-                  "snippet" :(r["snippet"] or "")} for r in rows]
-        return {"total": int(total), "items": items}    
+        items = [{"id"             :r["id"], 
+                  "filename"       :r["filename"], 
+                  "link"           :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}',
+                  "snippet"        :(r["snippet"] or ""),
+                  "snippet_is_html":False} for r in rows]
+        return {"total": int(total), "items": items}   
 
     ocr_from = (ocr_from or "2000-01-01T00:00")
     ocr_to   = (ocr_to   or "2100-01-01T00:00")
@@ -90,8 +92,9 @@ def search_documents(session: Session,
     items = []
     for r in rows:
         snippet = r.get("snippet") or ""
-        items.append({"id"      : r["id"], 
-                      "filename": r["filename"], 
-                      "link"    :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}', 
-                      "snippet" : snippet})
+        items.append({"id"             :r["id"], 
+                      "filename"       :r["filename"], 
+                      "link"           :f'http://{settings.httpfs}/{r["path_origin"].replace("\\", "/")}', 
+                      "snippet"        :snippet,
+                      "snippet_is_html":True})
     return {"total": int(total), "items": items}
