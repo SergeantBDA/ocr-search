@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import uuid
@@ -14,6 +13,7 @@ from sqlalchemy.orm import Session
 
 from app import search as search_module
 from app.db import get_session
+from app.services.uploads import save_files, enqueue_job
 from app.schemas import UserRead
 from app.services.auth import get_current_user
 from app.config import settings
@@ -65,43 +65,23 @@ async def search(
 @router.post("/upload", name="upload", include_in_schema=True)
 async def upload_file(request: Request, files: List[UploadFile] = File(...), current_user: CurrentUser = None):
     user = UserRead.model_validate(current_user, from_attributes=True)
-
-    # Каталог для оригиналов: <output_originals_dir>/<YYYYMMDDHH>_<login>
-    prefix = f"{datetime.now().strftime('%Y%m%d%H')}_{user.email.split('@')[0]}"
-    upload_dir = Path(settings.output_originals_dir) / prefix
-    upload_dir.mkdir(parents=True, exist_ok=True)
-
-    saved_paths = []
-    for f in files:
-        filename = f.filename or "uploaded"
-        mime = (f.content_type or "").lower() or None
-        dst = upload_dir / filename
-        with dst.open("wb") as w:
-            shutil.copyfileobj(f.file, w)
-        saved_paths.append({"path": str(dst), "filename": filename, "mime": mime})
-
-    if not saved_paths:
+    
+    if not files:
         return HTMLResponse('<div class="muted">Файлы не были загружены.</div>', status_code=400)
-
-    # Каталог для текстов
-    texts_dir = Path(settings.output_texts_dir) / prefix
-    texts_dir.mkdir(parents=True, exist_ok=True)
-
-    # Создаём запись задачки в Redis/Memurai
-    job_id = uuid.uuid4().hex
-    job_set(job_id, {
-        "status": "queued",
-        "created_at": datetime.utcnow().isoformat(),
-        "total": len(saved_paths),
-        "done": 0,
-        "items": [],
-        "error": None,
-    })
-
-    # Отправляем в очередь Dramatiq (Memurai/Redis как брокер)
-    process_upload.send(job_id, saved_paths, str(texts_dir), user.email)
-    #return templates.TemplateResponse("_job_progress.html", {"request": request, "job_id": job_id, "job": {"status":"queued","done":0,"total": len(saved_paths)}}, status_code=200, headers={"Cache-Control":"no-store"})
-    return templates.TemplateResponse("_job_started.html", {"request": request, "job_id": job_id}, status_code=202)
+    
+    try:
+        # Use shared upload service
+        owner_label = user.email.split('@')[0]
+        prefix, saved_files, texts_dir, upload_dir = save_files(files, owner_label)
+        
+        # Enqueue job using shared service
+        job_id = enqueue_job(saved_files, texts_dir, user.email)
+        
+        return templates.TemplateResponse("_job_started.html", {"request": request, "job_id": job_id}, status_code=202)
+        
+    except Exception as e:
+        app_logger.exception("Upload failed: %s", e)
+        return HTMLResponse(f'<div class="muted">Ошибка загрузки: {e}</div>', status_code=500)
 
 @router.get("/jobs/{job_id}", include_in_schema=False)
 def job_status(request: Request, job_id: str):

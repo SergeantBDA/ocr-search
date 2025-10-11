@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from pathlib import Path
 from pydantic import SecretStr, Field, IPvAnyAddress
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -11,9 +11,6 @@ class Settings(BaseSettings):
 
     app_host: IPvAnyAddress = Field("0.0.0.0", env="APP_HOST")
     app_port: int = Field(8000, env="APP_PORT")
-
-    # Новое поле: каталог с документами (может быть пустым)
-    # documents_dir: Optional[str] = Field(None, env="DOCUMENTS_DIR")
 
     # выходные каталоги для сохранения оригиналов и текстов (опционально)
     output_originals_dir: Optional[str] = Field(None, env="OUTPUT_ORIGINALS_DIR")
@@ -28,10 +25,21 @@ class Settings(BaseSettings):
     redis_url: Optional[str] = Field(None, env="REDIS_URL")
     dramatiq_ns: Optional[str] = Field(None, env="DRAMATIQ_NS")
 
+    # API keys
+    api_keys: List[str] = Field(default_factory=list, env="API_KEYS")
+
     # жёстко указываем .env в корне проекта
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),
         env_file_encoding="utf-8",
+        env_ignore_empty=True,
     )
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Parse comma-separated API keys
+        if isinstance(self.api_keys, str):
+            self.api_keys = [k.strip() for k in self.api_keys.split(",") if k.strip()]
+
 settings = Settings()
 

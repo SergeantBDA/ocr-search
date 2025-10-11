@@ -13,6 +13,7 @@ from app.web.public import router as public_router
 from app.routers import auth as auth_router_module
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
+from app.api.upload import router as api_router
 
 # ensure uvicorn/fastapi use same handlers
 attach_to_logger_names()
@@ -48,6 +49,9 @@ app.include_router(auth_router_module.router, prefix="/auth")
 
 # public pages (login/register)
 app.include_router(public_router)
+
+# API endpoints
+app.include_router(api_router)
 
 # protected web router
 app.include_router(web_router)
