@@ -21,13 +21,14 @@ classifiers = [
 ]
 
 dependencies = [
-  "fastapi>=0.95,<0.101",
+  "fastapi>=0.100,<0.101",
   "uvicorn>=0.22,<1.0",
   "SQLAlchemy>=2.0,<3.0",
   "alembic>=1.11,<2.0",
   "psycopg[binary]>=3.2,<4.0",
   "pydantic>=2.0,<3.0",
   "python-dotenv>=1.0",
+  "PyMuPDF>=1.26.5"
   "pytesseract>=0.3",
   "Pillow>=10.0",
   "pdfplumber>=0.8",
@@ -37,15 +38,14 @@ dependencies = [
   "orjson>=3.9",
   "python-multipart>=0.0.9",
   "pyexiftool>=0.5",
-  "passlib[bcrypt]==3.2.2",
-  "python-jose[cryptography]",
-  "pydantic[email]",
+  "passlib[bcrypt]==1.7.4",
+  "python-jose[cryptography]>=3.3.0,<4.0",
   "dramatiq==1.18.0",
   "redis==5.0.1",
-  "msg-parser",
-  "extract_msg",
-  "beautifullsoup4",
-  "watchdog"
+  "msg-parser==1.2.0",
+  "extract_msg==0.55.0",
+  "beautifulsoup4==4.12.3",
+  "watchdog==4.0.1"
 ]
 
 
@@ -54,7 +54,7 @@ dev = [
   "pytest>=7.3,<8.0",
   "pytest-asyncio>=0.21",
   "pytest-cov>=4.0",
-  "black>=24.0",p
+  "black>=24.0",
   "ruff>=0.12"
 ]
 

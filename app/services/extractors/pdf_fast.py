@@ -10,8 +10,9 @@ RUSSIAN_CHARS = set(r".:,-+=()!0123456789абвгдеёжзийклмнопрс�
 # -------- optional imports (защищены) ----------
 try:
     import fitz  # PyMuPDF
-except Exception:  # pragma: no cover
+except Exception as e:  # pragma: no cover
     fitz = None
+    app_logger.warning("PyMuPDF не загрузился: %s", e)
 
 try:
     from PIL import Image
