@@ -3,17 +3,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from starlette.requests import Request
 from starlette.status import HTTP_401_UNAUTHORIZED
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.responses import RedirectResponse, JSONResponse
 
 import logging
 import uvicorn
 
-from app.web.routes import router as web_router
 from app.web.public import router as public_router
+from app.api.upload import router as api_router
 from app.routers import auth as auth_router_module
+from app.web.routes import router as web_router
+
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
-from app.api.upload import router as api_router
+
 
 # ensure uvicorn/fastapi use same handlers
 attach_to_logger_names()
@@ -44,15 +47,12 @@ try:
 except Exception:
     pass
 
-# include auth router (public API endpoints)
-app.include_router(auth_router_module.router, prefix="/auth")
-
 # public pages (login/register)
 app.include_router(public_router)
-
 # API endpoints
-app.include_router(api_router)
-
+app.include_router(api_router, dependencies=[])
+# include auth router (public API endpoints)
+app.include_router(auth_router_module.router, prefix="/auth")
 # protected web router
 app.include_router(web_router)
 
@@ -61,9 +61,14 @@ WHITELIST_PREFIXES = ("/auth", "/login", "/register", "/openapi.json", "/docs", 
 
 
 @app.exception_handler(HTTP_401_UNAUTHORIZED)
-async def on_401(request: Request, exc):
+async def on_401(request: Request, exc: StarletteHTTPException):
     accept = request.headers.get("accept", "")
     path = request.url.path or ""
+    # Для API — не перетирать detail, показывать, что именно не так
+    if path.startswith("/api"):
+        return JSONResponse({"detail": getattr(exc, "detail", "Unauthorized")}, status_code=401)
+
+    # Для браузера — редирект на логин (как было)
     if "text/html" in accept and not any(path.startswith(p) for p in WHITELIST_PREFIXES):
         return RedirectResponse(url="/auth/login-web")
     return JSONResponse({"detail": "Not authenticated"}, status_code=401)

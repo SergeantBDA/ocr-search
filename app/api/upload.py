@@ -1,7 +1,7 @@
 from typing import List, Optional
 from datetime import datetime
 
-from fastapi import APIRouter, File, UploadFile, Depends, HTTPException, Form
+from fastapi import APIRouter, File, UploadFile, Depends, HTTPException, Form, Request
 from sqlalchemy.orm import Session
 
 from app.api.deps import require_api_key
@@ -14,6 +14,34 @@ router = APIRouter(prefix="/api", tags=["api"])
 
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".docx", ".xlsx", ".txt"}
 
+@router.get("/ping")
+async def api_ping(request: Request, _k: str = Depends(require_api_key)):
+    return {
+        "ok": True,
+        "x_api_key": request.headers.get("x-api-key"),
+        "accepted": True
+    }
+
+@router.post("/debug")
+async def api_debug(request: Request):
+    """
+    Debug endpoint to echo request details.
+    """
+    headers = dict(request.headers)
+    client_host = request.client.host if request.client else "unknown"
+    try:
+        body = await request.json()
+    except Exception:
+        body = await request.body()
+        body = body.decode("utf-8", errors="ignore")
+    
+    return {
+        "method": request.method,
+        "url": str(request.url),
+        "client_host": client_host,
+        "headers": headers,
+        "body": body
+    }
 
 @router.post("/upload", response_model=UploadResponse)
 async def api_upload(
@@ -97,6 +125,7 @@ def api_search(
     ocr_to = _parse_dt(request.ocr_to)
     
     try:
+        print(request)
         # Use existing search module
         result = search_module.search_documents(
             db, 

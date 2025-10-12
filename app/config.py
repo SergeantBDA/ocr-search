@@ -1,45 +1,86 @@
-from typing import Optional, List
+# app/config.py
+from __future__ import annotations
+import os, json
 from pathlib import Path
-from pydantic import SecretStr, Field, IPvAnyAddress
+from typing import Optional, List
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-BASE_DIR = Path(__file__).resolve().parents[1]  # корень проекта рядом с app/
+# ── 1) найдём .env ────────────────────────────────────────────────────────────
+def _find_env_file() -> Optional[str]:
+    # сначала текущая директория запуска
+    cwd = Path.cwd() / ".env"
+    if cwd.exists():
+        return str(cwd)
+    # затем рядом с этим файлом (до 3 уровней вверх)
+    here = Path(__file__).resolve()
+    for up in (1, 2, 3):
+        p = here.parents[up] / ".env"
+        if p.exists():
+            return str(p)
+    # явный путь через переменную окружения
+    x = os.getenv("APP_ENV_FILE")
+    return x if x and Path(x).exists() else None
 
+ENV_FILE = _find_env_file()
+'''
+# ── 2) Загрузим .env в окружение "жёстко" ─────────────────────────────────────
+try:
+    from dotenv import load_dotenv  # pip install python-dotenv
+except Exception:
+    load_dotenv = None
+
+if ENV_FILE and load_dotenv:
+    # override=True — перезапишет уже установленные, чтобы не тащить "старые" пустые значения
+    load_dotenv(ENV_FILE, override=True)
+    print(f"[config] Loaded .env into os.environ: {ENV_FILE}")
+else:
+    print(f"[config] .env not auto-loaded (ENV_FILE={ENV_FILE!r}, have_dotenv={bool(load_dotenv)})")
+'''
+# ── 3) Модель настроек ────────────────────────────────────────────────────────
 class Settings(BaseSettings):
-    database_url: SecretStr = Field(..., env="DATABASE_URL")
-    env: str = Field("dev", env="ENV")
+    # базовые
+    database_url: Optional[SecretStr] = Field(None, env="DATABASE_URL")
 
-    app_host: IPvAnyAddress = Field("0.0.0.0", env="APP_HOST")
+    jwt_secret:   Optional[SecretStr] = Field(None, env="JWT_SECRET")
+    jwt_expire_minutes: int = Field(60, env="JWT_EXPIRE_MINUTES")
+
+    env: str  = Field("dev", env="ENV")
+    app_host: str = Field("0.0.0.0", env="APP_HOST")
     app_port: int = Field(8000, env="APP_PORT")
 
-    # выходные каталоги для сохранения оригиналов и текстов (опционально)
     output_originals_dir: Optional[str] = Field(None, env="OUTPUT_ORIGINALS_DIR")
-    output_texts_dir: Optional[str] = Field(None, env="OUTPUT_TEXTS_DIR")
+    output_texts_dir: Optional[str]     = Field(None, env="OUTPUT_TEXTS_DIR")
+    
     hostfs: Optional[str] = Field(None, env="HOSTFS")
     httpfs: Optional[str] = Field(None, env="HTTPFS")
 
-    # JWT settings
-    jwt_secret: SecretStr = Field(..., env="JWT_SECRET")
-    jwt_expire_minutes: int = Field(60, env="JWT_EXPIRE_MINUTES")
-    # BROKER
     redis_url: Optional[str] = Field(None, env="REDIS_URL")
     dramatiq_ns: Optional[str] = Field(None, env="DRAMATIQ_NS")
+    api_secret: Optional[str] = Field(None, env="API_SECRET")
 
-    # API keys
-    api_keys: List[str] = Field(default_factory=list, env="API_KEYS")
-
-    # жёстко указываем .env в корне проекта
+    # ЛАКОНИЧНАЯ конфигурация: берём только окружение (мы его уже заполнили load_dotenv)
     model_config = SettingsConfigDict(
-        env_file=str(BASE_DIR / ".env"),
-        env_file_encoding="utf-8",
-        env_ignore_empty=True,
+        extra="ignore",
+        case_sensitive=False,   # безопаснее на Win/PwSh
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        # Parse comma-separated API keys
-        if isinstance(self.api_keys, str):
-            self.api_keys = [k.strip() for k in self.api_keys.split(",") if k.strip()]
+    @property
+    def api_keys(self) -> List[str]:
+        v = (self.api_secret or "").strip()
+        if not v:
+            return []
+        if v.startswith("[") and v.endswith("]"):
+            try:
+                arr = json.loads(v)
+                return [str(x).strip() for x in arr if str(x).strip()]
+            except Exception:
+                pass
+        return [x.strip() for x in v.split(",") if x.strip()]
 
-settings = Settings()
+settings = Settings(_env_file=ENV_FILE)
 
+# В прод-окружении требуем обязательные поля
+if settings.env != "dev":
+    if not settings.database_url or not settings.jwt_secret:
+        raise RuntimeError(f"Missing DATABASE_URL / JWT_SECRET (env={settings.env}, file={ENV_FILE!r})")
