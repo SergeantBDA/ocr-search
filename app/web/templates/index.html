@@ -59,34 +59,49 @@
     <!-- Восстановление активных задач после F5 -->
     <script>
       (function restoreJobs(){
-        const key = "ocr_jobs";
-        const ids = JSON.parse(localStorage.getItem(key) || "[]");
-        if (!ids.length) return;
+        const idsKey = "ocr_jobs";
+        const tsKey  = "ocr_job_times";
+        const MAX_KEEP = 24 * 3600 * 1000; // хранить не дольше суток
+    
+        // Очистить протухшие job'ы по времени
+        const now = Date.now();
+        const times = JSON.parse(localStorage.getItem(tsKey) || "{}");
+        for (const id in times) {
+          if ((now - Number(times[id] || 0)) > MAX_KEEP) {
+            delete times[id];
+          }
+        }
+        localStorage.setItem(tsKey, JSON.stringify(times));
+    
+        // Пересобрать список id с учётом очистки
+        let ids = JSON.parse(localStorage.getItem(idsKey) || "[]").filter(id => id in times);
+        if (!ids.length) { localStorage.setItem(idsKey, "[]"); return; }
+    
         const notif = document.getElementById("notifications");
         if (!notif) return;
-        // Добавляем «пустые» тосты: HTMX сам подменит их ответом /jobs/{id}
+    
+        // Создаём «пустые» тосты — HTMX подменит их ответом /jobs/{id}
         const html = ids.map(id => (`
           <div id="job-${id}"
-                class="toast"
-                style="--pct: 0%"
-                hx-get="/jobs/${id}"
-                hx-trigger="load, every 2s"
-                hx-swap="outerHTML">
-              <div class="toast-title">Обработка…</div>
-              <div class="toast-body">
-                Прогресс: <span class="pct">0%</span>
-                <div class="progress"><div class="bar"></div></div>
-              </div>
+              class="toast"
+              style="--pct: 0%"
+              hx-get="/jobs/${id}"
+              hx-trigger="load, every 5s [document.visibilityState === 'visible']"
+              hx-swap="outerHTML">
+            <div class="toast-title">Обработка…</div>
+            <div class="toast-body">
+              Прогресс: <span class="pct">0%</span>
+              <div class="progress"><div class="bar"></div></div>
+            </div>
           </div>
         `)).join("");
+    
         notif.insertAdjacentHTML("afterbegin", html);
-        // Активируем HTMX для вставленного DOM
         if (window.htmx && typeof htmx.process === "function") {
           htmx.process(notif);
         }
       })();
     </script>
-
   </div>
 </div>
 {% endblock %}

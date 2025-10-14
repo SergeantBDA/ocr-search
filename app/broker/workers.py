@@ -1,6 +1,9 @@
 # app/broker/workers.py
 from __future__ import annotations
 
+import os
+os.environ["RUN_CONTEXT"] = "worker"   # <-- важно: до импортов extractors!
+
 from pathlib import Path
 from datetime import datetime
 
@@ -14,7 +17,6 @@ from app.db import SessionLocal
 from app.models import Document
 
 from app.logger_worker import worker_log
-
 
 @dramatiq.actor(queue_name="upload", max_retries=0, store_results=True)
 def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: str) -> dict:

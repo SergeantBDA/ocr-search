@@ -45,7 +45,8 @@ dependencies = [
   "msg-parser==1.2.0",
   "extract_msg==0.55.0",
   "beautifulsoup4==4.12.3",
-  "watchdog==4.0.1"
+  "watchdog==4.0.1",
+  "concurrent-log-handler==0.9.28"
 ]
 
 

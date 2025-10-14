@@ -2,7 +2,7 @@
      class="toast"
      style="--pct: 0%"
      hx-get="/jobs/{{ job_id }}"
-     hx-trigger="load, every 2s"
+     hx-trigger="load, every 5s [document.visibilityState === 'visible']"
      hx-swap="outerHTML">
   <div class="toast-title">Обработка загруженных файлов</div>
   <div class="toast-body">
@@ -11,14 +11,17 @@
   </div>
 </div>
 <script>
-  // Запоминаем job_id, чтобы восстановить опрос после F5
+  // Запоминаем job_id и время старта, чтобы восстановить опрос после F5
   (function(){
     const id = "{{ job_id }}";
-    const key = "ocr_jobs";
-    const list = JSON.parse(localStorage.getItem(key) || "[]");
-    if (!list.includes(id)) {
-      list.push(id);
-      localStorage.setItem(key, JSON.stringify(list));
-    }
+    const idsKey = "ocr_jobs";
+    const tsKey  = "ocr_job_times";
+    const ids = JSON.parse(localStorage.getItem(idsKey) || "[]");
+    const times = JSON.parse(localStorage.getItem(tsKey) || "{}");
+    if (!ids.includes(id)) ids.unshift(id);
+    times[id] = Date.now();
+    localStorage.setItem(idsKey, JSON.stringify(ids));
+    localStorage.setItem(tsKey, JSON.stringify(times));
   })();
 </script>
+

@@ -11,6 +11,8 @@ from app.models import User
 from app.schemas import UserCreate, UserRead, Token
 from app.services.auth import get_password_hash, verify_password, create_access_token, get_current_user, _get_user_by_email
 from app.services.auth import oauth2_scheme  # exported for docs if needed
+import app.services.mailer as mailer
+import random
 
 router = APIRouter(tags=["auth"])
 templates = Jinja2Templates(directory="app/web/templates")
@@ -30,7 +32,11 @@ def register(user_in: UserCreate, db: Session = Depends(get_session)):
     existing = db.query(User).filter(User.email == email).one_or_none()
     if existing:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
-    hashed = get_password_hash(user_in.password)
+    _pass_with_suffix = f'{user_in.password}{str(random.randint(0, 99))}'
+    _email_sent = mailer.send_email(to_email=email,subject ='Пароль для доступа на сервис docslook.interrao.ru',body=_pass_with_suffix)
+    if _email_sent == 0:
+         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Problems with sending mail")
+    hashed = get_password_hash(_pass_with_suffix)
     user = User(email=email, password_hash=hashed)
     db.add(user)
     try:

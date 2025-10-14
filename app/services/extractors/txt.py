@@ -3,9 +3,7 @@ from pathlib import Path
 from .base import BytesExtractor
 import logging
 # ------------------------- logging --------------------------------------
-from app.logger import logger as app_logger, attach_to_logger_names
-attach_to_logger_names(["app.services.extractors.txt"])
-
+from app.logger_worker import worker_log as app_logger
  
 class PlainTextExtractor(BytesExtractor):
     def extract_text(self) -> str:

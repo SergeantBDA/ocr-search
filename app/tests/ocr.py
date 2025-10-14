@@ -13,3 +13,4 @@ if Path(_file).exists():
 else:
     print("Exists't file")
 
+print( any('\x00' in ch for ch in extract_txt) )

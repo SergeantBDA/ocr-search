@@ -5,8 +5,7 @@ from pathlib import Path
 from .base import BytesExtractor
 
 # ------------------------- logging --------------------------------------
-from app.logger import logger as app_logger, attach_to_logger_names
-attach_to_logger_names(["app.services.extractors.xls"])
+from app.logger_worker import worker_log as app_logger
 
 try:
     import pandas as pd

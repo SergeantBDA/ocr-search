@@ -1,44 +1,56 @@
-{# ВАЖНО: весь тост заменяется сервером. Мы синхронизируем полосу и текст прогресса через CSS-переменную --pct #}
-<div id="job-{{ job_id }}"
-     class="toast"
-     style="--pct: {{ (progress or 0) | int }}%"
-     hx-get="/jobs/{{ job_id }}"
-     hx-trigger="every 2s"
-     hx-swap="outerHTML">
-  {% if status == "failed" %}
+{# ВАЖНО: сервер полностью рендерит блок. Поллинг активен только в статусе "в процессе". #}
+{% if status == "failed" %}
+  <div id="job-{{ job_id }}" class="toast" style="--pct: {{ (progress or 0) | int }}%" hx-trigger="none">
     <div class="toast-title error">Ошибка обработки</div>
     <div class="toast-body">{{ error }}</div>
-    <script>
-      (function(){
-        const id = "{{ job_id }}";
-        const key = "ocr_jobs";
-        const list = JSON.parse(localStorage.getItem(key) || "[]");
-        localStorage.setItem(key, JSON.stringify(list.filter(x => x !== id)));
-      })();
-    </script>
-  {% elif status == "done" %}
+  </div>
+  <script>
+    (function(){
+      const id = "{{ job_id }}";
+      const idsKey = "ocr_jobs";
+      const tsKey  = "ocr_job_times";
+      const ids = JSON.parse(localStorage.getItem(idsKey) || "[]").filter(x => x !== id);
+      const times = JSON.parse(localStorage.getItem(tsKey) || "{}"); delete times[id];
+      localStorage.setItem(idsKey, JSON.stringify(ids));
+      localStorage.setItem(tsKey, JSON.stringify(times));
+    })();
+  </script>
+ 
+{% elif status == "done" %}
+  <div id="job-{{ job_id }}" class="toast" style="--pct: 100%" hx-trigger="none">
     <div class="toast-title">Готово</div>
     <div class="toast-body">
       Прогресс: <span class="pct">100%</span>
       <div class="progress"><div class="bar"></div></div>
     </div>
-    <script>
-      setTimeout(function(){
-        const el = document.getElementById("job-{{ job_id }}");
-        if (el) el.remove();
-      }, 5000);
-      (function(){
-        const id = "{{ job_id }}";
-        const key = "ocr_jobs";
-        const list = JSON.parse(localStorage.getItem(key) || "[]");
-        localStorage.setItem(key, JSON.stringify(list.filter(x => x !== id)));
-      })();
-    </script>
-  {% else %}
+  </div>
+  <script>
+    setTimeout(function(){
+      const el = document.getElementById("job-{{ job_id }}");
+      if (el) el.remove();
+    }, 3000);
+    (function(){
+      const id = "{{ job_id }}";
+      const idsKey = "ocr_jobs";
+      const tsKey  = "ocr_job_times";
+      const ids = JSON.parse(localStorage.getItem(idsKey) || "[]").filter(x => x !== id);
+      const times = JSON.parse(localStorage.getItem(tsKey) || "{}"); delete times[id];
+      localStorage.setItem(idsKey, JSON.stringify(ids));
+      localStorage.setItem(tsKey, JSON.stringify(times));
+    })();
+  </script>
+ 
+{% else %}
+  <div id="job-{{ job_id }}"
+       class="toast"
+       style="--pct: {{ (progress or 0) | int }}%"
+       hx-get="/jobs/{{ job_id }}"
+       hx-trigger="every 5s [document.visibilityState === 'visible']"
+       hx-swap="outerHTML">
     <div class="toast-title">Обработка…</div>
     <div class="toast-body">
       Прогресс: <span class="pct">{{ (progress or 0) | int }}%</span>
       <div class="progress"><div class="bar"></div></div>
     </div>
-  {% endif %}
-</div>
+  </div>
+{% endif %}

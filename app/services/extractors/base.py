@@ -5,8 +5,7 @@ from dataclasses import dataclass
 from typing import Optional
 from abc import ABC, abstractmethod
 # ------------------------- logging --------------------------------------
-from app.logger import logger as app_logger, attach_to_logger_names
-attach_to_logger_names(["app.services.extractors.base"])
+from app.logger_worker import worker_log as app_logger
 
 # --------------------------- base ---------------------------------------
 @dataclass(frozen=True)

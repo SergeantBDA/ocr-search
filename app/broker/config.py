@@ -6,6 +6,7 @@ from dramatiq.brokers.redis import RedisBroker
 from dramatiq.results.backends import RedisBackend
 from dramatiq.results import Results
 from app.config import settings
+from dramatiq.middleware import TimeLimit
 
 # Memurai совместим с Redis URL
 REDIS_URL = settings.redis_url
@@ -17,16 +18,22 @@ def KEY_JOB(job_id: str) -> str:
 def KEY_RESULT(job_id: str) -> str:
     return f"{NS}:result:{job_id}"
 
-# Брокер и результаты
+# --- Настройка брокера ---
 redis_broker = RedisBroker(url=REDIS_URL, namespace=f"{NS}:broker")
 dramatiq.set_broker(redis_broker)
-
+ 
+# ❌ Полностью отключаем TimeLimit (удаляем стандартный middleware)
+redis_broker.middleware = [
+    m for m in redis_broker.middleware if not isinstance(m, TimeLimit)
+]
+ 
+# Результаты
 result_backend = RedisBackend(url=REDIS_URL, namespace=f"{NS}:results")
 redis_broker.add_middleware(Results(backend=result_backend))
-
-# Клиент для произвольных статусов/прогресса
+ 
+# --- Клиент Redis для прогресса ---
 r = redis.Redis.from_url(REDIS_URL)
-
+ 
 def job_set(job_id: str, payload: dict, ttl_hours: int = 12) -> None:
     r.setex(KEY_JOB(job_id), ttl_hours * 3600, json.dumps(payload, ensure_ascii=False))
 

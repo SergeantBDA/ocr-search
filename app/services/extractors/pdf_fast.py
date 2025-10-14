@@ -1,11 +1,12 @@
 from __future__ import annotations
 import io
 import re
+import unicodedata
 import concurrent.futures
 from .base import BytesExtractor
 # ------------------------- logging --------------------------------------
-from app.logger import logger as app_logger, attach_to_logger_names
-attach_to_logger_names(["app.services.extractors.pdf"])
+from app.logger_worker import worker_log as app_logger
+
 RUSSIAN_CHARS = set(r".:,-+=()!0123456789абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
 # -------- optional imports (защищены) ----------
 try:
@@ -80,6 +81,7 @@ _ws_re        = re.compile(r"[ \t\u00A0]+")
 _hyphen_re    = re.compile(r"(\w)-\s*\n(\w)")
 _single_nl_re = re.compile(r"(?<!\n)\n(?!\n)")   # одиночный \n, не часть \n\n
 _multi_nl_re  = re.compile(r"\n{3,}")            # 3+ переводов → 2
+_ctrl_re      = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
 def _preprocess_text_layer(text: str) -> str:
     if not text:
@@ -88,7 +90,15 @@ def _preprocess_text_layer(text: str) -> str:
     text = _hyphen_re.sub(r"\1\2", text)        # убираем переносы по дефису
     text = _single_nl_re.sub(" ", text)         # одиночный \n превращаем в пробел
     text = _ws_re.sub(" ", text)                # сжимаем пробелы (вкл. NBSP)
-    text = _multi_nl_re.sub("\n", text)       # абзацы нормализуем к \n
+    text = _multi_nl_re.sub("\n", text)         # абзацы нормализуем к \n
+    text = _ctrl_re.sub("", text)               # убрать NUL и «плохие» управляющие
+    text = text.replace("\u0000", "")           # на всякий случай явно
+    # нормализация юникода – сниж ает «мусор» из PDF
+    try:
+        text = unicodedata.normalize("NFC", text)
+    except Exception:
+        pass
+
     return text.strip()
 
 

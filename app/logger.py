@@ -1,3 +1,6 @@
+import os
+IS_WORKER = os.getenv("RUN_CONTEXT") == "worker"
+
 import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
@@ -19,14 +22,21 @@ ch.setLevel(logging.INFO)
 ch.setFormatter(logging.Formatter(FORMAT))
 
 # rotating file handler
-fh = RotatingFileHandler(str(LOG_FILE), maxBytes=1_048_576, backupCount=5, encoding="utf-8")
+fh = RotatingFileHandler(str(LOG_FILE), maxBytes=5_000_000, backupCount=5, encoding="utf-8")
 fh.setLevel(logging.DEBUG)  # log everything to file
 fh.setFormatter(logging.Formatter(FORMAT))
 
 # attach handlers if not already attached (avoid duplicate handlers on reload)
+#if not logger.handlers:
+#    logger.addHandler(ch)
+#    logger.addHandler(fh)
+
 if not logger.handlers:
     logger.addHandler(ch)
-    logger.addHandler(fh)
+    if not IS_WORKER:
+        # Только в веб-процессе добавляем файловый хендлер на app.log
+        logger.addHandler(fh)
+
 
 # optionally expose basic config for other libraries to reuse
 def attach_to_logger_names(names=("uvicorn", "uvicorn.error", "uvicorn.access", "fastapi")):

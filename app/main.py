@@ -17,6 +17,9 @@ from app.web.routes import router as web_router
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
 
+from datetime import datetime, timedelta
+from app.broker.config import r, NS
+import json
 
 # ensure uvicorn/fastapi use same handlers
 attach_to_logger_names()
@@ -58,7 +61,21 @@ app.include_router(web_router)
 
 # 401 handler: redirect browsers to /login (except whitelist)
 WHITELIST_PREFIXES = ("/auth", "/login", "/register", "/openapi.json", "/docs", "/swagger-ui", "/static")
+STALE_AFTER_MIN = 360
 
+@app.on_event("startup")
+async def sweep_stale_jobs():
+    now = datetime.utcnow()
+    for key in r.scan_iter(f"{NS}:job:*"):
+        raw = r.get(key)
+        if not raw: continue
+        try:
+            job = json.loads(raw)
+            created = datetime.fromisoformat(job.get("created_at", "1970-01-01T00:00:00"))
+            if job.get("status") in (None, "started", "queued") and now - created > timedelta(minutes=STALE_AFTER_MIN):
+                r.delete(key)
+        except Exception:
+            r.delete(key)
 
 @app.exception_handler(HTTP_401_UNAUTHORIZED)
 async def on_401(request: Request, exc: StarletteHTTPException):
