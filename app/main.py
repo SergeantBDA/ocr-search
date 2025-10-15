@@ -13,6 +13,7 @@ from app.web.public import router as public_router
 from app.api.upload import router as api_router
 from app.routers import auth as auth_router_module
 from app.web.routes import router as web_router
+from app.web.admin_jobs import router as admin_jobs_router
 
 from app.config import settings
 from app.logger import logger as app_logger, attach_to_logger_names
@@ -58,6 +59,8 @@ app.include_router(api_router, dependencies=[])
 app.include_router(auth_router_module.router, prefix="/auth")
 # protected web router
 app.include_router(web_router)
+# admin jobs
+app.include_router(admin_jobs_router)
 
 # 401 handler: redirect browsers to /login (except whitelist)
 WHITELIST_PREFIXES = ("/auth", "/login", "/register", "/openapi.json", "/docs", "/swagger-ui", "/static")
