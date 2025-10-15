@@ -44,6 +44,9 @@ def job_get(job_id: str) -> dict | None:
     return json.loads(raw)
 
 def job_update(job_id: str, **fields):
+    # если стоит tombstone — не трогаем статус
+    if r.get(f"{NS}:job-deleted:{job_id}"):
+        return job_get(job_id) or {}
     data = job_get(job_id) or {}
     data.update(fields)
     job_set(job_id, data)

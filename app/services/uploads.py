@@ -63,14 +63,22 @@ def enqueue_job(
     owner_email: str
 ) -> str:
     """
-    Create job entry in Redis and enqueue processing task.
+    Create job entry in Redis/Memurai and enqueue processing task.
+    Includes full payload to allow 'retry' functionality later.
     
     Returns:
         str: job_id
     """
     job_id = uuid.uuid4().hex
-    
-    # Create job record in Redis/Memurai
+
+    # Формируем полезную нагрузку (payload) для возможного повтора
+    payload = {
+        "files": saved_paths,          # [{'path':..., 'filename':..., 'mime':...}, ...]
+        "texts_dir": str(texts_dir),
+        "user_email": owner_email,
+    }
+
+    # Сохраняем всё в Redis (для статуса + payload)
     job_set(job_id, {
         "status": "queued",
         "created_at": datetime.utcnow().isoformat(),
@@ -79,12 +87,14 @@ def enqueue_job(
         "progress": 0,
         "items": [],
         "error": None,
+        "payload": payload,             # 🟢 добавляем сюда весь контекст задачи
     })
-    
-    # Send to Dramatiq queue
+
+    # Отправляем задачу в Dramatiq
     process_upload.send(job_id, saved_paths, str(texts_dir), owner_email)
-    
+
     return job_id
+
 
 
 def get_job_status(job_id: str) -> Dict[str, Any]:

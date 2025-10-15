@@ -43,10 +43,12 @@
     <!-- Форма загрузки (POST, HTMX) — уведомления только в #notifications -->
     <form
       id="uploadForm"
+      method="post"      
       hx-post="{{ request.url_for('upload').path }}"
       hx-target="#notifications"
       hx-swap="afterbegin"
       hx-encoding="multipart/form-data"
+      hx-boost="false"
       hx-indicator="#upload-spinner"
       class="field">
       <div class="row upload-row">

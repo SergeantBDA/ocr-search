@@ -31,9 +31,9 @@ def jobs_page(request: Request):
           <td>{job.get('progress',0)}%</td>
           <td>{html.escape(job.get('created_at',''))}</td>
           <td>
-            <button hx-post="/admin/jobs/{job['job_id']}/abort"  hx-target="closest tr" hx-swap="outerHTML">Прервать</button>
-            <button hx-post="/admin/jobs/{job['job_id']}/retry"  hx-target="#jobs-table" hx-swap="outerHTML">Повторить</button>
-            <button hx-delete="/admin/jobs/{job['job_id']}"      hx-target="closest tr" hx-swap="outerHTML">Удалить</button>
+            <button hx-post="/admin/jobs/{job['job_id']}/abort" hx-target="closest tr"  hx-swap="outerHTML">Прервать</button>
+            <button hx-post="/admin/jobs/{job['job_id']}/retry" hx-target="#jobs-table" hx-swap="outerHTML">Повторить</button>
+            <button hx-delete="/admin/jobs/{job['job_id']}/del" hx-target="closest tr"  hx-swap="outerHTML">Удалить</button>
           </td>
         </tr>""")
     table = f"""
@@ -44,11 +44,17 @@ def jobs_page(request: Request):
     # простой HTML (можете вставить в ваш layout)
     return HTMLResponse(f"<h1>Задания</h1>{table}")
 
-@router.delete("/{job_id}")
+# app/web/admin_jobs.py
+@router.delete("/{job_id}/del")
 def job_delete(job_id: str):
+    # 1) отменяем текущую работу
+    r.setex(f"{NS}:job-cancel:{job_id}", 3600, b"1")
+    # 2) ставим tombstone на час
+    r.setex(f"{NS}:job-deleted:{job_id}", 3600, b"1")
+    # 3) удаляем ключ статуса
     r.delete(KEY_JOB(job_id))
-    # можно ещё подчистить связанные результаты: r.delete(f"{NS}:results:{job_id}")
     return HTMLResponse("")
+
 
 @router.post("/{job_id}/abort")
 def job_abort(job_id: str):

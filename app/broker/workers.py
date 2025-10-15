@@ -9,7 +9,7 @@ from datetime import datetime
 
 import dramatiq
 
-from app.broker.config import redis_broker, result_backend, job_update, job_set
+from app.broker.config import redis_broker, result_backend, job_update, job_set, r, NS, KEY_JOB
 from app.config import settings
 from app.services import bytes_xtractor as bx
 from app.services import save_outputs
