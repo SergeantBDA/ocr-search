@@ -12,8 +12,8 @@ from app import search as search_module
 
 router = APIRouter(prefix="/api", tags=["api"])
 
-ALLOWED_EXTENSIONS = {".docx",".xls",".xlsx",".csv",".eml", ".msg",".txt",".html",".htm",".xhtml", \
-                      ".rtf" ,".xml",".pdf",".png", ".jpg",".jpeg",".tif",".tiff",".bmp"}
+# ALLOWED_EXTENSIONS = {".docx",".xls",".xlsx",".csv",".eml", ".msg",".txt",".html",".htm",".xhtml", \
+#                       ".rtf" ,".xml",".pdf",".png", ".jpg",".jpeg",".tif",".tiff",".bmp"}
 
 @router.get("/ping")
 async def api_ping(request: Request, _k: str = Depends(require_api_key)):
@@ -59,21 +59,22 @@ async def api_upload(
         raise HTTPException(status_code=400, detail="No files provided")
     
     # Validate file extensions
-    valid_files = []
-    for f in files:
-        if not f.filename:
-            continue
+    valid_files = files
+    # valid_files = []
+    # for f in files:
+    #     if not f.filename:
+    #         continue
         
-        ext = f.filename.rsplit(".", 1)[-1].lower() if "." in f.filename else ""
-        if f".{ext}" not in ALLOWED_EXTENSIONS:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Unsupported file type: {f.filename}. Allowed: {', '.join(ALLOWED_EXTENSIONS)}"
-            )
-        valid_files.append(f)
+    #     ext = f.filename.rsplit(".", 1)[-1].lower() if "." in f.filename else ""
+    #     if f".{ext}" not in ALLOWED_EXTENSIONS:
+    #         raise HTTPException(
+    #             status_code=400, 
+    #             detail=f"Unsupported file type: {f.filename}. Allowed: {', '.join(ALLOWED_EXTENSIONS)}"
+    #         )
+    #     valid_files.append(f)
     
-    if not valid_files:
-        raise HTTPException(status_code=400, detail="No valid files to process")
+    # if not valid_files:
+    #     raise HTTPException(status_code=400, detail="No valid files to process")
     
     try:
         # Save files and create directories

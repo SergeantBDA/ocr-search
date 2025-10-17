@@ -65,7 +65,7 @@ def _guess_ext(filename: Optional[str], mime: Optional[str]) -> str:
         return "rtf"           
     if name.endswith(("txt","csv")) or mime in {"text"}:
         return "txt"
-    if name.endswith(("xlsx","xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+    if name.endswith(("xlsx","xlsm","xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
         return "xls"
     return 'uns'
  

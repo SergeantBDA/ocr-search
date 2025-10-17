@@ -186,14 +186,18 @@ def _extract_from_text_page(page: "fitz.Page") -> str:
 
 
 def _extract_from_image_page(num: int, page: "fitz.Page", angle: int = 0) -> Tuple[int, str]:
-    if pytesseract is None:
-        return num, ""
-    img = _rasterize_page_to_pil(page, dpi=TARGET_DPI)
-    if angle:
-        # поворачиваем в читаемый вид
-        img = img.rotate(-angle, expand=True)
-    # Базовая конфигурация: смешанный русский/английский документ
-    txt = pytesseract.image_to_string(img, lang="rus+eng", config="--psm 6")
+    try:
+        if pytesseract is None:
+            return num, ""
+        img = _rasterize_page_to_pil(page, dpi=TARGET_DPI)
+        if angle:
+            # поворачиваем в читаемый вид
+            img = img.rotate(-angle, expand=True)
+        # Базовая конфигурация: смешанный русский/английский документ
+        txt = pytesseract.image_to_string(img, lang="rus+eng", config="--psm 6")
+    except Exception as e:
+        print(e)
+        return num, ''
     return num, txt
 
 
