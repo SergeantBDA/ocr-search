@@ -13,7 +13,7 @@ from app import search as search_module
 router = APIRouter(prefix="/api", tags=["api"])
 
 ALLOWED_EXTENSIONS = {".docx",".xls",".xlsx",".csv",".eml", ".msg",".txt",".html",".htm",".xhtml", \
-                      ".rtf" ,".xml",".png", ".jpg",".jpeg",".tif",".tiff",".bmp"}
+                      ".rtf" ,".xml",".pdf",".png", ".jpg",".jpeg",".tif",".tiff",".bmp"}
 
 @router.get("/ping")
 async def api_ping(request: Request, _k: str = Depends(require_api_key)):

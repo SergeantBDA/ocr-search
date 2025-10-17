@@ -36,39 +36,12 @@ RUSSIAN_CHARS = set(r".:,-+=()!0123456789абвгдеёжзийклмнопрс�
 TARGET_DPI = 300               # контролируемая растеризация страниц PDF
 MAX_OSD_PIXELS = 8_000_000     # даунскейл для OSD (~8 Мп, ускоряет и гасит DecompressionBombWarning)
 
-_ws_re        = re.compile(r"[ \t\u00A0]+")
-_hyphen_re    = re.compile(r"(\w)-\s*\n(\w)")
-_single_nl_re = re.compile(r"(?<!\n)\n(?!\n)")   # одиночный \n, не часть \n\n
-_multi_nl_re  = re.compile(r"\n{3,}")            # 3+ переводов → 2
-_ctrl_re      = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
-
-
 # ------------------------- утилиты текста ---------------------------------
 def _looks_like_russian(text: str, threshold: float = 0.40) -> bool:
     if not text:
         return False
     ru = sum(1 for ch in text if ch in RUSSIAN_CHARS)
     return (ru / max(1, len(text))) >= threshold
-
-
-def _preprocess_text_layer(text: str) -> str:
-    if not text:
-        return ""
-    text = text.replace("\r\n", "\n").replace("\r", "\n")
-    text = _hyphen_re.sub(r"\1\2", text)        # убираем переносы по дефису
-    text = _single_nl_re.sub(" ", text)         # одиночный \n превращаем в пробел
-    text = _ws_re.sub(" ", text)                # сжимаем пробелы (вкл. NBSP)
-    text = _multi_nl_re.sub("\n", text)         # абзацы нормализуем к \n
-    text = _ctrl_re.sub("", text)               # убрать NUL и «плохие» управляющие
-    text = text.replace("\u0000", "")           # на всякий случай явно
-    # нормализация юникода – снижает «мусор» из PDF
-    try:
-        text = unicodedata.normalize("NFC", text)
-    except Exception:
-        pass
-
-    return text.strip()
-
 
 def _page_has_text(page: "fitz.Page", min_chars: int = 16) -> bool:
     txt = page.get_text("text", sort=True)
@@ -165,7 +138,7 @@ def _extract_from_text_page(page: "fitz.Page") -> str:
     for x0, y0, x1, y1, txt, bno, btype in page.get_text("blocks", sort=True):
         if btype != 0:      # 0 = текст
             continue
-        parts.append(_preprocess_text_layer(txt))
+        parts.append(txt)
     # Между блоками оставляем пустую строку
     return "\n\n".join([p for p in parts if p])
 
@@ -232,7 +205,7 @@ class PDFExtractorFast(BytesExtractor):
                 futures = [pool.submit(_extract_from_image_page, n, doc[n], angle) for n in scan_indices]
                 for fut in concurrent.futures.as_completed(futures):
                     npage, txt = fut.result()
-                    text_per_page[npage] = _preprocess_text_layer(txt)
+                    text_per_page[npage] = txt
 
         # 5) склеиваем
         if text_per_page:
