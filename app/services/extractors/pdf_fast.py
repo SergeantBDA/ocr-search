@@ -19,6 +19,7 @@ except Exception as e:  # pragma: no cover
 
 try:
     from PIL import Image, ImageOps
+    Image.MAX_IMAGE_PIXELS = 500_000_000  # «страховка», основной контроль делаем zoom-ом
 except Exception:  # pragma: no cover
     Image = None
     ImageOps = None
@@ -33,8 +34,10 @@ from .base import BytesExtractor
 # ------------------------- константы --------------------------------------
 RUSSIAN_CHARS = set(r".:,-+=()!0123456789абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")
 
-TARGET_DPI = 300               # контролируемая растеризация страниц PDF
-MAX_OSD_PIXELS = 8_000_000     # даунскейл для OSD (~8 Мп, ускоряет и гасит DecompressionBombWarning)
+TARGET_DPI      = 300           # контролируемая растеризация страниц PDF
+MAX_OSD_PIXELS  = 8_000_000     # даунскейл для OSD (~8 Мп, ускоряет и гасит DecompressionBombWarning)
+SAFE_MAX_PIXELS = 100_000_000   # не более 100 Мп на страницу (подберите под RAM)
+MAX_SIDE_PX     = 3500          # ограничение длинной стороны (ускоряет OCR)
 
 # ------------------------- утилиты текста ---------------------------------
 def _looks_like_russian(text: str, threshold: float = 0.40) -> bool:
@@ -58,20 +61,59 @@ def _page_has_text(page: "fitz.Page", min_chars: int = 16) -> bool:
 
 
 # ------------------------- растеризация/OSD -------------------------------
+def _compute_zoom(page: "fitz.Page", target_dpi: int, max_pixels: int, max_side_px: int) -> float:
+    """
+    Возвращает коэффициент zoom для fitz.Matrix так, чтобы итог:
+      - не превышал max_pixels,
+      - и длинная сторона была <= max_side_px.
+    """
+    base = target_dpi / 72.0
+    w_pt, h_pt = float(page.rect.width), float(page.rect.height)
+    w_px_base, h_px_base = w_pt * base, h_pt * base
+    total_base = w_px_base * h_px_base
+ 
+    zoom = base
+    if total_base > max_pixels:
+        zoom *= (max_pixels / total_base) ** 0.5  # равномерно ужимаем
+ 
+    # контроль длинной стороны
+    long_side_after = max(w_px_base, h_px_base) * (zoom / base)
+    if long_side_after > max_side_px:
+        zoom *= (max_side_px / long_side_after)
+ 
+    return max(0.1, zoom)
+ 
 def _rasterize_page_to_pil(page: "fitz.Page", dpi: int = TARGET_DPI) -> "Image.Image":
     """
-    Растеризуем страницу PyMuPDF в PIL.Image с заданным DPI.
-    Прописываем dpi в метаданных, чтобы Tesseract не видел 0 dpi.
+    Безопасная растеризация: ограничиваем размер, и создаём PIL.Image напрямую из Pixmap.samples.
     """
     if Image is None:
         raise RuntimeError("Pillow (PIL) не установлен.")
-    zoom = dpi / 72.0
+    if fitz is None:
+        raise RuntimeError("PyMuPDF не установлен.")
+ 
+    # Подбираем zoom под ограничения
+    zoom = _compute_zoom(page, dpi, SAFE_MAX_PIXELS, MAX_SIDE_PX)
     mat = fitz.Matrix(zoom, zoom)
-    pix = page.get_pixmap(matrix=mat, alpha=False)
-    img = Image.open(io.BytesIO(pix.tobytes("png")))
-    img.info["dpi"] = (dpi, dpi)
+    pix = page.get_pixmap(matrix=mat, alpha=False)  # alpha=False → RGB или GRAY
+ 
+    # Собираем PIL.Image без PNG-декомпрессии
+    # pix.n: 1=GRAY, 3=RGB, 4=CMYK(?) или RGBA при alpha=True; тут alpha=False, поэтому 1 или 3
+    if pix.n == 1:
+        mode = "L"
+    elif pix.n == 3:
+        mode = "RGB"
+    else:
+        # на всякий случай (бывает палитра/прочее) — конвертнём в RGB
+        pix = fitz.Pixmap(fitz.csRGB, pix)
+        mode = "RGB"
+ 
+    img = Image.frombytes(mode, (pix.width, pix.height), pix.samples)
+ 
+    # Пропишем реальный DPI, соответствующий zoom
+    eff_dpi = int(72.0 * zoom)
+    img.info["dpi"] = (eff_dpi, eff_dpi)
     return img
-
 
 def _downscale_for_osd(img: "Image.Image", max_pixels: int = MAX_OSD_PIXELS) -> "Image.Image":
     w, h = img.size
