@@ -1,4 +1,5 @@
 __pycache__/
+*.pyc
 ocr_search.egg-info/
 build/
 logs/
