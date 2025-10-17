@@ -1,0 +1,30 @@
+{% extends "_layout.html" %}
+{% block content %}
+<h1>Задания</h1>
+<table id="jobs-table" class="table">
+  <thead><tr><th>Job</th><th>Статус</th><th>Прогресс</th><th>Создан</th><th></th></tr></thead>
+  <tbody>
+    {% for job in jobs %}
+      <tr>
+        <td>{{ job.job_id }}</td>
+        <td>{{ job.status }}</td>
+        <td>{{ job.progress|default(0) }}%</td>
+        <td>{{ job.created_at }}</td>
+        <td>
+          <button type="button"
+                  hx-post="/admin/jobs/{{ job.job_id }}/abort"
+                  hx-target="#jobs-table" hx-swap="outerHTML">Прервать</button>
+          <button type="button"
+                  hx-post="/admin/jobs/{{ job.job_id }}/retry"
+                  hx-target="#jobs-table" hx-swap="outerHTML">Повторить</button>
+          <button type="button"
+                  hx-delete="/admin/jobs/{{ job.job_id }}/del"
+                  hx-target="#jobs-table" hx-swap="outerHTML">Удалить</button>
+        </td>
+      </tr>
+    {% else %}
+      <tr><td colspan="5">Нет заданий</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

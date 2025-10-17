@@ -1,5 +1,6 @@
 from __future__ import annotations
 #import logging
+import re
 from pathlib import Path
 from typing import Optional, Type
  
@@ -12,6 +13,30 @@ from .extractors import (
 
 from app.logger import logger as app_logger, attach_to_logger_names
 attach_to_logger_names(["app.services.extractors.byte_xtractor"])
+
+_ws_re        = re.compile(r"[ \t\u00A0]+")
+_hyphen_re    = re.compile(r"(\w)-\s*\n(\w)")
+_single_nl_re = re.compile(r"(?<!\n)\n(?!\n)")   # одиночный \n, не часть \n\n
+_multi_nl_re  = re.compile(r"\n{3,}")            # 3+ переводов → 2
+_ctrl_re      = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
+
+def _preprocess_text_layer(text: str) -> str:
+    if not text:
+        return ""
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = _hyphen_re.sub(r"\1\2", text)        # убираем переносы по дефису
+    text = _single_nl_re.sub(" ", text)         # одиночный \n превращаем в пробел
+    text = _ws_re.sub(" ", text)                # сжимаем пробелы (вкл. NBSP)
+    text = _multi_nl_re.sub("\n", text)         # абзацы нормализуем к \n
+    text = _ctrl_re.sub("", text)               # убрать NUL и «плохие» управляющие
+    text = text.replace("\u0000", "")           # на всякий случай явно
+    # нормализация юникода – снижает «мусор» из PDF
+    try:
+        text = unicodedata.normalize("NFC", text)
+    except Exception:
+        pass
+
+    return text.strip()
 
 def normalized_mime(mime: Optional[str]) -> Optional[str]:
     return mime.lower().strip() if mime else None
@@ -40,7 +65,7 @@ def _guess_ext(filename: Optional[str], mime: Optional[str]) -> str:
         return "rtf"           
     if name.endswith(("txt","csv")) or mime in {"text"}:
         return "txt"
-    if name.endswith(("xlsx","xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+    if name.endswith(("xlsx","xlsm","xls")) or mime == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
         return "xls"
     return 'uns'
  
@@ -81,4 +106,4 @@ def extract_text_file(
     ocr_lang: str = "rus+eng",
 ) -> str:
     payload = BytesPayload(content=None, path=path, filename=filename or Path(path).name, mime=mime)
-    return get_extractor(payload, ocr_lang=ocr_lang).extract_text()
+    return _preprocess_text_layer( get_extractor(payload, ocr_lang=ocr_lang).extract_text() )

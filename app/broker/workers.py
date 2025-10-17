@@ -9,7 +9,7 @@ from datetime import datetime
 
 import dramatiq
 
-from app.broker.config import redis_broker, result_backend, job_update, job_set
+from app.broker.config import redis_broker, result_backend, job_update, job_set, r, NS, KEY_JOB
 from app.config import settings
 from app.services import bytes_xtractor as bx
 from app.services import save_outputs
@@ -56,6 +56,12 @@ def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: s
     items: list[dict] = []
 
     for f in files:
+        # перед началом тяжёлой работы проверяем, не нажали ли “Прервать”
+        if r.get(f"{NS}:job-cancel:{job_id}"):
+            job_update(job_id, status="aborted")
+            worker_log.info("process_upload ABORTED job_id=%s", job_id)
+            return {"ok": False, "processed": done, "progress": int(done*100/max(1,len(files))), "items": items} 
+            
         path = f["path"]
         filename = f["filename"]
         mime = f.get("mime")

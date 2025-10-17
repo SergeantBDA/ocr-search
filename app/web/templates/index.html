@@ -14,11 +14,10 @@
       hx-get="{{ request.url_for('search').path }}"
       hx-target="#results"
       hx-swap="innerHTML"
-      hx-indicator="#spinner"
+      hx-indicator="#search-spinner"
       class="field"
       style="margin-top:12px;"
-      hx-on:submit="try{document.querySelectorAll('[id^=job-]').forEach(n=>n.remove()); localStorage.setItem('ocr_jobs','[]');}catch(e){}"
-    >
+      hx-on:submit="try{document.querySelectorAll('[id^=job-]').forEach(n=>n.remove()); localStorage.setItem('ocr_jobs','[]');}catch(e){}">
       <div class="row search-row">
         <input type="text" name="q" placeholder="Введите запрос..." class="w-50" />
         <input type="text" name="ocr_user" class="auto" placeholder="user/email" />
@@ -30,28 +29,43 @@
           <label for="ocr_to" class="form-label">до</label>
           <input type="datetime-local" name="ocr_to" />
         </div>
-        <button class="btn" type="submit">Поиск</button>
+        <!-- Кнопка со спинером -->
+        <button class="btn" type="submit"
+          hx-on:htmx:beforeRequest="this.disabled=true; this.setAttribute('aria-busy','true')"
+          hx-on:htmx:afterOnLoad="this.disabled=false; this.removeAttribute('aria-busy')"
+          hx-on:htmx:responseError="this.disabled=false; this.removeAttribute('aria-busy')">
+          <span class="label">Поиск</span>
+          <span id="search-spinner" class="spinner htmx-indicator" aria-hidden="true"></span>
+        </button>
       </div>
     </form>
     <hr />
     <!-- Форма загрузки (POST, HTMX) — уведомления только в #notifications -->
     <form
       id="uploadForm"
+      method="post"      
       hx-post="{{ request.url_for('upload').path }}"
       hx-target="#notifications"
       hx-swap="afterbegin"
       hx-encoding="multipart/form-data"
-      hx-indicator="#spinner"
-      class="field"
-    >
+      hx-boost="false"
+      hx-indicator="#upload-spinner"
+      class="field">
       <div class="row upload-row">
         <input type="file" name="files" multiple accept="*.*" />
-        <button class="btn" type="submit">Загрузить</button>
+        <button class="btn" type="submit"
+          hx-on:htmx:beforeRequest="this.disabled=true; this.setAttribute('aria-busy','true')"
+          hx-on:htmx:afterOnLoad="this.disabled=false; this.removeAttribute('aria-busy')"
+          hx-on:htmx:responseError="this.disabled=false; this.removeAttribute('aria-busy')">
+          <span class="label">Загрузить</span>
+          <span id="upload-spinner" class="spinner htmx-indicator" aria-hidden="true"></span>
+        </button>
       </div>
     </form>
     <hr />
     <!-- Результаты поиска -->
-    <div id="results">
+    <div id="results" class="results-wrap">
+      <div class="area-spinner htmx-indicator" aria-hidden="true"></div>
       {% include "_results.html" %}
     </div>
     <!-- Зона уведомлений (прогресс/готово) -->

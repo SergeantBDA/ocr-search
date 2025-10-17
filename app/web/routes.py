@@ -29,6 +29,8 @@ router = APIRouter(prefix="", tags=["web"], dependencies=[Depends(get_current_us
 CurrentUser = Annotated[UserRead, Depends(get_current_user)]
 templates = Jinja2Templates(directory="app/web/templates")
 
+MAX_FILES_UPLOAD_PER = 300
+
 @router.get("/", include_in_schema=True)
 def index(request: Request, current_user: CurrentUser = None):
     user = UserRead.model_validate(current_user, from_attributes=True)
@@ -68,12 +70,13 @@ async def upload_file(request: Request, files: List[UploadFile] = File(...), cur
     
     if not files:
         return HTMLResponse('<div class="muted">Файлы не были загружены.</div>', status_code=400)
-    
+
+    if len(files) > MAX_FILES_UPLOAD_PER:
+        return HTMLResponse(f'<div class="toast error">Превышено допустимое кол-во файлов для загрузки: не более {MAX_FILES_UPLOAD_PER} </div>', status_code=413)
     try:
         # Use shared upload service
         owner_label = user.email.split('@')[0]
-        prefix, saved_files, texts_dir, upload_dir = save_files(files, owner_label)
-        
+        prefix, saved_files, texts_dir, upload_dir = save_files(files, owner_label)        
         # Enqueue job using shared service
         job_id = enqueue_job(saved_files, texts_dir, user.email)
         
