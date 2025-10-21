@@ -94,9 +94,9 @@ async def on_401(request: Request, exc: StarletteHTTPException):
     return JSONResponse({"detail": "Not authenticated"}, status_code=401)
 
 
-@app.on_event("startup")
-async def on_startup():
-    app_logger.info("🚀 OCR-SEARCH запущен")
+# @app.on_event("startup")
+# async def on_startup():
+#     app_logger.info("🚀 OCR-SEARCH запущен")
 
 
 @app.on_event("shutdown")
