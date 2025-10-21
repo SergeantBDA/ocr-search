@@ -33,7 +33,11 @@ def register(user_in: UserCreate, db: Session = Depends(get_session)):
     if existing:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
     _pass_with_suffix = f'{user_in.password}{str(random.randint(0, 99))}'
-    _email_sent = mailer.send_email(to_email=email,subject ='Пароль для доступа на сервис docslook.interrao.ru',body=_pass_with_suffix)
+    _context = {"password": _pass_with_suffix}
+    _html_body = templates.get_template("_send_pass.html").render(_context)
+    _email_sent = mailer.send_email(to_email=email,
+                                    subject ='Регистрация на сервисе docslook.interrao.ru',
+                                    body=_html_body)
     if _email_sent == 0:
          raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Problems with sending mail")
     hashed = get_password_hash(_pass_with_suffix)

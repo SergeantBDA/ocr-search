@@ -7,7 +7,8 @@ API_SEARCH_URL  = f"{API_URL}/api/search"
 API_UPLOAD_URL  = f"{API_URL}/api/upload"
 API_KEY         = "key1"
 BATCH_SIZE      = 100
-PATHDOCS        = "R:/ЦВА_FSCAN/СТГТ/Заявка_на_закупку_(СТГТ)"
+PATHDOCS        = "R:/ЦВА_FSCAN/СТГТ/Заказ_поставщику"
+
 files_to_upload = list( Path(PATHDOCS).glob('*.*') )
 
 # Формируем кортежи (имя параметра, (имя файла, бинарные данные, mime-type))

@@ -69,7 +69,6 @@ def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: s
 
         try:
             # 1) OCR
-            print(path)
             text = bx.extract_text_file(path, filename=filename, mime=mime) or ""
 
             # 2) Сохранить извлечённый текст (best-effort)

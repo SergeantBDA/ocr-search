@@ -1,6 +1,6 @@
 # app/worker_logger.py
 import logging
-from logging.handlers import TimedRotatingFileHandler
+#from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 # === конфигурация отдельного логгера для actor ===
  
@@ -14,7 +14,7 @@ fmt = logging.Formatter("%(asctime)s | PID %(process)d | %(levelname)s | %(name)
 # Попытаться использовать безопасный ротатор (межпроцессная блокировка)
 try:
     from concurrent_log_handler import ConcurrentRotatingFileHandler as RotatingFileHandler
-    fh = RotatingFileHandler(str(LOG_PATH), maxBytes=5_000_000, backupCount=5, encoding="utf-8")
+    fh = RotatingFileHandler(str(LOG_FILE), maxBytes=5_000_000, backupCount=5, encoding="utf-8")
 except Exception:
     # fallback: обычный Timed/Rotating (если -p 1 в dramatiq)
     from logging.handlers import RotatingFileHandler

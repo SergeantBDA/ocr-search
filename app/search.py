@@ -47,8 +47,8 @@ def search_documents(session: Session,
               "ocr_from":ocr_from,
               "ocr_to"  :ocr_to}
 
-    tsq = "plainto_tsquery('simple', :q)"
-
+    #tsq = "plainto_tsquery('simple', :q)"
+    tsq = "websearch_to_tsquery(:q)"
     where_sql = f"""((search_vector @@ {tsq})  
                      OR (filename ILIKE '%' || :q || '%') 
                      OR (content  ILIKE '%' || :q || '%') 
@@ -67,7 +67,7 @@ def search_documents(session: Session,
                                 )
 
     total = session.execute(count_sql, params).scalar_one()
-
+    
     # выборка с сниппетом и сортировкой по лучшему рангу (ts_rank_cd vs similarity)
     select_sql = text(f"""
     SELECT
