@@ -1,5 +1,5 @@
 import os
-IS_WORKER = os.getenv("RUN_CONTEXT") == "worker"
+#IS_WORKER = os.getenv("RUN_CONTEXT") == "worker"
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -33,9 +33,7 @@ fh.setFormatter(logging.Formatter(FORMAT))
 
 if not logger.handlers:
     logger.addHandler(ch)
-    if not IS_WORKER:
-        # Только в веб-процессе добавляем файловый хендлер на app.log
-        logger.addHandler(fh)
+    logger.addHandler(fh)
 
 
 # optionally expose basic config for other libraries to reuse

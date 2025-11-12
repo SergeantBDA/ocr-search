@@ -4,6 +4,7 @@ ocr_search.egg-info/
 build/
 logs/
 promt/
+venv/
 .env
 alembic.ini
 uvicorn.log

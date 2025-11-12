@@ -49,14 +49,13 @@ def search_documents(session: Session,
 
     #tsq = "plainto_tsquery('simple', :q)"
     tsq = "websearch_to_tsquery(:q)"
-    where_sql = f"""((search_vector @@ {tsq})  
-                     OR (filename ILIKE '%' || :q || '%') 
-                     OR (content  ILIKE '%' || :q || '%') 
-                     OR (similarity(content, :q) > 0.2)) 
+    where_sql = f"""(search_vector @@ {tsq}) 
                      AND (:ocr_from IS NULL OR created_at >= :ocr_from)
                      AND (:ocr_to   IS NULL OR created_at <= :ocr_to  )
                      AND (:ocr_user IS NULL OR email ILIKE '%' || :ocr_user || '%')"""    
-
+    # OR (filename ILIKE '%' || :q || '%') 
+    #                  OR (content  ILIKE '%' || :q || '%') 
+    #                  OR (similarity(content, :q) > 0.2)
     count_sql = text( f"""SELECT count(*) FROM documents 
                           WHERE {where_sql}
                           """).bindparams(  

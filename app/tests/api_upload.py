@@ -7,7 +7,7 @@ API_SEARCH_URL  = f"{API_URL}/api/search"
 API_UPLOAD_URL  = f"{API_URL}/api/upload"
 API_KEY         = "key1"
 BATCH_SIZE      = 100
-PATHDOCS        = "R:/ЦВА_FSCAN/СТГТ/Заказ_поставщику"
+PATHDOCS        = "R:/ЦВА_FSCAN/СТГТ/Пакет_электронных_документов_(СТГТ)"
 
 files_to_upload = list( Path(PATHDOCS).glob('*.*') )
 

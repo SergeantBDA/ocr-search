@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import os
-os.environ["RUN_CONTEXT"] = "worker"   # <-- важно: до импортов extractors!
+#os.environ["RUN_CONTEXT"] = "worker"   # <-- важно: до импортов extractors!
 
 from pathlib import Path
 from datetime import datetime

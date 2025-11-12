@@ -10,5 +10,5 @@ $body = @{
 $resp = Invoke-RestMethod -Method Post `
   -Uri "http://localhost:8000/api/search" `
   -Headers @{ "X-API-Key" = "key1"; "Content-Type" = "application/json; charset=utf-8" } `
-  -Body ($body | ConvertTo-Json -Compress)
+  -Body ($body | ConvertTo-Json -Compress) 
 $resp
