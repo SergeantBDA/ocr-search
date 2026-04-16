@@ -17,9 +17,14 @@ for i in range(0, total, BATCH_SIZE):
     print(f"эпоха {i}:{i+BATCH_SIZE}")
     job_id = None
     files  = [("files", (f.name, open(f, "rb"), "application/octet-stream")) for f in files_to_upload[i:i+BATCH_SIZE] ]
-
-    headers  = {"X-API-Key": API_KEY}
-    response = requests.post(API_UPLOAD_URL, headers=headers, files=files)
+    headers= {"X-API-Key": API_KEY}
+    data     = {"owner":"skip",
+                "owner_email":"skip@local"}
+    response = requests.post(API_UPLOAD_URL, 
+                             headers=headers,
+                             files=files, 
+                             data=data,
+                             verify=False)
 
     if response.ok:
         data   = response.json()
@@ -33,7 +38,7 @@ for i in range(0, total, BATCH_SIZE):
     
     while True:
         time.sleep(3)
-        status_resp = requests.get(f"{API_URL}/api/jobs/{job_id}", headers=headers)
+        status_resp = requests.get(f"{API_URL}/api/jobs/{job_id}", headers=headers,verify=False)
         status      = status_resp.json()
         
         print(f"Status: {status['status']}, Progress: {status['progress']}%")

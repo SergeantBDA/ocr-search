@@ -49,7 +49,8 @@ async def api_upload(
     files: List[UploadFile] = File(...),
     owner: str = Form("api"),
     owner_email: str = Form("api@local"),
-    _api_key: str = Depends(require_api_key)
+    save_content: bool = Form(False),
+    _api_key: str = Depends(require_api_key)    
 ):
     """
     Upload files for OCR processing via API.
@@ -81,7 +82,7 @@ async def api_upload(
         prefix, saved_files, texts_dir, upload_dir = save_files(valid_files, owner)
         
         # Enqueue processing job
-        job_id = enqueue_job(saved_files, texts_dir, owner_email)
+        job_id = enqueue_job(saved_files, texts_dir, owner_email, save_content)
         
         return UploadResponse(
             job_id=job_id,

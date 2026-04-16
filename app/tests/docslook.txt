@@ -1,0 +1,108 @@
+Вариант A (рекомендуется): 2 службы через NSSM (FastAPI + Dramatiq отдельно)
+1) Подготовьте бат-файлы без окон и без pause
+
+В каталоге проекта (рядом с venv) создайте два файла.
+
+run_worker.bat
+
+@echo off
+chcp 65001 >nul
+setlocal
+
+set "BASE=%~dp0"
+set "VENV=%BASE%venv"
+set "PY=%VENV%\Scripts\python.exe"
+
+REM (опционально) проверить наличие venv
+if not exist "%PY%" (
+  echo [ERROR] venv не найден: "%PY%"
+  exit /b 1
+)
+
+REM Dramatiq worker (без start/cmd /k)
+"%PY%" -m dramatiq app.broker.workers -Q upload --processes 2 --threads 4
+exit /b %ERRORLEVEL%
+
+
+run_web.bat
+
+@echo off
+chcp 65001 >nul
+setlocal
+
+set "BASE=%~dp0"
+set "VENV=%BASE%venv"
+set "PY=%VENV%\Scripts\python.exe"
+
+if not exist "%PY%" (
+  echo [ERROR] venv не найден: "%PY%"
+  exit /b 1
+)
+
+REM Запуск FastAPI (как у вас). Если у вас uvicorn, лучше запускать uvicorn.
+"%PY%" -m app.main
+exit /b %ERRORLEVEL%
+
+
+Почему так: сервис должен «держать» процесс. Ваш исходный .bat делает start ... cmd /k, то есть порождает окна и возвращает управление, из-за чего SCM считает, что служба завершилась/ведёт себя некорректно.
+
+2) Установите NSSM
+
+Скачайте NSSM (Non-Sucking Service Manager) и положите, например, в:
+C:\Tools\nssm\nssm.exe
+
+3) Создайте службы (PowerShell от администратора)
+
+Замените путь C:\OCR-Search\ на ваш реальный.
+
+$Nssm = "C:\Tools\nssm\nssm.exe"
+$AppDir = "C:\OCR-Search"
+$WorkerBat = "$AppDir\run_worker.bat"
+$WebBat = "$AppDir\run_web.bat"
+
+# Worker service
+& $Nssm install "OCR-Search-Worker" "C:\Windows\System32\cmd.exe" "/c `"$WorkerBat`""
+& $Nssm set "OCR-Search-Worker" AppDirectory $AppDir
+& $Nssm set "OCR-Search-Worker" Start SERVICE_AUTO_START
+
+# Web service
+& $Nssm install "OCR-Search-Web" "C:\Windows\System32\cmd.exe" "/c `"$WebBat`""
+& $Nssm set "OCR-Search-Web" AppDirectory $AppDir
+& $Nssm set "OCR-Search-Web" Start SERVICE_AUTO_START
+
+4) Логи служб (очень желательно)
+& $Nssm set "OCR-Search-Worker" AppStdout "$AppDir\logs\worker.out.log"
+& $Nssm set "OCR-Search-Worker" AppStderr "$AppDir\logs\worker.err.log"
+& $Nssm set "OCR-Search-Worker" AppRotateFiles 1
+& $Nssm set "OCR-Search-Worker" AppRotateOnline 1
+& $Nssm set "OCR-Search-Worker" AppRotateBytes 10485760
+
+& $Nssm set "OCR-Search-Web" AppStdout "$AppDir\logs\web.out.log"
+& $Nssm set "OCR-Search-Web" AppStderr "$AppDir\logs\web.err.log"
+& $Nssm set "OCR-Search-Web" AppRotateFiles 1
+& $Nssm set "OCR-Search-Web" AppRotateOnline 1
+& $Nssm set "OCR-Search-Web" AppRotateBytes 10485760
+
+
+Создайте папку логов:
+
+New-Item -ItemType Directory -Force -Path "C:\OCR-Search\logs" | Out-Null
+
+5) Зависимости: Redis/Memurai
+
+Если Memurai уже стоит как служба, сделайте зависимость (чтобы ваши сервисы стартовали после Memurai):
+
+Узнайте имя службы Memurai:
+
+Get-Service | Where-Object {$_.DisplayName -match "Memurai|Redis"} | Select Name, DisplayName, Status
+
+
+Добавьте зависимость (пример: имя Memurai):
+
+sc.exe config "OCR-Search-Worker" depend= Memurai
+sc.exe config "OCR-Search-Web"    depend= Memurai
+
+6) Запуск/проверка
+Start-Service "OCR-Search-Worker"
+Start-Service "OCR-Search-Web"
+Get-Service "OCR-Search-*"

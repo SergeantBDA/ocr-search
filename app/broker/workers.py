@@ -19,7 +19,7 @@ from app.models import Document
 from app.logger_worker import worker_log
 
 @dramatiq.actor(queue_name="upload", max_retries=0, store_results=True)
-def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: str) -> dict:
+def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: str, save_content: bool = True) -> dict:
     """
     Обработка загруженных файлов:
       - OCR/извлечение текста
@@ -84,7 +84,7 @@ def process_upload(job_id: str, files: list[dict], texts_dir: str, user_email: s
                 path_origin = Path(*(settings.hostfs, *p.parts[1:])) if settings.hostfs else p
                 doc = Document(
                     filename=filename,
-                    content=text,
+                    content=text if save_content else '#skip',
                     mime=mime,
                     size_bytes=p.stat().st_size if p.exists() else 0,
                     meta={},

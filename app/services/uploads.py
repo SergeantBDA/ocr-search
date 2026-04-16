@@ -28,7 +28,7 @@ def save_files(
         raise ValueError("OUTPUT_TEXTS_DIR not configured")
     
     # Create prefix with timestamp and owner
-    prefix = f"{datetime.now().strftime('%Y%m%d%H')}_{owner_label}"
+    prefix = f"{datetime.now().strftime('%Y%m%d%H%M%S')}_{owner_label}"
     upload_dir = Path(settings.output_originals_dir) / prefix
     upload_dir.mkdir(parents=True, exist_ok=True)
     
@@ -60,7 +60,8 @@ def save_files(
 def enqueue_job(
     saved_paths: List[Dict[str, Any]], 
     texts_dir: Path, 
-    owner_email: str
+    owner_email: str,
+    save_content: bool = True
 ) -> str:
     """
     Create job entry in Redis/Memurai and enqueue processing task.
@@ -91,7 +92,7 @@ def enqueue_job(
     })
 
     # Отправляем задачу в Dramatiq
-    process_upload.send(job_id, saved_paths, str(texts_dir), owner_email)
+    process_upload.send(job_id, saved_paths, str(texts_dir), owner_email, save_content)
 
     return job_id
 
